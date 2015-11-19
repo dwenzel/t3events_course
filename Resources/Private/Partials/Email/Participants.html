@@ -1,0 +1,5 @@
+<ul>
+	<f:for each="{participants}" as="participant">
+		<li>{participant.name}{f:if(condition: '{participant.firstName}', then: ', ')}{participant.firstName}</li>
+	</f:for>
+</ul>

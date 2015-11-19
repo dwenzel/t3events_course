@@ -1,0 +1,49 @@
+<f:layout name="Course" />
+<f:section name="content">
+	<f:comment>
+		<f:debug title="demand">{demand}</f:debug>
+		<f:debug title="settings">{settings}</f:debug>
+		<f:debug title="courses">{courses}</f:debug>
+	</f:comment>
+
+	<h1><f:translate key="tx_dakosy_reservations_domain_model_course"></f:translate></h1>
+	<f:flashMessages renderMode="div" />
+	<f:if condition="{courses}">
+		<f:then>
+			<div class="list">
+				<table  class="typo3-dblist tx-dakosy-seminars" >
+					<tr class="c-headline">
+						<td>ID</td>
+						<td class="col-title">Titel</td>
+						<td>Art</td>
+						<td>Produkt</td>
+						<td>Zielgruppe</td>
+					</tr>
+					<f:be.widget.paginate
+						objects="{courses}"
+						as="paginatedCourses"
+						configuration="{itemsPerPage: 10, maximumNumberOfLinks: 10, recordsLabel: 'Termin'}"
+						>
+						<f:for each="{paginatedCourses}" as="course">
+							<tr class="db_list_normal">
+								<td>{course.uid}</td>
+								<td>
+									<a href="" title="edit course" onclick="window.location.href='alt_doc.php?returnUrl='+T3_THIS_LOCATION+'&edit[tx_t3events_domain_model_event][{course.uid}]=edit'; return false;">
+										{course.headline}
+									</a>
+								</td>
+								<td>{course.eventType.title}</td>
+								<td>
+									<f:for each="{course.genre}" as="genre" iteration="genreIteration">{genre.title}{f:if(condition: '{genreIteration.isLast}', else: ', ')}</f:for>
+								</td>
+								<td>
+									<f:for each="{course.audience}" as="audience" iteration="audienceIteration">{audience.title}{f:if(condition: '{audienceIteration.isLast}', else: ', ')}</f:for>
+								</td>
+							</tr>
+						</f:for>
+					</f:be.widget.paginate>
+				</table>
+			</div>
+		</f:then>
+	</f:if>
+</f:section>

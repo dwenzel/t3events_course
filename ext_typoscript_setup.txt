@@ -1,0 +1,47 @@
+
+config.tx_extbase{
+    persistence{
+        classes{
+            Webfox\T3events\Domain\Model\Event {
+                subclasses {
+                    Tx_DakosyReservations_Course = Cps\DakosyReservations\Domain\Model\Course
+
+          		}
+            }
+            Webfox\T3events\Domain\Model\Performance {
+                subclasses {
+                    Tx_DakosyReservations_Lesson = Cps\DakosyReservations\Domain\Model\Lesson
+
+          		}
+            }
+            Cps\DakosyReservations\Domain\Model\Course {
+                mapping {
+                    tableName = tx_t3events_domain_model_event
+                    recordType = Tx_DakosyReservations_Course
+                }
+            }
+
+			/*
+			Cps\DakosyReservations\Domain\Model\Contact {
+                subclasses {
+                    Tx_DakosyReservations_Person = Cps\DakosyReservations\Domain\Model\Person
+
+          		}
+            }
+            Cps\DakosyReservations\Domain\Model\Person {
+                mapping {
+                    tableName = tx_dakosyreservations_domain_model_contact
+                    recordType = Tx_DakosyReservations_Person
+                }
+            }
+            */
+            Cps\DakosyReservations\Domain\Model\Lesson {
+                mapping {
+                    tableName = tx_t3events_domain_model_performance
+                    recordType = Tx_DakosyReservations_Lesson
+                }
+            }
+
+    	}
+    }
+}

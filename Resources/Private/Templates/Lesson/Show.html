@@ -1,0 +1,140 @@
+<f:layout name="Default" />
+This Template is responsible for displaying a single lesson.
+
+<f:section name="main">
+	<f:if condition="{settings.debug.lesson.show}">
+		<f:debug title="lesson">{lesson}</f:debug>
+	</f:if>
+	<div class="lesson-single">
+		<f:flashMessages renderMode="div"/>
+		<div class="infosDate lessonItemContainer">
+			<f:format.date format="%d.%m.%Y">{lesson.date}</f:format.date>,&nbsp;
+			<f:cObject typoscriptObjectPath="lib.timeValue" >{lesson.begin}</f:cObject> Uhr - <f:cObject typoscriptObjectPath="lib.timeValue" >{lesson.end}</f:cObject> Uhr
+		</div>
+		<h2>{lesson.course.headline}</h2>
+		<div class="subtitle lessonItemContainer">
+			<h3>{lesson.course.subtitle}</h3>
+		</div>
+		<div class="products lessonItemContainer">
+			<f:for each="{lesson.course.genre}" as="product" iteration="productIteration">
+				{product.title}{f:if(condition: '{productIteration.isLast}', else: ' | ')}
+			</f:for>
+		</div>
+
+		<div class="abstract lessonItemContainer">
+			{lesson.course.abstract}
+		</div>
+
+		<div class="section">
+			<div class="audience">
+				<b>{f:translate(key: 'tx_dakosyreservations_domain_model_lesson.audience')}:</b>
+				<f:for each="{lesson.course.audience}" as="audience" iteration="iteration">
+					{audience.title}{f:if(condition: '{iteration.isLast}', else: ',')}
+				</f:for>
+			</div>
+			<div class="coursePlaces">
+				<b>{f:translate(key: 'tx_dakosyreservations_domain_model_lesson.places')}:</b>&nbsp;{lesson.freePlaces}&nbsp;/&nbsp;{lesson.places}
+			</div>
+			<div class="courseDuration">
+				<b>{f:translate(key: 'tx_dakosyreservations_domain_model_lesson.duration')}:</b>&nbsp;{lesson.duration}
+			</div>
+			<div class="coursePrice">
+				<b>{f:translate(key: 'tx_dakosyreservations_domain_model_lesson.price')}:</b>&nbsp;<f:format.number decimals="2" decimalSeparator="," thousandsSeparator="">{lesson.price}</f:format.number>&nbsp;&euro;&nbsp;{lesson.price_notice}
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="courseDescription">
+				<b>{f:translate(key: 'tx_dakosyreservations_domain_model_lesson.details')}:</b>
+				<br />
+				<f:format.html>{lesson.course.description}</f:format.html>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="coursePerformances">
+				<f:if condition="{lesson.eventLocation}">
+					<f:render partial="EventLocation/Item" arguments="{eventLocation: lesson.eventLocation}" />
+				</f:if>
+			</div>
+		</div>
+		<f:if condition="{lesson.deadline->f:format.date(format: 'U')} > {f:format.date(date: 'now', format: 'U')}">
+			<f:then>
+				<f:if condition="{lesson.freePlaces} > 0">
+					<f:then>
+						<f:comment>deadline not exceed, places available - display reservation and back button </f:comment>
+						<f:render section="buttonGroupReservation" arguments="{lesson: lesson, settings: settings}" />
+					</f:then>
+					<f:else>
+						<f:comment>deadline not exceed, no more places available - display waitlist link and back button</f:comment>
+						<div class="section">
+							<f:translate key="message.noFreePlacesForThisLesson" />
+							<f:render section="waitListLink" />
+							<f:render section="backButton" arguments="{lesson: lesson, settings: settings}" />
+						</div>
+					</f:else>
+				</f:if>
+			</f:then>
+			<f:else>
+				<f:comment>deadline exceed - display back button and waitlist link</f:comment>
+				<div class="section">
+					<f:translate key="message.deadLineForLessonExceed" default="message.deadLineForLessonExceed" />
+					<f:render section="waitListLink" />
+					<f:render section="backButton" arguments="{lesson: lesson, settings: settings}" />
+				</div>
+			</f:else>
+		</f:if>
+		<f:comment>
+			<f:if condition="{lesson.freePlaces} > 0">
+				<div class="reservationLink button-group clearfix">
+					<f:link.action
+						class="button float-right right"
+						pageUid="{settings.reservation.detailPid}"
+						extensionName="dakosyreservations"
+						pluginName="pi1"
+						controller="Reservation"
+						arguments="{lesson: lesson}"
+						action="new">{f:translate(key: 'button.createReservation')}
+					</f:link.action>
+					<f:link.page
+						class="button float-right left"
+						pageUid="{settings.lesson.listPid}">{f:translate(key: 'button.goToLessonListPage')}</f:link.page>
+				</div>
+			</f:if>
+		</f:comment>
+	</div>
+</f:section>
+	<f:section name="buttonGroupReservation">
+		<div class="reservationLink button-group clearfix">
+			<f:link.action
+				class="button float-right right"
+				pageUid="{settings.reservation.detailPid}"
+				extensionName="dakosyreservations"
+				pluginName="pi1"
+				controller="Reservation"
+				arguments="{lesson: lesson}"
+				action="new">{f:translate(key: 'button.createReservation')}
+			</f:link.action>
+			<f:link.page
+				class="button float-right left"
+				pageUid="{settings.lesson.listPid}">{f:translate(key: 'button.goToLessonListPage')}</f:link.page>
+		</div>
+	</f:section>
+	<f:section name="waitListLink">
+		<f:alias map="{
+					emailSubject: 'Warteliste für {lesson.course.headline}'
+					emailBody: '{lesson.course.headline}'
+					}">
+			<f:alias map="{mailToLink: '{f:link.email(email: \'schulung@dakosy.de?subject=test\')}'}">
+				<f:translate key="message.mailToWaitlist" arguments="{0: '{mailToLink}'}" />
+			</f:alias>
+			<f:link.email email="schulung@dakosy.de?subject={emailSubject}&body={emailBody}">schulung(at)dakosy.de</f:link.email>
+		</f:alias>
+	</f:section>
+	<f:section name="backButton">
+		<div class="reservationLink">
+			<f:link.page
+				class="button float-right"
+				pageUid="{settings.lesson.listPid}">{f:translate(key: 'button.goToLessonListPage')}</f:link.page>
+		</div>
+	</f:section>

@@ -1,0 +1,57 @@
+<div class="eventLocation">
+	<f:comment>
+		<f:debug>{eventLocation}</f:debug>
+	</f:comment>
+	<b>{f:translate(key: 'tx_dakosyreservations_domain_model_lesson.eventLocation')}:</b>
+	<br />
+	<f:if condition="{eventLocation.image}">
+		<div class="eventLocation-image">
+			<f:image src="uploads/tx_t3events/{eventLocation.image}"
+				width="{settings.event.single.eventLocation.image.width}"
+				height="{settings.event.single.eventLocation.image.height}"
+				alt="{eventLocation.name}"
+				title="{eventLocation.name}"
+				/>
+		</div>
+	</f:if>
+	<div class="eventLocation-info">
+		<f:if condition="{eventLocation.name}">
+			<span class="name">
+				<b>{eventLocation.name}</b>
+			</span>
+			<br>
+		</f:if>
+		<f:if condition="{eventLocation.address}">
+			<span class="address">
+				{eventLocation.address}
+			</span>
+		</f:if>
+		<br />
+		<f:if condition="{eventLocation.zip}">
+			<span class="zip">
+				{eventLocation.zip}
+			</span>
+		</f:if>
+		<f:if condition="{eventLocation.place}">
+			<span class="place">
+				{eventLocation.place}
+			</span><br />
+		</f:if>
+		<f:if condition="{eventLocation.country}">
+			<span class="country">
+				{eventLocation.country.shortNameLocal}
+			</span>
+		</f:if>
+
+		<f:if condition="{eventLocation.details}">
+			<div class="details">
+				{eventLocation.details}
+			</div>
+		</f:if>
+	</div>
+	<f:if condition="{eventLocation.latitude}">
+		<f:if condition="{eventLocation.longitude}">
+			{f:render(partial: 'EventLocation/Map' arguments: '{eventLocation: eventLocation}')}
+		</f:if>
+	</f:if>
+</div>

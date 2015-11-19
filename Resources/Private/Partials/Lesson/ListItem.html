@@ -1,0 +1,121 @@
+<div class="list-item" xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+	<div class="date">
+		<f:format.date format="d.m.Y">{lesson.date}</f:format.date>
+	</div>
+	<h2 class="header">
+		<f:link.action
+			action="show"
+			arguments="{lesson: lesson}"
+			pageUid="{settings.lesson.detailPid}">
+			{lesson.course.eventType.title} - {lesson.course.headline}
+		</f:link.action>
+	</h2>
+	<div class="subtitle lessonItemContainer">
+		<h3>{lesson.course.subtitle}</h3>
+	</div>
+	<f:comment>
+		<div class="products lessonItemContainer">
+			<f:for each="{lesson.course.genre}" as="product" iteration="productIteration">
+				{product.title}{f:if(condition: '{productIteration.isLast}', else: ' | ')}
+			</f:for>
+		</div>
+
+	<div class="abstract lessonItemContainer">
+		<f:format.crop maxCharacters="150">{lesson.course.abstract}</f:format.crop>
+	</div>
+	</f:comment>
+
+	<div class="row clearfix">
+		<div class="section column float-left {f:if(condition: '{lesson.freePlaces}', then: 'width-50')}">
+			<f:if condition="{lesson.course.audience->f:count()}">
+				<div class="audience">
+					<b>{f:translate(key: 'tx_dakosyreservations_domain_model_lesson.audience')}:</b>&nbsp;
+					<f:for each="{lesson.course.audience}" as="audience" iteration="iteration">
+						{audience.title}{f:if(condition: '{iteration.isLast}', else: ',')}
+					</f:for>
+				</div>
+			</f:if>
+			<f:if condition="{lesson.eventLocation}">
+				<div class="eventLocation">
+					<b>{f:translate(key: 'tx_dakosyreservations_domain_model_lesson.eventLocation')}:</b>&nbsp;
+					<f:if condition="{lesson.eventLocation.place}">
+						<span class="place">{lesson.eventLocation.place}</span><br />
+					</f:if>
+				</div>
+			</f:if>
+			<f:if condition="{lesson.freePlaces}">
+				<f:then>
+					<div class="abstract">
+						<b><f:translate key="label.availablePlaces" />: </b>{lesson.freePlaces}
+					</div>
+				</f:then>
+				<f:else>
+					<f:translate key="message.noFreePlacesForThisLesson" />
+					<f:alias map="{
+					emailSubject: 'Warteliste für {lesson.course.headline}'
+					emailBody: '{lesson.course.headline}'
+					}">
+						<f:alias map="{mailToLink: '{f:link.email(email: \'schulung@dakosy.de?subject=test\')}'}">
+							<f:translate key="message.mailToWaitlist" arguments="{0: '{mailToLink}'}" />
+						</f:alias>
+						<f:link.email email="schulung@dakosy.de?subject={emailSubject}&body={emailBody}">schulung(at)dakosy.de</f:link.email>
+					</f:alias>
+					<div class="message information">
+
+					</div>
+				</f:else>
+			</f:if>
+		</div>
+		<f:comment>show reservation button only if deadline is not exceeded yet</f:comment>
+		<f:if condition="{lesson.deadline->f:format.date(format: 'U')} > {f:format.date(date: 'now', format: 'U')}">
+			<f:then>
+				<f:if condition="{lesson.freePlaces} > 0">
+					<f:then>
+						<f:comment>deadline not exceed, places available </f:comment>
+						<f:render section="buttonGroupReservation" arguments="{lesson: lesson, settings: settings}" />
+					</f:then>
+					<f:else>
+						<f:comment>deadline not exceed, no more places available</f:comment>
+						<f:render section="showButton" arguments="{lesson: lesson, settings: settings}" />
+					</f:else>
+				</f:if>
+			</f:then>
+			<f:else>
+				<f:comment>deadline exceed - display show button only </f:comment>
+				<f:render section="showButton" arguments="{lesson: lesson, settings: settings}" />
+			</f:else>
+		</f:if>
+	</div>
+	<f:section name="buttonGroupReservation">
+		<div class="reservationLink button-group column float-left width-50">
+			<f:link.action
+				class="button right float-right"
+				pageUid="{settings.reservation.detailPid}"
+				extensionName="dakosyreservations"
+				pluginName="pi1"
+				controller="Reservation"
+				arguments="{lesson: lesson}"
+				noCacheHash="TRUE"
+				action="new">{f:translate(key: 'button.createReservation')}
+			</f:link.action>
+			<f:link.action
+				class="button left float-right"
+				action="show"
+				arguments="{lesson: lesson}"
+				pageUid="{settings.lesson.detailPid}">
+				{f:translate(key: 'button.show', default: 'button.show')}
+			</f:link.action>
+		</div>
+	</f:section>
+	<f:section name="showButton">
+		<div class="reservationLink">
+			<f:link.action
+				class="button float-right"
+				action="show"
+				arguments="{lesson: lesson}"
+				pageUid="{settings.lesson.detailPid}">
+				{f:translate(key: 'button.show', default: 'button.show')}
+			</f:link.action>
+		</div>
+	</f:section>
+</div>

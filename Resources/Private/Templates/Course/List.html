@@ -1,0 +1,61 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a list of courses.
+
+<f:section name="main">
+	<f:if condition="{settings.debug.settings}">
+		<f:debug title="settings">{settings}</f:debug>
+	</f:if>
+	<f:if condition="{settings.debug.course.list}">
+		<f:debug title="courses">{courses}</f:debug>
+		<f:debug title="demand">{demand}</f:debug>
+	</f:if>	
+	<div class="course-list">
+		<f:flashMessages renderMode="div"/>
+		<f:if condition="{settings.course.list.showSortBy}">
+			<f:if condition="{courses}" >
+				<span class="hint"><f:translate key="tx_dakosyreservations.hint.sortBy" /></span>
+			<f:form id="tx_dakosyreservationsSortBy"
+				name="overwriteDemand"
+				action="list">
+				<fieldset>
+					<f:if condition="{demand.genre}">
+						<f:form.hidden name="overwriteDemand[genre]" value="{demand.genre}" />
+					</f:if>
+					<f:form.radio name="overwriteDemand[sortBy]"
+						value="date"
+						checked="{0: demand.sortBy}=={0: 'performances.date'}" />
+					<label><f:translate key="tx_dakosyreservations.date" /></label>
+					<f:form.radio name="overwriteDemand[sortBy]"
+						value="headline"
+						checked="{0: demand.sortBy}=={0: 'headline'}" />
+					<label><f:translate key="tx_dakosyreservations_domain_model_course.headline" /></label>
+					<f:form.radio name="overwriteDemand[sortDirection]"
+						value="asc"
+						checked="{0: demand.sortDirection}=={0: 'asc'}" />
+					<label><f:translate key="tx_dakosyreservations.sortDirection.asc" /></label>
+					<f:form.radio name="overwriteDemand[sortDirection]"
+						value="desc"
+						checked="{0: demand.sortDirection}=={0: 'desc'}" />
+					<label><f:translate key="tx_dakosyreservations.sortDirection.desc" /></label>
+					<f:form.submit
+						class="submit"
+						name="submit"
+						value="{f:translate(key: 'tx_dakosyreservations.button.label.update', default: 'Aktualisieren')}"
+					  />
+		          </fieldset>
+			</f:form>
+		</f:if>
+	</f:if>
+		<f:widget.paginate
+			objects="{courses}"
+			as="paginatedCourses"
+			configuration="{itemsPerPage: 5, insertAbove: 0, insertBelow: 1}"
+		 >
+			<f:for each="{paginatedCourses}" as="course">
+				<f:render partial="Course/ListItem" arguments="{course: course}" />
+			</f:for>
+		</f:widget.paginate>
+
+	</div>
+</f:section>

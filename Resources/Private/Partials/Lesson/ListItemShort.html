@@ -1,0 +1,16 @@
+<div class="list-item short">
+	<p class="date place">
+		<f:format.date format="d.m.Y">{lesson.date}</f:format.date>
+		<f:if condition="{lesson.eventLocation.place}">
+			<span class="place"> - {lesson.eventLocation.place}</span><br />
+		</f:if>
+	</p>
+	<p>
+		<f:link.action
+			action="show"
+			arguments="{lesson: lesson}"
+			pageUid="{settings.lesson.detailPid}">
+			{lesson.course.headline}
+		</f:link.action>
+	</p>
+</div>

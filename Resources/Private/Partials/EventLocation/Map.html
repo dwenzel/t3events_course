@@ -1,0 +1,23 @@
+{namespace cps=Cps\DakosyReservations\ViewHelpers}
+
+<div id="map_canvas"></div>
+<cps:pageRenderer.addJsFooterInlineCode name="mapValues">
+	<![CDATA[
+	var
+	gm,
+	mapContainer,
+	geocoder,
+	bounds,
+	map,
+	eventLocation = {
+	latitude: ]]>{eventLocation.latitude}<![CDATA[,
+	longitude: ]]>{eventLocation.longitude}<![CDATA[
+	};
+	]]>
+	<![CDATA[settings = {
+	initialZoom: parseInt(']]>{settings.lesson.show.map.initialZoom}<![CDATA[')
+	};]]>
+</cps:pageRenderer.addJsFooterInlineCode>
+<cps:pageRenderer.addJsFooterFile file="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" forceOnTop="1"/>
+<cps:pageRenderer.addJsFooterFile file="{f:uri.resource(path: 'Js/loadMap.js')}" />
+

@@ -1,0 +1,59 @@
+<div class="lessonItem {f:if(condition:'{iteration.total}==1', then: 'open')}">
+	<div class="lesson short">
+		<div class="lessonHeader clearfix">
+			<div class="infos city">
+				<div class="inside">
+					<div class="mobile"><b><f:translate key="tx_t3events_domain_model_eventlocation.place" /></b> </div>
+					{lesson.eventLocation.place}
+				</div>
+			</div>
+
+			<div class="infosDate">
+				<f:cObject typoscriptObjectPath="lib.dateMe" >
+					<f:format.date format="U">{lesson.date}</f:format.date>
+				</f:cObject>
+				<f:cObject typoscriptObjectPath="lib.timeValue" >{lesson.begin}</f:cObject> Uhr
+			</div>
+			<div title="{lesson.status.title}" class="infos ticketSignal">
+				<div class="inside">
+					<span class="{lesson.status.cssClass}"></span><f:translate key="tx_t3events.tickets" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="lesson long">
+		<f:comment>Status</f:comment>
+		<f:if condition="{lesson.statusInfo}">
+			<div class="lesson statusInfo id{lesson.uid}">
+				<p class="statusInfo">{lesson.statusInfo}</p>
+			</div>
+		</f:if>					
+
+		<f:comment>Ticket Classes</f:comment>
+		<f:if condition="{lesson.ticketClass}">
+			<f:render partial="TicketClass/List" arguments="{course: course, lesson: lesson}" />
+		</f:if>
+		
+		<f:comment>Seating plan</f:comment>
+		<f:if condition="{lesson.plan}">
+			<f:image 
+				src="uploads/tx_t3events/{lesson.plan}"
+				width="{settings.course.single.plan.image.width}"
+				height="{settings.course.single.plan.image.height}"
+				alt="{f:translate(key: 'tx_t3events_domain_model_lesson.plan')}"
+				title="{f:translate(key: 'tx_t3events_domain_model_lesson.plan')}"
+				class="lessonPlan"
+			/>
+		</f:if>	
+		
+		<f:comment>Location</f:comment>
+		<f:if condition="{lesson.eventLocation}">
+			<f:render partial="EventLocation/Item" arguments="{eventLocation: lesson.eventLocation}" />
+		</f:if>
+		<div class="clearfix"></div>
+		<f:comment>Organizer</f:comment>
+		<f:if condition="{course.organizer}">
+			<f:render partial="Organizer/Item" arguments="{organizer: course.organizer}" />
+		</f:if>
+	</div>
+</div>

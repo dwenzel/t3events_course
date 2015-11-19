@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-09-08T13:46:07Z" product-name="dakosy_reservations">
+		<header/>
+		<body>
+			<trans-unit id="abstract.description">
+				<source>abstract</source>
+			</trans-unit>
+			<trans-unit id="audience.description">
+				<source>Target audience of this course.</source>
+			</trans-unit>
+			<trans-unit id="lessons.description">
+				<source>Target audience of this course.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

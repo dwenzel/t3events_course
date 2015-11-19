@@ -1,0 +1,123 @@
+/* List & single view adjustments */
+.tx-dakosyreservations .reservationLink {
+	padding: 20px 0 20px 0;
+}
+.tx-dakosyreservations .reservationLink a {
+	width: auto;
+	padding: 8px 22px;
+	margin: 0 10px 0 0;
+	background: #1C3862;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color: #FFFFFF;
+	font-size: 12px;
+	text-decoration: none;
+	cursor: pointer;
+}
+.tx-dakosyreservations .reservationLink a:hover {
+	background: #CD1421;
+}
+.tx-dakosyreservations .lessonItemContainer {
+	clear: both;
+	display: block;
+	margin: 10px 0 0 0;
+}
+.tx-dakosyreservations .eventLocation-image {
+	float: left;
+	max-width: 200px;
+	height: auto;
+	margin: 0 10px 10px 0;
+}
+.tx-dakosyreservations .eventLocation-image img {
+	width: 200px;
+	height: auto;
+}
+.tx-dakosyreservations .eventLocation-info {
+	float: left;
+}
+.tx-dakosyreservations .lesson-list hr {
+	width: 100%;
+	color: #1C3862;
+	margin: 5px 0 10px 0;
+	border: 1px solid #1C3862;
+}
+
+/* Reservation adjustments */
+.tx-dakosyreservations h3 {
+	margin: 10px 0 5px 0;
+}
+.tx-dakosyreservations hr {
+	width: 100%;
+	color: #1C3862;
+	margin: 5px 0 0 0;
+	border: 1px solid #1C3862;
+}
+.tx-dakosyreservations .field-radio label {
+	display: block;
+	text-align: left;
+}
+.tx-dakosyreservations .field-radio label.radiolabel {
+	display: inline;
+	margin: 0 20px 0 0;
+}
+.tx-dakosyreservations .message {
+	margin: 5px 0 10px 0;
+}
+.tx-dakosyreservations .formErrors {
+	margin: 15px 0 10px 0;
+	background-color: #CD1421;
+	color: #FFFFFF;
+	padding: 10px;
+	width: 213px;
+	border-radius: 5px;
+}
+.tx-dakosyreservations .formErrors li {
+	margin: 5px 0;
+}
+.tx-dakosyreservations .participantShort .participantName {
+	line-height: 26px;
+}
+.tx-dakosyreservations .participantShort input[type=submit] {
+	float: left;
+	padding: 5px;
+	margin: 0 10px 0 0;
+}
+.tx-dakosyreservations .reservationCompanyInfo {
+	width: 50%;
+	float: left;
+}
+.tx-dakosyreservations .reservationContactInfo {
+	width: 50%;
+	float: left;
+}
+.tx-dakosyreservations .reservationParticipants {
+	margin: 0 0 10px 0;
+	list-style-type: none;
+}
+.tx-dakosyreservations .participantShowShort .participantName {
+	line-height: 14px;
+}
+.tx-dakosyreservations .eventLocation {
+	margin: 10px 0 5px 0;
+}
+.tx-dakosyreservations .eventLocation .eventLocation-image {
+	float: left;
+	max-width: 200px;
+	height: auto;
+	margin: 0 10px 10px 0;
+}
+.tx-dakosyreservations .eventLocation .eventLocation-image img {
+	width: 200px;
+	height: auto;
+}
+.tx-dakosyreservations .eventLocation .eventLocation-info {
+	float: left;
+}
+.tx-dakosyreservations .lesson-properties {
+	margin: 20px 0 0 0;
+}
+.tx-dakosyreservations .lesson-properties .abstract {
+	margin: 10px 0 5px 0;
+}
+

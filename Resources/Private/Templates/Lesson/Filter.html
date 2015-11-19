@@ -1,0 +1,96 @@
+<f:layout name="Default" />
+This Template is responsible for creating a list of lessons.
+
+<f:section name="main">
+	<f:if condition="{settings.debug.lesson.settings}">
+		<f:debug title="settings">{settings}</f:debug>
+	</f:if>
+	<f:if condition="{settings.debug.lesson.filter}">
+		<f:debug title="settings">{settings}</f:debug>
+		<f:debug title="overwriteDemand">{overwriteDemand}</f:debug>
+		<f:debug title="genres">{genres}</f:debug>
+		<f:debug title="eventLocations">{eventLocations}</f:debug>
+		<f:debug title="audiences">{audiences}</f:debug>
+		<f:debug title="eventTypes">{eventTypes}</f:debug>
+	</f:if>
+	<div class="lesson-filter">
+		<f:flashMessages renderMode="div"/>
+		<f:form
+			action="list"
+			name="overwriteDemand"
+			pageUid="{settings.listPid}"
+			noCacheHash="TRUE"
+			noCache="TRUE"
+		>
+			<div class="row clearfix">
+				<div class="column float-left width-50">
+					<f:if condition="{eventTypes->f:count()} > 1">
+						<f:form.select
+							id="tx-cpsdakosyreservations-filter-eventType"
+							name="overwriteDemand[eventTypes]"
+							options="{eventTypes}"
+							optionValueField="uid"
+							optionLabelField="title"
+							prependOptionLabel="{f:translate(key: 'label.allEventTypes', default: 'label.allEventTypes')}"
+							value="{overwriteDemand.eventTypes}"
+							/>
+					</f:if>
+					<f:if condition="{genres->f:count()} > 1">
+						<f:form.select
+							id="tx-cpsdakosyreservations-filter-genres"
+							name="overwriteDemand[genres]"
+							options="{genres}"
+							optionValueField="uid"
+							optionLabelField="title"
+							prependOptionLabel="{f:translate(key: 'label.allGenres', default: 'alle Produkte')}"
+							value="{overwriteDemand.genres}"
+							/>
+					</f:if>
+				</div>
+				<div class="column float-left width-50">
+					<f:if condition="{eventLocations->f:count()} > 1">
+						<f:form.select
+							id="tx-cpsdakosyreservations-filter-eventlocation"
+							name="overwriteDemand[eventLocations]"
+							options="{eventLocations}"
+							optionValueField="uid"
+							optionLabelField="place"
+							prependOptionLabel="{f:translate(key: 'label.allEventLocations')}"
+							value="{overwriteDemand.eventLocations}"
+							/>
+					</f:if>
+					<f:if condition="{audiences->f:count()} > 1">
+						<f:form.select
+							id="tx-cpsdakosyreservations-filter-audiences"
+							name="overwriteDemand[audiences]"
+							options="{audiences}"
+							optionValueField="uid"
+							optionLabelField="title"
+							prependOptionLabel="{f:translate(key: 'label.allAudiences', default: 'label.allAudiences')}"
+							value="{overwriteDemand.audiences}"
+							/>
+					</f:if>
+
+				</div>
+			</div>
+			<f:form.hidden
+				id="tx-cpsdakosyreservations-filter-categoryConjunction"
+				name="overwriteDemand[categoryConjunction]"
+				value="{settings.categoryConjunction}"
+				/>
+			<div class="row button-group column float-left width-50 clearfix">
+				<f:form.submit
+					id="tx-cpsdakosyreservations-filter-submit"
+					name="submit"
+					value="{f:translate(key: 'button.applyFilter', default: 'button.applyFilter')}"
+					class="button right float-right"
+					/>
+				<f:link.action
+					class="button left float-right"
+					action="list">
+					{f:translate(key: 'button.reset', default: 'button.reset')}
+				</f:link.action>
+			</div>
+		</f:form>
+	</div>
+</f:section>

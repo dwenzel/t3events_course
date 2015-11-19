@@ -1,0 +1,23 @@
+<div class="course-wrap">
+	<div class="course-description">
+		<h2 class="header">
+			<f:link.action action="show" arguments="{course: course}" pageUid="{settings.course.single.pid}">
+				{course.headline}
+			</f:link.action>
+		</h2>
+
+		<p class="subtitle">
+			<f:link.action action="show" arguments="{course: course}" pageUid="{settings.course.single.pid}">
+				{course.subtitle}
+			</f:link.action>
+		</p>
+		<p class="abstract">{course.abstract}</p>
+		<f:if condition="{course.lessons->f:count()}>0">
+			<f:for each="{course.lessons}" as="lesson">
+				<p class="date single">
+					<f:format.date format="d.m.Y">{lesson.date}</f:format.date>
+				</p>
+			</f:for>
+		</f:if>
+	</div>
+</div>

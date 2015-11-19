@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-12-01T13:54:44Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="tabs.notifications" approved="yes" xml:space="preserve">
+			<source>Notifications</source>
+			<target>Benachrichtigungen</target>
+		</trans-unit>
+		<trans-unit id="tabs.participants" approved="yes" xml:space="preserve">
+			<source>Participants</source>
+			<target>Teilnehmer</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservation_domain_model_lesson.tab.participants" approved="yes" xml:space="preserve">
+			<source>Participants</source>
+			<target>Teilnehmer</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_audience" approved="yes" xml:space="preserve">
+			<source>Audience</source>
+			<target>Zielgruppe</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_audience.description" approved="yes" xml:space="preserve">
+			<source>Description</source>
+			<target>Beschreibung</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_audience.title" approved="yes" xml:space="preserve">
+			<source>Title</source>
+			<target>Titel</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_course" approved="yes" xml:space="preserve">
+			<source>Course</source>
+			<target>Schulung</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_course.abstract" approved="yes" xml:space="preserve">
+			<source>Abstract</source>
+			<target>Übersicht</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_course.audience" approved="yes" xml:space="preserve">
+			<source>Audience</source>
+			<target>Zielgruppe</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_course.lessons" approved="yes" xml:space="preserve">
+			<source>Lessons</source>
+			<target>Termine</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_course.tab.extended" approved="yes" xml:space="preserve">
+			<source>Details</source>
+			<target>Details</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_course.tab.lessons" approved="yes" xml:space="preserve">
+			<source>Lessons</source>
+			<target>Termine</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_lesson" approved="yes" xml:space="preserve">
+			<source>Lesson</source>
+			<target>Termin</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_lesson.deadline" approved="yes" xml:space="preserve">
+			<source>Deadline</source>
+			<target>Anmeldeschluss</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_lesson.duration" approved="yes" xml:space="preserve">
+			<source>Duration</source>
+			<target>Dauer</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_lesson.places" approved="yes" xml:space="preserve">
+			<source>Places</source>
+			<target>Plätze</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_lesson.price" approved="yes" xml:space="preserve">
+			<source>Price</source>
+			<target>Preis</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_lesson.tab.extended" approved="yes" xml:space="preserve">
+			<source>Details</source>
+			<target>Details</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_lesson.tab.participants" approved="yes" xml:space="preserve">
+			<source>Participants</source>
+			<target>Teilnehmer</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_notification" approved="yes" xml:space="preserve">
+			<source>Notification</source>
+			<target>Benachrichtigung</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_notification.bodytext" approved="yes" xml:space="preserve">
+			<source>Text</source>
+			<target>Text</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_notification.format" approved="yes" xml:space="preserve">
+			<source>Format</source>
+			<target>Format</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_notification.recipient" approved="yes" xml:space="preserve">
+			<source>Recipient</source>
+			<target>Empfänger</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_notification.reservation" approved="yes" xml:space="preserve">
+			<source>Reservation</source>
+			<target>Reservierung</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_notification.send_at" approved="yes" xml:space="preserve">
+			<source>Sent at</source>
+			<target>versendet</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_notification.sender" approved="yes" xml:space="preserve">
+			<source>Sender</source>
+			<target>Absender</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_notification.subject" approved="yes" xml:space="preserve">
+			<source>Subject</source>
+			<target>Betreff</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_person.gender" approved="yes" xml:space="preserve">
+			<source>Gender</source>
+			<target>Anrede</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_person.type.contact" approved="yes" xml:space="preserve">
+			<source>Contact</source>
+			<target>Ansprechpartner</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_person.type.empty" approved="yes" xml:space="preserve">
+			<source>-empty-</source>
+			<target>-leer-</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_person.type.participant" approved="yes" xml:space="preserve">
+			<source>Participant</source>
+			<target>Teilnehmer</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_reservation.contactIsParticipant" approved="yes" xml:space="preserve">
+			<source>Contact is participant</source>
+			<target>Ansprechpartner nimmt teil</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_reservation.notifications" approved="yes" xml:space="preserve">
+			<source>Notifications</source>
+			<target>Benachrichtigungen</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_reservation.offersAccepted" approved="yes" xml:space="preserve">
+			<source>Further offers accepted</source>
+			<target>Weitere Angebote akzeptiert</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_reservation.privacyStatementAccepted" approved="yes" xml:space="preserve">
+			<source>Privacy statement accepted</source>
+			<target>Datenschutzerklärung akzeptiert</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.0" approved="yes" xml:space="preserve">
+			<source>new</source>
+			<target>neu</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.1" approved="yes" xml:space="preserve">
+			<source>draft</source>
+			<target>Entwurf</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.2" approved="yes" xml:space="preserve">
+			<source>submitted</source>
+			<target>gebucht</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.3" approved="yes" xml:space="preserve">
+			<source>canceled (no charge)</source>
+			<target>storniert (kostenlos)</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.4" approved="yes" xml:space="preserve">
+			<source>canceled (with costs)</source>
+			<target>storniert (kostenpflichtig)</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.5" approved="yes" xml:space="preserve">
+			<source>closed</source>
+			<target>abgeschlossen</target>
+		</trans-unit>
+		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.6" approved="yes" xml:space="preserve">
+			<source>canceled by DAKOSY</source>
+			<target>abgesagt durch DAKOSY</target>
+		</trans-unit>
+		<trans-unit id="tx_t3events_domain_model_event.tx_extbase_type.Tx_DakosyReservations_Course" approved="yes" xml:space="preserve">
+			<source>Course</source>
+			<target>Schulung</target>
+		</trans-unit>
+		<trans-unit id="tx_t3events_domain_model_event.tx_extbase_type.default" approved="yes" xml:space="preserve">
+			<source>Default</source>
+			<target>Standard</target>
+		</trans-unit>
+		<trans-unit id="tx_t3events_domain_model_genre" approved="yes" xml:space="preserve">
+			<source>Product</source>
+			<target>Produkt</target>
+		</trans-unit>
+		<trans-unit id="tx_t3events_domain_model_performance.tx_extbase_type.Tx_DakosyReservations_Lesson" approved="yes" xml:space="preserve">
+			<source>Lesson</source>
+			<target>Termin</target>
+		</trans-unit>
+		</body>
+	</file>
+</xliff>

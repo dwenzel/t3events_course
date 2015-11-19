@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-09-08T13:46:07Z" product-name="dakosy_reservations">
+		<header/>
+		<body>
+			<trans-unit id="deadline.description">
+				<source>Registration deadline</source>
+			</trans-unit>
+			<trans-unit id="duration.description">
+				<source>Duration of the lesson</source>
+			</trans-unit>
+			<trans-unit id="price.description">
+				<source>Price per participant</source>
+			</trans-unit>
+			<trans-unit id="places.description">
+				<source>Available places (How many participants are allowed to register)</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
