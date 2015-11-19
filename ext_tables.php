@@ -345,7 +345,7 @@ $tmp_dakosy_reservations_columns = array(
 $TCA['tx_t3events_domain_model_event']['ctrl']['title'] = $ll . 'tx_dakosyreservations_domain_model_course';
 $TCA['tx_t3events_domain_model_genre']['ctrl']['title'] = $ll . 'tx_t3events_domain_model_genre';
 // tab general
-$GLOBALS['TCA']['tx_t3events_domain_model_event']['types']['Tx_DakosyReservations_Course']['showitem'] = 'event_type,headline,subtitle,abstract,tx_extbase_type,';
+$GLOBALS['TCA']['tx_t3events_domain_model_event']['types']['Tx_DakosyReservations_Course']['showitem'] = 'tx_extbase_type,event_type,headline,subtitle,abstract,';
 // tab extended
 $GLOBALS['TCA']['tx_t3events_domain_model_event']['types']['Tx_DakosyReservations_Course']['showitem'] .= '--div--;LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_course.tab.extended,description,audience,genre,keywords,';
 $GLOBALS['TCA']['tx_t3events_domain_model_event']['types']['Tx_DakosyReservations_Course']['showitem'] .= '--div--;LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_course.tab.lessons,lessons,';
@@ -353,7 +353,7 @@ $GLOBALS['TCA']['tx_t3events_domain_model_event']['types']['Tx_DakosyReservation
 
 $GLOBALS['TCA']['tx_t3events_domain_model_event']['columns'][$TCA['tx_t3events_domain_model_event']['ctrl']['type']]['config']['items'][] = array($ll . 'tx_t3events_domain_model_event.tx_extbase_type.default',1);
 $GLOBALS['TCA']['tx_t3events_domain_model_event']['columns'][$TCA['tx_t3events_domain_model_event']['ctrl']['type']]['config']['items'][] = array($ll . 'tx_t3events_domain_model_event.tx_extbase_type.Tx_DakosyReservations_Course','Tx_DakosyReservations_Course');
-$GLOBALS['TCA']['tx_t3events_domain_model_event']['types'][1]['showitem'] .= ',tx_extbase_type';
+$GLOBALS['TCA']['tx_t3events_domain_model_event']['types'][1]['showitem'] = 'tx_extbase_type,' . $GLOBALS['TCA']['tx_t3events_domain_model_event']['types'][1]['showitem'];
 //$TCA['tx_t3events_domain_model_event']['columns']['tx_extbase_type']['config']['readOnly'] = 1;
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('tx_t3events_domain_model_performance', $GLOBALS['TCA']['tx_t3events_domain_model_performance']['ctrl']['type'],'','after:endtime');
