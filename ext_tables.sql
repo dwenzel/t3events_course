@@ -112,7 +112,7 @@ CREATE TABLE tx_t3events_domain_model_event (
 	abstract text NOT NULL,
 	audience int(11) unsigned DEFAULT '0' NOT NULL,
 	lessons int(11) unsigned DEFAULT '0' NOT NULL,
-
+	newUntil int(10) unsigned DEFAULT '0' NOT NULL,
 	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
 
 );

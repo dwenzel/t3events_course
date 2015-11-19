@@ -334,7 +334,17 @@ $tmp_dakosy_reservations_columns = array(
 				'showAllLocalizationLink' => 1
 			),
 		),
-
+	),
+	'newUntil' => array(
+		'exclude' => 1,
+		'label' => $ll . 'tx_dakosyreservations_domain_model_course.newUntil',
+		'config' => array(
+			'type' => 'input',
+			'size' => '13',
+			'max' => '20',
+			'eval' => 'date',
+			'default' => '0'
+		)
 	),
 );
 
@@ -344,15 +354,23 @@ $tmp_dakosy_reservations_columns = array(
 // rename the table (this affects all types...)
 $TCA['tx_t3events_domain_model_event']['ctrl']['title'] = $ll . 'tx_dakosyreservations_domain_model_course';
 $TCA['tx_t3events_domain_model_genre']['ctrl']['title'] = $ll . 'tx_t3events_domain_model_genre';
+
+// TABS
+
 // tab general
-$GLOBALS['TCA']['tx_t3events_domain_model_event']['types']['Tx_DakosyReservations_Course']['showitem'] = 'tx_extbase_type,event_type,headline,subtitle,abstract,';
+// GENERAL EVENT TYPE
+$GLOBALS['TCA']['tx_t3events_domain_model_event']['types']['Tx_DakosyReservations_Course']['showitem'] = 'tx_extbase_type,event_type,headline,subtitle,newUntil,abstract,';
 // tab extended
 $GLOBALS['TCA']['tx_t3events_domain_model_event']['types']['Tx_DakosyReservations_Course']['showitem'] .= '--div--;LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_course.tab.extended,description,audience,genre,keywords,';
 $GLOBALS['TCA']['tx_t3events_domain_model_event']['types']['Tx_DakosyReservations_Course']['showitem'] .= '--div--;LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_course.tab.lessons,lessons,';
+
+
 //$GLOBALS['TCA']['tx_t3events_domain_model_event']['types']['Tx_DakosyReservations_Course']['showitem'] .= '--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime';
 
 $GLOBALS['TCA']['tx_t3events_domain_model_event']['columns'][$TCA['tx_t3events_domain_model_event']['ctrl']['type']]['config']['items'][] = array($ll . 'tx_t3events_domain_model_event.tx_extbase_type.default',1);
 $GLOBALS['TCA']['tx_t3events_domain_model_event']['columns'][$TCA['tx_t3events_domain_model_event']['ctrl']['type']]['config']['items'][] = array($ll . 'tx_t3events_domain_model_event.tx_extbase_type.Tx_DakosyReservations_Course','Tx_DakosyReservations_Course');
+
+// EVENT TYPE: COURSE
 $GLOBALS['TCA']['tx_t3events_domain_model_event']['types'][1]['showitem'] = 'tx_extbase_type,' . $GLOBALS['TCA']['tx_t3events_domain_model_event']['types'][1]['showitem'];
 //$TCA['tx_t3events_domain_model_event']['columns']['tx_extbase_type']['config']['readOnly'] = 1;
 
