@@ -28,6 +28,7 @@ Extends t3events ',
 		array (
 			'typo3' => '6.2',
 			't3events' => '0.16.1',
+			'cps_testimonials' => '', // TODO move to ihkof_events
 		),
 		'conflicts' => 
 		array (
