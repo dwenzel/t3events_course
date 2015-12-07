@@ -16,7 +16,7 @@ namespace Cps\DakosyReservations\Controller;
 /**
  *
  *
- * @package dakosy_reservations
+ * @package t3events_course
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
@@ -196,7 +196,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * @param \array $arguments
 	 * @codeCoverageIgnore
 	 */
-	public function translate($key, $extension='dakosy_reservations', $arguments=NULL) {
+	public function translate($key, $extension='t3events_course', $arguments=NULL) {
 		$translatedString = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($key, $extension, $arguments);
 		if(is_null($translatedString)) {
 			return $key;

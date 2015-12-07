@@ -2,7 +2,7 @@
 if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
-$ll = 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:';
+$ll = 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:';
 $GLOBALS['TCA']['tx_dakosyreservations_domain_model_person'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_dakosyreservations_domain_model_person']['ctrl'],
 	'interface' => array(

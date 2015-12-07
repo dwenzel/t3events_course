@@ -30,7 +30,7 @@ use TYPO3\CMS\Backend\Utility\BackendUtility;
 	/**
 	 *
 	 *
-	 * @package dakosy_reservations
+	 * @package t3events_course
 	 * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
 	 *
 	 */
@@ -48,7 +48,7 @@ use TYPO3\CMS\Backend\Utility\BackendUtility;
 	    		&& is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['tx_dakosyreservations']['templateLayouts'])) {
 
 	    		// Add every item
-	    		foreach ($GLOBALS['TYPO3_CONF_VARS']['EXT']['dakosy_reservations']['templateLayouts'] as $layouts) {
+	    		foreach ($GLOBALS['TYPO3_CONF_VARS']['EXT']['t3events_course']['templateLayouts'] as $layouts) {
 	    			$additionalLayout = array(
 	    				$GLOBALS['LANG']->sL($layouts[0], TRUE),
 	    				$layouts[1]

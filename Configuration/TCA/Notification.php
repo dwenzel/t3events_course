@@ -32,7 +32,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_notification'] = array(
 		),
 		'recipient' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.recipient',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.recipient',
 			'config' => array(
 				'readOnly' => '1',
 				'type' => 'input',
@@ -42,14 +42,14 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_notification'] = array(
 		),
 		'reservation' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.reservation',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.reservation',
 			'config' => array(
 				'type' => 'passthrough',
 			),
 		),
 		'sender' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.sender',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.sender',
 			'config' => array(
 				'readOnly' => '1',
 				'type' => 'input',
@@ -59,7 +59,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_notification'] = array(
 		),
 		'subject' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.subject',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.subject',
 			'config' => array(
 				'type' => 'input',
 				'readOnly' => '1',
@@ -69,7 +69,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_notification'] = array(
 		),
 		'bodytext' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.bodytext',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.bodytext',
 			'config' => array(
 				'type' => 'text',
 				'readOnly' => '1',
@@ -79,7 +79,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_notification'] = array(
 		),
 		'format' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.format',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.format',
 			'config' => array(
 				'type' => 'input',
 				'readOnly' => '1',
@@ -89,7 +89,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_notification'] = array(
 		),
 		'sent_at' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.send_at',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_notification.send_at',
 			'config' => array(
 				'type' => 'input',
 				'readOnly' => '1',

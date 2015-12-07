@@ -1,7 +1,7 @@
 <?php
 
 /***************************************************************
- * Extension Manager/Repository config file for ext "dakosy_reservations".
+ * Extension Manager/Repository config file for ext "t3events_course".
  *
  * Auto generated 23-07-2015 15:08
  *

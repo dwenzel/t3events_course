@@ -9,7 +9,7 @@ if (!defined('TYPO3_MODE')) {
 	'Reservations'
 );
 
-$ll = 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:';
+$ll = 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:';
 
 if (TYPO3_MODE === 'BE') {
 	$modulName = 'courses';
@@ -108,7 +108,7 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_courses.xml');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'DAKOSY Reservations');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_dakosyreservations_domain_model_audience', 'EXT:dakosy_reservations/Resources/Private/Language/locallang_csh_tx_dakosyreservations_domain_model_audience.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_dakosyreservations_domain_model_audience', 'EXT:t3events_course/Resources/Private/Language/locallang_csh_tx_dakosyreservations_domain_model_audience.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_dakosyreservations_domain_model_audience');
 $GLOBALS['TCA']['tx_dakosyreservations_domain_model_audience'] = array(
 	'ctrl' => array(
@@ -136,7 +136,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_audience'] = array(
 	),
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_dakosyreservations_domain_model_person', 'EXT:dakosy_reservations/Resources/Private/Language/locallang_csh_tx_dakosyreservations_domain_model_person.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_dakosyreservations_domain_model_person', 'EXT:t3events_course/Resources/Private/Language/locallang_csh_tx_dakosyreservations_domain_model_person.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_dakosyreservations_domain_model_person');
 $GLOBALS['TCA']['tx_dakosyreservations_domain_model_person'] = array(
 	'ctrl' => array(
@@ -937,7 +937,7 @@ $GLOBALS['TCA']['tx_t3events_domain_model_event']['types'][1]['showitem'] = $tem
 //$TCA['tx_t3events_domain_model_event']['columns']['tx_extbase_type']['config']['readOnly'] = 1;
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('tx_t3events_domain_model_performance', $GLOBALS['TCA']['tx_t3events_domain_model_performance']['ctrl']['type'],'','after:endtime');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_dakosyreservations_domain_model_reservation', 'EXT:dakosy_reservations/Resources/Private/Language/locallang_csh_tx_dakosyreservations_domain_model_reservation.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_dakosyreservations_domain_model_reservation', 'EXT:t3events_course/Resources/Private/Language/locallang_csh_tx_dakosyreservations_domain_model_reservation.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_dakosyreservations_domain_model_reservation');
 $GLOBALS['TCA']['tx_dakosyreservations_domain_model_reservation'] = array(
 	'ctrl' => array(
@@ -966,7 +966,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_reservation'] = array(
 	),
 );
 //
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_dakosyreservations_domain_model_company', 'EXT:dakosy_reservations/Resources/Private/Language/locallang_csh_tx_dakosyreservations_domain_model_company.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_dakosyreservations_domain_model_company', 'EXT:t3events_course/Resources/Private/Language/locallang_csh_tx_dakosyreservations_domain_model_company.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_dakosyreservations_domain_model_company');
 $GLOBALS['TCA']['tx_dakosyreservations_domain_model_company'] = array(
 	'ctrl' => array(
@@ -1006,7 +1006,7 @@ $GLOBALS['TCA']['tx_t3events_domain_model_performance']['ctrl']['type'] = 'tx_ex
 $tempColumns = array(
 	'participants' => array(
 		'exclude' => 1,
-		'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_reservation.participants',
+		'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_reservation.participants',
 		'config' => array(
 			'type' => 'inline',
 			'foreign_table' => 'tx_dakosyreservations_domain_model_person',
@@ -1072,7 +1072,7 @@ $GLOBALS['TCA']['tx_t3events_domain_model_performance']['types']['Tx_DakosyReser
 	$_EXTKEY
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_dakosyreservations_domain_model_notification', 'EXT:dakosy_reservations/Resources/Private/Language/locallang_csh_tx_dakosyreservations_domain_model_notification.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_dakosyreservations_domain_model_notification', 'EXT:t3events_course/Resources/Private/Language/locallang_csh_tx_dakosyreservations_domain_model_notification.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_dakosyreservations_domain_model_notification');
 $GLOBALS['TCA']['tx_dakosyreservations_domain_model_notification'] = array(
 	'ctrl' => array(

@@ -98,7 +98,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_company'] = array(
 		),
 		'name' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_company.name',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_company.name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -107,7 +107,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_company'] = array(
 		),
 		'address' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_company.address',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_company.address',
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
@@ -117,7 +117,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_company'] = array(
 		),
 		'zip' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_company.zip',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_company.zip',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -126,7 +126,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_company'] = array(
 		),
 		'city' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_company.city',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_company.city',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -135,7 +135,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_company'] = array(
 		),
 		'country' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_company.country',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_company.country',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,

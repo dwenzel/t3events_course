@@ -3,7 +3,7 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$ll = 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:';
+$ll = 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:';
 
 $GLOBALS['TCA']['tx_dakosyreservations_domain_model_reservation'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_dakosyreservations_domain_model_reservation']['ctrl'],
@@ -120,7 +120,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_reservation'] = array(
 		),
 		'company' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_reservation.company',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_reservation.company',
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_dakosyreservations_domain_model_company',
@@ -131,7 +131,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_reservation'] = array(
 		),
 		'contact' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_reservation.contact',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_reservation.contact',
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_dakosyreservations_domain_model_person',
@@ -142,7 +142,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_reservation'] = array(
 		),
 		'participants' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_reservation.participants',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_reservation.participants',
 			'config' => array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_dakosyreservations_domain_model_person',
@@ -185,7 +185,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_reservation'] = array(
 		),
 		'lesson' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_reservation.lesson',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_reservation.lesson',
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_t3events_domain_model_performance',
@@ -195,7 +195,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_reservation'] = array(
 		),
 		'notifications' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_reservation.notifications',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_reservation.notifications',
 			'config' => array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_dakosyreservations_domain_model_notification',

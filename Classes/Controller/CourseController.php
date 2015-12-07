@@ -227,7 +227,7 @@ class CourseController extends \TYPO3\CMS\Extbase\MVC\Controller\ActionControlle
 	 * @param \array $arguments
 	 * @codeCoverageIgnore
 	 */
-	public function translate($key, $extension='dakosy_reservations', $arguments=NULL) {
+	public function translate($key, $extension='t3events_course', $arguments=NULL) {
 		$translatedString = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($key, $extension, $arguments);
 		if(is_null($translatedString)) {
 			return $key;

@@ -67,7 +67,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_audience'] = array(
 
 		'title' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_audience.title',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_audience.title',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -76,7 +76,7 @@ $GLOBALS['TCA']['tx_dakosyreservations_domain_model_audience'] = array(
 		),
 		'description' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_audience.description',
+			'label' => 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:tx_dakosyreservations_domain_model_audience.description',
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
