@@ -141,7 +141,7 @@ CREATE TABLE tx_t3events_domain_model_event (
 	course_contacts tinytext NOT NULL,
 	contact_person tinytext NOT NULL,
 	partner tinytext NOT NULL,
-	categories tinytext NOT NULL,
+	eventcategories tinytext NOT NULL,
 	program_agenda int(11) DEFAULT '0' NOT NULL,
 );
 

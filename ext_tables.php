@@ -489,6 +489,7 @@ $tmp_dakosy_reservations_columns = array(
 		),
 		'defaultExtras' => 'richtext[]'
 	),
+	/*
 	'targetgroup_desc' => array(
 		'exclude' => 0,
 		'label' => $ll . 'tx_dakosyreservations_domain_model_course.targetgroup_desc',
@@ -500,6 +501,7 @@ $tmp_dakosy_reservations_columns = array(
 		),
 		'defaultExtras' => 'richtext[]'
 	),
+	*/
 	'listview_exclusion' => array(
 		'exclude' => 1,
 		'label' => $ll . 'tx_dakosyreservations_domain_model_course.listview_exclusion',
@@ -725,6 +727,7 @@ $tmp_dakosy_reservations_columns = array(
 			'maxitems' => 100,
 		)
 	),
+	/*
 	'branch' => array(
 		'exclude' => 1,
 		'l10n_mode' => 'mergeIfNotBlank',
@@ -758,6 +761,7 @@ $tmp_dakosy_reservations_columns = array(
 			'maxitems' => 99,
 		)
 	),
+	*/
 	'contact_person' => array(
 		'exclude' => 1,
 		'label' => $ll . 'tx_dakosyreservations_domain_model_course.contact_person',
@@ -794,6 +798,8 @@ $tmp_dakosy_reservations_columns = array(
 			'maxitems' => 100,
 		)
 	),
+
+	/*
 	// TODO reservierter bezeichner
 	'eventcategories' => array(
 		'exclude' => 1,
@@ -828,6 +834,9 @@ $tmp_dakosy_reservations_columns = array(
 			'maxitems' => 99,
 		)
 	),
+
+	*/
+
 	'program_agenda' => array(
 		//'displayCond' => 'REC:NEW:false',
 		'label' => $ll . 'tx_dakosyreservations_domain_model_course.program_agenda',
@@ -878,7 +887,8 @@ $TCA['tx_t3events_domain_model_genre']['ctrl']['title'] = $ll . 'tx_t3events_dom
 $temp_course_tca = 'tx_extbase_type,headline,subtitle,newUntil,teaser,event_type,genre,description,goals,requirements,keywords,mode_instructionform,';
 
 // TAB Relations "Zielgruppen/Partner/Kontakte"
-$temp_course_tca .= '--div--;' . $ll . 'tx_dakosyreservations_domain_model_course.tab.relations,audience,targetgroup_desc,certificate,certificate_desc,branch,course_contacts,contact_person,partner,eventcategories,';
+$temp_course_tca .= '--div--;' . $ll . 'tx_dakosyreservations_domain_model_course.tab.relations,audience,certificate,certificate_desc,course_contacts,contact_person,partner,';
+//$temp_course_tca .= '--div--;' . $ll . 'tx_dakosyreservations_domain_model_course.tab.relations,audience,targetgroup_desc,certificate,certificate_desc,course_contacts,contact_person,partner,eventcategories,';
 
 // TAB images "Bilder und Testimonials"
 $temp_course_tca .= '--div--;' . $ll . 'tx_dakosyreservations_domain_model_course.tab.images,image,list_view_image,image_gallery,testimonials,';
@@ -906,7 +916,8 @@ $GLOBALS['TCA']['tx_t3events_domain_model_event']['columns'][$TCA['tx_t3events_d
 $temp_event_tca = 'tx_extbase_type,headline,subtitle,teaser,event_type,description,goals,requirements,program_agenda,keywords,';
 
 // TAB Relations "Zielgruppen/Partner/Kontakte"
-$temp_event_tca .= '--div--;' . $ll . 'tx_dakosyreservations_domain_model_course.tab.relations,audience,targetgroup_desc,branch,course_contacts,contact_person,partner,eventcategories,';
+$temp_event_tca .= '--div--;' . $ll . 'tx_dakosyreservations_domain_model_course.tab.relations,audience,course_contacts,contact_person,partner,';
+//$temp_event_tca .= '--div--;' . $ll . 'tx_dakosyreservations_domain_model_course.tab.relations,audience,targetgroup_desc,course_contacts,contact_person,partner,eventcategories,';
 
 // TAB images "Bilder und Testimonials"
 $temp_event_tca .= '--div--;' . $ll . 'tx_dakosyreservations_domain_model_course.tab.images,image,list_view_image,image_gallery,testimonials,';
