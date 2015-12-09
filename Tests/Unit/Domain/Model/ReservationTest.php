@@ -1,49 +1,43 @@
 <?php
 
-namespace Cps\DakosyReservations\Tests\Unit\Domain\Model;
+namespace CPSIT\T3eventsCourse\Tests\Unit\Domain\Model;
 
-/***************************************************************
- *  Copyright notice
- *
- *  (c) 2014 Dirk Wenzel <wenzel@cps-it.de>, CPS IT
- *           Boerge Franck <franck@cps-it.de>, CPS IT
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
+	/***************************************************************
+	 *  Copyright notice
+	 *  (c) 2014 Dirk Wenzel <wenzel@cps-it.de>, CPS IT
+	 *           Boerge Franck <franck@cps-it.de>, CPS IT
+	 *  All rights reserved
+	 *  This script is part of the TYPO3 project. The TYPO3 project is
+	 *  free software; you can redistribute it and/or modify
+	 *  it under the terms of the GNU General Public License as published by
+	 *  the Free Software Foundation; either version 2 of the License, or
+	 *  (at your option) any later version.
+	 *  The GNU General Public License can be found at
+	 *  http://www.gnu.org/copyleft/gpl.html.
+	 *  This script is distributed in the hope that it will be useful,
+	 *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+	 *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	 *  GNU General Public License for more details.
+	 *  This copyright notice MUST APPEAR in all copies of the script!
+	 ***************************************************************/
 
 /**
- * Test case for class \Cps\DakosyReservations\Domain\Model\Reservation.
+ * Test case for class \CPSIT\T3eventsReservation\Domain\Model\Reservation.
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
  * @author Dirk Wenzel <wenzel@cps-it.de>
  * @author Boerge Franck <franck@cps-it.de>
  */
 class ReservationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
+
 	/**
-	 * @var \Cps\DakosyReservations\Domain\Model\Reservation
+	 * @var \CPSIT\T3eventsReservation\Domain\Model\Reservation
 	 */
 	protected $subject = NULL;
 
 	protected function setUp() {
-		$this->subject = new \Cps\DakosyReservations\Domain\Model\Reservation();
+		$this->subject = new \CPSIT\T3eventsReservation\Domain\Model\Reservation();
 	}
 
 	protected function tearDown() {
@@ -87,7 +81,7 @@ class ReservationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function setCompanyForCompanySetsCompany() {
-		$companyFixture = new \Cps\DakosyReservations\Domain\Model\Company();
+		$companyFixture = new \Webfox\T3events\Domain\Model\Company();
 		$this->subject->setCompany($companyFixture);
 
 		$this->assertAttributeEquals(
@@ -111,7 +105,7 @@ class ReservationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function setContactForPersonSetsContact() {
-		$contactFixture = new \Cps\DakosyReservations\Domain\Model\Person();
+		$contactFixture = new \CPSIT\T3eventsReservation\Domain\Model\Person();
 		$this->subject->setContact($contactFixture);
 
 		$this->assertAttributeEquals(
@@ -136,7 +130,7 @@ class ReservationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function setParticipantsForObjectStorageContainingPersonSetsParticipants() {
-		$participant = new \Cps\DakosyReservations\Domain\Model\Person();
+		$participant = new \CPSIT\T3eventsReservation\Domain\Model\Person();
 		$objectStorageHoldingExactlyOneParticipants = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$objectStorageHoldingExactlyOneParticipants->attach($participant);
 		$this->subject->setParticipants($objectStorageHoldingExactlyOneParticipants);
@@ -152,7 +146,7 @@ class ReservationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function addParticipantToObjectStorageHoldingParticipants() {
-		$participant = new \Cps\DakosyReservations\Domain\Model\Person();
+		$participant = new \CPSIT\T3eventsReservation\Domain\Model\Person();
 		$participantsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
 		$participantsObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($participant));
 		$this->inject($this->subject, 'participants', $participantsObjectStorageMock);
@@ -164,7 +158,7 @@ class ReservationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	 * @test
 	 */
 	public function removeParticipantFromObjectStorageHoldingParticipants() {
-		$participant = new \Cps\DakosyReservations\Domain\Model\Person();
+		$participant = new \CPSIT\T3eventsReservation\Domain\Model\Person();
 		$participantsObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
 		$participantsObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($participant));
 		$this->inject($this->subject, 'participants', $participantsObjectStorageMock);
@@ -176,10 +170,12 @@ class ReservationTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function getLessonReturnsInitialValueForLesson() {	}
+	public function getLessonReturnsInitialValueForLesson() {
+	}
 
 	/**
 	 * @test
 	 */
-	public function setLessonForLessonSetsLesson() {	}
+	public function setLessonForLessonSetsLesson() {
+	}
 }

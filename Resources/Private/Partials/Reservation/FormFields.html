@@ -10,7 +10,7 @@
 			<div class="message">
 				<f:translate key="message.fillInCompanyData" />
 			</div>
-			<f:form.hidden property="lesson" value="{lesson}"/>
+			<f:form.hidden property="lesson" value="{lesson}" />
 			<div class="field-input">
 				<label for="company">
 					<f:translate key="tx_dakosyreservations_domain_model_company.name" />
@@ -59,11 +59,11 @@
 					<f:translate key="tx_dakosyreservations_domain_model_person.gender" />
 					<span class="required">*</span>
 				</label>
-				<f:form.radio property="contact.gender" id="contactGenderFemale" value="2"/>
+				<f:form.radio property="contact.gender" id="contactGenderFemale" value="2" />
 				<label for="contactGenderFemale" class="radiolabel">
 					<f:translate key="tx_dakosyreservations_domain_model_person.gender.female" />
 				</label>
-				<f:form.radio property="contact.gender" id="contactGenderMale" value="1"/>
+				<f:form.radio property="contact.gender" id="contactGenderMale" value="1" />
 				<label for="contactGenderMale" class="radiolabel">
 					<f:translate key="tx_dakosyreservations_domain_model_person.gender.male" />
 				</label>
@@ -110,7 +110,10 @@
 		<div class="field-checkbox">
 			<f:form.checkbox property="privacyStatementAccepted" value="TRUE" />
 			<label for="privacyStatementAccepted">
-				<f:link.page pageUid="{settings.privacyStatementsPid}">Datenschutzerklärung</f:link.page> und <f:link.page pageUid="{settings.termsAndConditionsPid}">Teilnahmebedingungen</f:link.page> akzeptiert.
+				<f:link.page pageUid="{settings.privacyStatementsPid}">Datenschutzerklärung</f:link.page>
+				und
+				<f:link.page pageUid="{settings.termsAndConditionsPid}">Teilnahmebedingungen</f:link.page>
+				akzeptiert.
 			</label>
 		</div>
 		<div class="field-checkbox">

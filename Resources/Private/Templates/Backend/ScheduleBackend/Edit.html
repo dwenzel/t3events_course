@@ -1,0 +1,52 @@
+<f:layout name="Default" />
+
+This template displays a EDIT form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+Edit.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+	<h1>Reservierung bearbeiten</h1>
+
+	<f:flashMessages renderMode="div" />
+	<h3>Stornieren</h3>
+
+	<div class="button-group">
+		<f:form action="cancel" name="reservation" object="{reservation}" arguments="{chargeFee: 'FALSE'}">
+			<f:form.submit value="{f:translate(key: 'button.cancelFreeOfCharge', default: 'button.cancelFreeOfCharge')}" />
+		</f:form>
+		<f:form action="cancel" name="reservation" object="{reservation}" arguments="{chargeFee: 'TRUE'}">
+			<f:form.submit value="{f:translate(key: 'button.cancelWithCosts', default: 'button.cancelWithCosts')}" />
+		</f:form>
+	</div>
+
+	<h3>{f:translate(key: 'tx_dakosyreservations_domain_model_reservation.participants', default: 'translate: tx_dakosyreservations_domain_model_reservation.participants')}</h3>
+	<f:if condition="{f:count(subject: reservation.participants)}> 0">
+		<ul>
+			<f:for each="{reservation.participants}" as="participant">
+				<li>
+					<f:render partial="Participant/Short" arguments="{reservation: reservation, participant: participant}" />
+				</li>
+			</f:for>
+		</ul>
+	</f:if>
+
+	<f:form action="newParticipant" name="reservation" object="{reservation}">
+		<f:form.submit value="{f:translate(key: 'button.createParticipant', default: 'button.createParticipant')}" />
+	</f:form>
+
+	<f:render partial="FormErrors" />
+	<f:form action="update" name="reservation" object="{reservation}">
+		<f:render partial="Reservation/FormFields" arguments="{reservation:reservation}" />
+		<f:form.submit value="{f:translate(key: 'button.save', default: 'button.save')}" />
+	</f:form>
+	<f:form action="list">
+		<f:form.submit value="{f:translate(key: 'button.cancel', default: 'button.save')}" />
+	</f:form>
+</f:section>

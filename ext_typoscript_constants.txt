@@ -1,0 +1,23 @@
+module.tx_t3eventscourse {
+	view {
+		# cat=module.tx_t3eventscourse/file; type=string; label=Path to template root (BE)
+		templateRootPaths.0 = EXT:t3events_course/Resources/Private/Templates/Backend/
+		# cat=module.tx_t3eventscourse/file; type=string; label=Path to template partials (BE)
+		partialRootPaths.0 = EXT:t3events_course/Resources/Private/Partials/Backend/
+		# cat=module.tx_t3eventscourse/file; type=string; label=Path to template layouts (BE)
+		layoutRootPaths.0 = EXT:t3events_course/Resources/Private/Layouts/Backend/
+	}
+
+	persistence {
+		# cat=module.tx_t3eventscourse//a; type=string; label=Default storage PID
+		storagePid =
+	}
+
+	settings {
+		bookings {
+			notify {
+				#fromEmail =
+			}
+		}
+	}
+}

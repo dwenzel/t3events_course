@@ -5,7 +5,7 @@
 			<generator>LFEditor</generator>
 		</header>
 		<body>
-		<trans-unit id="button.applyFilter" approved="yes" xml:space="preserve">
+			<trans-unit id="button.applyFilter" approved="yes" xml:space="preserve">
 			<source>apply filter</source>
 			<target>Filter anwenden</target>
 		</trans-unit>
@@ -498,7 +498,7 @@
 			<target>Ansprechpartner nimmt teil.</target>
 		</trans-unit>
 		<trans-unit id="tx_dakosyreservations_domain_model_reservation.lesson" approved="yes" xml:space="preserve">
-			<source>Lesson</source>
+			<source>Schedule</source>
 			<target>Termin</target>
 		</trans-unit>
 		<trans-unit id="tx_dakosyreservations_domain_model_reservation.offersAccepted" approved="yes" xml:space="preserve">

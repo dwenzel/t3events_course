@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
 	<file source-language="en" datatype="plaintext" original="messages" date="2014-09-08T13:46:07Z" product-name="dakosy_reservations">
-		<header/>
+		<header />
 		<body>
 			<trans-unit id="deadline.description">
 				<source>Registration deadline</source>

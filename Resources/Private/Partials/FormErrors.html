@@ -8,9 +8,9 @@
 			<f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
 				<f:for each="{errors}" as="error">
 					<div class="singleError" data-error-path="error.{propertyPath}.{error.code}">
-						<f:translate key="error.{propertyPath}.{error.code}" default="{error} - {error.code}" >
+						<f:translate key="error.{propertyPath}.{error.code}" default="{error} - {error.code}">
 
-							</f:translate>
+						</f:translate>
 					</div>
 				</f:for>
 			</f:for>

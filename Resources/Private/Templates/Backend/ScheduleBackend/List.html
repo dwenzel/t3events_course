@@ -1,0 +1,54 @@
+<f:layout name="Lessons" />
+<f:section name="content">
+	<f:comment>
+		<f:debug>{lessons}</f:debug>
+	</f:comment>
+	<h1>Termine</h1>
+	<f:flashMessages renderMode="div" />
+	<f:if condition="{lessons}">
+		<f:then>
+			<div class="list">
+				<table class="typo3-dblist tx-dakosy-seminars">
+					<tr class="c-headline">
+						<td>Datum</td>
+						<td class="col-title">Schulung</td>
+						<td>Ort</td>
+						<td>Art</td>
+						<td>Status</td>
+						<td>Teilnehmer</td>
+						<td>Plätze</td>
+						<td>Anmeldeschluss</td>
+					</tr>
+					<f:be.widget.paginate
+						objects="{lessons}"
+						as="paginatedLessons"
+						configuration="{itemsPerPage: 10, maximumNumberOfLinks: 10, recordsLabel: 'Termin'}"
+						>
+						<f:for each="{paginatedLessons}" as="lesson">
+							<tr class="db_list_normal">
+								<td>
+									<f:format.date format="d.m.Y">{lesson.date}</f:format.date>
+								</td>
+								<td>
+									<a href="" title="Termin bearbeiten" onclick="window.location.href='alt_doc.php?returnUrl='+T3_THIS_LOCATION+'&edit[tx_t3events_domain_model_performance][{lesson.uid}]=edit'; return false;">
+										{lesson.course.headline}
+									</a>
+								</td>
+								<td>{lesson.eventLocation.name}</td>
+								<td>{lesson.course.eventType.title}</td>
+								<td>{lesson.status.title}</td>
+								<td>{lesson.participants->f:count()}</td>
+								<td>{lesson.places}</td>
+								<td>
+									<f:format.date format="d.m.Y">{lesson.deadline}</f:format.date>
+								</td>
+							</tr>
+						</f:for>
+					</f:be.widget.paginate>
+				</table>
+			</div>
+		</f:then>
+	</f:if>
+
+
+</f:section>

@@ -1,10 +1,14 @@
 <div class="lesson-properties">
 	<div class="infosDate lessonItemContainer">
 		<f:format.date format="d.m.Y">{lesson.date}</f:format.date>
-		<f:cObject typoscriptObjectPath="lib.timeValue" >{lesson.begin}</f:cObject> Uhr - <f:cObject typoscriptObjectPath="lib.timeValue" >{lesson.end}</f:cObject> Uhr
+		<f:cObject typoscriptObjectPath="lib.timeValue">{lesson.begin}</f:cObject>
+		Uhr -
+		<f:cObject typoscriptObjectPath="lib.timeValue">{lesson.end}</f:cObject>
+		Uhr
 	</div>
 
 	<h2>{lesson.course.eventType.title} - {lesson.course.headline}</h2>
+
 	<h3>{lesson.course.subtitle}</h3>
 
 	<div class="section">
@@ -32,7 +36,9 @@
 			<b>{f:translate(key: 'tx_dakosyreservations_domain_model_lesson.duration')}:</b>&nbsp;{lesson.duration}
 		</div>
 		<div class="coursePrice">
-			<b>{f:translate(key: 'tx_dakosyreservations_domain_model_lesson.price')}:</b>&nbsp;<f:format.number decimals="2" decimalSeparator="," thousandsSeparator="">{lesson.price}</f:format.number>&nbsp;&euro;
+			<b>{f:translate(key: 'tx_dakosyreservations_domain_model_lesson.price')}:</b>&nbsp;
+			<f:format.number decimals="2" decimalSeparator="," thousandsSeparator="">{lesson.price}</f:format.number>
+			&nbsp;&euro;
 		</div>
 		<div class="coursePlaces">
 			<b>{f:translate(key: 'tx_dakosyreservations_domain_model_lesson.places')}:</b>&nbsp;{lesson.freePlaces} / {lesson.places}

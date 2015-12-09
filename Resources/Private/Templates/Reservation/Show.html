@@ -4,12 +4,15 @@
 	<f:flashMessages renderMode="div" />
 	<f:render partial="Reservation/LessonProperties" arguments="{lesson: '{reservation.lesson}'}" />
 
-	<f:format.html><hr /></f:format.html>
+	<f:format.html>
+		<hr />
+	</f:format.html>
 
 	<f:render partial="Reservation/Properties" arguments="{reservation:reservation}" />
 
 	<f:link.page
 		class="button"
-		pageUid="{settings.lesson.listPid}">{f:translate(key: 'button.goToLessonListPage')}</f:link.page>
+		pageUid="{settings.lesson.listPid}">{f:translate(key: 'button.goToLessonListPage')}
+	</f:link.page>
 
 </f:section>

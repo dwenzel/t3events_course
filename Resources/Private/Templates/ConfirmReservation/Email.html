@@ -1,61 +1,66 @@
 Sehr geehrte{f:if(condition: '{reservation.contact.gender}==1', then: 'r Herr', else: ' Frau')} {reservation.contact.name},<br>
 <br>
-Vielen Dank für Ihre Anmeldung. Wir freuen uns darauf, Sie bei unserer Veranstaltung "{reservation.lesson.course.headline}" begrüßen zu können.<br>
+Vielen Dank für Ihre Anmeldung. Wir freuen uns darauf, Sie bei unserer Veranstaltung "{reservation.lesson.course.headline}" begrüßen zu können.
+<br>
 <br>
 Folgende <b>Teilnehmer</b> sind angemeldet:<br />
-<f:render partial="Email/Participants" arguments="{participants: '{reservation.participants}'}"/>
+<f:render partial="Email/Participants" arguments="{participants: '{reservation.participants}'}" />
 
 <br>
-	<table>
-		<tr>
-			<td>
-				<b>Datum:</b>
-			</td>
-			<td>
-				{f:format.date(format: 'd.m.Y', date: '{reservation.lesson.date}')}
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<b>Uhrzeit:</b>
-			</td>
-			<td>
-				<f:cObject typoscriptObjectPath="lib.timeValue" >{reservation.lesson.begin}</f:cObject>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<b>Ort:</b>
-			</td>
-			<td>
-				{reservation.lesson.eventLocation.name}, {reservation.lesson.eventLocation.address}, {reservation.eventLocation.zip} {reservation.lesson.eventLocation.place}
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<b>Preis pro Teilnehmer:</b>
-			</td>
-			<td>
-				<f:format.currency currencySign="€">{reservation.lesson.price}</f:format.currency>
-			</td>
-		</tr>
-	</table>
-	<br>
-Die Anfahrtsskizze zum Veranstaltungsort finden Sie <f:link.action
+<table>
+	<tr>
+		<td>
+			<b>Datum:</b>
+		</td>
+		<td>
+			{f:format.date(format: 'd.m.Y', date: '{reservation.lesson.date}')}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Uhrzeit:</b>
+		</td>
+		<td>
+			<f:cObject typoscriptObjectPath="lib.timeValue">{reservation.lesson.begin}</f:cObject>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Ort:</b>
+		</td>
+		<td>
+			{reservation.lesson.eventLocation.name}, {reservation.lesson.eventLocation.address}, {reservation.eventLocation.zip} {reservation.lesson.eventLocation.place}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Preis pro Teilnehmer:</b>
+		</td>
+		<td>
+			<f:format.currency currencySign="€">{reservation.lesson.price}</f:format.currency>
+		</td>
+	</tr>
+</table>
+<br>
+Die Anfahrtsskizze zum Veranstaltungsort finden Sie
+<f:link.action
 	action="show"
 	extensionName="dakosyreservations"
-	controller="Lesson"
+	controller="Schedule"
 	absolute="TRUE"
 	pluginName="Courses"
 	noCacheHash="TRUE"
 	arguments="{lesson: reservation.lesson}"
-	pageUid="{settings.lesson.detailPid}">hier</f:link.action>.
+	pageUid="{settings.lesson.detailPid}">hier
+</f:link.action>.
 <br>
-Falls Sie Fragen haben, stehen wir Ihnen unter der Telefonnummer 040/370030 oder per E-mail <a href="mailto:schulung@dakosy.de">schulung@dakosy.de</a> gern zur Verfügung.<br>
+Falls Sie Fragen haben, stehen wir Ihnen unter der Telefonnummer 040/370030 oder per E-mail
+<a href="mailto:schulung@dakosy.de">schulung@dakosy.de</a> gern zur Verfügung.<br>
 <br>
-Eine kostenfreie Stornierung der von Ihnen gebuchten Schulung ist bis zum Anmeldeschluß ({f:format.date(format: 'd.m.Y', date: '{reservation.lesson.deadline}')}) möglich.<br>
+Eine kostenfreie Stornierung der von Ihnen gebuchten Schulung ist bis zum Anmeldeschluß ({f:format.date(format: 'd.m.Y', date: '{reservation.lesson.deadline}')}) möglich.
+<br>
 <br>
 Es gelten unsere Teilnahmebedingungen.
 <br><br>
 
-<f:render partial="Email/Signature" arguments="{baseUrl: baseUrl}"/>
+<f:render partial="Email/Signature" arguments="{baseUrl: baseUrl}" />

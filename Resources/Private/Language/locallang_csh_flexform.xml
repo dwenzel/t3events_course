@@ -28,7 +28,7 @@
 				Bitte konfigurieren Sie das Plugin und geben Sie im Reiter 'Verhalten' eine oder mehrere Seiten mit Datensätzen für Schulungen an.
 				]]>
 			</label>
-			<label index="settings.cache.makeNonCacheable.description">Inhalte des Plugins nicht zwischenspeichern.</label>	
+			<label index="settings.cache.makeNonCacheable.description">Inhalte des Plugins nicht zwischenspeichern.</label>
 		</languageKey>
 	</data>
 </T3locallang>

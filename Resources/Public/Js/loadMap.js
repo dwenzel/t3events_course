@@ -4,7 +4,7 @@
  * @author: Dirk Wenzel
  */
 
-$(document).ready(function() {
+$(document).ready(function () {
 	initMap();
 });
 function initMap() {
@@ -20,8 +20,8 @@ function initMap() {
 }
 
 function loadMapData() {
-	if(eventLocation.latitude && eventLocation.longitude) {
-		marker = new google.maps.LatLng(parseFloat(eventLocation.latitude),parseFloat(eventLocation.longitude));
+	if (eventLocation.latitude && eventLocation.longitude) {
+		marker = new google.maps.LatLng(parseFloat(eventLocation.latitude), parseFloat(eventLocation.longitude));
 		addMarker(marker);
 	}
 }
@@ -32,5 +32,5 @@ function addMarker(position) {
 		map: map
 	});
 	map.setCenter(position);
- 	return marker;
+	return marker;
 }

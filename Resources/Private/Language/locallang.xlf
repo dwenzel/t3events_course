@@ -5,7 +5,7 @@
 			<generator>LFEditor</generator>
 		</header>
 		<body>
-		<trans-unit id="button.applyFilter" xml:space="preserve">
+			<trans-unit id="button.applyFilter" xml:space="preserve">
 			<source>apply filter</source>
 		</trans-unit>
 		<trans-unit id="button.back" xml:space="preserve">
@@ -269,13 +269,13 @@
 		<trans-unit id="title.participant" xml:space="preserve">
 			<source>Participant</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_audience" xml:space="preserve">
+		<trans-unit id="tx_t3events_domain_model_audience" xml:space="preserve">
 			<source>Audience</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_audience.description" xml:space="preserve">
+		<trans-unit id="tx_t3events_domain_model_audience.description" xml:space="preserve">
 			<source>Description</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_audience.title" xml:space="preserve">
+		<trans-unit id="tx_t3events_domain_model_audience.title" xml:space="preserve">
 			<source>Title</source>
 		</trans-unit>
 		<trans-unit id="tx_dakosyreservations_domain_model_company" xml:space="preserve">
@@ -342,7 +342,7 @@
 			<source>Lessons</source>
 		</trans-unit>
 		<trans-unit id="tx_dakosyreservations_domain_model_lesson" xml:space="preserve">
-			<source>Lesson</source>
+			<source>Schedule</source>
 		</trans-unit>
 		<trans-unit id="tx_dakosyreservations_domain_model_lesson.abstract" xml:space="preserve">
 			<source>Short description</source>
@@ -402,7 +402,7 @@
 			<source>Contact ist participant</source>
 		</trans-unit>
 		<trans-unit id="tx_dakosyreservations_domain_model_reservation.lesson" xml:space="preserve">
-			<source>Lesson</source>
+			<source>Schedule</source>
 		</trans-unit>
 		<trans-unit id="tx_dakosyreservations_domain_model_reservation.offersAccepted" xml:space="preserve">
 			<source>Please send me further offers.</source>

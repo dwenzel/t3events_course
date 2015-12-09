@@ -13,19 +13,19 @@ This Template is responsible for creating a list of lessons.
 	<f:if condition="{settings.templateLayout} == 2">
 		<f:then>
 			<div class="lesson-list short">
-				<f:flashMessages renderMode="div"/>
-				<f:render section="lessonShortList" arguments="{lessons: lessons, settings: settings}"/>
+				<f:flashMessages renderMode="div" />
+				<f:render section="lessonShortList" arguments="{lessons: lessons, settings: settings}" />
 			</div>
 		</f:then>
 		<f:else>
 			<div class="lesson-list">
-				<f:flashMessages renderMode="div"/>
+				<f:flashMessages renderMode="div" />
 				<f:if condition="{lessons->f:count()} > 20">
 					<f:then>
-						<f:render section="pagination" arguments="{lessons: lessons, settings: settings}"/>
+						<f:render section="pagination" arguments="{lessons: lessons, settings: settings}" />
 					</f:then>
 					<f:else>
-						<f:render section="lessonList" arguments="{lessons: lessons, settings: settings}"/>
+						<f:render section="lessonList" arguments="{lessons: lessons, settings: settings}" />
 					</f:else>
 				</f:if>
 			</div>
@@ -35,19 +35,21 @@ This Template is responsible for creating a list of lessons.
 
 <f:section name="pagination">
 	<f:widget.paginate objects="{lessons}" as="paginatedLessons" configuration="{itemsPerPage: 20, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 3}">
-		<f:render section="lessonList" arguments="{lessons: paginatedLessons, settings: settings}"/>
+		<f:render section="lessonList" arguments="{lessons: paginatedLessons, settings: settings}" />
 	</f:widget.paginate>
 </f:section>
 <f:section name="lessonList">
 	<f:for each="{lessons}" as="lesson" iteration="iteration">
-		{f:if(condition: '{iteration.isFirst}', then: ' <hr /> ')}
-		<f:render partial="Lesson/ListItem" arguments="{lesson: lesson, settings: settings}" />
+		{f:if(condition: '{iteration.isFirst}', then: '
+		<hr />
+		')}
+		<f:render partial="Schedule/ListItem" arguments="{lesson: lesson, settings: settings}" />
 		<hr />
 	</f:for>
 </f:section>
 
 <f:section name="lessonShortList">
 	<f:for each="{lessons}" as="lesson" iteration="iteration">
-		<f:render partial="Lesson/ListItemShort" arguments="{lesson: lesson, settings: settings}" />
+		<f:render partial="Schedule/ListItemShort" arguments="{lesson: lesson, settings: settings}" />
 	</f:for>
 </f:section>

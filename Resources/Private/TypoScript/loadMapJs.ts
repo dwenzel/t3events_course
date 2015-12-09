@@ -1,5 +1,5 @@
 page {
-includeJSFooter {
-  loadMap = EXT:dakosy_reservations/Resources/Public/Js/loadMap.js
-  }
+	includeJSFooter {
+		loadMap = EXT:dakosy_reservations/Resources/Public/Js/loadMap.js
+	}
 }

@@ -1,173 +1,210 @@
 .tx-dakosyreservations .f3-widget-paginator {
-  float: right;
-  list-style-type: none;
-  margin: 0 0 10px 0;
-  padding: 0;
-  height: 20px;
+	float: right;
+	list-style-type: none;
+	margin: 0 0 10px 0;
+	padding: 0;
+	height: 20px;
 }
+
 .tx-dakosyreservations .f3-widget-paginator li {
-  float: left;
-  color: #1C3862;
-  border: 1px solid #1C3862;
-  background: #FFFFFF;
-  width: 15px;
-  margin: 3px 5px 0 5px;
-  text-align: center;
+	float: left;
+	color: #1C3862;
+	border: 1px solid #1C3862;
+	background: #FFFFFF;
+	width: 15px;
+	margin: 3px 5px 0 5px;
+	text-align: center;
 }
+
 .tx-dakosyreservations .f3-widget-paginator li.current {
-  background: #1C3862;
-  color: #FFFFFF;
+	background: #1C3862;
+	color: #FFFFFF;
 }
+
 .tx-dakosyreservations .reservationLink {
 	margin-top: 10px;
 	min-height: 45px;
 }
+
 .tx-dakosyreservations .reservationLink a {
-  width: auto;
-  padding: 8px 22px;
-  background: #1C3862;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  color: #FFFFFF;
-  font-size: 12px;
-  text-decoration: none;
-  cursor: pointer;
+	width: auto;
+	padding: 8px 22px;
+	background: #1C3862;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color: #FFFFFF;
+	font-size: 12px;
+	text-decoration: none;
+	cursor: pointer;
 }
+
 .tx-dakosyreservations .reservationLink a:hover {
-  background: #CD1421;
+	background: #CD1421;
 }
+
 .tx-dakosyreservations .section {
-  margin: 10px 0 0 0;
+	margin: 10px 0 0 0;
 	min-height: 45px;
 }
+
 .tx-dakosyreservations .lessonItemContainer {
-  clear: both;
-  display: block;
-  margin: 10px 0 0 0;
+	clear: both;
+	display: block;
+	margin: 10px 0 0 0;
 }
+
 .tx-dakosyreservations .eventLocation-image {
-  float: left;
-  max-width: 200px;
-  height: auto;
-  margin: 0 20px 10px 0;
+	float: left;
+	max-width: 200px;
+	height: auto;
+	margin: 0 20px 10px 0;
 }
+
 .tx-dakosyreservations .eventLocation-image img {
-  width: 200px;
-  height: auto;
+	width: 200px;
+	height: auto;
 }
+
 .tx-dakosyreservations .eventLocation-info {
-  float: left;
+	float: left;
 }
+
 .tx-dakosyreservations #map_canvas {
-  clear: both;
-  width: 400px;
-  height: 300px;
+	clear: both;
+	width: 400px;
+	height: 300px;
 }
+
 .tx-dakosyreservations .lesson-list hr {
-  width: 100%;
-  color: #1C3862;
-  margin: 5px 0 10px 0;
-  border: 1px solid #1C3862;
+	width: 100%;
+	color: #1C3862;
+	margin: 5px 0 10px 0;
+	border: 1px solid #1C3862;
 }
+
 .tx-dakosyreservations .lesson-list .list-item {
-  clear: both;
+	clear: both;
 }
+
 .tx-dakosyreservations h3 {
-  margin: 10px 0 5px 0;
+	margin: 10px 0 5px 0;
 }
+
 .tx-dakosyreservations hr {
-  width: 100%;
-  color: #1C3862;
-  margin: 5px 0 0 0;
-  border: 1px solid #1C3862;
+	width: 100%;
+	color: #1C3862;
+	margin: 5px 0 0 0;
+	border: 1px solid #1C3862;
 }
+
 .tx-dakosyreservations .field-radio {
-  margin-bottom: 8px;
+	margin-bottom: 8px;
 }
+
 .tx-dakosyreservations .field-radio input[type=radio] {
-  margin-top: 5px;
+	margin-top: 5px;
 }
+
 .tx-dakosyreservations .field-radio label {
-  display: block;
-  text-align: left;
+	display: block;
+	text-align: left;
 }
+
 .tx-dakosyreservations .field-radio label.radiolabel {
-  display: inline;
-  margin: 0 20px 0 0;
+	display: inline;
+	margin: 0 20px 0 0;
 }
+
 .tx-dakosyreservations .message {
-  margin: 5px 0 10px 0;
+	margin: 5px 0 10px 0;
 }
+
 .tx-dakosyreservations .typo3-messages {
-  margin: 15px 0 0 0;
-  color: #CD1421;
-  font-weight: bold;
+	margin: 15px 0 0 0;
+	color: #CD1421;
+	font-weight: bold;
 }
+
 .tx-dakosyreservations .formErrors {
-  margin: 15px 0 10px 0;
-  background-color: #CD1421;
-  color: #FFFFFF;
-  padding: 10px;
-  width: 615px;
-  border-radius: 5px;
+	margin: 15px 0 10px 0;
+	background-color: #CD1421;
+	color: #FFFFFF;
+	padding: 10px;
+	width: 615px;
+	border-radius: 5px;
 }
+
 .tx-dakosyreservations .formErrors li {
-  margin: 5px 0;
+	margin: 5px 0;
 }
+
 .tx-dakosyreservations .participantShort {
-  margin: 5px 0 5px 0;
+	margin: 5px 0 5px 0;
 }
+
 .tx-dakosyreservations .participantShort .participantName {
-  line-height: 26px;
+	line-height: 26px;
 }
+
 .tx-dakosyreservations .participantShort input[type=submit] {
-  float: left;
-  padding: 5px;
-  margin: 0 10px 0 0;
+	float: left;
+	padding: 5px;
+	margin: 0 10px 0 0;
 }
+
 .tx-dakosyreservations .reservationCompanyInfo {
-  width: 50%;
-  float: left;
+	width: 50%;
+	float: left;
 }
+
 .tx-dakosyreservations .reservationContactInfo {
-  width: 50%;
-  float: left;
+	width: 50%;
+	float: left;
 }
+
 .tx-dakosyreservations .reservationParticipants {
-  margin: 0 0 10px 0;
-  list-style-type: none;
+	margin: 0 0 10px 0;
+	list-style-type: none;
 }
+
 .tx-dakosyreservations .participantShowShort .participantName {
-  line-height: 14px;
+	line-height: 14px;
 }
+
 .tx-dakosyreservations .eventLocation .eventLocation-image {
-  float: left;
-  max-width: 200px;
-  height: auto;
-  margin: 0 10px 10px 0;
+	float: left;
+	max-width: 200px;
+	height: auto;
+	margin: 0 10px 10px 0;
 }
+
 .tx-dakosyreservations .eventLocation .eventLocation-image img {
-  width: 200px;
-  height: auto;
+	width: 200px;
+	height: auto;
 }
+
 .tx-dakosyreservations .eventLocation .eventLocation-info {
-  float: left;
+	float: left;
 }
+
 .tx-dakosyreservations .lesson-properties {
-  margin: 20px 0 0 0;
+	margin: 20px 0 0 0;
 }
+
 .tx-dakosyreservations .lesson-properties .abstract {
-  margin: 10px 0 5px 0;
+	margin: 10px 0 5px 0;
 }
 
 /* Filter */
 .tx-dakosyreservations .lesson-filter select {
 	width: 100%;
 }
+
 .float-left {
 	float: left;
 }
+
 .float-right {
 	float: right;
 }
@@ -181,14 +218,16 @@
 	content: " ";
 	display: table;
 }
+
 .clearfix:after {
 	clear: both;
 }
+
 .clearfix {
 	display: inline;
 	*zoom: 1;
 }
 
-.clearfix form div{
+.clearfix form div {
 	display: none;
 }

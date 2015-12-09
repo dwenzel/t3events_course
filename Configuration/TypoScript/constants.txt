@@ -1,60 +1,66 @@
-plugin.tx_dakosyreservations {
+plugin.tx_t3eventscourse {
 	view {
-		# cat=plugin.tx_dakosyreservations/file; type=string; label=Path to template root (FE)
+		# cat=plugin.tx_t3eventscourse/file; type=string; label=Path to template root (FE)
 		templateRootPath = EXT:dakosy_reservations/Resources/Private/Templates/
-		# cat=plugin.tx_dakosyreservations/file; type=string; label=Path to template partials (FE)
+		# cat=plugin.tx_t3eventscourse/file; type=string; label=Path to template partials (FE)
 		partialRootPath = EXT:dakosy_reservations/Resources/Private/Partials/
-		# cat=plugin.tx_dakosyreservations/file; type=string; label=Path to template layouts (FE)
+		# cat=plugin.tx_t3eventscourse/file; type=string; label=Path to template layouts (FE)
 		layoutRootPath = EXT:dakosy_reservations/Resources/Private/Layouts/
 	}
+
 	persistence {
-		# cat=plugin.tx_dakosyreservations//a; type=string; label=Default storage PID
+		# cat=plugin.tx_t3eventscourse//a; type=string; label=Default storage PID
 		storagePid = 523
 	}
+
 	settings {
 		privacyStatementsPid = 46
 		termsAndConditionsPid = 521
 		reservation {
-			# cat=plugin.tx_dakosyreservations/10; type=string; label=Default sender address for confirmation E-Mails
+			# cat=plugin.tx_t3eventscourse/10; type=string; label=Default sender address for confirmation E-Mails
 			default.fromEmail = schulung@dakosy.de
 			confirm {
-				# cat=plugin.tx_dakosyreservations/10; type=string; label=Subject for confirmation E-Mails
+				# cat=plugin.tx_t3eventscourse/10; type=string; label=Subject for confirmation E-Mails
 				subject = DAKOSY - Buchungsbestätigung
-				# cat=plugin.tx_dakosyreservations/10; type=string; label=Template file name (without '.html')
+				# cat=plugin.tx_t3eventscourse/10; type=string; label=Template file name (without '.html')
 				templateFileName = Email
-				# cat=plugin.tx_dakosyreservations/10; type=string; label=Name of folder in template path for confirmation email template
-                folderName = ConfirmReservation
-				# cat=plugin.tx_dakosyreservations/10; type=boolean; label=If checked a confirmation email will be send after submitting a reservation
+				# cat=plugin.tx_t3eventscourse/10; type=string; label=Name of folder in template path for confirmation email template
+				folderName = ConfirmReservation
+				# cat=plugin.tx_t3eventscourse/10; type=boolean; label=If checked a confirmation email will be send after submitting a reservation
 				sendNotification = 1
 			}
 		}
+
 		lesson {
 			detailPid = 520
 			listPid = 519
 			show {
 				map {
-					# cat=plugin.tx_dakosyreservations/10; type=integer; label=Initial map zoom for event locations
+					# cat=plugin.tx_t3eventscourse/10; type=integer; label=Initial map zoom for event locations
 					initialZoom = 14
 				}
 			}
 		}
+
 		reservation.detailPid = 522
 	}
 }
 
-module.tx_dakosyreservations {
+module.tx_t3eventscourse {
 	view {
-		# cat=module.tx_dakosyreservations/file; type=string; label=Path to template root (BE)
+		# cat=module.tx_t3eventscourse/file; type=string; label=Path to template root (BE)
 		templateRootPath = EXT:dakosy_reservations/Resources/Private/Backend/Templates/
-		# cat=module.tx_dakosyreservations/file; type=string; label=Path to template partials (BE)
+		# cat=module.tx_t3eventscourse/file; type=string; label=Path to template partials (BE)
 		partialRootPath = EXT:dakosy_reservations/Resources/Private/Partials/
-		# cat=module.tx_dakosyreservations/file; type=string; label=Path to template layouts (BE)
+		# cat=module.tx_t3eventscourse/file; type=string; label=Path to template layouts (BE)
 		layoutRootPath = EXT:dakosy_reservations/Resources/Private/Backend/Layouts/
 	}
+
 	persistence {
-		# cat=module.tx_dakosyreservations//a; type=string; label=Default storage PID
+		# cat=module.tx_t3eventscourse//a; type=string; label=Default storage PID
 		storagePid = 523
 	}
+
 	settings {
 		bookings {
 			notify {

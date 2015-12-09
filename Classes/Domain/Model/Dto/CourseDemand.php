@@ -1,6 +1,12 @@
 <?php
-namespace Cps\DakosyReservations\Domain\Model\Dto;
+namespace CPSIT\T3eventsCourse\Domain\Model\Dto;
 
-class CourseDemand extends \Webfox\T3events\Domain\Model\Dto\EventDemand {
+use Webfox\T3events\Domain\Model\Dto\EventDemand;
 
+/**
+ * Class CourseDemand
+ *
+ * @package CPSIT\T3eventsCourse\Domain\Model\Dto
+ */
+class CourseDemand extends EventDemand {
 }
