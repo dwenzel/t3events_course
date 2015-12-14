@@ -278,157 +278,157 @@
 		<trans-unit id="tx_t3events_domain_model_audience.title" xml:space="preserve">
 			<source>Title</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_company" xml:space="preserve">
 			<source>Company</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.address" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_company.address" xml:space="preserve">
 			<source>Street</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.city" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_company.city" xml:space="preserve">
 			<source>City</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.country" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_company.country" xml:space="preserve">
 			<source>Country</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.email" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_company.email" xml:space="preserve">
 			<source>Email</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.name" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_company.name" xml:space="preserve">
 			<source>Company Name</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.phone" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_company.phone" xml:space="preserve">
 			<source>Phone</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.zip" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_company.zip" xml:space="preserve">
 			<source>ZIP</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_contact" xml:space="preserve">
 			<source>Contact</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.address" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.address" xml:space="preserve">
 			<source>Address</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.city" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.city" xml:space="preserve">
 			<source>City</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.email" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.email" xml:space="preserve">
 			<source>Email</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.gender.female" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.gender.female" xml:space="preserve">
 			<source>Ms</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.gender.male" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.gender.male" xml:space="preserve">
 			<source>Mr.</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.name" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.name" xml:space="preserve">
 			<source>Name</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.phone" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.phone" xml:space="preserve">
 			<source>Phone</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.zip" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.zip" xml:space="preserve">
 			<source>Zip</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_course" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event" xml:space="preserve">
 			<source>Course</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_course.abstract" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.abstract" xml:space="preserve">
 			<source>Abstract</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_course.audience" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.audience" xml:space="preserve">
 			<source>Audience</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_course.lessons" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.lessons" xml:space="preserve">
 			<source>Lessons</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance" xml:space="preserve">
 			<source>Schedule</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.abstract" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.abstract" xml:space="preserve">
 			<source>Short description</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.audience" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.audience" xml:space="preserve">
 			<source>Audience</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.deadline" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.deadline" xml:space="preserve">
 			<source>Deadline</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.details" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.details" xml:space="preserve">
 			<source>Description</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.duration" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.duration" xml:space="preserve">
 			<source>Duration</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.eventLocation" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.eventLocation" xml:space="preserve">
 			<source>Event location</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.places" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.places" xml:space="preserve">
 			<source>Places</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.price" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.price" xml:space="preserve">
 			<source>Price</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_notification.bodytext" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_notification.bodytext" xml:space="preserve">
 			<source>Message</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_notification.subject" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_notification.subject" xml:space="preserve">
 			<source>Subject</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_person" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_person" xml:space="preserve">
 			<source>Person</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_person.first_name" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_person.first_name" xml:space="preserve">
 			<source>First Name</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_person.gender" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_person.gender" xml:space="preserve">
 			<source>Gender</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_person.gender.female" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_person.gender.female" xml:space="preserve">
 			<source>Ms</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_person.gender.male" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_person.gender.male" xml:space="preserve">
 			<source>Mr</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation" xml:space="preserve">
 			<source>Reservation</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.company" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.company" xml:space="preserve">
 			<source>Company</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.contact" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.contact" xml:space="preserve">
 			<source>Contact</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.contactIsParticipant" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.contactIsParticipant" xml:space="preserve">
 			<source>Contact ist participant</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.lesson" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.lesson" xml:space="preserve">
 			<source>Schedule</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.offersAccepted" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.offersAccepted" xml:space="preserve">
 			<source>Please send me further offers.</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.participants" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.participants" xml:space="preserve">
 			<source>Participants</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.privacyStatementAccepted" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.privacyStatementAccepted" xml:space="preserve">
 			<source>Privacy Statetement accepted</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status" xml:space="preserve">
 			<source>Status</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.0" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status.0" xml:space="preserve">
 			<source>new</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.1" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status.1" xml:space="preserve">
 			<source>Draft</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.2" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status.2" xml:space="preserve">
 			<source>submitted</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.3" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status.3" xml:space="preserve">
 			<source>canceled (no charge)</source>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.4" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status.4" xml:space="preserve">
 			<source>canceled (with costs)</source>
 		</trans-unit>
 		<trans-unit id="tx_t3events_domain_model_genre" xml:space="preserve">

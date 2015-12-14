@@ -6,25 +6,24 @@ config.tx_extbase {
 					Tx_T3eventsCourse_Course = CPSIT\T3eventsCourse\Domain\Model\Course
 				}
 			}
-
-			Webfox\T3events\Domain\Model\Performance {
-				subclasses {
-					Tx_T3eventsCourse_Lesson = CPSIT\T3eventsCourse\Domain\Model\Schedule
-				}
-			}
-
 			CPSIT\T3eventsCourse\Domain\Model\Course {
 				mapping {
 					tableName = tx_t3events_domain_model_event
 					recordType = Tx_T3eventsCourse_Course
 				}
 			}
+			Webfox\T3events\Domain\Model\Performance {
+				subclasses {
+					Tx_T3eventsCourse_Schedule = CPSIT\T3eventsCourse\Domain\Model\Schedule
+				}
+			}
 			CPSIT\T3eventsCourse\Domain\Model\Schedule {
 				mapping {
 					tableName = tx_t3events_domain_model_performance
-					recordType = Tx_T3eventsCourse_Lesson
+					recordType = Tx_T3eventsCourse_Schedule
 				}
 			}
+
 		}
 	}
 }

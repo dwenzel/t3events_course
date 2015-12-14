@@ -13,7 +13,7 @@ CREATE TABLE tx_t3events_domain_model_event (
 
 	listview_exclusion tinyint(1) unsigned DEFAULT '0' NOT NULL,
 
-	exam_costs double(11, 2) DEFAULT '0.00' NOT NULL,
+	exam_costs double(11,2) DEFAULT '0.00' NOT NULL,
 	exam_remarks text NOT NULL,
 	degree_type int(11) DEFAULT '0' NOT NULL,
 	mode_instructionform int(11) DEFAULT '0' NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE tx_t3events_domain_model_performance (
 	date_end int(11) DEFAULT '0' NOT NULL,
 	registration_begin int(11) DEFAULT '0' NOT NULL,
 	duration varchar(255) DEFAULT '' NOT NULL,
-	price double(11, 2) DEFAULT '0.00' NOT NULL,
+	price double(11,2) DEFAULT '0.00' NOT NULL,
 	places int(11) DEFAULT '0' NOT NULL,
 	free_of_charge tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	date_remarks text NOT NULL,
@@ -100,8 +100,8 @@ CREATE TABLE tx_t3eventscourse_domain_model_certificatetype (
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),
-	KEY t3ver_oid (t3ver_oid, t3ver_wsid),
-	KEY language (l10n_parent, sys_language_uid)
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+	KEY language (l10n_parent,sys_language_uid)
 
 );
 
@@ -140,8 +140,8 @@ CREATE TABLE tx_t3eventscourse_domain_model_certificate (
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),
-	KEY t3ver_oid (t3ver_oid, t3ver_wsid),
-	KEY language (l10n_parent, sys_language_uid)
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+	KEY language (l10n_parent,sys_language_uid)
 
 );
 

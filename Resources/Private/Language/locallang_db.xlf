@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-12-09T10:43:00Z">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-12-14T17:21:08Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
 		<body>
+		<trans-unit id="label.tx_extbase_type" xml:space="preserve">
+			<source>Event type</source>
+		</trans-unit>
+		<trans-unit id="label.tx_extbase_type.0" xml:space="preserve">
+			<source>Default</source>
+		</trans-unit>
+		<trans-unit id="label.tx_extbase_type.Tx_T3eventsCourse_Course" xml:space="preserve">
+			<source>Course</source>
+		</trans-unit>
+		<trans-unit id="label.tx_extbase_type.Tx_T3eventsCourse_Schedule" xml:space="preserve">
+			<source>Schedule</source>
+		</trans-unit>
 		<trans-unit id="tab.extended" xml:space="preserve">
 			<source>Details</source>
 		</trans-unit>
@@ -16,12 +28,6 @@
 		</trans-unit>
 		<trans-unit id="tab.schedules" xml:space="preserve">
 			<source>Lessons</source>
-		</trans-unit>
-		<trans-unit id="tx_extbase_type.Tx_T3eventsCourse_Course" xml:space="preserve">
-			<source>Course</source>
-		</trans-unit>
-		<trans-unit id="tx_extbase_type.Tx_T3eventsCourse_Lesson" xml:space="preserve">
-			<source>Schedule</source>
 		</trans-unit>
 		<trans-unit id="tx_extbase_type.default" xml:space="preserve">
 			<source>Default</source>
@@ -44,12 +50,6 @@
 		<trans-unit id="tx_t3events_domain_model_person.type.participant" xml:space="preserve">
 			<source>Participant</source>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse.tx_extbase_type" xml:space="preserve">
-			<source>Event type</source>
-		</trans-unit>
-		<trans-unit id="tx_t3eventscourse.tx_extbase_type.0" xml:space="preserve">
-			<source>Default</source>
-		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_certificate" xml:space="preserve">
 			<source>Certificate</source>
 		</trans-unit>
@@ -71,16 +71,16 @@
 		<trans-unit id="tx_t3eventscourse_domain_model_certificatetype.title" xml:space="preserve">
 			<source>Title</source>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_course" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event" xml:space="preserve">
 			<source>Course</source>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_course.abstract" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.abstract" xml:space="preserve">
 			<source>Abstract</source>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_course.audience" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.audience" xml:space="preserve">
 			<source>Audience</source>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_course.schedules" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.schedules" xml:space="preserve">
 			<source>Lessons</source>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_person.tx_extbase_type.Tx_T3eventsCourse_Person" xml:space="preserve">

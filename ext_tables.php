@@ -89,47 +89,6 @@ $TCA['tx_t3events_domain_model_genre']['ctrl']['title'] = $ll . 'tx_t3events_dom
 
 
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('tx_t3events_domain_model_performance', $GLOBALS['TCA']['tx_t3events_domain_model_performance']['ctrl']['type'], '', 'after:endtime');
-
-// extend lesson
-$GLOBALS['TCA']['tx_t3events_domain_model_performance']['ctrl']['type'] = 'tx_extbase_type';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_t3events_domain_model_performance', $tempColumns);
-
-$GLOBALS['TCA']['tx_t3events_domain_model_performance']['columns'][$TCA['tx_t3events_domain_model_performance']['ctrl']['type']]['config']['items'][] = array($ll . 'tx_t3events_domain_model_performance.tx_extbase_type.Tx_T3eventsCourse_Lesson', 'Tx_T3eventsCourse_Lesson');
-// add type field to existing types
-$GLOBALS['TCA']['tx_t3events_domain_model_performance']['types'][0]['showitem'] .= ',tx_extbase_type';
-$GLOBALS['TCA']['tx_t3events_domain_model_performance']['types'][1]['showitem'] .= ',tx_extbase_type';
-
-// add palettes
-$TCA['tx_t3events_domain_model_performance']['palettes']['paletteLessonDates'] = array(
-	'showitem' => 'date,date_end',
-	'canNotCollapse' => TRUE,
-);
-$TCA['tx_t3events_domain_model_performance']['palettes']['paletteLessonRegistration'] = array(
-	'showitem' => 'registration_begin,deadline',
-	'canNotCollapse' => TRUE,
-);
-$TCA['tx_t3events_domain_model_performance']['palettes']['paletteLessonTime'] = array(
-	'showitem' => 'begin, end, --linebreak--, duration',
-	'canNotCollapse' => TRUE,
-);
-
-// SCHEDULE
-// tab 'general'
-$temp_schedule_tca = '--palette--;;paletteLessonDates,date_remarks,class_time,event_location,status,tx_extbase_type,course,';
-
-// tab extended
-$temp_schedule_tca .= '--div--;' . $ll . 'tx_dakosyreservations_domain_model_lesson.tab.price,price,free_of_charge,price_notice,';
-
-// tab registration "Anmeldung"
-$temp_schedule_tca .= '--div--;' . $ll . 'tx_dakosyreservations_domain_model_lesson.tab.registration,--palette--;;paletteLessonRegistration,places,registration_remarks,document_based_registration,registration_documents,external_registration,external_registration_link,';
-
-// tab 'participants'
-$temp_schedule_tca .= '--div--;' . $ll . 'tx_dakosyreservation_domain_model_lesson.tab.participants,participants,';
-
-$GLOBALS['TCA']['tx_t3events_domain_model_performance']['types']['Tx_T3eventsCourse_Lesson']['showitem'] = $temp_schedule_tca;
-
-
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_t3eventscourse_domain_model_certificate');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_t3eventscourse_domain_model_certificatetype');
 
