@@ -17,7 +17,7 @@ $GLOBALS['TCA']['tx_t3events_domain_model_performance']['palettes']['paletteLess
 $lessonShowItems = '	course,
 						--palette--;;paletteLessonDates,
 						--palette--;;paletteLessonTime,
-						date_remarks,class_time,event_location,status,
+						class_time,event_location,status,
 					--div--;' . $ll . 'tab.price,
 						price_notice,
 					--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,
