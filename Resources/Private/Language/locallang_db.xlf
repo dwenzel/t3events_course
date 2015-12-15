@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-12-14T17:21:08Z">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-12-15T13:42:46Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -25,6 +25,9 @@
 		</trans-unit>
 		<trans-unit id="tab.participants" xml:space="preserve">
 			<source>Participants</source>
+		</trans-unit>
+		<trans-unit id="tab.performances" xml:space="preserve">
+			<source>Schedule, Registration and Price</source>
 		</trans-unit>
 		<trans-unit id="tab.schedules" xml:space="preserve">
 			<source>Lessons</source>
@@ -74,11 +77,11 @@
 		<trans-unit id="tx_t3eventscourse_domain_model_event" xml:space="preserve">
 			<source>Course</source>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.abstract" xml:space="preserve">
-			<source>Abstract</source>
-		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.audience" xml:space="preserve">
 			<source>Audience</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.performances" xml:space="preserve">
+			<source>Schedules</source>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.schedules" xml:space="preserve">
 			<source>Lessons</source>
