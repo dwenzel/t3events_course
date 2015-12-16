@@ -26,22 +26,9 @@ CREATE TABLE tx_t3events_domain_model_event (
 CREATE TABLE tx_t3events_domain_model_performance (
 
 	course int(11) unsigned DEFAULT '0' NOT NULL,
-
-	deadline int(11) DEFAULT '0' NOT NULL,
-	date_end int(11) DEFAULT '0' NOT NULL,
-	registration_begin int(11) DEFAULT '0' NOT NULL,
 	duration varchar(255) DEFAULT '' NOT NULL,
-	price double(11,2) DEFAULT '0.00' NOT NULL,
-	places int(11) DEFAULT '0' NOT NULL,
-	free_of_charge tinyint(1) unsigned DEFAULT '0' NOT NULL,
-	date_remarks text NOT NULL,
-	registration_remarks text NOT NULL,
-	external_registration_link tinytext NOT NULL,
 	class_time text NOT NULL,
-	document_based_registration tinyint(1) unsigned DEFAULT '0' NOT NULL,
-	external_registration tinyint(1) unsigned DEFAULT '0' NOT NULL,
-	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
-	registration_documents tinytext NOT NULL
+	tx_extbase_type varchar(255) DEFAULT '' NOT NULL
 );
 
 
