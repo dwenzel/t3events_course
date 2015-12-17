@@ -80,12 +80,12 @@ $pluginSignature = str_replace('_', '', $_EXTKEY) . '_courses';
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_courses.xml');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Reservations');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Courses');
 
 
 // rename the table (this affects all types...)
-$TCA['tx_t3events_domain_model_event']['ctrl']['title'] = $ll . 'tx_dakosyreservations_domain_model_course';
-$TCA['tx_t3events_domain_model_genre']['ctrl']['title'] = $ll . 'tx_t3events_domain_model_genre';
+$TCA['tx_t3events_domain_model_event']['ctrl']['title'] = $ll . 'tx_t3eventscourse_domain_model_course';
+$TCA['tx_t3events_domain_model_genre']['ctrl']['title'] = $ll . 'tx_t3eventscourse_domain_model_genre';
 
 
 

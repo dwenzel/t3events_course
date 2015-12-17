@@ -29,13 +29,14 @@ config.tx_extbase {
 }
 
 # Module configuration
+
 module.tx_t3eventscourse {
 	persistence {
 		storagePid = {$module.tx_t3eventscourse.persistence.storagePid}
 	}
 
 	view {
-		#templateRootPaths.0 = {$module.tx_t3eventscourse.view.templateRootPaths.0}
+		templateRootPaths.0 = {$module.tx_t3eventscourse.view.templateRootPaths.0}
 		partialRootPaths.0 = {$module.tx_t3eventscourse.view.partialRootPaths.0}
 		layoutRootPaths.0 = {$module.tx_t3eventscourse.view.layoutRootPaths.0}
 	}
@@ -127,3 +128,4 @@ module.tx_t3eventscourse {
 		}
 	}
 }
+
