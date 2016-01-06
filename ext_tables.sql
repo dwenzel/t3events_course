@@ -8,8 +8,6 @@ CREATE TABLE tx_t3events_domain_model_event (
 	requirements text NOT NULL,
 	lessons int(11) unsigned DEFAULT '0' NOT NULL,
 	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
-
-
 	exam_costs double(11,2) DEFAULT '0.00' NOT NULL,
 	exam_remarks text NOT NULL,
 	degree_type int(11) DEFAULT '0' NOT NULL,
