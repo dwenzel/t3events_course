@@ -1,7 +1,7 @@
 <f:layout name="Lessons" />
 <f:section name="content">
 	<f:comment>
-		<f:debug>{lessons}</f:debug>
+		<f:debug inline="true">{lessons}</f:debug>
 	</f:comment>
 	<h1>Termine</h1>
 	<f:flashMessages renderMode="div" />
@@ -31,11 +31,11 @@
 								</td>
 								<td>
 									<a href="" title="Termin bearbeiten" onclick="window.location.href='alt_doc.php?returnUrl='+T3_THIS_LOCATION+'&edit[tx_t3events_domain_model_performance][{lesson.uid}]=edit'; return false;">
-										{lesson.course.headline}
+										{lesson.event.headline}
 									</a>
 								</td>
 								<td>{lesson.eventLocation.name}</td>
-								<td>{lesson.course.eventType.title}</td>
+								<td>{lesson.event.eventType.title}</td>
 								<td>{lesson.status.title}</td>
 								<td>{lesson.participants->f:count()}</td>
 								<td>{lesson.places}</td>
