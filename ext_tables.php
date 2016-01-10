@@ -3,12 +3,6 @@ if (!defined('TYPO3_MODE')) {
 	die('Access denied.');
 }
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-	$_EXTKEY,
-	'Pi1',
-	'Reservations'
-);
-
 $ll = 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:';
 
 if (TYPO3_MODE === 'BE') {
