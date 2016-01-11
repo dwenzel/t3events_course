@@ -9,7 +9,7 @@
  ***************************************************************/
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'Event Courses',
+	'title' => 'Courses',
 	'description' => 'Manage courses and course schedules. Extends t3events ',
 	'category' => 'plugin',
 	'author' => 'Dirk Wenzel, Boerge Franck',
