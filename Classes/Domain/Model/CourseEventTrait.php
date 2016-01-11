@@ -44,6 +44,11 @@ trait CourseEventTrait {
 	protected $requirements;
 
 	/**
+	 * @var \DateTime
+	 */
+	protected $newUntil;
+
+	/**
 	 * Initializes the object
 	 * This method has to be called by the constructor of parent
 	 *
@@ -163,5 +168,19 @@ trait CourseEventTrait {
 	 */
 	public function setRequirements($requirements) {
 		$this->requirements = $requirements;
+	}
+
+	/**
+	 * @return \DateTime
+	 */
+	public function getNewUntil() {
+		return $this->newUntil;
+	}
+
+	/**
+	 * @param \DateTime $newUntil
+	 */
+	public function setNewUntil($newUntil) {
+		$this->newUntil = $newUntil;
 	}
 }
