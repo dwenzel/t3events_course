@@ -11,7 +11,7 @@ CREATE TABLE tx_t3events_domain_model_event (
 	exam_costs double(11,2) DEFAULT '0.00' NOT NULL,
 	exam_remarks text NOT NULL,
 	degree_type int(11) DEFAULT '0' NOT NULL,
-	mode_instructionform int(11) DEFAULT '0' NOT NULL,
+	mode_instruction_form int(11) DEFAULT '0' NOT NULL,
 
 	certificate varchar(255) DEFAULT '',
 	certificate_desc text NOT NULL

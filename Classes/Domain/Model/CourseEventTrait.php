@@ -74,7 +74,7 @@ trait CourseEventTrait {
 	protected $examRemarks;
 
 	/**
-	 * @var \string
+	 * @var int
 	 */
 	protected $modeInstructionForm;
 
@@ -282,14 +282,14 @@ trait CourseEventTrait {
 	}
 
 	/**
-	 * @return string
+	 * @return int
 	 */
 	public function getModeInstructionForm() {
 		return $this->modeInstructionForm;
 	}
 
 	/**
-	 * @param string $modeInstructionForm
+	 * @param int $modeInstructionForm
 	 */
 	public function setModeInstructionForm($modeInstructionForm) {
 		$this->modeInstructionForm = $modeInstructionForm;
