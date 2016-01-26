@@ -13,8 +13,7 @@ CREATE TABLE tx_t3events_domain_model_event (
 	degree_type int(11) DEFAULT '0' NOT NULL,
 	mode_instruction_form int(11) DEFAULT '0' NOT NULL,
 
-	certificate varchar(255) DEFAULT '',
-	certificate_desc text NOT NULL
+	certificate text NOT NULL,
 );
 
 
@@ -79,8 +78,11 @@ CREATE TABLE tx_t3eventscourse_domain_model_certificate (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	title varchar(255) DEFAULT '' NOT NULL,
+	short_pas1045 varchar(100) DEFAULT '' NOT NULL,
+	short_qcat varchar(100) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 	type int(11) DEFAULT '0' NOT NULL,
+	link text NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

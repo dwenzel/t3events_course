@@ -5,7 +5,7 @@
 			<generator>LFEditor</generator>
 		</header>
 		<body>
-		<trans-unit id="label.tx_extbase_type" approved="yes" xml:space="preserve">
+			<trans-unit id="label.tx_extbase_type" approved="yes" xml:space="preserve">
 			<source>Event type</source>
 			<target>Veranstaltungstyp</target>
 		</trans-unit>
@@ -76,6 +76,18 @@
 		<trans-unit id="tx_t3eventscourse_domain_model_certificate.title" approved="yes" xml:space="preserve">
 			<source>Title</source>
 			<target>Titel</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_certificate.short_pas1045" xml:space="preserve">
+			<source>Short label PAS 1045</source>
+			<target>Abkürzung für PAS 1045</target>
+		</trans-unit>
+			<trans-unit id="tx_t3eventscourse_domain_model_certificate.short_qcat" xml:space="preserve">
+			<source>Short label Qcat</source>
+			<target>Abkürzung für openQcat</target>
+		</trans-unit>
+			<trans-unit id="tx_t3eventscourse_domain_model_certificate.link" xml:space="preserve">
+			<source>Link</source>
+			<target>Link</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_certificate.type" approved="yes" xml:space="preserve">
 			<source>Type</source>

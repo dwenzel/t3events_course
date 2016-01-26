@@ -109,12 +109,8 @@ $temporaryColumns = [
 			'size' => 6,
 			'minitems' => 0,
 			'maxitems' => 1000,
-			'items' => [
-				[$ll . 'tx_t3eventscourse_domain_model_event.certificate.1', 1], // Maßnahmezertifizierung nach AZWV/AZAV (SGB III)
-				[$ll . 'tx_t3eventscourse_domain_model_event.certificate.2', 2], // Bildungsurlaub (entsprechend der Gesetze der Bundesländer)
-				[$ll . 'tx_t3eventscourse_domain_model_event.certificate.3', 3], // Sonstiges
-				[$ll . 'tx_t3eventscourse_domain_model_event.certificate.4', 4], // AFBG (Meister-BAFöG)
-			],
+			'foreign_table' => 'tx_t3eventscourse_domain_model_certificate',
+			'foreign_table_where' => 'AND tx_t3eventscourse_domain_model_certificate.sys_language_uid IN (-1,0)',
 		],
 	],
 ];

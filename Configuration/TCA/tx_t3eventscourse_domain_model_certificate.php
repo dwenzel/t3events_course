@@ -32,7 +32,7 @@ return [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title,type, description',
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title,type,description;;;richtext:rte_transform[mode=ts_links], '],
+		'1' => ['showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title ,type, short_pas1045, short_qcat, link, description;;;richtext:rte_transform[mode=ts_links], '],
 	],
 	'palettes' => [
 		'1' => ['showitem' => ''],
@@ -104,6 +104,49 @@ return [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
+			],
+		],
+		'short_pas1045' => [
+			'exclude' => 1,
+			'label' => $ll . 'tx_t3eventscourse_domain_model_certificate.short_pas1045',
+			'config' => [
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			],
+		],
+		'short_qcat' => [
+			'exclude' => 1,
+			'label' => $ll . 'tx_t3eventscourse_domain_model_certificate.short_qcat',
+			'config' => [
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			],
+		],
+		'link' => [
+			'exclude' => 1,
+			'label' => $ll . 'tx_t3eventscourse_domain_model_certificate.link',
+			'config' => [
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim',
+				'softref' => 'typolink',
+				'wizards' => [
+					'_PADDING' => 2,
+					'link' => [
+						'type' => 'popup',
+						'title' => 'Link',
+						'icon' => 'link_popup.gif',
+						'module' => [
+							'name' => 'wizard_element_browser',
+							'urlParameters' => [
+								'mode' => 'wizard'
+							]
+						],
+						'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
+					]
+				]
 			],
 		],
 		'description' => [
