@@ -43,6 +43,21 @@ class Certificate extends AbstractEntity {
 	protected $description;
 
 	/**
+	 * @var string
+	 */
+	protected $shortPas1045;
+
+	/**
+	 * @var string
+	 */
+	protected $shortQcat;
+
+	/**
+	 * @var string
+	 */
+	protected $link;
+
+	/**
 	 * @return string
 	 */
 	public function getTitle() {
@@ -83,5 +98,49 @@ class Certificate extends AbstractEntity {
 	public function setDescription($description) {
 		$this->description = $description;
 	}
+
+	/**
+	 * @return string
+	 */
+	public function getShortPas1045() {
+		return $this->shortPas1045;
+	}
+
+	/**
+	 * @param string $shortPas1045
+	 */
+	public function setShortPas1045($shortPas1045) {
+		$this->shortPas1045 = $shortPas1045;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getShortQcat() {
+		return $this->shortQcat;
+	}
+
+	/**
+	 * @param string $shortQcat
+	 */
+	public function setShortQcat($shortQcat) {
+		$this->shortQcat = $shortQcat;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLink() {
+		return $this->link;
+	}
+
+	/**
+	 * @param string $link
+	 */
+	public function setLink($link) {
+		$this->link = $link;
+	}
+
+
 
 }

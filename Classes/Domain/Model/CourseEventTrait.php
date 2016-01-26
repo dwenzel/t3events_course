@@ -78,14 +78,12 @@ trait CourseEventTrait {
 	protected $modeInstructionForm;
 
 	/**
-	 * @var \string
+	 * Certificates held for this course.
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\CPSIT\T3eventsCourse\Domain\Model\Certificate>
+	 * @lazy
 	 */
 	protected $certificate;
-
-	/**
-	 * @var \string
-	 */
-	protected $certificateDesc;
 
 
 	/**
@@ -295,30 +293,19 @@ trait CourseEventTrait {
 	}
 
 	/**
-	 * @return string
+	 * @return mixed
 	 */
 	public function getCertificate() {
 		return $this->certificate;
 	}
 
 	/**
-	 * @param string $certificate
+	 * @param mixed $certificate
 	 */
 	public function setCertificate($certificate) {
 		$this->certificate = $certificate;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getCertificateDesc() {
-		return $this->certificateDesc;
-	}
 
-	/**
-	 * @param string $certificateDesc
-	 */
-	public function setCertificateDesc($certificateDesc) {
-		$this->certificateDesc = $certificateDesc;
-	}
+
 }
