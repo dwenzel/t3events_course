@@ -10,6 +10,10 @@ config.tx_extbase {
 				mapping {
 					tableName = tx_t3events_domain_model_event
 					recordType = Tx_T3eventsCourse_Course
+
+					columns {
+						tx_extbase_type.mapTo = extbaseType
+					}
 				}
 			}
 			Webfox\T3events\Domain\Model\Performance {
