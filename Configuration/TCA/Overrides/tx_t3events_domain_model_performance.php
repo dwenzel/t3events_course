@@ -28,10 +28,8 @@ $GLOBALS['TCA']['tx_t3events_domain_model_performance']['types']['Tx_T3eventsCou
 $temporaryColumns = [
 	'course' => [
 		'config' => [
-			'label' => $ll . 'tx_t3eventscourse_domain_model_course',
-			'type' => 'select',
+			'type' => 'passthrough',
 			'foreign_table' => 'tx_t3events_domain_model_event',
-			'readOnly' => 1,
 		]
 	],
 	'class_time' => [
