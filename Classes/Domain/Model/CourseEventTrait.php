@@ -1,7 +1,6 @@
 <?php
 namespace CPSIT\T3eventsCourse\Domain\Model;
 
-use CPSIT\T3eventsReservation\Domain\Model\Schedule;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Webfox\T3events\Domain\Model\Audience;
 
@@ -12,6 +11,11 @@ use Webfox\T3events\Domain\Model\Audience;
  * @package CPSIT\T3eventsCourse\Domain\Model
  */
 trait CourseEventTrait {
+
+	/**
+	 * @var string
+	 */
+	protected $extbaseType;
 
 	/**
 	 * abstract
@@ -47,6 +51,42 @@ trait CourseEventTrait {
 	 * @var \DateTime
 	 */
 	protected $newUntil;
+
+	/**
+	 * @var \int
+	 */
+	protected $degreeType;
+
+	/**
+	 * @var \string
+	 */
+	protected $targetGroupDesc;
+
+	/**
+	 * @var \double
+	 */
+	protected $examCosts;
+
+	/**
+	 * @var \string
+	 */
+	protected $examRemarks;
+
+	/**
+	 * @var \string
+	 */
+	protected $modeInstructionForm;
+
+	/**
+	 * @var \string
+	 */
+	protected $certificate;
+
+	/**
+	 * @var \string
+	 */
+	protected $certificateDesc;
+
 
 	/**
 	 * Initializes the object
@@ -182,5 +222,103 @@ trait CourseEventTrait {
 	 */
 	public function setNewUntil($newUntil) {
 		$this->newUntil = $newUntil;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getDegreeType() {
+		return $this->degreeType;
+	}
+
+	/**
+	 * @param int $degreeType
+	 */
+	public function setDegreeType($degreeType) {
+		$this->degreeType = $degreeType;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTargetGroupDesc() {
+		return $this->targetGroupDesc;
+	}
+
+	/**
+	 * @param string $targetGroupDesc
+	 */
+	public function setTargetGroupDesc($targetGroupDesc) {
+		$this->targetGroupDesc = $targetGroupDesc;
+	}
+
+	/**
+	 * @return float
+	 */
+	public function getExamCosts() {
+		return $this->examCosts;
+	}
+
+	/**
+	 * @param float $examCosts
+	 */
+	public function setExamCosts($examCosts) {
+		$this->examCosts = $examCosts;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getExamRemarks() {
+		return $this->examRemarks;
+	}
+
+	/**
+	 * @param string $examRemarks
+	 */
+	public function setExamRemarks($examRemarks) {
+		$this->examRemarks = $examRemarks;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getModeInstructionForm() {
+		return $this->modeInstructionForm;
+	}
+
+	/**
+	 * @param string $modeInstructionForm
+	 */
+	public function setModeInstructionForm($modeInstructionForm) {
+		$this->modeInstructionForm = $modeInstructionForm;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCertificate() {
+		return $this->certificate;
+	}
+
+	/**
+	 * @param string $certificate
+	 */
+	public function setCertificate($certificate) {
+		$this->certificate = $certificate;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getCertificateDesc() {
+		return $this->certificateDesc;
+	}
+
+	/**
+	 * @param string $certificateDesc
+	 */
+	public function setCertificateDesc($certificateDesc) {
+		$this->certificateDesc = $certificateDesc;
 	}
 }
