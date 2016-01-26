@@ -1,7 +1,6 @@
 <?php
 namespace CPSIT\T3eventsCourse\Domain\Model;
 
-use CPSIT\T3eventsReservation\Domain\Model\Schedule;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Webfox\T3events\Domain\Model\Audience;
 
