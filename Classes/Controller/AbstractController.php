@@ -10,6 +10,7 @@ namespace CPSIT\T3eventsCourse\Controller;
 	 * LICENSE.txt file that was distributed with this source code.
 	 * The TYPO3 project - inspiring people to share!
 	 */
+use CPSIT\T3eventsReservation\Domain\Model\Reservation;
 
 /**
  * @package t3events_course
@@ -256,13 +257,12 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * @return \boolean
 	 */
 	public function isAccessAllowed($object) {
-		$className = get_class($object);
 		$isAllowed = FALSE;
-		switch ($className) {
-			case 'CPSIT\T3eventsReservation\Domain\Model\Reservation':
-				$isAllowed = ($this->hasKey('reservationUid')
-					AND method_exists($object, 'getUid')
-					AND $this->getSessionKey('reservationUid') == $object->getUid()) ? TRUE : FALSE;
+		switch (TRUE) {
+			case ($object instanceof Reservation):
+				$isAllowed = $this->hasKey('reservationUid')
+					&& method_exists($object, 'getUid')
+					&& ((int)$this->getSessionKey('reservationUid') === $object->getUid());
 				break;
 			default:
 				break;
