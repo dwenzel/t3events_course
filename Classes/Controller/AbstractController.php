@@ -15,6 +15,7 @@ use CPSIT\T3eventsReservation\Domain\Model\Reservation;
 /**
  * @package t3events_course
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * @deprecated Use t3events AbstractController instead
  */
 class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 	const SESSION_NAMESPACE = 'tx_t3eventscourse';
@@ -200,75 +201,6 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		} else {
 			return $translatedString;
 		}
-	}
-
-	/**
-	 * Gets the frontend user
-	 *
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FrontendUser    The current extended frontend user object
-	 */
-	protected function getFrontendUser() {
-		if ($GLOBALS ['TSFE']->fe_user) {
-			return $GLOBALS ['TSFE']->fe_user;
-		}
-	}
-
-	/**
-	 * Returns the object stored in the user´s session
-	 *
-	 * @param \string $key
-	 * @return \Object the stored object
-	 */
-	public function getSessionKey($key) {
-		return $this->getFrontendUser()->getKey('ses', self::SESSION_NAMESPACE . $key);
-	}
-
-	/**
-	 * Writes something to storage
-	 *
-	 * @param \string $key
-	 * @param \string $value
-	 * @return    void
-	 */
-	public function setSessionKey($key, $value) {
-		$this->getFrontendUser()->setKey('ses', self::SESSION_NAMESPACE . $key, $value);
-		$this->getFrontendUser()->storeSessionData();
-	}
-
-	/**
-	 * checks if object is stored in the user´s session
-	 *
-	 * @param \string $key
-	 * @return \boolean
-	 */
-	public function hasKey($key) {
-		$sessionData = $this->getFrontendUser()->getKey('ses', self::SESSION_NAMESPACE . $key);
-		if ($sessionData == '') {
-			return FALSE;
-		}
-
-		return TRUE;
-	}
-
-	/**
-	 * Checks if access is allowed
-	 *
-	 * @param \object $object Object which should be accessed
-	 * @return \boolean
-	 */
-	public function isAccessAllowed($object) {
-		$isAllowed = FALSE;
-		switch (TRUE) {
-			case ($object instanceof Reservation):
-				$isAllowed = $this->hasKey('reservationUid')
-					&& method_exists($object, 'getUid')
-					&& ((int)$this->getSessionKey('reservationUid') === $object->getUid());
-				break;
-			default:
-				break;
-		}
-
-		return $isAllowed;
 	}
 
 }
