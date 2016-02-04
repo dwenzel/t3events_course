@@ -20,13 +20,13 @@ namespace CPSIT\T3eventsCourse\Tests\Unit\Domain\Model;
  *  GNU General Public License for more details.
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use CPSIT\IhkofEvents\Domain\Model\Schedule;
+use CPSIT\T3eventsCourse\Domain\Model\Schedule;
 use TYPO3\CMS\Core\Tests\UnitTestCase;
 
 /**
  * Class ScheduleTest
  *
- * @package CPSIT\IhkofEvents\Tests\Unit\Domain\Model
+ * @package CPSIT\T3eventsCourse\Tests\Unit\Domain\Model
  */
 class ScheduleTest extends UnitTestCase {
 

@@ -10,7 +10,6 @@ namespace CPSIT\T3eventsCourse\Controller;
 	 * LICENSE.txt file that was distributed with this source code.
 	 * The TYPO3 project - inspiring people to share!
 	 */
-use CPSIT\T3eventsReservation\Domain\Model\Reservation;
 
 /**
  * @package t3events_course
