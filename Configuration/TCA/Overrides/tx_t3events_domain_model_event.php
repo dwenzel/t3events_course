@@ -8,7 +8,7 @@ $extbaseType = 'Tx_T3eventsCourse_Course';
 //show items for type course
 $courseShowItems = '
 							headline,subtitle,teaser,event_type,genre,description,goals,requirements,
-							mode_instructionform,
+							mode_instruction_form,
 						--div--;' . $ll . 'tab.relations,
 							audience,certificate,certificate_desc,course_contacts,contact_person,keywords,
 						--div--;' . $ll . 'tab.images,
@@ -69,9 +69,9 @@ $temporaryColumns = [
 		],
 	],
 	// todo model instruction form?
-	'mode_instructionform' => [
+	'mode_instruction_form' => [
 		'exclude' => 1,
-		'label' => $ll . 'tx_t3eventscourse_domain_model_event.mode_instructionform',
+		'label' => $ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form',
 		'config' => [
 			'type' => 'select',
 			'size' => 1,
@@ -79,24 +79,24 @@ $temporaryColumns = [
 			'maxitems' => 1,
 			'items' => [
 				[$ll . '', '--div--'],
-				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instructionform.6', 6], // auf Anfrage / Sonstiges
+				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form.6', 6], // auf Anfrage / Sonstiges
 
 				[$ll . '', '--div--'],
-				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instructionform.1', 1], // Präsenzseminar
-				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instructionform.103', 103], // Vollzeit
-				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instructionform.104', 104], // Teilzeit
-				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instructionform.105', 105], // Wochenendveranstaltung
-				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instructionform.106', 106], // Blockunterricht
-				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instructionform.107', 107], // Inhouse/Firmenseminar
+				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form.1', 1], // Präsenzseminar
+				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form.103', 103], // Vollzeit
+				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form.104', 104], // Teilzeit
+				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form.105', 105], // Wochenendveranstaltung
+				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form.106', 106], // Blockunterricht
+				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form.107', 107], // Inhouse/Firmenseminar
 
 				[$ll . '', '--div--'],
-				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instructionform.2', 2], // E-Learning/Blended Learning/Selbststudium
-				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instructionform.3', 3], // Blended Learning
-				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instructionform.11', 11], // Selbststudium
-				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instructionform.15', 15], // E-Learning
+				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form.2', 2], // E-Learning/Blended Learning/Selbststudium
+				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form.3', 3], // Blended Learning
+				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form.11', 11], // Selbststudium
+				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form.15', 15], // E-Learning
 
 				[$ll . '', '--div--'],
-				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instructionform.4', 4], // Fernunterricht/Fernstudium
+				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form.4', 4], // Fernunterricht/Fernstudium
 			],
 			'noIconsBelowSelect' => 1,
 		]
