@@ -289,17 +289,9 @@
 			<source></source>
 			<target>Anmeldeschluss</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.document_based_registration" approved="yes">
-			<source></source>
-			<target>Ausschließlich schriftliche Anmeldung</target>
-		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_performance.duration" approved="yes">
 			<source></source>
 			<target>Dauer</target>
-		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.external_registration" approved="yes">
-			<source></source>
-			<target>Anmeldung auf externer Website</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_performance.external_registration_link" approved="yes">
 			<source></source>
