@@ -1,6 +1,8 @@
 <?php
 namespace CPSIT\T3eventsCourse\Controller;
 
+use CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand;
+
 class ScheduleController extends AbstractController {
 
 	/**
@@ -163,7 +165,7 @@ class ScheduleController extends AbstractController {
 	 */
 	protected function createDemandFromSettings($settings) {
 		/** @var \CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand $demand */
-		$demand = $this->objectManager->get('\\CPSIT\\T3eventsCourse\\Domain\\Model\\Dto\\ScheduleDemand');
+		$demand = $this->objectManager->get(ScheduleDemand::class);
 
 		if ($settings['period'] == 'specific') {
 			$demand->setPeriodType($settings['periodType']);
