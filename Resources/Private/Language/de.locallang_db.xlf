@@ -1,347 +1,347 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-12-15T13:42:46Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-02-18T18:24:53Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
 		<body>
-			<trans-unit id="label.tx_extbase_type" approved="yes" xml:space="preserve">
+		<trans-unit id="label.tx_extbase_type" approved="yes">
 			<source>Event type</source>
 			<target>Veranstaltungstyp</target>
 		</trans-unit>
-		<trans-unit id="label.tx_extbase_type.Tx_T3eventsCourse_Course" approved="yes" xml:space="preserve">
+		<trans-unit id="label.tx_extbase_type.Tx_T3eventsCourse_Course" approved="yes">
 			<source>Course</source>
 			<target>Weiterbildungsangebot</target>
 		</trans-unit>
-		<trans-unit id="label.tx_extbase_type.Tx_T3eventsCourse_Lesson" approved="yes" xml:space="preserve">
+		<trans-unit id="label.tx_extbase_type.Tx_T3eventsCourse_Lesson" approved="yes">
 			<source></source>
 			<target>Kurstermin</target>
 		</trans-unit>
-		<trans-unit id="label.tx_extbase_type.default" approved="yes" xml:space="preserve">
+		<trans-unit id="label.tx_extbase_type.default" approved="yes">
 			<source></source>
 			<target>Standard</target>
 		</trans-unit>
-		<trans-unit id="tab.exam_degree" approved="yes" xml:space="preserve">
-			<source></source>
-			<target>Prüfung und Abschluss</target>
+		<trans-unit id="tab.exam_degree" approved="yes">
+			<source>Exam, Degree</source>
+			<target>Prüfung, Abschluss</target>
 		</trans-unit>
-		<trans-unit id="tab.extended" approved="yes" xml:space="preserve">
+		<trans-unit id="tab.extended" approved="yes">
 			<source>Details</source>
 			<target>Details</target>
 		</trans-unit>
-		<trans-unit id="tab.images" approved="yes" xml:space="preserve">
-			<source></source>
+		<trans-unit id="tab.images" approved="yes">
+			<source>Images</source>
 			<target>Bilder</target>
 		</trans-unit>
-		<trans-unit id="tab.participants" approved="yes" xml:space="preserve">
+		<trans-unit id="tab.participants" approved="yes">
 			<source>Participants</source>
 			<target>Teilnehmer</target>
 		</trans-unit>
-		<trans-unit id="tab.performances" approved="yes" xml:space="preserve">
+		<trans-unit id="tab.performances" approved="yes">
 			<source>Schedule, Registration and Price</source>
 			<target>Termin-, Anmelde- und Preisangaben</target>
 		</trans-unit>
-		<trans-unit id="tab.price" approved="yes" xml:space="preserve">
+		<trans-unit id="tab.price" approved="yes">
 			<source></source>
 			<target>Preisangaben</target>
 		</trans-unit>
-		<trans-unit id="tab.registration" approved="yes" xml:space="preserve">
+		<trans-unit id="tab.registration" approved="yes">
 			<source></source>
 			<target>Anmeldung und Verfügbarkeit</target>
 		</trans-unit>
-		<trans-unit id="tab.relations" approved="yes" xml:space="preserve">
-			<source></source>
-			<target>Zielgruppen/Kontakte</target>
+		<trans-unit id="tab.relations" approved="yes">
+			<source>Relations</source>
+			<target>Beziehungen</target>
 		</trans-unit>
-		<trans-unit id="tab.visibility" approved="yes" xml:space="preserve">
-			<source></source>
-			<target>Sichtbarkeit und Export</target>
+		<trans-unit id="tab.visibility" approved="yes">
+			<source>Visibility</source>
+			<target>Sichtbarkeit</target>
 		</trans-unit>
-		<trans-unit id="tx_t3events_domain_model_event.tx_extbase_type.default" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3events_domain_model_event.tx_extbase_type.default" approved="yes">
 			<source></source>
 			<target>Allgemeine Veranstaltung</target>
 		</trans-unit>
-		<trans-unit id="tx_t3events_domain_model_genre" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3events_domain_model_genre" approved="yes">
 			<source>Product</source>
 			<target>Produkt</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_certificate" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_certificate" approved="yes">
 			<source>Certificate</source>
 			<target>Zertifikat</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_certificate.description" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_certificate.description" approved="yes">
 			<source>Description</source>
 			<target>Beschreibung</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_certificate.title" approved="yes" xml:space="preserve">
-			<source>Title</source>
-			<target>Titel</target>
-		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_certificate.short_pas1045" xml:space="preserve">
-			<source>Short label PAS 1045</source>
-			<target>Abkürzung für PAS 1045</target>
-		</trans-unit>
-			<trans-unit id="tx_t3eventscourse_domain_model_certificate.short_qcat" xml:space="preserve">
-			<source>Short label Qcat</source>
-			<target>Abkürzung für openQcat</target>
-		</trans-unit>
-			<trans-unit id="tx_t3eventscourse_domain_model_certificate.link" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_certificate.link" approved="yes">
 			<source>Link</source>
 			<target>Link</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_certificate.type" approved="yes" xml:space="preserve">
-			<source>Type</source>
-			<target>Art</target>
+		<trans-unit id="tx_t3eventscourse_domain_model_certificate.short_pas1045" approved="yes">
+			<source>Short label PAS 1045</source>
+			<target>Abkürzung für PAS 1045</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_certificatetype" approved="yes" xml:space="preserve">
-			<source>Certificate Type</source>
-			<target>Zertifikatstyp</target>
+		<trans-unit id="tx_t3eventscourse_domain_model_certificate.short_qcat" approved="yes">
+			<source>Short label Qcat</source>
+			<target>Abkürzung für openQcat</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_certificatetype.description" approved="yes" xml:space="preserve">
-			<source>Description</source>
-			<target>Beschreibung</target>
-		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_certificatetype.title" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_certificate.title" approved="yes">
 			<source>Title</source>
 			<target>Titel</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_certificate.type" approved="yes">
+			<source>Type</source>
+			<target>Art</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_certificatetype" approved="yes">
+			<source>Certificate Type</source>
+			<target>Zertifikatstyp</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_certificatetype.description" approved="yes">
+			<source>Description</source>
+			<target>Beschreibung</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_certificatetype.title" approved="yes">
+			<source>Title</source>
+			<target>Titel</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event" approved="yes">
 			<source>Course</source>
 			<target>Schulung</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.archive_date" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.archive_date" approved="yes">
 			<source></source>
 			<target>Archivdatum</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.audience" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.audience" approved="yes">
 			<source>Audience</source>
 			<target>Zielgruppe</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate" approved="yes">
 			<source></source>
 			<target>Fördermöglichkeiten</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate.1" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate.1" approved="yes">
 			<source></source>
 			<target>Maßnahmezertifizierung nach AZWV/AZAV (SGB III)</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate.2" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate.2" approved="yes">
 			<source></source>
 			<target>Bildungsurlaub (entsprechend der Gesetze der Bundesländer)</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate.3" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate.3" approved="yes">
 			<source></source>
 			<target>Sonstiges</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate.4" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate.4" approved="yes">
 			<source></source>
 			<target>AFBG (&quot;Meister-BAFöG&quot;)</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate_desc" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate_desc" approved="yes">
 			<source></source>
 			<target>Sonstige Fördermöglichkeiten</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type" approved="yes">
 			<source></source>
 			<target>Abschluss</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.0" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.0" approved="yes">
 			<source></source>
 			<target>Kein Abschluss</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.1" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.1" approved="yes">
 			<source></source>
 			<target>Teilnahmebescheinigung</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.2" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.2" approved="yes">
 			<source></source>
 			<target>Unterrichtungsnachweis</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.3" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.3" approved="yes">
 			<source></source>
 			<target>Zertifikat</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.4" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.4" approved="yes">
 			<source></source>
 			<target>Zeugnis</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.eventcategories" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.eventcategories" approved="yes">
 			<source></source>
 			<target>Kategorien</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.exam_costs" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.exam_costs" approved="yes">
 			<source></source>
 			<target>Prüfungsgebühren</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.exam_remarks" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.exam_remarks" approved="yes">
 			<source></source>
 			<target>Beschreibung und Terminangaben zur Prüfung</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.export_bison" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.export_bison" approved="yes">
 			<source></source>
 			<target>Export nach BISON</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.export_ea" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.export_ea" approved="yes">
 			<source></source>
 			<target>Export nach Exportakademie Rhein-Main</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.export_openqcat" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.export_openqcat" approved="yes">
 			<source></source>
 			<target>Export nach KURSNET</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.export_print" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.export_print" approved="yes">
 			<source></source>
 			<target>Export zur Druckerei für Weiterbildungskatalog</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.export_rce" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.export_rce" approved="yes">
 			<source></source>
 			<target>Export nach RCE</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.export_wis" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.export_wis" approved="yes">
 			<source></source>
 			<target>Export nach WIS</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form" approved="yes">
 			<source></source>
 			<target>Angebots-/Unterrichtsform</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.1" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.1" approved="yes">
 			<source></source>
 			<target>Präsenzseminar</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.103" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.103" approved="yes">
 			<source></source>
 			<target>- Vollzeit</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.104" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.104" approved="yes">
 			<source></source>
 			<target>- Teilzeit</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.105" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.105" approved="yes">
 			<source></source>
 			<target>- Wochenendveranstaltung</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.106" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.106" approved="yes">
 			<source></source>
 			<target>- Blockunterricht</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.107" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.107" approved="yes">
 			<source></source>
 			<target>- Inhouse/Firmenseminar</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.11" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.11" approved="yes">
 			<source></source>
 			<target>- Selbststudium</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.15" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.15" approved="yes">
 			<source></source>
 			<target>- E-Learning</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.2" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.2" approved="yes">
 			<source></source>
 			<target>E-Learning/Blended Learning/Selbststudium</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.3" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.3" approved="yes">
 			<source></source>
 			<target>- Blended Learning</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.4" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.4" approved="yes">
 			<source></source>
 			<target>Fernunterricht/Fernstudium</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.6" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.6" approved="yes">
 			<source></source>
 			<target>auf Anfrage / Sonstiges</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.new_until" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.new_until" approved="yes">
 			<source></source>
 			<target>Neu im Angebot bis</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.performances" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.performances" approved="yes">
 			<source>Schedules</source>
 			<target>Termine</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.requirements" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.requirements" approved="yes">
 			<source></source>
 			<target>Voraussetzungen für die Teilnahme</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_event.targetgroup_desc" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_event.targetgroup_desc" approved="yes">
 			<source></source>
 			<target>Zielgruppe näher definiert</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance" approved="yes">
 			<source></source>
 			<target>Termin</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.class_time" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.class_time" approved="yes">
 			<source></source>
 			<target>Unterrichtszeiten</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.date_end" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.date_end" approved="yes">
 			<source></source>
 			<target>Enddatum</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.date_remarks" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.date_remarks" approved="yes">
 			<source></source>
 			<target>Ergänzende Termininformationen</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.deadline" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.deadline" approved="yes">
 			<source></source>
 			<target>Anmeldeschluss</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.document_based_registration" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.document_based_registration" approved="yes">
 			<source></source>
 			<target>Ausschließlich schriftliche Anmeldung</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.duration" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.duration" approved="yes">
 			<source></source>
 			<target>Dauer</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.external_registration" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.external_registration" approved="yes">
 			<source></source>
 			<target>Anmeldung auf externer Website</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.external_registration_link" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.external_registration_link" approved="yes">
 			<source></source>
 			<target>Link zu externer Registrierung</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.free_of_charge" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.free_of_charge" approved="yes">
 			<source></source>
 			<target>Kostenlos</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.places" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.places" approved="yes">
 			<source></source>
 			<target>Plätze</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.price" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.price" approved="yes">
 			<source></source>
 			<target>Preis</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.registration_begin" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.registration_begin" approved="yes">
 			<source></source>
 			<target>Anmeldebeginn</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.registration_documents" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.registration_documents" approved="yes">
 			<source></source>
 			<target>Dateianhänge für schriftliche Anmeldung</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_performance.registration_remarks" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.registration_remarks" approved="yes">
 			<source></source>
 			<target>Hinweise zur Anmeldung</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_person.gender" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_person.gender" approved="yes">
 			<source></source>
 			<target>Anrede</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_person.type.contact" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_person.type.contact" approved="yes">
 			<source></source>
 			<target>Ansprechpartner</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_person.type.empty" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_person.type.empty" approved="yes">
 			<source></source>
 			<target>-leer-</target>
 		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_person.type.participant" approved="yes" xml:space="preserve">
+		<trans-unit id="tx_t3eventscourse_domain_model_person.type.participant" approved="yes">
 			<source></source>
 			<target>Teilnehmer</target>
 		</trans-unit>
