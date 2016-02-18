@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-02-18T18:24:53Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-02-18T21:51:45Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -56,6 +56,10 @@
 		<trans-unit id="tab.visibility" approved="yes">
 			<source>Visibility</source>
 			<target>Sichtbarkeit</target>
+		</trans-unit>
+		<trans-unit id="tx_t3events_domain_model_event.tx_extbase_type" approved="yes">
+			<source>Record Type</source>
+			<target>Datensatztyp</target>
 		</trans-unit>
 		<trans-unit id="tx_t3events_domain_model_event.tx_extbase_type.default" approved="yes">
 			<source></source>
@@ -118,8 +122,8 @@
 			<target>Zielgruppe</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate" approved="yes">
-			<source></source>
-			<target>Fördermöglichkeiten</target>
+			<source>Certificate</source>
+			<target>Zertifikat</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate.1" approved="yes">
 			<source></source>
@@ -142,7 +146,7 @@
 			<target>Sonstige Fördermöglichkeiten</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type" approved="yes">
-			<source></source>
+			<source>Degree type</source>
 			<target>Abschluss</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.0" approved="yes">
@@ -170,12 +174,12 @@
 			<target>Kategorien</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.exam_costs" approved="yes">
-			<source></source>
-			<target>Prüfungsgebühren</target>
+			<source>Exam costs</source>
+			<target>Prüfungsgebühr</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.exam_remarks" approved="yes">
-			<source></source>
-			<target>Beschreibung und Terminangaben zur Prüfung</target>
+			<source>Exam remarks</source>
+			<target>Anmerkungen zur Prüfung</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.export_bison" approved="yes">
 			<source></source>
@@ -202,55 +206,55 @@
 			<target>Export nach WIS</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form" approved="yes">
-			<source></source>
-			<target>Angebots-/Unterrichtsform</target>
+			<source>Instruction form</source>
+			<target>Unterrichtsform</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.1" approved="yes">
-			<source></source>
+			<source>Classroom seminar</source>
 			<target>Präsenzseminar</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.103" approved="yes">
-			<source></source>
-			<target>- Vollzeit</target>
+			<source>Fulltime</source>
+			<target>Vollzeit</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.104" approved="yes">
-			<source></source>
-			<target>- Teilzeit</target>
+			<source>Part time</source>
+			<target>Teilzeit</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.105" approved="yes">
-			<source></source>
-			<target>- Wochenendveranstaltung</target>
+			<source>Weekend course</source>
+			<target>Wochendveranstaltung</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.106" approved="yes">
-			<source></source>
-			<target>- Blockunterricht</target>
+			<source>Block course</source>
+			<target>Blockunterricht</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.107" approved="yes">
-			<source></source>
-			<target>- Inhouse/Firmenseminar</target>
+			<source>Inhouse</source>
+			<target>Inhouse / Firmenseminar</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.11" approved="yes">
-			<source></source>
-			<target>- Selbststudium</target>
+			<source>Self-Study</source>
+			<target>Selbststudium</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.15" approved="yes">
-			<source></source>
-			<target>- E-Learning</target>
+			<source>E-Learning</source>
+			<target>E-Learning</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.2" approved="yes">
-			<source></source>
-			<target>E-Learning/Blended Learning/Selbststudium</target>
+			<source>E-Learning / Blended Learning / Self-Study</source>
+			<target>E-Learning / Blended Learning / Selbststudium</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.3" approved="yes">
-			<source></source>
-			<target>- Blended Learning</target>
+			<source>Blended Learning</source>
+			<target>Blended Learning</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.4" approved="yes">
-			<source></source>
-			<target>Fernunterricht/Fernstudium</target>
+			<source>Distance Learning</source>
+			<target>Fernstudium / Fernunterricht</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.6" approved="yes">
-			<source></source>
+			<source>On demand / Other</source>
 			<target>auf Anfrage / Sonstiges</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.new_until" approved="yes">
@@ -262,8 +266,8 @@
 			<target>Termine</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.requirements" approved="yes">
-			<source></source>
-			<target>Voraussetzungen für die Teilnahme</target>
+			<source>Requirements</source>
+			<target>Anforderungen</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.targetgroup_desc" approved="yes">
 			<source></source>
@@ -274,8 +278,8 @@
 			<target>Termin</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_performance.class_time" approved="yes">
-			<source></source>
-			<target>Unterrichtszeiten</target>
+			<source>Class Time</source>
+			<target>Unterrichtszeit</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_performance.date_end" approved="yes">
 			<source></source>

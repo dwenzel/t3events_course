@@ -7,7 +7,7 @@ $extbaseType = 'Tx_T3eventsCourse_Course';
 
 //show items for type course
 $courseShowItems = '
-							headline,subtitle,teaser,event_type,genre,description,goals,requirements,
+							event_type,headline,subtitle,teaser,genre,description,goals,requirements,
 							mode_instruction_form,
 						--div--;' . $ll . 'tab.relations,
 							audience,certificate,certificate_desc,course_contacts,contact_person,keywords,
@@ -16,7 +16,7 @@ $courseShowItems = '
 						--div--;' . $ll . 'tab.performances,
 							performances;' . $ll. 'tx_t3eventscourse_domain_model_event.performances,
 						--div--;' . $ll . 'tab.exam_degree,
-							exam_costs,exam_remarks,degree_type,
+							exam_costs,exam_remarks,degree_type,certificate,
 						--div--;' . $ll . 'tab.visibility,
 							tx_extbase_type,hidden,starttime,endtime,new_until,archive_date,fe_group';
 $GLOBALS['TCA']['tx_t3events_domain_model_event']['types'][$extbaseType]['showitem'] = $courseShowItems;

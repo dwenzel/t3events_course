@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-02-18T18:24:53Z">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-02-18T21:51:45Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -46,6 +46,9 @@
 		</trans-unit>
 		<trans-unit id="tx_extbase_type.default">
 			<source>Default</source>
+		</trans-unit>
+		<trans-unit id="tx_t3events_domain_model_event.tx_extbase_type">
+			<source>Record Type</source>
 		</trans-unit>
 		<trans-unit id="tx_t3events_domain_model_genre">
 			<source>Product</source>
@@ -101,11 +104,68 @@
 		<trans-unit id="tx_t3eventscourse_domain_model_event.audience">
 			<source>Audience</source>
 		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.certificate">
+			<source>Certificate</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type">
+			<source>Degree type</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.exam_costs">
+			<source>Exam costs</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.exam_remarks">
+			<source>Exam remarks</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form">
+			<source>Instruction form</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.1">
+			<source>Classroom seminar</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.103">
+			<source>Fulltime</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.104">
+			<source>Part time</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.105">
+			<source>Weekend course</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.106">
+			<source>Block course</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.107">
+			<source>Inhouse</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.11">
+			<source>Self-Study</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.15">
+			<source>E-Learning</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.2">
+			<source>E-Learning / Blended Learning / Self-Study</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.3">
+			<source>Blended Learning</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.4">
+			<source>Distance Learning</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.mode_instruction_form.6">
+			<source>On demand / Other</source>
+		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.performances">
 			<source>Schedules</source>
 		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.requirements">
+			<source>Requirements</source>
+		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.schedules">
 			<source>Lessons</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.class_time">
+			<source>Class Time</source>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_person.tx_extbase_type.Tx_T3eventsCourse_Person">
 			<source>Reservations Person</source>
