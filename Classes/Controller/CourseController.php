@@ -1,6 +1,9 @@
 <?php
 namespace CPSIT\T3eventsCourse\Controller;
 
+use Webfox\T3events\Controller\AbstractBackendController;
+use Webfox\T3events\Controller\AbstractController;
+
 /***************************************************************
  *  Copyright notice
  *  (c) 2014 Dirk Wenzel <wenzel@cps-it.de>, CPS IT
@@ -19,7 +22,7 @@ namespace CPSIT\T3eventsCourse\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-class CourseController extends \TYPO3\CMS\Extbase\MVC\Controller\ActionController {
+class CourseController extends AbstractController {
 
 	/**
 	 * courseRepository
