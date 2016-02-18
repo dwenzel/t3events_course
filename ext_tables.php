@@ -77,12 +77,6 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Courses');
 
 
-// rename the table (this affects all types...)
-$TCA['tx_t3events_domain_model_event']['ctrl']['title'] = $ll . 'tx_t3eventscourse_domain_model_course';
-$TCA['tx_t3events_domain_model_genre']['ctrl']['title'] = $ll . 'tx_t3eventscourse_domain_model_genre';
-
-
-
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_t3eventscourse_domain_model_certificate');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_t3eventscourse_domain_model_certificatetype');
 
