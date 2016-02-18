@@ -11,7 +11,7 @@
 		</trans-unit>
 		<trans-unit id="mlang_tabs_tab" approved="yes" xml:space="preserve">
 			<source>Courses</source>
-			<target>Schulungen</target>
+			<target>Veranstaltungen</target>
 		</trans-unit>
 		</body>
 	</file>
