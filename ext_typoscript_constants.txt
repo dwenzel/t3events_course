@@ -9,9 +9,9 @@ module.tx_t3eventscourse {
 	}
 
 	settings {
-		bookings {
-			notify {
-				#fromEmail =
+		courseBackend {
+			list {
+				maxItems = 99999
 			}
 		}
 	}

@@ -29,7 +29,19 @@ class CourseBackendController extends AbstractBackendController {
 	 * @return void
 	 */
 	public function listAction($overwriteDemand = NULL) {
-		$demand = $this->createDemandFromSettings($overwriteDemand);
+		$demand = $this->createDemandFromSettings(
+			$this->settings[$this->settingsUtility->getControllerKey($this)]
+		);
+
+		if ($overwriteDemand === NULL) {
+			$overwriteDemand = $this->moduleData->getOverwriteDemand();
+		} else {
+			$this->moduleData->setOverwriteDemand($overwriteDemand);
+		}
+
+		$this->overwriteDemandObject($demand, $overwriteDemand);
+		$this->moduleData->setDemand($demand);
+
 		$courses = $this->courseRepository->findDemanded($demand);
 
 		if (($courses instanceof QueryResultInterface AND !$courses->count())
@@ -64,6 +76,11 @@ class CourseBackendController extends AbstractBackendController {
 	protected function createDemandFromSettings($settings) {
 		$demand = $this->objectManager->get(CourseDemand::class);
 		$demand->setSortBy('headline');
+
+		if (isset($settings['list']['maxItems'])) {
+			$demand->setLimit($settings['list']['maxItems']);
+		}
+
 		return $demand;
 	}
 }
