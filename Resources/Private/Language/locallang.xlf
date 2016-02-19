@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-02-19T14:57:05Z">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-02-19T19:36:59Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -49,6 +49,9 @@
 		</trans-unit>
 		<trans-unit id="button.save" xml:space="preserve">
 			<source>Save</source>
+		</trans-unit>
+		<trans-unit id="button.search" xml:space="preserve">
+			<source>search</source>
 		</trans-unit>
 		<trans-unit id="button.send" xml:space="preserve">
 			<source>Send</source>
