@@ -39,7 +39,7 @@ if (TYPO3_MODE === 'BE') {
 		'm4',    // Submodule key
 		'',        // Position
 		array(
-			'Backend\CourseBackend' => 'list, show',
+			'Backend\CourseBackend' => 'list, show,reset',
 		),
 		array(
 			'access' => 'user,group',
@@ -54,7 +54,7 @@ if (TYPO3_MODE === 'BE') {
 		'm2',    // Submodule key
 		'',        // Position
 		array(
-			'Backend\ScheduleBackend' => 'list, show, edit, delete',
+			'Backend\ScheduleBackend' => 'list, show, edit, delete,reset',
 		),
 		array(
 			'access' => 'user,group',

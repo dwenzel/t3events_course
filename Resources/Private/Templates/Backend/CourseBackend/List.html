@@ -9,6 +9,8 @@
 	<h1>
 		<f:translate key="tx_dakosy_reservations_domain_model_course"></f:translate>
 	</h1>
+	<f:render partial="Backend/Common/SearchForm"
+		arguments="{demand: '{demand}', overwriteDemand: '{overwriteDemand}', filterOptions: filterOptions, showSubjectField: '{settings.courseBackend.search.showSubjectField}'}"/>
 	<f:flashMessages renderMode="div" />
 	<f:if condition="{courses}">
 		<f:then>

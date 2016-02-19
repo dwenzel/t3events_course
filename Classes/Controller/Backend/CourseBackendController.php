@@ -61,7 +61,10 @@ class CourseBackendController extends AbstractBackendController {
 			[
 				'courses' => $courses,
 				'demand' => $demand,
+				'overwriteDemand' => $overwriteDemand,
 				'settings' => $this->settings,
+				'filterOptions' => $this->getFilterOptions(
+					$this->settings[$this->settingsUtility->getControllerKey($this)]['list']['filter']),
 				'storagePid' => $configuration['persistence']['storagePid'],
 			]
 		);
