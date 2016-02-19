@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-02-23T18:11:03Z">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-02-19T14:57:05Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
 		<body>
-			<trans-unit id="button.applyFilter" xml:space="preserve">
+		<trans-unit id="button.applyFilter" xml:space="preserve">
 			<source>apply filter</source>
 		</trans-unit>
 		<trans-unit id="button.back" xml:space="preserve">
@@ -155,6 +155,9 @@
 		<trans-unit id="label.availablePlaces" xml:space="preserve">
 			<source>available places</source>
 		</trans-unit>
+		<trans-unit id="label.search.field.subject" xml:space="preserve">
+			<source>Subject</source>
+		</trans-unit>
 		<trans-unit id="message.bookings.cancel.sendNotification.error" xml:space="preserve">
 			<source>A cancelation message could not be sent to the contact person.</source>
 		</trans-unit>
@@ -278,6 +281,9 @@
 		<trans-unit id="tx_t3events_domain_model_audience.title" xml:space="preserve">
 			<source>Title</source>
 		</trans-unit>
+		<trans-unit id="tx_t3events_domain_model_genre" xml:space="preserve">
+			<source>Product</source>
+		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_company" xml:space="preserve">
 			<source>Company</source>
 		</trans-unit>
@@ -341,6 +347,12 @@
 		<trans-unit id="tx_t3eventscourse_domain_model_event.lessons" xml:space="preserve">
 			<source>Lessons</source>
 		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_notification.bodytext" xml:space="preserve">
+			<source>Message</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_notification.subject" xml:space="preserve">
+			<source>Subject</source>
+		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_performance" xml:space="preserve">
 			<source>Schedule</source>
 		</trans-unit>
@@ -367,12 +379,6 @@
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_performance.price" xml:space="preserve">
 			<source>Price</source>
-		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_notification.bodytext" xml:space="preserve">
-			<source>Message</source>
-		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_notification.subject" xml:space="preserve">
-			<source>Subject</source>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_person" xml:space="preserve">
 			<source>Person</source>
@@ -430,9 +436,6 @@
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status.4" xml:space="preserve">
 			<source>canceled (with costs)</source>
-		</trans-unit>
-		<trans-unit id="tx_t3events_domain_model_genre" xml:space="preserve">
-			<source>Product</source>
 		</trans-unit>
 		</body>
 	</file>

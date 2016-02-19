@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-02-23T18:11:03Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-02-19T14:57:05Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
 		<body>
-			<trans-unit id="button.applyFilter" approved="yes" xml:space="preserve">
+		<trans-unit id="button.applyFilter" approved="yes" xml:space="preserve">
 			<source>apply filter</source>
 			<target>Filter anwenden</target>
 		</trans-unit>
@@ -205,6 +205,10 @@
 			<source>available places</source>
 			<target>verfügbare Plätze</target>
 		</trans-unit>
+		<trans-unit id="label.search.field.subject" approved="yes" xml:space="preserve">
+			<source>Subject</source>
+			<target>Suchbegriff</target>
+		</trans-unit>
 		<trans-unit id="message.bookings.cancel.sendNotification.error" approved="yes" xml:space="preserve">
 			<source>A cancelation message could not be sent to the contact person.</source>
 			<target>Eine Nachricht über die Stornierung konnte nicht an den Ansprechpartner versendet werden.</target>
@@ -357,6 +361,10 @@
 			<source>Participant</source>
 			<target>Teilnehmer</target>
 		</trans-unit>
+		<trans-unit id="tx_t3events_domain_model_genre" approved="yes" xml:space="preserve">
+			<source>Product</source>
+			<target>Produkt</target>
+		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_company" approved="yes" xml:space="preserve">
 			<source>Company</source>
 			<target>Firma</target>
@@ -425,6 +433,14 @@
 			<source>Zip</source>
 			<target>PLZ</target>
 		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_notification.bodytext" approved="yes" xml:space="preserve">
+			<source>Message</source>
+			<target>Nachricht</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_notification.subject" approved="yes" xml:space="preserve">
+			<source>Subject</source>
+			<target>Betreff</target>
+		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_performance.abstract" approved="yes" xml:space="preserve">
 			<source>Short description</source>
 			<target>Kurzbeschreibung</target>
@@ -452,14 +468,6 @@
 		<trans-unit id="tx_t3eventscourse_domain_model_performance.price" approved="yes" xml:space="preserve">
 			<source>Price</source>
 			<target>Preis</target>
-		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_notification.bodytext" approved="yes" xml:space="preserve">
-			<source>Message</source>
-			<target>Nachricht</target>
-		</trans-unit>
-		<trans-unit id="tx_t3eventscourse_domain_model_notification.subject" approved="yes" xml:space="preserve">
-			<source>Subject</source>
-			<target>Betreff</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_person" approved="yes" xml:space="preserve">
 			<source>Person</source>
@@ -536,10 +544,6 @@
 		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status.4" approved="yes" xml:space="preserve">
 			<source>canceled (with costs)</source>
 			<target>storniert (kostenpflichtig)</target>
-		</trans-unit>
-		<trans-unit id="tx_t3events_domain_model_genre" approved="yes" xml:space="preserve">
-			<source>Product</source>
-			<target>Produkt</target>
 		</trans-unit>
 		</body>
 	</file>
