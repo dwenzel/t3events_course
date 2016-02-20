@@ -10,6 +10,17 @@
 			<f:render partial="Backend/Common/SearchSubject" arguments="{overwriteDemand: overwriteDemand}" />
 		</f:if>
 
+		<f:comment>period</f:comment>
+		<f:form.select
+			id="tx_t3eventsQuickMenue"
+			name="overwriteDemand[period]"
+			options="{filterOptions.periods}"
+			optionValueField="key"
+			optionLabelField="value"
+			prependOptionLabel="{f:translate(key: 'label.allPeriod')}"
+			value="{overwriteDemand.period}"
+			/>
+
 		<f:comment>genres</f:comment>
 		<f:if condition="{filterOptions.genres}">
 			<f:form.select
@@ -33,6 +44,19 @@
 				optionLabelField="title"
 				prependOptionLabel="{f:translate(key: 'label.allVenues')}"
 				value="{overwriteDemand.venues}"
+				/>
+		</f:if>
+
+		<f:comment>audience</f:comment>
+		<f:if condition="{filterOptions.audiences}">
+			<f:form.select
+				id="tx_t3eventsQuickMenue"
+				name="overwriteDemand[audiences]"
+				options="{filterOptions.audiences}"
+				optionValueField="uid"
+				optionLabelField="title"
+				prependOptionLabel="{f:translate(key: 'label.allAudiences')}"
+				value="{overwriteDemand.audiences}"
 				/>
 		</f:if>
 

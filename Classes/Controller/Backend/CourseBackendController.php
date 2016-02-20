@@ -5,6 +5,7 @@ use CPSIT\T3eventsCourse\Domain\Model\Dto\CourseDemand;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
 use Webfox\T3events\Controller\AbstractBackendController;
 
 /**
@@ -30,7 +31,7 @@ class CourseBackendController extends AbstractBackendController {
 	 */
 	public function listAction($overwriteDemand = NULL) {
 		$demand = $this->createDemandFromSettings(
-			$this->settings[$this->settingsUtility->getControllerKey($this)]
+			$this->settings[$this->settingsUtility->getControllerKey($this)]['list']
 		);
 
 		if ($overwriteDemand === NULL) {
@@ -80,8 +81,58 @@ class CourseBackendController extends AbstractBackendController {
 		$demand = $this->objectManager->get(CourseDemand::class);
 		$demand->setSortBy('headline');
 
-		if (isset($settings['list']['maxItems'])) {
-			$demand->setLimit($settings['list']['maxItems']);
+
+		foreach ($settings as $propertyName => $propertyValue) {
+			if (empty($propertyValue)) {
+				continue;
+			}
+			switch ($propertyName) {
+				case 'eventTypes':
+					$demand->setEventType($propertyValue);
+					break;
+				case 'venues':
+					$demand->setVenue($propertyValue);
+					break;
+				case 'maxItems':
+					$demand->setLimit($propertyValue);
+					break;
+				case 'genres':
+					$demand->setGenre($propertyValue);
+					break;
+				// all following fall through (see below)
+				case 'periodType':
+				case 'periodStart':
+				case 'periodEndDate':
+				case 'periodDuration':
+				case 'search':
+					break;
+				default:
+					if (ObjectAccess::isPropertySettable($demand, $propertyName)) {
+						ObjectAccess::setProperty($demand, $propertyName, $propertyValue);
+					}
+			}
+
+			if (isset($settings['sortBy']) && isset($settings['sortDirection'])){
+				$demand->setOrder($settings['sortBy'] . '|' . $settings['sortDirection']);
+			} else {
+				$demand->setOrder('headline');
+			}
+			if ($settings['period'] == 'specific') {
+				$demand->setPeriodType($settings['periodType']);
+			}
+			if (isset($settings['periodType']) AND $settings['periodType'] != 'byDate') {
+				$demand->setPeriodStart($settings['periodStart']);
+				$demand->setPeriodDuration($settings['periodDuration']);
+			}
+			if ($settings['periodType'] == 'byDate') {
+				if ($settings['periodStartDate']) {
+					$demand->setStartDate($settings['periodStartDate']);
+				}
+				if ($settings['periodEndDate']) {
+					$demand->setEndDate($settings['periodEndDate']);
+				}
+			}
+
 		}
 
 		return $demand;
