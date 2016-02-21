@@ -81,7 +81,6 @@ class CourseBackendController extends AbstractBackendController {
 		$demand = $this->objectManager->get(CourseDemand::class);
 		$demand->setSortBy('headline');
 
-
 		foreach ($settings as $propertyName => $propertyValue) {
 			if (empty($propertyValue)) {
 				continue;
@@ -111,28 +110,27 @@ class CourseBackendController extends AbstractBackendController {
 						ObjectAccess::setProperty($demand, $propertyName, $propertyValue);
 					}
 			}
+		}
 
-			if (isset($settings['sortBy']) && isset($settings['sortDirection'])){
-				$demand->setOrder($settings['sortBy'] . '|' . $settings['sortDirection']);
-			} else {
-				$demand->setOrder('headline');
+		if (isset($settings['sortBy']) && isset($settings['sortDirection'])){
+			$demand->setOrder($settings['sortBy'] . '|' . $settings['sortDirection']);
+		} else {
+			$demand->setOrder('headline');
+		}
+		if ($settings['period'] == 'specific') {
+			$demand->setPeriodType($settings['periodType']);
+		}
+		if (isset($settings['periodType']) AND $settings['periodType'] != 'byDate') {
+			$demand->setPeriodStart($settings['periodStart']);
+			$demand->setPeriodDuration($settings['periodDuration']);
+		}
+		if ($settings['periodType'] == 'byDate') {
+			if ($settings['periodStartDate']) {
+				$demand->setStartDate($settings['periodStartDate']);
 			}
-			if ($settings['period'] == 'specific') {
-				$demand->setPeriodType($settings['periodType']);
+			if ($settings['periodEndDate']) {
+				$demand->setEndDate($settings['periodEndDate']);
 			}
-			if (isset($settings['periodType']) AND $settings['periodType'] != 'byDate') {
-				$demand->setPeriodStart($settings['periodStart']);
-				$demand->setPeriodDuration($settings['periodDuration']);
-			}
-			if ($settings['periodType'] == 'byDate') {
-				if ($settings['periodStartDate']) {
-					$demand->setStartDate($settings['periodStartDate']);
-				}
-				if ($settings['periodEndDate']) {
-					$demand->setEndDate($settings['periodEndDate']);
-				}
-			}
-
 		}
 
 		return $demand;
