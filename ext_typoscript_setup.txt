@@ -64,16 +64,6 @@ module.tx_t3eventscourse {
 			}
 		}
 
-		participant {
-			download {
-				fileName = teilnehmer
-			}
-
-			list {
-				lessonPeriod = futureOnly
-			}
-		}
-
 		bookings {
 			list {
 				period = futureOnly

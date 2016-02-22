@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-02-18T21:51:45Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-02-22T16:21:39Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -150,23 +150,23 @@
 			<target>Abschluss</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.0" approved="yes">
-			<source></source>
+			<source>No Degree</source>
 			<target>Kein Abschluss</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.1" approved="yes">
-			<source></source>
+			<source>Certificate of attendance</source>
 			<target>Teilnahmebescheinigung</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.2" approved="yes">
-			<source></source>
+			<source>Training certificate</source>
 			<target>Unterrichtungsnachweis</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.3" approved="yes">
-			<source></source>
+			<source>Certificate</source>
 			<target>Zertifikat</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.4" approved="yes">
-			<source></source>
+			<source>Report</source>
 			<target>Zeugnis</target>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.eventcategories" approved="yes">

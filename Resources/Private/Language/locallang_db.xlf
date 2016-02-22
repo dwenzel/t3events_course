@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-02-18T21:51:45Z">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-02-22T16:21:39Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -109,6 +109,21 @@
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type">
 			<source>Degree type</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.0">
+			<source>No Degree</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.1">
+			<source>Certificate of attendance</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.2">
+			<source>Training certificate</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.3">
+			<source>Certificate</source>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_event.degree_type.4">
+			<source>Report</source>
 		</trans-unit>
 		<trans-unit id="tx_t3eventscourse_domain_model_event.exam_costs">
 			<source>Exam costs</source>
