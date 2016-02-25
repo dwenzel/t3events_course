@@ -14,5 +14,10 @@ module.tx_t3eventscourse {
 				maxItems = 99999
 			}
 		}
+		scheduleBackend {
+			list {
+				maxItems = 99999
+			}
+		}
 	}
 }

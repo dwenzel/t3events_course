@@ -7,13 +7,18 @@ use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
 use Webfox\T3events\Controller\AbstractBackendController;
+use Webfox\T3events\Controller\FilterableControllerInterface;
+use Webfox\T3events\Controller\FilterableControllerTrait;
 
 /**
  * Class CourseBackendController
  *
  * @package CPSIT\T3eventsCourse\Controller\Backend
  */
-class CourseBackendController extends AbstractBackendController {
+class CourseBackendController
+	extends AbstractBackendController
+	implements FilterableControllerInterface {
+	use FilterableControllerTrait;
 
 	/**
 	 * courseRepository
