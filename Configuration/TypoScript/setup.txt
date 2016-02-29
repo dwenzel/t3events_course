@@ -1,59 +1,67 @@
-
-plugin.tx_dakosyreservations {
+plugin.tx_t3eventscourse {
 	view {
-		templateRootPath = {$plugin.tx_dakosyreservations.view.templateRootPath}
-		partialRootPath = {$plugin.tx_dakosyreservations.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_dakosyreservations.view.layoutRootPath}
+		templateRootPath = {$plugin.tx_t3eventscourse.view.templateRootPath}
+		partialRootPath = {$plugin.tx_t3eventscourse.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_t3eventscourse.view.layoutRootPath}
 	}
+
 	mvc.callDefaultActionIfActionCantBeResolved = 1
 	persistence {
-		storagePid = {$plugin.tx_dakosyreservations.persistence.storagePid}
+		storagePid = {$plugin.tx_t3eventscourse.persistence.storagePid}
 	}
+
 	settings {
-		termsAndConditionsPid = {$plugin.tx_dakosyreservations.settings.termsAndConditionsPid}
-		privacyStatementsPid = {$plugin.tx_dakosyreservations.settings.privacyStatementsPid}
+		termsAndConditionsPid = {$plugin.tx_t3eventscourse.settings.termsAndConditionsPid}
+		privacyStatementsPid = {$plugin.tx_t3eventscourse.settings.privacyStatementsPid}
 		debug {
 			course {
 				settings = 0
 				list = 0
 				show = 0
 			}
+
 			lesson {
 				settings = 0
 				list = 0
 				show = 0
 			}
-    	}
+		}
+
 		course {
 			list {
 				paginate = 1
 				showSortBy = 1
 			}
 		}
+
 		lesson {
 			show {
 				map {
-					initialZoom = {$plugin.tx_dakosyreservations.settings.lesson.show.map.initialZoom}
+					initialZoom = {$plugin.tx_t3eventscourse.settings.lesson.show.map.initialZoom}
 				}
 			}
+
 			list {
 				paginate = 1
 				showSortBy = 1
 			}
-            listPid = {$plugin.tx_dakosyreservations.settings.lesson.listPid}
-			detailPid = {$plugin.tx_dakosyreservations.settings.lesson.detailPid}
+
+			listPid = {$plugin.tx_t3eventscourse.settings.lesson.listPid}
+			detailPid = {$plugin.tx_t3eventscourse.settings.lesson.detailPid}
 		}
+
 		reservation {
-			detailPid = {$plugin.tx_dakosyreservations.settings.reservation.detailPid}
+			detailPid = {$plugin.tx_t3eventscourse.settings.reservation.detailPid}
 			confirm {
-				fromEmail = {$plugin.tx_dakosyreservations.settings.reservation.default.fromEmail}
-				subject = {$plugin.tx_dakosyreservations.settings.reservation.confirm.subject}
-				templateFileName = {$plugin.tx_dakosyreservations.settings.reservation.confirm.templateFileName}
-				folderName = {$plugin.tx_dakosyreservations.settings.reservation.confirm.folderName}
-                sendNotification = {$plugin.tx_dakosyreservations.settings.reservation.confirm.sendNotification}
+				fromEmail = {$plugin.tx_t3eventscourse.settings.reservation.default.fromEmail}
+				subject = {$plugin.tx_t3eventscourse.settings.reservation.confirm.subject}
+				templateFileName = {$plugin.tx_t3eventscourse.settings.reservation.confirm.templateFileName}
+				folderName = {$plugin.tx_t3eventscourse.settings.reservation.confirm.folderName}
+				sendNotification = {$plugin.tx_t3eventscourse.settings.reservation.confirm.sendNotification}
 			}
 		}
 	}
+
 	features {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
@@ -63,7 +71,7 @@ plugin.tx_dakosyreservations {
 # disable default CSS from t3events
 plugin.tx_t3events._CSS_DEFAULT_STYLE >
 
-plugin.tx_dakosyreservations._CSS_DEFAULT_STYLE (
+plugin.tx_t3eventscourse._CSS_DEFAULT_STYLE (
 
 	.tx-dakosy-reservations table {
 		border-collapse:separate;
@@ -90,100 +98,11 @@ plugin.tx_dakosyreservations._CSS_DEFAULT_STYLE (
 	}
 )
 
-# Module configuration
-module.tx_dakosyreservations {
-	persistence {
-		storagePid = {$module.tx_dakosyreservations.persistence.storagePid}
-	}
-	view {
-		templateRootPath = {$module.tx_dakosyreservations.view.templateRootPath}
-		partialRootPath = {$module.tx_dakosyreservations.view.partialRootPath}
-		layoutRootPath = {$module.tx_dakosyreservations.view.layoutRootPath}
-	}
-	settings {
-		lesson {
-			list {
-				period = futureOnly
-			}
-		}
-		participant {
-			download {
-				fileName = teilnehmer
-			}
-			list {
-				lessonPeriod = futureOnly
-			}
-		}
-		bookings {
-			list {
-				period = futureOnly
-				order = lesson.date|asc,lesson.uid|desc
-			}
-			cancel {
-				byDakosy{
-					confirm {
-						sendNotification = 1
-						fromEmail = {$plugin.tx_dakosyreservations.settings.reservation.default.fromEmail}
-						subject = DAKOSY - Ihr Schulungstermin wurde abgesagt
-						templateFileName = ByDakosy
-					}
-				}
-				withCosts {
-					confirm {
-						sendNotification = 1
-						fromEmail = {$plugin.tx_dakosyreservations.settings.reservation.default.fromEmail}
-						subject = DAKOSY - Reservierung kostenpflichtig storniert
-						templateFileName = WithCosts
-					}
-				}
-				noCharge {
-					confirm {
-						sendNotification = 1
-                    	fromEmail = {$plugin.tx_dakosyreservations.settings.reservation.default.fromEmail}
-                    	subject = DAKOSY - Reservierung kostenfrei storniert
-                    	templateFileName = NoCharge
-                    }
-				}
-			}
-			removeParticipant {
-				byDakosy{
-					confirm {
-						sendNotification = 1
-						fromEmail = {$plugin.tx_dakosyreservations.settings.reservation.default.fromEmail}
-						subject = DAKOSY - Reservierung für einen Teilnehmer durch DAKOSY storniert
-						templateFileName = ByDakosy
-					}
-				}
-				withCosts {
-					confirm {
-						sendNotification = 1
-						fromEmail = {$plugin.tx_dakosyreservations.settings.reservation.default.fromEmail}
-						subject = DAKOSY - Reservierung für einen Teilnehmer kostenpflichtig storniert
-						templateFileName = WithCosts
-					}
-				}
-				noCharge {
-					confirm {
-						sendNotification = 1
-						fromEmail = {$plugin.tx_dakosyreservations.settings.reservation.default.fromEmail}
-						subject = DAKOSY - Reservierung für einen Teilnehmer kostenfrei storniert
-						templateFileName = NoCharge
-					}
-				}
-			}
-
-			notify {
-				fromEmail = {$plugin.tx_dakosyreservations.settings.reservation.default.fromEmail}
-			}
-		}
-	}
-}
 
 ####################
 # include default CSS
 
 page.includeCSS.dakosyReservationsBasic = EXT:dakosy_reservations/Resources/Public/Css/dakosyReservationsBasic.css
-
 
 ####################
 # date format helper
@@ -193,6 +112,7 @@ lib.dateMe {
 	current = 1
 	strftime = %a, %d.%m.%y
 }
+
 ####################
 # time format helper
 # provides a workaround for incorrect behaviour of <f:format.date /> view helper

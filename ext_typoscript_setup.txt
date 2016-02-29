@@ -1,47 +1,143 @@
+config.tx_extbase {
+	persistence {
+		classes {
+			Webfox\T3events\Domain\Model\Event {
+				subclasses {
+					Tx_T3eventsCourse_Course = CPSIT\T3eventsCourse\Domain\Model\Course
+				}
+			}
+			CPSIT\T3eventsCourse\Domain\Model\Course {
+				mapping {
+					tableName = tx_t3events_domain_model_event
+					recordType = Tx_T3eventsCourse_Course
 
-config.tx_extbase{
-    persistence{
-        classes{
-            Webfox\T3events\Domain\Model\Event {
-                subclasses {
-                    Tx_DakosyReservations_Course = Cps\DakosyReservations\Domain\Model\Course
+					columns {
+						tx_extbase_type.mapTo = extbaseType
+					}
+				}
+			}
+			Webfox\T3events\Domain\Model\Performance {
+				subclasses {
+					Tx_T3eventsCourse_Schedule = CPSIT\T3eventsCourse\Domain\Model\Schedule
+				}
+			}
+			CPSIT\T3eventsCourse\Domain\Model\Schedule {
+				mapping {
+					tableName = tx_t3events_domain_model_performance
+					recordType = Tx_T3eventsCourse_Schedule
+				}
+			}
 
-          		}
-            }
-            Webfox\T3events\Domain\Model\Performance {
-                subclasses {
-                    Tx_DakosyReservations_Lesson = Cps\DakosyReservations\Domain\Model\Lesson
-
-          		}
-            }
-            Cps\DakosyReservations\Domain\Model\Course {
-                mapping {
-                    tableName = tx_t3events_domain_model_event
-                    recordType = Tx_DakosyReservations_Course
-                }
-            }
-
-			/*
-			Cps\DakosyReservations\Domain\Model\Contact {
-                subclasses {
-                    Tx_DakosyReservations_Person = Cps\DakosyReservations\Domain\Model\Person
-
-          		}
-            }
-            Cps\DakosyReservations\Domain\Model\Person {
-                mapping {
-                    tableName = tx_dakosyreservations_domain_model_contact
-                    recordType = Tx_DakosyReservations_Person
-                }
-            }
-            */
-            Cps\DakosyReservations\Domain\Model\Lesson {
-                mapping {
-                    tableName = tx_t3events_domain_model_performance
-                    recordType = Tx_DakosyReservations_Lesson
-                }
-            }
-
-    	}
-    }
+		}
+	}
 }
+
+# Module configuration
+
+module.tx_t3eventscourse {
+	persistence {
+		storagePid = {$module.tx_t3eventscourse.persistence.storagePid}
+	}
+
+	view {
+		templateRootPaths.0 = {$module.tx_t3eventscourse.view.templateRootPaths.0}
+		partialRootPaths.0 = {$module.tx_t3eventscourse.view.partialRootPaths.0}
+		layoutRootPaths.0 = {$module.tx_t3eventscourse.view.layoutRootPaths.0}
+	}
+
+	settings {
+		courseBackend {
+			list {
+				maxItems = {$module.tx_t3eventscourse.settings.courseBackend.list.maxItems}
+				period = futureOnly
+				filter {
+					genre =
+					audience =
+					venue =
+					eventType =
+					periods = futureOnly,pastOnly,all
+				}
+			}
+			search {
+				fields = headline,subtitle
+				showSubjectField = 1
+			}
+		}
+		scheduleBackend {
+			list {
+				maxItems = {$module.tx_t3eventscourse.settings.scheduleBackend.list.maxItems}
+				period = futureOnly
+			}
+		}
+
+		bookings {
+			list {
+				period = futureOnly
+				order = lesson.date|asc,lesson.uid|desc
+			}
+
+			cancel {
+				byDakosy {
+					confirm {
+						sendNotification = 1
+						fromEmail = {$plugin.tx_t3eventscourse.settings.reservation.default.fromEmail}
+						subject = DAKOSY - Ihr Schulungstermin wurde abgesagt
+						templateFileName = ByDakosy
+					}
+				}
+
+				withCosts {
+					confirm {
+						sendNotification = 1
+						fromEmail = {$plugin.tx_t3eventscourse.settings.reservation.default.fromEmail}
+						subject = DAKOSY - Reservierung kostenpflichtig storniert
+						templateFileName = WithCosts
+					}
+				}
+
+				noCharge {
+					confirm {
+						sendNotification = 1
+						fromEmail = {$plugin.tx_t3eventscourse.settings.reservation.default.fromEmail}
+						subject = DAKOSY - Reservierung kostenfrei storniert
+						templateFileName = NoCharge
+					}
+				}
+			}
+
+			removeParticipant {
+				byDakosy {
+					confirm {
+						sendNotification = 1
+						fromEmail = {$plugin.tx_t3eventscourse.settings.reservation.default.fromEmail}
+						subject = DAKOSY - Reservierung für einen Teilnehmer durch DAKOSY storniert
+						templateFileName = ByDakosy
+					}
+				}
+
+				withCosts {
+					confirm {
+						sendNotification = 1
+						fromEmail = {$plugin.tx_t3eventscourse.settings.reservation.default.fromEmail}
+						subject = DAKOSY - Reservierung für einen Teilnehmer kostenpflichtig storniert
+						templateFileName = WithCosts
+					}
+				}
+
+				noCharge {
+					confirm {
+						sendNotification = 1
+						fromEmail = {$plugin.tx_t3eventscourse.settings.reservation.default.fromEmail}
+						subject = DAKOSY - Reservierung für einen Teilnehmer kostenfrei storniert
+						templateFileName = NoCharge
+					}
+				}
+			}
+
+			notify {
+				fromEmail = {$plugin.tx_t3eventscourse.settings.reservation.default.fromEmail}
+			}
+		}
+	}
+}
+

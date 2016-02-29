@@ -5,7 +5,7 @@
 			<generator>LFEditor</generator>
 		</header>
 		<body>
-		<trans-unit id="mlang_labels_tabdescr" approved="yes" xml:space="preserve">
+			<trans-unit id="mlang_labels_tabdescr" approved="yes" xml:space="preserve">
 			<source>Tool for lessons</source>
 			<target>Termine verwalten</target>
 		</trans-unit>

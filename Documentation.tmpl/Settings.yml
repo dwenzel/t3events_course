@@ -18,7 +18,7 @@ conf.py:
     - null
   latex_documents:
   - - Index
-    - dakosy_reservations.tex
+    - t3events_course.tex
     - DAKOSY Reservations
     - Dirk Wenzel, Boerge Franck
     - manual

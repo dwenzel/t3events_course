@@ -1,6 +1,5 @@
-
 <f:if condition="{settings.debug.course}">
-	<f:debug title="course" >{course}</f:debug>
+	<f:debug title="course">{course}</f:debug>
 </f:if>
 <f:if condition="{settings.debug.settings}">
 	<f:debug title="settings">{settings}</f:debug>
@@ -15,42 +14,43 @@
 					height="{settings.course.single.image.height}"
 					alt="{course.headline}"
 					title="{course.headline} {course.subtitle}"
-				/>
+					/>
 			</div>
 		</f:then>
-		</div>
-	</f:if>
-	<div class="courseRight fl">
-		<div class="courseDescription">
-			<h2>{course.headline}</h2>
-			<div>
-				<h3>{course.subtitle}</h3>
-			</div>
-		</div>
-		<div class="coursePerformances">
-			<div class="legends small desktop clearfix">
-				<div class="infos city">
-					<div class="inside">
-						<f:translate key="tx_t3events_domain_model_eventlocation.place" />
-					</div>
-				</div>
-				<div class="infos location">
-					<div class="inside">
-						<f:translate key="tx_t3events_domain_model_eventlocation" />
-					</div>
-				</div>
-				<div class="infos ticketSignal">
-					<div class="inside">
-						<f:translate key="tx_t3events.tickets" />
-					</div>
-				</div>
-			</div>
-			<f:for each="{course.lessons}" as="lesson" iteration="iteration">
-				<f:render partial="Lesson/Item" arguments="{lesson: lesson, course: course, iteration: iteration}"/>
-			</f:for>
-		</div>
-		<div class="courseDescription">
-			<f:format.html>{course.description}</f:format.html>
+</div>
+</f:if>
+<div class="courseRight fl">
+	<div class="courseDescription">
+		<h2>{course.headline}</h2>
+
+		<div>
+			<h3>{course.subtitle}</h3>
 		</div>
 	</div>
+	<div class="coursePerformances">
+		<div class="legends small desktop clearfix">
+			<div class="infos city">
+				<div class="inside">
+					<f:translate key="tx_t3events_domain_model_eventlocation.place" />
+				</div>
+			</div>
+			<div class="infos location">
+				<div class="inside">
+					<f:translate key="tx_t3events_domain_model_eventlocation" />
+				</div>
+			</div>
+			<div class="infos ticketSignal">
+				<div class="inside">
+					<f:translate key="tx_t3events.tickets" />
+				</div>
+			</div>
+		</div>
+		<f:for each="{course.lessons}" as="lesson" iteration="iteration">
+			<f:render partial="Schedule/Item" arguments="{lesson: lesson, course: course, iteration: iteration}" />
+		</f:for>
+	</div>
+	<div class="courseDescription">
+		<f:format.html>{course.description}</f:format.html>
+	</div>
+</div>
 </div>

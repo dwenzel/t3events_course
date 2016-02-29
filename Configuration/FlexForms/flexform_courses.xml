@@ -28,11 +28,11 @@
 									</numIndex>
 									<numIndex index="2">
 										<numIndex index="0">LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_be.xml:flexforms_general.mode.lesson_list</numIndex>
-										<numIndex index="1">Lesson->list;Lesson->show;Lesson->filter</numIndex>
+										<numIndex index="1">Schedule->list;Schedule->show;Schedule->filter</numIndex>
 									</numIndex>
 									<numIndex index="3">
 										<numIndex index="0">LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_be.xml:flexforms_general.mode.filter_lessons</numIndex>
-										<numIndex index="1">Lesson->filter</numIndex>
+										<numIndex index="1">Schedule->filter</numIndex>
 									</numIndex>
 								</items>
 							</config>
@@ -296,7 +296,8 @@
 								</items>
 							</config>
 						</TCEforms>
-					</settings.constraintsConjunction>Conjunction>
+					</settings.constraintsConjunction>
+					Conjunction>
 					<!-- Genres -->
 					<settings.genres>
 						<TCEforms>
@@ -349,7 +350,7 @@
 							<config>
 								<type>group</type>
 								<internal_type>db</internal_type>
-								<allowed>tx_dakosyreservations_domain_model_audience</allowed>
+								<allowed>tx_t3events_domain_model_audience</allowed>
 								<size>5</size>
 								<autoSizeMax>20</autoSizeMax>
 								<minitems>0</minitems>
@@ -374,7 +375,7 @@
 							<label>LLL:EXT:dakosy_reservations/Resources/Private/Language/locallang_be.xml:flexforms_general.templateLayout</label>
 							<config>
 								<type>select</type>
-								<itemsProcFunc>Cps\DakosyReservations\Hooks\ItemsProcFunc->user_templateLayout</itemsProcFunc>
+								<itemsProcFunc>CPSIT\T3eventsCourse\Hooks\ItemsProcFunc->user_templateLayout</itemsProcFunc>
 								<items>
 									<numIndex index="0" type="array">
 										<numIndex index="0"></numIndex>

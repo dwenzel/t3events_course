@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-02-23T18:11:03Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-02-19T19:36:59Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -64,6 +64,10 @@
 		<trans-unit id="button.save" approved="yes" xml:space="preserve">
 			<source>Save</source>
 			<target>Speichern</target>
+		</trans-unit>
+		<trans-unit id="button.search" approved="yes" xml:space="preserve">
+			<source>search</source>
+			<target>suchen</target>
 		</trans-unit>
 		<trans-unit id="button.send" approved="yes" xml:space="preserve">
 			<source>Send</source>
@@ -204,6 +208,10 @@
 		<trans-unit id="label.availablePlaces" approved="yes" xml:space="preserve">
 			<source>available places</source>
 			<target>verfügbare Plätze</target>
+		</trans-unit>
+		<trans-unit id="label.search.field.subject" approved="yes" xml:space="preserve">
+			<source>Subject</source>
+			<target>Suchbegriff</target>
 		</trans-unit>
 		<trans-unit id="message.bookings.cancel.sendNotification.error" approved="yes" xml:space="preserve">
 			<source>A cancelation message could not be sent to the contact person.</source>
@@ -357,189 +365,189 @@
 			<source>Participant</source>
 			<target>Teilnehmer</target>
 		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company" approved="yes" xml:space="preserve">
-			<source>Company</source>
-			<target>Firma</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.address" approved="yes" xml:space="preserve">
-			<source>Street</source>
-			<target>Strasse / Nr.</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.city" approved="yes" xml:space="preserve">
-			<source>City</source>
-			<target>Ort</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.country" approved="yes" xml:space="preserve">
-			<source>Country</source>
-			<target>Land</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.email" approved="yes" xml:space="preserve">
-			<source>Email</source>
-			<target>E-Mail</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.name" approved="yes" xml:space="preserve">
-			<source>Company Name</source>
-			<target>Firmenname</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.phone" approved="yes" xml:space="preserve">
-			<source>Phone</source>
-			<target>Telefon</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_company.zip" approved="yes" xml:space="preserve">
-			<source>ZIP</source>
-			<target>PLZ</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact" approved="yes" xml:space="preserve">
-			<source>Contact</source>
-			<target>Ansprechpartner</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.address" approved="yes" xml:space="preserve">
-			<source>Address</source>
-			<target>Strasse / Nr.</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.city" approved="yes" xml:space="preserve">
-			<source>City</source>
-			<target>Ort</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.email" approved="yes" xml:space="preserve">
-			<source>Email</source>
-			<target>E-Mail</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.gender.female" approved="yes" xml:space="preserve">
-			<source>Ms</source>
-			<target>Frau</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.gender.male" approved="yes" xml:space="preserve">
-			<source>Mr.</source>
-			<target>Herr</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.name" approved="yes" xml:space="preserve">
-			<source>Name</source>
-			<target>Name</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.phone" approved="yes" xml:space="preserve">
-			<source>Phone</source>
-			<target>Telefon</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_contact.zip" approved="yes" xml:space="preserve">
-			<source>Zip</source>
-			<target>PLZ</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.abstract" approved="yes" xml:space="preserve">
-			<source>Short description</source>
-			<target>Kurzbeschreibung</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.audience" approved="yes" xml:space="preserve">
-			<source>Audience</source>
-			<target>Zielgruppe</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.details" approved="yes" xml:space="preserve">
-			<source>Description</source>
-			<target>Inhalte des Seminars</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.duration" approved="yes" xml:space="preserve">
-			<source>Duration</source>
-			<target>Dauer</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.eventLocation" approved="yes" xml:space="preserve">
-			<source>Event location</source>
-			<target>Veranstaltungsort</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.places" approved="yes" xml:space="preserve">
-			<source>Places</source>
-			<target>Plätze</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_lesson.price" approved="yes" xml:space="preserve">
-			<source>Price</source>
-			<target>Preis</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_notification.bodytext" approved="yes" xml:space="preserve">
-			<source>Message</source>
-			<target>Nachricht</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_notification.subject" approved="yes" xml:space="preserve">
-			<source>Subject</source>
-			<target>Betreff</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_person" approved="yes" xml:space="preserve">
-			<source>Person</source>
-			<target>Person</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_person.first_name" approved="yes" xml:space="preserve">
-			<source>First Name</source>
-			<target>Vorname</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_person.gender" approved="yes" xml:space="preserve">
-			<source>Gender</source>
-			<target>Anrede</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_person.gender.female" approved="yes" xml:space="preserve">
-			<source>Ms</source>
-			<target>Frau</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_person.gender.male" approved="yes" xml:space="preserve">
-			<source>Mr</source>
-			<target>Herr</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation" approved="yes" xml:space="preserve">
-			<source>Reservation</source>
-			<target>Reservierung</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.company" approved="yes" xml:space="preserve">
-			<source>Company</source>
-			<target>Firma</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.contact" approved="yes" xml:space="preserve">
-			<source>Contact</source>
-			<target>Ansprechpartner</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.contactIsParticipant" approved="yes" xml:space="preserve">
-			<source>Contact ist participant</source>
-			<target>Ansprechpartner nimmt teil.</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.lesson" approved="yes" xml:space="preserve">
-			<source>Lesson</source>
-			<target>Termin</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.offersAccepted" approved="yes" xml:space="preserve">
-			<source>Please send me further offers.</source>
-			<target>Bitte senden Sie mir weitere Angebote.</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.participants" approved="yes" xml:space="preserve">
-			<source>Participants</source>
-			<target>Teilnehmer</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.privacyStatementAccepted" approved="yes" xml:space="preserve">
-			<source>Privacy Statetement accepted</source>
-			<target>Datenschutzerklärung akzeptiert</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status" approved="yes" xml:space="preserve">
-			<source>Status</source>
-			<target>Status</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.0" approved="yes" xml:space="preserve">
-			<source>new</source>
-			<target>neu</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.1" approved="yes" xml:space="preserve">
-			<source>Draft</source>
-			<target>Entwurf</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.2" approved="yes" xml:space="preserve">
-			<source>submitted</source>
-			<target>eingereicht</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.3" approved="yes" xml:space="preserve">
-			<source>canceled (no charge)</source>
-			<target>storniert (kostenfrei)</target>
-		</trans-unit>
-		<trans-unit id="tx_dakosyreservations_domain_model_reservation.status.4" approved="yes" xml:space="preserve">
-			<source>canceled (with costs)</source>
-			<target>storniert (kostenpflichtig)</target>
-		</trans-unit>
 		<trans-unit id="tx_t3events_domain_model_genre" approved="yes" xml:space="preserve">
 			<source>Product</source>
 			<target>Produkt</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_company" approved="yes" xml:space="preserve">
+			<source>Company</source>
+			<target>Firma</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_company.address" approved="yes" xml:space="preserve">
+			<source>Street</source>
+			<target>Strasse / Nr.</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_company.city" approved="yes" xml:space="preserve">
+			<source>City</source>
+			<target>Ort</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_company.country" approved="yes" xml:space="preserve">
+			<source>Country</source>
+			<target>Land</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_company.email" approved="yes" xml:space="preserve">
+			<source>Email</source>
+			<target>E-Mail</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_company.name" approved="yes" xml:space="preserve">
+			<source>Company Name</source>
+			<target>Firmenname</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_company.phone" approved="yes" xml:space="preserve">
+			<source>Phone</source>
+			<target>Telefon</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_company.zip" approved="yes" xml:space="preserve">
+			<source>ZIP</source>
+			<target>PLZ</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_contact" approved="yes" xml:space="preserve">
+			<source>Contact</source>
+			<target>Ansprechpartner</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.address" approved="yes" xml:space="preserve">
+			<source>Address</source>
+			<target>Strasse / Nr.</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.city" approved="yes" xml:space="preserve">
+			<source>City</source>
+			<target>Ort</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.email" approved="yes" xml:space="preserve">
+			<source>Email</source>
+			<target>E-Mail</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.gender.female" approved="yes" xml:space="preserve">
+			<source>Ms</source>
+			<target>Frau</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.gender.male" approved="yes" xml:space="preserve">
+			<source>Mr.</source>
+			<target>Herr</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.name" approved="yes" xml:space="preserve">
+			<source>Name</source>
+			<target>Name</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.phone" approved="yes" xml:space="preserve">
+			<source>Phone</source>
+			<target>Telefon</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_contact.zip" approved="yes" xml:space="preserve">
+			<source>Zip</source>
+			<target>PLZ</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_notification.bodytext" approved="yes" xml:space="preserve">
+			<source>Message</source>
+			<target>Nachricht</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_notification.subject" approved="yes" xml:space="preserve">
+			<source>Subject</source>
+			<target>Betreff</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.abstract" approved="yes" xml:space="preserve">
+			<source>Short description</source>
+			<target>Kurzbeschreibung</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.audience" approved="yes" xml:space="preserve">
+			<source>Audience</source>
+			<target>Zielgruppe</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.details" approved="yes" xml:space="preserve">
+			<source>Description</source>
+			<target>Inhalte des Seminars</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.duration" approved="yes" xml:space="preserve">
+			<source>Duration</source>
+			<target>Dauer</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.eventLocation" approved="yes" xml:space="preserve">
+			<source>Event location</source>
+			<target>Veranstaltungsort</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.places" approved="yes" xml:space="preserve">
+			<source>Places</source>
+			<target>Plätze</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_performance.price" approved="yes" xml:space="preserve">
+			<source>Price</source>
+			<target>Preis</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_person" approved="yes" xml:space="preserve">
+			<source>Person</source>
+			<target>Person</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_person.first_name" approved="yes" xml:space="preserve">
+			<source>First Name</source>
+			<target>Vorname</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_person.gender" approved="yes" xml:space="preserve">
+			<source>Gender</source>
+			<target>Anrede</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_person.gender.female" approved="yes" xml:space="preserve">
+			<source>Ms</source>
+			<target>Frau</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_person.gender.male" approved="yes" xml:space="preserve">
+			<source>Mr</source>
+			<target>Herr</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation" approved="yes" xml:space="preserve">
+			<source>Reservation</source>
+			<target>Reservierung</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.company" approved="yes" xml:space="preserve">
+			<source>Company</source>
+			<target>Firma</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.contact" approved="yes" xml:space="preserve">
+			<source>Contact</source>
+			<target>Ansprechpartner</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.contactIsParticipant" approved="yes" xml:space="preserve">
+			<source>Contact ist participant</source>
+			<target>Ansprechpartner nimmt teil.</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.lesson" approved="yes" xml:space="preserve">
+			<source>Schedule</source>
+			<target>Termin</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.offersAccepted" approved="yes" xml:space="preserve">
+			<source>Please send me further offers.</source>
+			<target>Bitte senden Sie mir weitere Angebote.</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.participants" approved="yes" xml:space="preserve">
+			<source>Participants</source>
+			<target>Teilnehmer</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.privacyStatementAccepted" approved="yes" xml:space="preserve">
+			<source>Privacy Statetement accepted</source>
+			<target>Datenschutzerklärung akzeptiert</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status" approved="yes" xml:space="preserve">
+			<source>Status</source>
+			<target>Status</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status.0" approved="yes" xml:space="preserve">
+			<source>new</source>
+			<target>neu</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status.1" approved="yes" xml:space="preserve">
+			<source>Draft</source>
+			<target>Entwurf</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status.2" approved="yes" xml:space="preserve">
+			<source>submitted</source>
+			<target>eingereicht</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status.3" approved="yes" xml:space="preserve">
+			<source>canceled (no charge)</source>
+			<target>storniert (kostenfrei)</target>
+		</trans-unit>
+		<trans-unit id="tx_t3eventscourse_domain_model_reservation.status.4" approved="yes" xml:space="preserve">
+			<source>canceled (with costs)</source>
+			<target>storniert (kostenpflichtig)</target>
 		</trans-unit>
 		</body>
 	</file>

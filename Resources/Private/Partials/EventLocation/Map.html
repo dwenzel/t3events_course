@@ -1,4 +1,4 @@
-{namespace cps=Cps\DakosyReservations\ViewHelpers}
+{namespace cps=CPSIT\T3eventsCourse\ViewHelpers}
 
 <div id="map_canvas"></div>
 <cps:pageRenderer.addJsFooterInlineCode name="mapValues">
@@ -18,6 +18,6 @@
 	initialZoom: parseInt(']]>{settings.lesson.show.map.initialZoom}<![CDATA[')
 	};]]>
 </cps:pageRenderer.addJsFooterInlineCode>
-<cps:pageRenderer.addJsFooterFile file="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" forceOnTop="1"/>
+<cps:pageRenderer.addJsFooterFile file="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" forceOnTop="1" />
 <cps:pageRenderer.addJsFooterFile file="{f:uri.resource(path: 'Js/loadMap.js')}" />
 

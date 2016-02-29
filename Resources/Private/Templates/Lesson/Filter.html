@@ -14,14 +14,14 @@ This Template is responsible for creating a list of lessons.
 		<f:debug title="eventTypes">{eventTypes}</f:debug>
 	</f:if>
 	<div class="lesson-filter">
-		<f:flashMessages renderMode="div"/>
+		<f:flashMessages renderMode="div" />
 		<f:form
 			action="list"
 			name="overwriteDemand"
 			pageUid="{settings.listPid}"
 			noCacheHash="TRUE"
 			noCache="TRUE"
-		>
+			>
 			<div class="row clearfix">
 				<div class="column float-left width-50">
 					<f:if condition="{eventTypes->f:count()} > 1">
