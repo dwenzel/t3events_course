@@ -141,3 +141,11 @@ module.tx_t3eventscourse {
 	}
 }
 
+lib.compatVersion76 = TEXT
+lib.compatVersion76.value = false
+[compatVersion = 7.6.0]
+	lib.compatVersion76.value = true
+[global]
+
+
+
