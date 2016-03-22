@@ -1,3 +1,9 @@
+2016-03-22         [RELEASE] Release of t3events_course 0.2.0 (Dirk Wenzel)
+2016-03-22 ace3161 [TASK] t3events_course now requires at least t3events 0.19.1 (Dirk Wenzel)
+2016-03-19 c2e6d12 [TASK] templates for Course, Schedule and search form adapted for TYPO3 7. We now use the new view helper ts:be.editRecord (Dirk Wenzel)
+2016-03-14 f0f3139 [BUGFIX] unnecessary comma in ext_tables.sql removed (Dirk Wenzel)
+2016-03-11 8b41499 [TASK] CertificateType now extends AbstractEntity (Erik Rauchstein)
+
 2016-02-29         [RELEASE] Release of t3events_course 0.1.0 (Dirk Wenzel)
 2016-02-29 0ef9db8 [BUGFIX] configuration for coveralls corrected. (Dirk Wenzel)
 2016-02-29 b315712 [BUGFIX] build path corrected. (Dirk Wenzel)
