@@ -25,12 +25,13 @@ namespace CPSIT\T3eventsCourse\Domain\Model;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 /**
  * Class CertificateType
  *
  * @package CPSIT\T3eventsCourse\Domain\Model
  */
-class CertificateType {
+class CertificateType extends AbstractEntity {
 	/**
 	 * @var string
 	 */

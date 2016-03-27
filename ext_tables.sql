@@ -13,7 +13,7 @@ CREATE TABLE tx_t3events_domain_model_event (
 	degree_type int(11) DEFAULT '0' NOT NULL,
 	mode_instruction_form int(11) DEFAULT '0' NOT NULL,
 
-	certificate text NOT NULL,
+	certificate text NOT NULL
 );
 
 
