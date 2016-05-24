@@ -3,7 +3,7 @@
 	"type": "typo3-cms-extension",
 	"description": "Courses is an extension for the TYPO3 CMS. It extends t3events by functionality for managing courses.",
 	"keywords": ["TYPO3", "extension", "events", "course"],
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"license": ["GPL-2.0+"],
 	"authors": [
 		{
@@ -52,7 +52,7 @@
   },
   "extra": {
 		"branch-alias": {
-			"dev-master": "0.3.x-dev"
+			"dev-master": "0.2.x-dev"
 		},
     "typo3/cms": {
       "cms-package-dir": "{$vendor-dir}/typo3/cms",

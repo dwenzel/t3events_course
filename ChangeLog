@@ -1,3 +1,6 @@
+2016-05-24         [RELEASE] Release of t3events_course 0.2.1 (Dirk Wenzel)
+2016-05-17 ee20bc1 [BUGFIX] work around for issue in dependency resolver in TYPO3 6.2 (Dirk Wenzel)
+
 2016-03-22         [RELEASE] Release of t3events_course 0.2.0 (Dirk Wenzel)
 2016-03-22 ace3161 [TASK] t3events_course now requires at least t3events 0.19.1 (Dirk Wenzel)
 2016-03-19 c2e6d12 [TASK] templates for Course, Schedule and search form adapted for TYPO3 7. We now use the new view helper ts:be.editRecord (Dirk Wenzel)
