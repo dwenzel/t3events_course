@@ -2,15 +2,15 @@
 <f:layout name="Lessons" />
 <f:section name="content">
 	<f:comment>
-		<f:debug inline="true">{lessons}</f:debug>
+		<f:debug inline="true">{performances}</f:debug>
 	</f:comment>
 	<h1>{f:translate(key: 'header.lessons', default: 'Lessons')}</h1>
 	<f:flashMessages renderMode="div" />
-	<f:if condition="{lessons}">
+	<f:if condition="{performances}">
 		<f:then>
 			<f:be.widget.paginate
-				objects="{lessons}"
-				as="paginatedLessons"
+				objects="{performances}"
+				as="paginatedPerformances"
 				configuration="{itemsPerPage: 10, maximumNumberOfLinks: 10, recordsLabel: '{f:translate(key: \'label.lesson\', default: \'Lesson\')}'}"
 				>
 				<div class="panel panel-space panel-default recordlist">
@@ -24,7 +24,7 @@
 							<th>{f:translate(key: 'label.eventType', default: 'Event Type')}</th>
 							<th>{f:translate(key: 'label.status', default: 'Status')}</th>
 						</tr>
-						<f:for each="{paginatedLessons}" as="lesson">
+						<f:for each="{paginatedPerformances}" as="lesson">
 							<tr class="db_list_normal">
 								<td nowrap="nowrap">{lesson.uid}</td>
 								<td nowrap="nowrap">
