@@ -3,6 +3,7 @@ namespace CPSIT\T3eventsCourse\Controller\Backend;
 
 use Webfox\T3events\Controller\ModuleDataTrait;
 use Webfox\T3events\Controller\PerformanceController;
+use Webfox\T3events\Controller\SettingsUtilityTrait;
 
 /**
  * Class ScheduleBackendController
@@ -10,7 +11,7 @@ use Webfox\T3events\Controller\PerformanceController;
  * @package CPSIT\T3eventsCourse\Controller
  */
 class ScheduleBackendController extends PerformanceController {
-	use ModuleDataTrait;
+	use ModuleDataTrait, SettingsUtilityTrait;
 
 	/**
 	 * Create Demand from Settings
