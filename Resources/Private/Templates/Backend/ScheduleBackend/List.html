@@ -2,10 +2,13 @@
 <f:layout name="Lessons" />
 <f:section name="content">
 	<f:comment>
+		<f:debug inline="true">{filterOptions}</f:debug>
 		<f:debug inline="true">{performances}</f:debug>
 	</f:comment>
 	<h1>{f:translate(key: 'header.lessons', default: 'Lessons')}</h1>
 	<f:flashMessages renderMode="div" />
+	<f:render partial="Backend/Common/SearchForm"
+			  arguments="{overwriteDemand: overwriteDemand, filterOptions: filterOptions, showSubjectField: '{settings.participant.search.showSubjectField}'}" />
 	<f:if condition="{performances}">
 		<f:then>
 			<f:be.widget.paginate

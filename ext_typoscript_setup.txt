@@ -67,6 +67,13 @@ module.tx_t3eventscourse {
 			list {
 				maxItems = {$module.tx_t3eventscourse.settings.scheduleBackend.list.maxItems}
 				period = all
+                filter {
+                    genre =
+                    audience =
+                    venue =
+                    eventType =
+                    periods = futureOnly,pastOnly,all
+                }
 
                 # legacy sorting
                 sortBy = date
