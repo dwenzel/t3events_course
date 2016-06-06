@@ -6,61 +6,37 @@ if (!defined('TYPO3_MODE')) {
 $ll = 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:';
 
 if (TYPO3_MODE === 'BE') {
-	$moduleName = 'courses';
-	if (!isset($TBE_MODULES[$moduleName])) {
-		$temp_TBE_MODULES = array();
-		foreach ($TBE_MODULES as $key => $val) {
-			if ($key == 'web') {
-				$temp_TBE_MODULES[$key] = $val;
-				$temp_TBE_MODULES[$moduleName] = '';
-			} else {
-				$temp_TBE_MODULES[$key] = $val;
-			}
-		}
-		$TBE_MODULES = $temp_TBE_MODULES;
-	}
-
-	/**
-	 * add main module
-	 */
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule(
-		$moduleName,
-		'',
-		'',
-		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/BackendModule/'
-	);
-
 	/**
 	 * Register Backend Modules
 	 */
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
 		'CPSIT.' . $_EXTKEY,
-		'courses',     // Make module a submodule of 'courses'
-		'm4',    // Submodule key
-		'',        // Position
-		array(
+		'Events',
+		'm4',
+		'',
+		[
 			'Backend\CourseBackend' => 'list, show,reset',
-		),
-		array(
+		],
+		[
 			'access' => 'user,group',
 			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/module_icon_course.png',
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_m4.xlf',
-		)
+		]
 	);
 
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
 		'CPSIT.' . $_EXTKEY,
-		'courses',     // Make module a submodule of 'courses'
-		'm2',    // Submodule key
-		'',        // Position
-		array(
+		'Events',
+		'm2',
+        '',
+        [
 			'Backend\ScheduleBackend' => 'list, show, edit, delete,reset',
-		),
-		array(
+		],
+		[
 			'access' => 'user,group',
 			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/module_icon_schedule.png',
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_m2.xlf',
-		)
+		]
 	);
 
 }
