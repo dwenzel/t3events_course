@@ -30,11 +30,11 @@ class ScheduleBackendController extends PerformanceController {
 
         try {
             parent::processRequest($request, $response);
-            $this->moduleDataStorageService->persistModuleData($this->moduleData, $this->getModuleKey());
         } catch (StopActionException $e) {
-            $this->moduleDataStorageService->persistModuleData($this->moduleData, $this->getModuleKey());
             throw $e;
         }
+
+        $this->moduleDataStorageService->persistModuleData($this->moduleData, $this->getModuleKey());
     }
 
     /**
