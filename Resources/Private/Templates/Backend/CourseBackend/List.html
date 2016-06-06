@@ -83,3 +83,10 @@
 		</f:then>
 	</f:if>
 </f:section>
+
+<f:section name="headerButtons">
+	<f:be.buttons.icon uri="#"
+					   additionalAttributes="{onclick: 'window.location.href=\'alt_doc.php?returnUrl=\'+T3_THIS_LOCATION+\'&edit[tx_t3events_domain_model_event][{settings.courseBackend.storagePid}]=new&defVals[tx_t3events_domain_model_event][tx_extbase_type]=Tx_T3eventsCourse_Course\'; return false;'}"
+					   icon="actions-document-new"
+					   title="{f:translate(key: 'button.addCourse', default: 'add course')}" />
+</f:section>

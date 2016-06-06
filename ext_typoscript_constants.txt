@@ -10,11 +10,13 @@ module.tx_t3eventscourse {
 
 	settings {
 		courseBackend {
+			storagePid = 0
 			list {
 				maxItems = 99999
 			}
 		}
 		scheduleBackend {
+            storagePid = 0
 			list {
 				maxItems = 99999
 			}
