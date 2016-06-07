@@ -45,7 +45,7 @@ class ScheduleBackendController extends PerformanceController {
      */
     public function listAction(array $overwriteDemand = null)
     {
-        $demand = $this->createDemandFromSettings($this->settings['scheduleBackend']['list']);
+        $demand = $this->createDemandFromSettings($this->settings[$this->settingsUtility->getControllerKey($this)]['list']);
         $filterOptions = $this->getFilterOptions(
             $this->settings[$this->settingsUtility->getControllerKey($this)]['list']['filter']
         );
