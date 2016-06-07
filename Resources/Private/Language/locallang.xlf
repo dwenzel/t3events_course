@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-06-06T16:29:29Z">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-06-07T07:38:21Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -146,6 +146,12 @@
 		<trans-unit id="error.reservation.show.accessDenied" xml:space="preserve">
 			<source>You are not allowed to see this reservation.</source>
 		</trans-unit>
+		<trans-unit id="header.courses" xml:space="preserve">
+			<source>Courses</source>
+		</trans-unit>
+		<trans-unit id="header.schedules" xml:space="preserve">
+			<source>Schedules</source>
+		</trans-unit>
 		<trans-unit id="label.allAudiences" xml:space="preserve">
 			<source>all audiences</source>
 		</trans-unit>
@@ -160,6 +166,9 @@
 		</trans-unit>
 		<trans-unit id="label.availablePlaces" xml:space="preserve">
 			<source>available places</source>
+		</trans-unit>
+		<trans-unit id="label.schedules" xml:space="preserve">
+			<source>Schedules</source>
 		</trans-unit>
 		<trans-unit id="label.search.field.subject" xml:space="preserve">
 			<source>Subject</source>

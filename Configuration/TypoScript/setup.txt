@@ -73,16 +73,16 @@ plugin.tx_t3events._CSS_DEFAULT_STYLE >
 
 plugin.tx_t3eventscourse._CSS_DEFAULT_STYLE (
 
-	.tx-dakosy-reservations table {
+	.tx-t3events table {
 		border-collapse:separate;
 		border-spacing:10px;
 	}
 
-	.tx-dakosy-reservations table th {
+	.tx-t3events table th {
 		font-weight:bold;
 	}
 
-	.tx-dakosy-reservations table td {
+	.tx-t3events table td {
 		vertical-align:top;
 	}
 

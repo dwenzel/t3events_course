@@ -41,7 +41,10 @@ module.tx_t3eventscourse {
 
 	view {
 		templateRootPaths.0 = {$module.tx_t3eventscourse.view.templateRootPaths.0}
-		partialRootPaths.0 = {$module.tx_t3eventscourse.view.partialRootPaths.0}
+		partialRootPaths {
+            0 = {$module.tx_t3eventscourse.view.partialRootPaths.0}
+            10 = {$module.tx_t3eventscourse.view.partialRootPaths.10}
+        }
 		layoutRootPaths.0 = {$module.tx_t3eventscourse.view.layoutRootPaths.0}
 	}
 
@@ -58,7 +61,12 @@ module.tx_t3eventscourse {
 					eventType =
 					periods = futureOnly,pastOnly,all
 				}
-			}
+                paginate {
+                    itemsPerPage = 25
+                    insertBelow = 0
+                    insertAbove = 1
+                }
+            }
 			search {
 				fields = headline,subtitle
 				showSubjectField = 1
@@ -76,7 +84,11 @@ module.tx_t3eventscourse {
                     eventType =
                     periods = futureOnly,pastOnly,all
                 }
-
+                paginate {
+                    itemsPerPage = 25
+                    insertBelow = 0
+                    insertAbove = 1
+                }
                 # legacy sorting
                 sortBy = date
                 sortDirection = asc

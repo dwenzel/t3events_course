@@ -1,11 +1,16 @@
 module.tx_t3eventscourse {
 	view {
-		# cat=module.tx_t3eventscourse/file; type=string; label=Path to template root (BE)
-		templateRootPaths.0 = EXT:t3events_course/Resources/Private/Templates/
-		# cat=module.tx_t3eventscourse/file; type=string; label=Path to template partials (BE)
-		partialRootPaths.0 = EXT:t3events_course/Resources/Private/Partials/
-		# cat=module.tx_t3eventscourse/file; type=string; label=Path to template layouts (BE)
-		layoutRootPaths.0 = EXT:t3events_course/Resources/Private/Layouts/Backend/
+		templateRootPaths {
+            0 = EXT:t3events_course/Resources/Private/Templates/
+        }
+        partialRootPaths {
+            0 = EXT:t3events/Resources/Private/Partials/
+            10 = EXT:t3events_course/Resources/Private/Partials/
+        }
+        layoutRootPaths {
+            0 = EXT:t3events/Resources/Private/Layouts/Backend/
+            10 = EXT:t3events_course/Resources/Private/Layouts/Backend/
+        }
 	}
 
 	settings {
