@@ -53,7 +53,6 @@ module.tx_t3eventscourse {
             storagePid = {$module.tx_t3eventscourse.settings.courseBackend.storagePid}
 			list {
 				maxItems = {$module.tx_t3eventscourse.settings.courseBackend.list.maxItems}
-				period = futureOnly
 				filter {
 					genre =
 					audience =
