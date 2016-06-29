@@ -35,9 +35,8 @@ class CourseBackendController
 	 * @return void
 	 */
 	public function listAction($overwriteDemand = NULL) {
-		$demand = $this->createDemandFromSettings(
-			$this->settings[$this->settingsUtility->getControllerKey($this)]['list']
-		);
+        $localSettings = $this->settings[$this->settingsUtility->getControllerKey($this)]['list'];
+		$demand = $this->createDemandFromSettings($localSettings);
 
 		if ($overwriteDemand === NULL) {
 			$overwriteDemand = $this->moduleData->getOverwriteDemand();
@@ -68,9 +67,8 @@ class CourseBackendController
 				'courses' => $courses,
 				'demand' => $demand,
 				'overwriteDemand' => $overwriteDemand,
-				'settings' => $this->settings,
-				'filterOptions' => $this->getFilterOptions(
-					$this->settings[$this->settingsUtility->getControllerKey($this)]['list']['filter']),
+				'settings' => $localSettings,
+				'filterOptions' => $this->getFilterOptions($localSettings['filter']),
 				'storagePid' => $configuration['persistence']['storagePid'],
 			]
 		);
