@@ -1,3 +1,15 @@
+2016-06-29         [RELEASE] Release of t3events_course 0.3.0 (Dirk Wenzel)
+2016-06-16 73f2407 [BUGFIX] period constraints removed from default TypoScript settings for backend module thus preventing a difference between displayed filter and effective query constraints. (Dirk Wenzel)
+2016-06-16 103d8d3 [BUGFIX] missing default limit added to TypoScript configuration for backend module. (Dirk Wenzel)
+2016-06-07 9838440 [TASK] use dynamic controller key for getting settings in list action (Dirk Wenzel)
+2016-06-07 8d1f023 [TASK] Backend modules now use common layouts, templates and partials and CSS from t3events (Dirk Wenzel)
+2016-06-06 8523d22 [TASK] Default backend layout now renders header buttons. 'Create'-button added to list template for for course module (Dirk Wenzel)
+2016-06-06 aa61912 [TASK] persist module data only if parent::processRequest succeed. (Dirk Wenzel)
+2016-06-06 48ddd78 [TASK] Register modules for courses and schedules as submodules of main module Event. (Dirk Wenzel)
+2016-06-02 c4fca3d [TASK] list action of backend module for schedules is now filterable. (Dirk Wenzel)
+2016-05-31 46ecdf9 [TASK] ScheduleBackendController now uses SettingsUtilityTrait. (Dirk Wenzel)
+2016-05-27 de7ef30 [TASK] ScheduleBackendController now extends PerformanceController and uses ModuleDataTrait. Default TypoScript settings and list template adapted. (Dirk Wenzel)
+
 2016-05-24         [RELEASE] Release of t3events_course 0.2.1 (Dirk Wenzel)
 2016-05-17 ee20bc1 [BUGFIX] work around for issue in dependency resolver in TYPO3 6.2 (Dirk Wenzel)
 

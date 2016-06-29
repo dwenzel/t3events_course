@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-02-19T19:36:59Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-06-07T07:38:21Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
 		<body>
+		<trans-unit id="button.addCourse" approved="yes" xml:space="preserve">
+			<source>Add Course</source>
+			<target>Kurs hinzufügen</target>
+		</trans-unit>
 		<trans-unit id="button.applyFilter" approved="yes" xml:space="preserve">
 			<source>apply filter</source>
 			<target>Filter anwenden</target>
@@ -189,6 +193,14 @@
 			<source>You are not allowed to see this reservation.</source>
 			<target>Sie dürfen diese Reservierung nicht sehen.</target>
 		</trans-unit>
+		<trans-unit id="header.courses" approved="yes" xml:space="preserve">
+			<source>Courses</source>
+			<target>Kurse</target>
+		</trans-unit>
+		<trans-unit id="header.schedules" approved="yes" xml:space="preserve">
+			<source>Schedules</source>
+			<target>Termine</target>
+		</trans-unit>
 		<trans-unit id="label.allAudiences" approved="yes" xml:space="preserve">
 			<source>all audiences</source>
 			<target>alle Zielgruppen</target>
@@ -208,6 +220,10 @@
 		<trans-unit id="label.availablePlaces" approved="yes" xml:space="preserve">
 			<source>available places</source>
 			<target>verfügbare Plätze</target>
+		</trans-unit>
+		<trans-unit id="label.schedules" approved="yes" xml:space="preserve">
+			<source>Schedules</source>
+			<target>Termine</target>
 		</trans-unit>
 		<trans-unit id="label.search.field.subject" approved="yes" xml:space="preserve">
 			<source>Subject</source>

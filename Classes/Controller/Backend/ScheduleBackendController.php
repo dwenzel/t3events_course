@@ -1,57 +1,71 @@
 <?php
 namespace CPSIT\T3eventsCourse\Controller\Backend;
 
-use CPSIT\T3eventsCourse\Controller\ScheduleController;
+use Webfox\T3events\Controller\ModuleDataTrait;
+use Webfox\T3events\Controller\PerformanceController;
+use Webfox\T3events\Controller\SettingsUtilityTrait;
+use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
+use TYPO3\CMS\Extbase\Mvc\RequestInterface;
+use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
 
 /**
  * Class ScheduleBackendController
  *
  * @package CPSIT\T3eventsCourse\Controller
  */
-class ScheduleBackendController extends ScheduleController {
+class ScheduleBackendController extends PerformanceController {
+	use ModuleDataTrait, SettingsUtilityTrait;
 
-	/**
-	 * Page uid
-	 *
-	 * @var integer
-	 */
-	protected $pageUid = 0;
+    /**
+     * Load and persist module data
+     *
+     * @param \TYPO3\CMS\Extbase\Mvc\RequestInterface $request
+     * @param \TYPO3\CMS\Extbase\Mvc\ResponseInterface $response
+     * @return void
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     */
+    public function processRequest(RequestInterface $request, ResponseInterface $response)
+    {
+        $this->moduleData = $this->moduleDataStorageService->loadModuleData($this->getModuleKey());
 
-	/**
-	 * Initialize Action
-	 * Function will be called before every other action
-	 *
-	 * @return void
-	 */
-	public function initializeAction() {
-		$this->lessonRepository->setDefaultOrderings(array('date' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING));
-		$this->pageUid = (int) \TYPO3\CMS\Core\Utility\GeneralUtility::_GET('id');
-		$this->setTsConfig();
-		parent::initializeAction();
-	}
+        try {
+            parent::processRequest($request, $response);
+        } catch (StopActionException $e) {
+            throw $e;
+        }
 
-	/**
-	 * Set the TsConfig configuration for the extension
-	 *
-	 * @return void
-	 */
-	protected function setTsConfig() {
-		$tsConfig = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($this->pageUid);
-		if (isset($tsConfig['module.']['tx_t3eventscourse.']['lesson.']) && is_array($tsConfig['module.']['tx_t3eventscourse.']['lesson.'])) {
-			$this->tsConfiguration = $tsConfig['module.']['tx_t3eventscourse.']['lesson.'];
-		}
-	}
+        $this->moduleDataStorageService->persistModuleData($this->moduleData, $this->getModuleKey());
+    }
 
+    /**
+     * action list
+     *
+     * @param array $overwriteDemand
+     * @return void
+     */
+    public function listAction(array $overwriteDemand = null)
+    {
+        $demand = $this->createDemandFromSettings($this->settings[$this->settingsUtility->getControllerKey($this)]['list']);
+        $filterOptions = $this->getFilterOptions(
+            $this->settings[$this->settingsUtility->getControllerKey($this)]['list']['filter']
+        );
 
-	/**
-	 * Create Demand from Settings
-	 *
-	 * @param \array $settings
-	 * @return \Webfox\T3events\Domain\Model\Dto\EventDemand
-	 */
-	protected function createDemandFromSettings($settings) {
-		$demand = parent::createDemandFromSettings($settings['lesson']['list']);
+        if ($overwriteDemand === null) {
+            $overwriteDemand = $this->moduleData->getOverwriteDemand();
+        } else {
+            $this->moduleData->setOverwriteDemand($overwriteDemand);
+        }
 
-		return $demand;
-	}
+        $this->overwriteDemandObject($demand, $overwriteDemand);
+
+        $templateVariables = [
+                'performances' => $this->performanceRepository->findDemanded($demand),
+                'overwriteDemand' => $overwriteDemand,
+                'demand' => $demand,
+                'filterOptions' => $filterOptions
+            ];
+
+        $this->emitSignal(__CLASS__, self::PERFORMANCE_LIST_ACTION, $templateVariables);
+        $this->view->assignMultiple($templateVariables);
+    }
 }

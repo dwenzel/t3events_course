@@ -41,15 +41,18 @@ module.tx_t3eventscourse {
 
 	view {
 		templateRootPaths.0 = {$module.tx_t3eventscourse.view.templateRootPaths.0}
-		partialRootPaths.0 = {$module.tx_t3eventscourse.view.partialRootPaths.0}
+		partialRootPaths {
+            0 = {$module.tx_t3eventscourse.view.partialRootPaths.0}
+            10 = {$module.tx_t3eventscourse.view.partialRootPaths.10}
+        }
 		layoutRootPaths.0 = {$module.tx_t3eventscourse.view.layoutRootPaths.0}
 	}
 
 	settings {
 		courseBackend {
+            storagePid = {$module.tx_t3eventscourse.settings.courseBackend.storagePid}
 			list {
 				maxItems = {$module.tx_t3eventscourse.settings.courseBackend.list.maxItems}
-				period = futureOnly
 				filter {
 					genre =
 					audience =
@@ -57,21 +60,45 @@ module.tx_t3eventscourse {
 					eventType =
 					periods = futureOnly,pastOnly,all
 				}
-			}
+                paginate {
+                    itemsPerPage = 25
+                    insertBelow = 0
+                    insertAbove = 1
+                }
+            }
 			search {
 				fields = headline,subtitle
 				showSubjectField = 1
 			}
 		}
 		scheduleBackend {
-			list {
+            storagePid = {$module.tx_t3eventscourse.settings.scheduleBackend.storagePid}
+            list {
 				maxItems = {$module.tx_t3eventscourse.settings.scheduleBackend.list.maxItems}
-				period = futureOnly
+				period = all
+                filter {
+                    genre =
+                    audience =
+                    venue =
+                    eventType =
+                    periods = futureOnly,pastOnly,all
+                }
+                paginate {
+                    itemsPerPage = 25
+                    insertBelow = 0
+                    insertAbove = 1
+                }
+                # legacy sorting
+                sortBy = date
+                sortDirection = asc
+				# todo read order
+                # order = date|asc
 			}
 		}
 
 		bookings {
 			list {
+				maxItems = {$module.tx_t3eventscourse.settings.bookings.list.maxItems}
 				period = futureOnly
 				order = lesson.date|asc,lesson.uid|desc
 			}
