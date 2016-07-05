@@ -67,9 +67,9 @@ module.tx_t3eventscourse {
                 }
             }
 			search {
-				fields = headline,subtitle
-				showSubjectField = 1
-			}
+                fields = headline,subtitle
+                showSubjectField = 1
+            }
 		}
 		scheduleBackend {
             storagePid = {$module.tx_t3eventscourse.settings.scheduleBackend.storagePid}
