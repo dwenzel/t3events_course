@@ -20,6 +20,8 @@ class CourseBackendController
 	implements FilterableControllerInterface {
 	use FilterableControllerTrait;
 
+    const COURSE_LIST_ACTION = 'listAction';
+
 	/**
 	 * courseRepository
 	 *
@@ -60,16 +62,17 @@ class CourseBackendController
 		$configuration = $this->configurationManager->getConfiguration(
 			ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
 		);
+        $templateVariables = 			[
+            'courses' => $courses,
+            'demand' => $demand,
+            'overwriteDemand' => $overwriteDemand,
+            'filterOptions' => $this->getFilterOptions($this->settings['filter']),
+            'storagePid' => $configuration['persistence']['storagePid'],
+            'settings' => $this->settings
+        ];
 
-		$this->view->assignMultiple(
-			[
-				'courses' => $courses,
-				'demand' => $demand,
-				'overwriteDemand' => $overwriteDemand,
-				'filterOptions' => $this->getFilterOptions($this->settings['filter']),
-				'storagePid' => $configuration['persistence']['storagePid'],
-			]
-		);
+		$this->emitSignal(__CLASS__, self::COURSE_LIST_ACTION, $templateVariables);
+		$this->view->assignMultiple($templateVariables);
 	}
 
 	/**
