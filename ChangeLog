@@ -1,3 +1,10 @@
+2016-07-12         [RELEASE] Release of t3events_course 0.4.0 (Dirk Wenzel)
+2016-07-12 11e4a11 [TASK] obsolete asset removed. (Dirk Wenzel)
+2016-07-08 52de9ef [BUGFIX] legacy TypoScript constants corrected. (Dirk Wenzel)
+2016-07-07 be69eab [TASK] CourseDemand implemented. (Dirk Wenzel)
+2016-07-07 47b2ea9 [TASK] backend controllers list action now emits a signal before assigning template variables. (Dirk Wenzel)
+2016-07-05 de5fcfb [TASK] BREAKING! All controllers can now receive a merged array of TypoScript settings consisting of controller and action settings from TypoScript and settings from flexform. Some default TypoScript settings had to be moved. Please check whether your plugins/moduls still work as expected. (Dirk Wenzel)
+
 2016-06-29         [RELEASE] Release of t3events_course 0.3.0 (Dirk Wenzel)
 2016-06-16 73f2407 [BUGFIX] period constraints removed from default TypoScript settings for backend module thus preventing a difference between displayed filter and effective query constraints. (Dirk Wenzel)
 2016-06-16 103d8d3 [BUGFIX] missing default limit added to TypoScript configuration for backend module. (Dirk Wenzel)
