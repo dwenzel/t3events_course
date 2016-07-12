@@ -4,7 +4,8 @@
 <f:section name="content">
 	<f:comment>
 		<f:debug title="demand">{demand}</f:debug>
-		<f:debug title="settings">{settings}</f:debug>
+		<f:debug title="settings" inline="true">{settings}</f:debug>
+		<f:debug title="filterOptions">{filterOptions}</f:debug>
 		<f:debug title="courses">{courses}</f:debug>
 	</f:comment>
 
@@ -12,7 +13,7 @@
 
     <f:comment>Search form</f:comment>
     <f:render partial="Backend/Common/SearchForm"
-		arguments="{demand: '{demand}', overwriteDemand: '{overwriteDemand}', filterOptions: '{filterOptions}', showSubjectField: '{settings.courseBackend.search.showSubjectField}'}" />
+		arguments="{demand: '{demand}', overwriteDemand: '{overwriteDemand}', filterOptions: '{filterOptions}', showSubjectField: '{settings.search.showSubjectField}'}" />
 	<f:flashMessages renderMode="div" />
 
     <f:comment>Paginated list</f:comment>

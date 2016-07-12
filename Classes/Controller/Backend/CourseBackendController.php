@@ -20,6 +20,8 @@ class CourseBackendController
 	implements FilterableControllerInterface {
 	use FilterableControllerTrait;
 
+    const COURSE_LIST_ACTION = 'listAction';
+
 	/**
 	 * courseRepository
 	 *
@@ -35,8 +37,7 @@ class CourseBackendController
 	 * @return void
 	 */
 	public function listAction($overwriteDemand = NULL) {
-        $localSettings = $this->settings[$this->settingsUtility->getControllerKey($this)]['list'];
-		$demand = $this->createDemandFromSettings($localSettings);
+		$demand = $this->createDemandFromSettings($this->settings);
 
 		if ($overwriteDemand === NULL) {
 			$overwriteDemand = $this->moduleData->getOverwriteDemand();
@@ -61,17 +62,17 @@ class CourseBackendController
 		$configuration = $this->configurationManager->getConfiguration(
 			ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
 		);
+        $templateVariables = 			[
+            'courses' => $courses,
+            'demand' => $demand,
+            'overwriteDemand' => $overwriteDemand,
+            'filterOptions' => $this->getFilterOptions($this->settings['filter']),
+            'storagePid' => $configuration['persistence']['storagePid'],
+            'settings' => $this->settings
+        ];
 
-		$this->view->assignMultiple(
-			[
-				'courses' => $courses,
-				'demand' => $demand,
-				'overwriteDemand' => $overwriteDemand,
-				'settings' => $localSettings,
-				'filterOptions' => $this->getFilterOptions($localSettings['filter']),
-				'storagePid' => $configuration['persistence']['storagePid'],
-			]
-		);
+		$this->emitSignal(__CLASS__, self::COURSE_LIST_ACTION, $templateVariables);
+		$this->view->assignMultiple($templateVariables);
 	}
 
 	/**

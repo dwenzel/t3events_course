@@ -1,20 +1,21 @@
 <?php
 namespace CPSIT\T3eventsCourse\Controller\Backend;
 
-use Webfox\T3events\Controller\ModuleDataTrait;
-use Webfox\T3events\Controller\PerformanceController;
-use Webfox\T3events\Controller\SettingsUtilityTrait;
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
 use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
+use Webfox\T3events\Controller\ModuleDataTrait;
+use Webfox\T3events\Controller\PerformanceController;
+use Webfox\T3events\Controller\SettingsUtilityTrait;
 
 /**
  * Class ScheduleBackendController
  *
  * @package CPSIT\T3eventsCourse\Controller
  */
-class ScheduleBackendController extends PerformanceController {
-	use ModuleDataTrait, SettingsUtilityTrait;
+class ScheduleBackendController extends PerformanceController
+{
+    use ModuleDataTrait, SettingsUtilityTrait;
 
     /**
      * Load and persist module data
@@ -45,9 +46,9 @@ class ScheduleBackendController extends PerformanceController {
      */
     public function listAction(array $overwriteDemand = null)
     {
-        $demand = $this->createDemandFromSettings($this->settings[$this->settingsUtility->getControllerKey($this)]['list']);
+        $demand = $this->createDemandFromSettings($this->settings);
         $filterOptions = $this->getFilterOptions(
-            $this->settings[$this->settingsUtility->getControllerKey($this)]['list']['filter']
+            $this->settings['filter']
         );
 
         if ($overwriteDemand === null) {
@@ -59,11 +60,12 @@ class ScheduleBackendController extends PerformanceController {
         $this->overwriteDemandObject($demand, $overwriteDemand);
 
         $templateVariables = [
-                'performances' => $this->performanceRepository->findDemanded($demand),
-                'overwriteDemand' => $overwriteDemand,
-                'demand' => $demand,
-                'filterOptions' => $filterOptions
-            ];
+            'performances' => $this->performanceRepository->findDemanded($demand),
+            'overwriteDemand' => $overwriteDemand,
+            'demand' => $demand,
+            'settings' => $this->settings,
+            'filterOptions' => $filterOptions
+        ];
 
         $this->emitSignal(__CLASS__, self::PERFORMANCE_LIST_ACTION, $templateVariables);
         $this->view->assignMultiple($templateVariables);

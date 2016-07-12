@@ -8,5 +8,6 @@ use Webfox\T3events\Domain\Model\Dto\EventDemand;
  *
  * @package CPSIT\T3eventsCourse\Domain\Model\Dto
  */
-class CourseDemand extends EventDemand {
+class CourseDemand
+    extends EventDemand {
 }
