@@ -1,8 +1,8 @@
 <?php
 namespace CPSIT\T3eventsCourse\Domain\Model\Dto;
 
-use Webfox\T3events\Domain\Model\Dto\DemandInterface;
-use Webfox\T3events\Domain\Model\Dto\PerformanceDemand;
+use DWenzel\T3events\Domain\Model\Dto\DemandInterface;
+use DWenzel\T3events\Domain\Model\Dto\PerformanceDemand;
 
 /**
  * Class ScheduleDemand

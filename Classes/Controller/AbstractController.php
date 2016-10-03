@@ -30,7 +30,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	/**
 	 * Notification Service
 	 *
-	 * @var \Webfox\T3events\Service\NotificationService
+	 * @var \DWenzel\T3events\Service\NotificationService
 	 * @inject
 	 */
 	protected $notificationService;

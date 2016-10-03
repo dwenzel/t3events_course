@@ -19,7 +19,7 @@ namespace CPSIT\T3eventsCourse\Domain\Repository;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 use CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand;
-use Webfox\T3events\Domain\Repository\PerformanceRepository;
+use DWenzel\T3events\Domain\Repository\PerformanceRepository;
 
 /**
  * The repository for Lessons
@@ -29,10 +29,10 @@ class ScheduleRepository extends PerformanceRepository {
 	 * Returns an array of constraints created from a given demand object.
 	 *
 	 * @param \TYPO3\CMS\Extbase\Persistence\QueryInterface $query
-	 * @param \Webfox\T3events\Domain\Model\Dto\DemandInterface $demand
+	 * @param \DWenzel\T3events\Domain\Model\Dto\DemandInterface $demand
 	 * @return array<\TYPO3\CMS\Extbase\Persistence\Generic\Qom\Constraint>
 	 */
-	protected function createConstraintsFromDemand(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, \Webfox\T3events\Domain\Model\Dto\DemandInterface $demand) {
+	protected function createConstraintsFromDemand(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, \DWenzel\T3events\Domain\Model\Dto\DemandInterface $demand) {
 		$constraints = parent::createConstraintsFromDemand($query, $demand);
 		/** @var ScheduleDemand $demand */
 		if ($demand->getDeadlineBefore() !== NULL) {

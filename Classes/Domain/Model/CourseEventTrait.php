@@ -2,7 +2,7 @@
 namespace CPSIT\T3eventsCourse\Domain\Model;
 
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use Webfox\T3events\Domain\Model\Audience;
+use DWenzel\T3events\Domain\Model\Audience;
 
 /**
  * Class CourseEventTrait
@@ -27,7 +27,7 @@ trait CourseEventTrait {
 	/**
 	 * Target audience of this course.
 	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Webfox\T3events\Domain\Model\Audience>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DWenzel\T3events\Domain\Model\Audience>
 	 * @lazy
 	 */
 	protected $audience = NULL;
@@ -100,7 +100,7 @@ trait CourseEventTrait {
 	/**
 	 * Adds a Audience
 	 *
-	 * @param \Webfox\T3events\Domain\Model\Audience $audience
+	 * @param \DWenzel\T3events\Domain\Model\Audience $audience
 	 * @return void
 	 */
 	public function addAudience(Audience $audience) {
@@ -110,7 +110,7 @@ trait CourseEventTrait {
 	/**
 	 * Removes a Audience
 	 *
-	 * @param \Webfox\T3events\Domain\Model\Audience $audienceToRemove The Audience to be removed
+	 * @param \DWenzel\T3events\Domain\Model\Audience $audienceToRemove The Audience to be removed
 	 * @return void
 	 */
 	public function removeAudience(Audience $audienceToRemove) {
@@ -120,7 +120,7 @@ trait CourseEventTrait {
 	/**
 	 * Returns the audience
 	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Webfox\T3events\Domain\Model\Audience> $audience
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DWenzel\T3events\Domain\Model\Audience> $audience
 	 */
 	public function getAudience() {
 		return $this->audience;
@@ -129,7 +129,7 @@ trait CourseEventTrait {
 	/**
 	 * Sets the audience
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Webfox\T3events\Domain\Model\Audience> $audience
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DWenzel\T3events\Domain\Model\Audience> $audience
 	 * @return void
 	 */
 	public function setAudience(ObjectStorage $audience) {
