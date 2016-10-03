@@ -18,7 +18,7 @@ use DWenzel\T3events\Controller\FilterableControllerTrait;
 class CourseBackendController
 	extends AbstractBackendController
 	implements FilterableControllerInterface {
-	use DWenzel\T3events\Controller\FilterableControllerTrait;
+	use FilterableControllerTrait;
 
     const COURSE_LIST_ACTION = 'listAction';
 
@@ -53,7 +53,7 @@ class CourseBackendController
 		if (($courses instanceof QueryResultInterface AND !$courses->count())
 			OR !count($courses)
 		) {
-			$this->addFlashmessage(
+			$this->addFlashMessage(
 				$this->translate('message.noCoursesFound.text'),
 				$this->translate('message.noCoursesFound.title'),
 				FlashMessage::WARNING

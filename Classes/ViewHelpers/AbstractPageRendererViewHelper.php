@@ -18,6 +18,9 @@ namespace CPSIT\T3eventsCourse\ViewHelpers;
 	 * GNU General Public License for more details.
 	 * This copyright notice MUST APPEAR in all copies of the script!
 	 ***************************************************************/
+use TYPO3\CMS\Core\Page\PageRenderer;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+
 /**
  * Abstract page renderer based view helper
  *
@@ -26,17 +29,17 @@ namespace CPSIT\T3eventsCourse\ViewHelpers;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  * @link http://www.cps-it.de/
  */
-abstract class AbstractPageRendererViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+abstract class AbstractPageRendererViewHelper extends AbstractViewHelper {
 
 	/**
-	 * @var \TYPO3\CMS\Core\Page\PageRenderer
+	 * @var PageRenderer
 	 */
 	protected $pageRenderer;
 
 	/**
-	 * @param \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
+	 * @param PageRenderer $pageRenderer
 	 */
-	public function injectPageRenderer(\TYPO3\CMS\Core\Page\PageRenderer $pageRenderer) {
+	public function injectPageRenderer(PageRenderer $pageRenderer) {
 		$this->pageRenderer = $pageRenderer;
 	}
 }

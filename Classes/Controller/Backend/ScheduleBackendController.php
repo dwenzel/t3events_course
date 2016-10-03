@@ -15,7 +15,7 @@ use DWenzel\T3events\Controller\SettingsUtilityTrait;
  */
 class ScheduleBackendController extends PerformanceController
 {
-    use DWenzel\T3events\Controller\ModuleDataTrait, DWenzel\T3events\Controller\SettingsUtilityTrait;
+    use ModuleDataTrait, SettingsUtilityTrait;
 
     /**
      * Load and persist module data

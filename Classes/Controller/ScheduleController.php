@@ -2,6 +2,13 @@
 namespace CPSIT\T3eventsCourse\Controller;
 
 use CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand;
+use CPSIT\T3eventsCourse\Domain\Model\Schedule;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Persistence\QueryResult;
+use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 class ScheduleController extends AbstractController {
 
@@ -65,33 +72,33 @@ class ScheduleController extends AbstractController {
 			$this->overwriteDemandObject($demand, $overwriteDemand);
 		}
 		$lessons = $this->lessonRepository->findDemanded($demand, FALSE);
-		if (($lessons instanceof \TYPO3\CMS\Extbase\Persistence\QueryResult AND !$lessons->count())
+		if (($lessons instanceof QueryResult AND !$lessons->count())
 			OR !count($lessons)
 		) {
 			$this->addFlashMessage(
-				\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('message.noLessonsForSelection.text', $this->extensionName),
-				\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('message.noLessonsForSelection.title', $this->extensionName),
-				\TYPO3\CMS\Core\Messaging\FlashMessage::NOTICE
+				LocalizationUtility::translate('message.noLessonsForSelection.text', $this->extensionName),
+				LocalizationUtility::translate('message.noLessonsForSelection.title', $this->extensionName),
+				FlashMessage::NOTICE
 			);
 		}
-		$configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+		$configuration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
 		$this->view->assignMultiple(
-			array(
+			[
 				'lessons' => $lessons,
 				'demand' => $demand,
 				'overwriteDemand' => $overwriteDemand,
 				'storagePid' => $configuration['persistence']['storagePid']
-			)
+            ]
 		);
 	}
 
 	/**
 	 * action show
 	 *
-	 * @param \CPSIT\T3eventsCourse\Domain\Model\Schedule $lesson
+     * @param \CPSIT\T3eventsCourse\Domain\Model\Schedule $lesson
 	 * @return void
 	 */
-	public function showAction(\CPSIT\T3eventsCourse\Domain\Model\Schedule $lesson) {
+	public function showAction(Schedule $lesson) {
 		$this->view->assign('lesson', $lesson);
 	}
 
@@ -102,12 +109,12 @@ class ScheduleController extends AbstractController {
 	 * @param \array $overwriteDemand
 	 */
 	public function filterAction($overwriteDemand = NULL) {
-		$genreUids = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $this->settings['genres'], TRUE);
-		$eventLocationUids = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $this->settings['eventLocations'], TRUE);
-		$eventTypeUids = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $this->settings['eventTypes'], TRUE);
-		$audienceUids = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $this->settings['audiences'], TRUE);
+		$genreUids = GeneralUtility::intExplode(',', $this->settings['genres'], TRUE);
+		$eventLocationUids = GeneralUtility::intExplode(',', $this->settings['eventLocations'], TRUE);
+		$eventTypeUids = GeneralUtility::intExplode(',', $this->settings['eventTypes'], TRUE);
+		$audienceUids = GeneralUtility::intExplode(',', $this->settings['audiences'], TRUE);
 		if (count($genreUids)) {
-			$genres = array();
+			$genres = [];
 			foreach ($genreUids as $genreUid) {
 				if ($this->courseRepository->countContainingGenre($genreUid)) {
 					$genres[] = $this->genreRepository->findByUid($genreUid);
@@ -117,7 +124,7 @@ class ScheduleController extends AbstractController {
 			$genres = $this->genreRepository->findAll();
 		}
 		if (count($eventLocationUids)) {
-			$eventLocations = array();
+			$eventLocations = [];
 			foreach ($eventLocationUids as $eventLocationUid) {
 				if ($this->lessonRepository->countByEventLocation($eventLocationUid)) {
 					$eventLocations[] = $this->eventLocationRepository->findByUid($eventLocationUid);
@@ -127,7 +134,7 @@ class ScheduleController extends AbstractController {
 			$eventLocations = $this->eventLocationRepository->findAll();
 		}
 		if (count($eventTypeUids)) {
-			$eventTypes = array();
+			$eventTypes = [];
 			foreach ($eventTypeUids as $eventTypeUid) {
 				if ($this->courseRepository->countByEventType($eventTypeUid)) {
 					$eventTypes[] = $this->eventTypeRepository->findByUid($eventTypeUid);
@@ -137,7 +144,7 @@ class ScheduleController extends AbstractController {
 			$eventTypes = $this->eventTypeRepository->findAll();
 		}
 		if (count($audienceUids)) {
-			$audiences = array();
+			$audiences = [];
 			foreach ($audienceUids as $audienceUid) {
 				if ($this->courseRepository->countContainingAudience($audienceUid)) {
 					$audiences[] = $this->audienceRepository->findByUid($audienceUid);
@@ -147,13 +154,13 @@ class ScheduleController extends AbstractController {
 			$audiences = $this->audienceRepository->findAll();
 		}
 		$this->view->assignMultiple(
-			array(
+			[
 				'overwriteDemand' => $overwriteDemand,
 				'genres' => $genres,
 				'eventLocations' => $eventLocations,
 				'audiences' => $audiences,
 				'eventTypes' => $eventTypes
-			)
+            ]
 		);
 	}
 
@@ -161,7 +168,7 @@ class ScheduleController extends AbstractController {
 	 * Create Demand from Settings
 	 *
 	 * @param \array $settings
-	 * @return \DWenzel\T3events\Domain\Model\Dto\EventDemand
+	 * @return \CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand
 	 */
 	protected function createDemandFromSettings($settings) {
 		/** @var \CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand $demand */
@@ -232,7 +239,7 @@ class ScheduleController extends AbstractController {
 	 */
 	public function overwriteDemandObject(&$demand, $overwriteDemand) {
 		foreach ($overwriteDemand as $propertyName => $propertyValue) {
-			\TYPO3\CMS\Extbase\Reflection\ObjectAccess::setProperty($demand, $propertyName, $propertyValue);
+			ObjectAccess::setProperty($demand, $propertyName, $propertyValue);
 		}
 	}
 }

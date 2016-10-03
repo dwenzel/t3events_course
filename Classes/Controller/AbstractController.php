@@ -10,13 +10,21 @@ namespace CPSIT\T3eventsCourse\Controller;
 	 * LICENSE.txt file that was distributed with this source code.
 	 * The TYPO3 project - inspiring people to share!
 	 */
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Mvc\RequestInterface;
+use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
+use TYPO3\CMS\Extbase\Property\Exception;
+use TYPO3\CMS\Extbase\Property\Exception\InvalidSourceException;
+use TYPO3\CMS\Extbase\Property\Exception\TargetNotFoundException;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
  * @package t3events_course
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  * @deprecated Use t3events AbstractController instead
  */
-class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class AbstractController extends ActionController {
 	const SESSION_NAMESPACE = 'tx_t3eventscourse';
 
 	/**
@@ -46,7 +54,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * Referrer Arguments
 	 * @var \array
 	 */
-	protected $referrerArguments = array();
+	protected $referrerArguments = [];
 
 	/**
 	 * @var string
@@ -77,13 +85,13 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		unset($originalRequestArguments['action']);
 		unset($originalRequestArguments['controller']);
 
-		$this->requestArguments = array(
+		$this->requestArguments = [
 			'action' => $action,
 			'pluginName' => $this->request->getPluginName(),
 			'controllerName' => $this->request->getControllerName(),
 			'extensionName' => $this->request->getControllerExtensionName(),
 			'arguments' => $originalRequestArguments,
-		);
+        ];
 	}
 
 	/**
@@ -97,7 +105,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		) {
 			$this->referrerArguments = $this->request->getArgument('referrerArguments');
 		} else {
-			$this->referrerArguments = array();
+			$this->referrerArguments = [];
 		}
 	}
 
@@ -124,19 +132,19 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	}
 
 	/**
-	 * @param \TYPO3\CMS\Extbase\Mvc\RequestInterface $request
-	 * @param \TYPO3\CMS\Extbase\Mvc\ResponseInterface $response
+	 * @param RequestInterface $request
+	 * @param ResponseInterface $response
 	 * @return void
 	 * @throws \Exception
 	 * @override \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
-	public function processRequest(\TYPO3\CMS\Extbase\Mvc\RequestInterface $request, \TYPO3\CMS\Extbase\Mvc\ResponseInterface $response) {
+	public function processRequest(RequestInterface $request, ResponseInterface $response) {
 		try {
 			parent::processRequest($request, $response);
 		} catch (\Exception $exception) {
 			// If the property mapper did throw a \TYPO3\CMS\Extbase\Property\Exception, because it was unable to find the requested entity, call the page-not-found handler.
 			$previousException = $exception->getPrevious();
-			if (($exception instanceof \TYPO3\CMS\Extbase\Property\Exception) && (($previousException instanceof \TYPO3\CMS\Extbase\Property\Exception\TargetNotFoundException) || ($previousException instanceof \TYPO3\CMS\Extbase\Property\Exception\InvalidSourceException))) {
+			if (($exception instanceof Exception) && (($previousException instanceof TargetNotFoundException) || ($previousException instanceof InvalidSourceException))) {
 				$configuration = isset($this->settings[strtolower($request->getControllerName())]['detail']['errorHandling']) ? $this->settings[strtolower($request->getControllerName())]['detail']['errorHandling'] : NULL;
 				if ($configuration) {
 					$this->handleEntityNotFoundError($configuration);
@@ -155,7 +163,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		if (empty($configuration)) {
 			return;
 		}
-		$configuration = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $configuration);
+		$configuration = GeneralUtility::trimExplode(',', $configuration);
 		switch ($configuration[0]) {
 			case 'redirectToListView':
 				$this->redirect('list');
@@ -168,7 +176,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 				$this->uriBuilder->reset();
 				$this->uriBuilder->setTargetPageUid($configuration[1]);
 				$this->uriBuilder->setCreateAbsoluteUri(TRUE);
-				if (\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_SSL')) {
+				if (GeneralUtility::getIndpEnv('TYPO3_SSL')) {
 					$this->uriBuilder->setAbsoluteUriScheme('https');
 				}
 				$url = $this->uriBuilder->build();
@@ -185,16 +193,17 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		}
 	}
 
-	/**
-	 * Translate a given key
-	 *
-	 * @param \string $key
-	 * @param \string $extension
-	 * @param \array $arguments
-	 * @codeCoverageIgnore
-	 */
+    /**
+     * Translate a given key
+     *
+     * @param \string $key
+     * @param \string $extension
+     * @param \array $arguments
+     * @codeCoverageIgnore
+     * @return NULL|string
+     */
 	public function translate($key, $extension = 't3events_course', $arguments = NULL) {
-		$translatedString = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($key, $extension, $arguments);
+		$translatedString = LocalizationUtility::translate($key, $extension, $arguments);
 		if (is_null($translatedString)) {
 			return $key;
 		} else {

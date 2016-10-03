@@ -16,13 +16,13 @@ if (!empty($settings['includeJavaScript'])) {
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 	'CPSIT.' . $_EXTKEY,
 	'Courses',
-	array(
+	[
 		'Course' => 'list, show, filter',
 		'Schedule' => 'list, show, filter',
-	),
+    ],
 	// non-cacheable actions
-	array(
+	[
 		'Course' => 'filter',
 		'Schedule' => 'filter,list',
-	)
+    ]
 );
