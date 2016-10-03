@@ -1,26 +1,37 @@
 {
-	"name": "cpsit/t3events_course",
-	"type": "typo3-cms-extension",
-	"description": "Courses is an extension for the TYPO3 CMS. It extends t3events by functionality for managing courses.",
-	"keywords": ["TYPO3", "extension", "events", "course"],
-	"license": ["GPL-2.0+"],
-	"authors": [
-		{
-			"name": "Dirk Wenzel",
-			"role": "Developer"
-		}
-	],
-	"repositories": [
-	  {"type": "vcs", "url": "https://github.com/dwenzel/t3events.git"}
-	],
-	"require": {
-		"typo3/cms-core": ">=6.2.0,<8.0",
-		"dwenzel/t3events": "0.27.0"
-	},
-	"require-dev": {
+  "name": "cpsit/t3events_course",
+  "type": "typo3-cms-extension",
+  "description": "Courses is an extension for the TYPO3 CMS. It extends t3events by functionality for managing courses.",
+  "keywords": [
+    "TYPO3",
+    "extension",
+    "events",
+    "course"
+  ],
+  "license": [
+    "GPL-2.0+"
+  ],
+  "authors": [
+    {
+      "name": "Dirk Wenzel",
+      "role": "Developer"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/dwenzel/t3events.git"
+    }
+  ],
+  "require": {
+    "typo3/cms-core": ">=6.2.0,<8.0",
+    "dwenzel/t3events": "0.27.0"
+  },
+  "require-dev": {
     "mikey179/vfsStream": "1.4.*@dev",
     "phpunit/phpunit": "~4.8.0",
-		"satooshi/php-coveralls": "dev-master"
+    "satooshi/php-coveralls": "dev-master",
+    "dwenzel/t3events": "dev-develop"
   },
   "autoload": {
     "psr-4": {
@@ -50,9 +61,9 @@
     ]
   },
   "extra": {
-		"branch-alias": {
-			"dev-master": "0.5.x-dev"
-		},
+    "branch-alias": {
+      "dev-master": "0.5.x-dev"
+    },
     "typo3/cms": {
       "cms-package-dir": "{$vendor-dir}/typo3/cms",
       "web-dir": ".Build/Web"
