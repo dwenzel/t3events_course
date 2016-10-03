@@ -6,9 +6,9 @@ use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
-use Webfox\T3events\Controller\AbstractBackendController;
-use Webfox\T3events\Controller\FilterableControllerInterface;
-use Webfox\T3events\Controller\FilterableControllerTrait;
+use DWenzel\T3events\Controller\AbstractBackendController;
+use DWenzel\T3events\Controller\FilterableControllerInterface;
+use DWenzel\T3events\Controller\FilterableControllerTrait;
 
 /**
  * Class CourseBackendController
@@ -18,7 +18,7 @@ use Webfox\T3events\Controller\FilterableControllerTrait;
 class CourseBackendController
 	extends AbstractBackendController
 	implements FilterableControllerInterface {
-	use FilterableControllerTrait;
+	use DWenzel\T3events\Controller\FilterableControllerTrait;
 
     const COURSE_LIST_ACTION = 'listAction';
 
@@ -79,7 +79,7 @@ class CourseBackendController
 	 * Create Demand from Settings
 	 *
 	 * @param array $settings
-	 * @return \Webfox\T3events\Domain\Model\Dto\EventDemand
+	 * @return \DWenzel\T3events\Domain\Model\Dto\EventDemand
 	 */
 	protected function createDemandFromSettings($settings) {
 		$demand = $this->objectManager->get(CourseDemand::class);

@@ -1,8 +1,8 @@
 <?php
 namespace CPSIT\T3eventsCourse\Controller;
 
-use Webfox\T3events\Controller\AbstractBackendController;
-use Webfox\T3events\Controller\AbstractController;
+use DWenzel\T3events\Controller\AbstractBackendController;
+use DWenzel\T3events\Controller\AbstractController;
 
 /***************************************************************
  *  Copyright notice
@@ -35,7 +35,7 @@ class CourseController extends AbstractController {
 	/**
 	 * genreRepository
 	 *
-	 * @var \Webfox\T3events\Domain\Repository\GenreRepository
+	 * @var \DWenzel\T3events\Domain\Repository\GenreRepository
 	 * @inject
 	 */
 	protected $genreRepository;
@@ -43,7 +43,7 @@ class CourseController extends AbstractController {
 	/**
 	 * venueRepository
 	 *
-	 * @var \Webfox\T3events\Domain\Repository\VenueRepository
+	 * @var \DWenzel\T3events\Domain\Repository\VenueRepository
 	 * @inject
 	 */
 	protected $venueRepository;
@@ -51,7 +51,7 @@ class CourseController extends AbstractController {
 	/**
 	 * eventTypeRepository
 	 *
-	 * @var \Webfox\T3events\Domain\Repository\EventTypeRepository
+	 * @var \DWenzel\T3events\Domain\Repository\EventTypeRepository
 	 * @inject
 	 */
 	protected $eventTypeRepository;
@@ -130,7 +130,7 @@ class CourseController extends AbstractController {
 	 * Build demand from settings respecting overwriteDemand
 	 *
 	 * @param \array overwriteDemand
-	 * @return \Webfox\T3events\Domain\Model\Dto\EventDemand
+	 * @return \DWenzel\T3events\Domain\Model\Dto\EventDemand
 	 */
 	protected function createDemandFromSettings($overwriteDemand = NULL) {
 		$demand = $this->objectManager->get('\\CPSIT\\T3eventsCourse\\Domain\\Model\\Dto\\CourseDemand');

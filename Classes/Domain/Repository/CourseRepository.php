@@ -18,7 +18,7 @@ namespace CPSIT\T3eventsCourse\Domain\Repository;
  *  GNU General Public License for more details.
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use Webfox\T3events\Domain\Repository\EventRepository;
+use DWenzel\T3events\Domain\Repository\EventRepository;
 
 /**
  * The repository for Courses

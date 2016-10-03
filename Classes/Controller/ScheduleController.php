@@ -24,7 +24,7 @@ class ScheduleController extends AbstractController {
 	/**
 	 * genreRepository
 	 *
-	 * @var \Webfox\T3events\Domain\Repository\GenreRepository
+	 * @var \DWenzel\T3events\Domain\Repository\GenreRepository
 	 * @inject
 	 */
 	protected $genreRepository;
@@ -32,7 +32,7 @@ class ScheduleController extends AbstractController {
 	/**
 	 * Event location repository
 	 *
-	 * @var \Webfox\T3events\Domain\Repository\EventLocationRepository
+	 * @var \DWenzel\T3events\Domain\Repository\EventLocationRepository
 	 * @inject
 	 */
 	protected $eventLocationRepository;
@@ -40,7 +40,7 @@ class ScheduleController extends AbstractController {
 	/**
 	 * Audience Repository
 	 *
-	 * @var \Webfox\T3events\Domain\Repository\AudienceRepository
+	 * @var \DWenzel\T3events\Domain\Repository\AudienceRepository
 	 * @inject
 	 */
 	protected $audienceRepository;
@@ -48,7 +48,7 @@ class ScheduleController extends AbstractController {
 	/**
 	 * eventTypeRepository
 	 *
-	 * @var \Webfox\T3events\Domain\Repository\EventTypeRepository
+	 * @var \DWenzel\T3events\Domain\Repository\EventTypeRepository
 	 * @inject
 	 */
 	protected $eventTypeRepository;
@@ -161,7 +161,7 @@ class ScheduleController extends AbstractController {
 	 * Create Demand from Settings
 	 *
 	 * @param \array $settings
-	 * @return \Webfox\T3events\Domain\Model\Dto\EventDemand
+	 * @return \DWenzel\T3events\Domain\Model\Dto\EventDemand
 	 */
 	protected function createDemandFromSettings($settings) {
 		/** @var \CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand $demand */

@@ -18,7 +18,7 @@ namespace CPSIT\T3eventsCourse\Domain\Model;
  *  GNU General Public License for more details.
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use Webfox\T3events\Domain\Model\Event;
+use DWenzel\T3events\Domain\Model\Event;
 
 /**
  * A course offer.
