@@ -64,7 +64,7 @@ class CourseController extends AbstractController {
 	/**
 	 * action list
 	 *
-	 * @param \array $overwriteDemand
+	 * @param array $overwriteDemand
 	 * @return void
 	 */
 	public function listAction($overwriteDemand = NULL) {
@@ -134,7 +134,7 @@ class CourseController extends AbstractController {
 	/**
 	 * Build demand from settings respecting overwriteDemand
 	 *
-	 * @param \array overwriteDemand
+	 * @param array overwriteDemand
 	 * @return \DWenzel\T3events\Domain\Model\Dto\EventDemand
 	 */
 	protected function createDemandFromSettings($overwriteDemand = NULL) {
@@ -229,9 +229,9 @@ class CourseController extends AbstractController {
     /**
      * Translate a given key
      *
-     * @param \string $key
-     * @param \string $extension
-     * @param \array $arguments
+     * @param string $key
+     * @param string $extension
+     * @param array $arguments
      * @codeCoverageIgnore
      * @return NULL|string
      */

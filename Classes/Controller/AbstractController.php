@@ -46,13 +46,13 @@ class AbstractController extends ActionController {
 	/**
 	 * Request Arguments
 	 *
-	 * @var \array
+	 * @var array
 	 */
 	protected $requestArguments = NULL;
 
 	/*
 	 * Referrer Arguments
-	 * @var \array
+	 * @var array
 	 */
 	protected $referrerArguments = [];
 
@@ -115,8 +115,8 @@ class AbstractController extends ActionController {
 	 * argument / property combination
 	 * or false if arguments does not have such an argument
 	 *
-	 * @param \string $argumentName Name of argument
-	 * @param \string $propertyName Name of the property e.g. 'foo.bar'
+	 * @param string $argumentName Name of argument
+	 * @param string $propertyName Name of the property e.g. 'foo.bar'
 	 * @return \TYPO3\CMS\Extbase\Property\PropertyMappingConfiguration|NULL
 	 */
 	protected function getMappingConfigurationForProperty($argumentName, $propertyName) {
@@ -157,7 +157,7 @@ class AbstractController extends ActionController {
 	/**
 	 * Error handling if requested entity is not found
 	 *
-	 * @param \string $configuration Configuration for handling
+	 * @param string $configuration Configuration for handling
 	 */
 	public function handleEntityNotFoundError($configuration) {
 		if (empty($configuration)) {
@@ -196,9 +196,9 @@ class AbstractController extends ActionController {
     /**
      * Translate a given key
      *
-     * @param \string $key
-     * @param \string $extension
-     * @param \array $arguments
+     * @param string $key
+     * @param string $extension
+     * @param array $arguments
      * @codeCoverageIgnore
      * @return NULL|string
      */

@@ -10,6 +10,11 @@ use TYPO3\CMS\Extbase\Persistence\QueryResult;
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
+/**
+ * Class ScheduleController
+ *
+ * @package CPSIT\T3eventsCourse\Controller
+ */
 class ScheduleController extends AbstractController {
 
 	/**
@@ -63,7 +68,7 @@ class ScheduleController extends AbstractController {
 	/**
 	 * action list
 	 *
-	 * @param \array $overwriteDemand
+	 * @param array $overwriteDemand
 	 * @return void
 	 */
 	public function listAction($overwriteDemand = NULL) {
@@ -106,7 +111,7 @@ class ScheduleController extends AbstractController {
 	/**
 	 * Filter action
 	 *
-	 * @param \array $overwriteDemand
+	 * @param array $overwriteDemand
 	 */
 	public function filterAction($overwriteDemand = NULL) {
 		$genreUids = GeneralUtility::intExplode(',', $this->settings['genres'], TRUE);
@@ -167,7 +172,7 @@ class ScheduleController extends AbstractController {
 	/**
 	 * Create Demand from Settings
 	 *
-	 * @param \array $settings
+	 * @param array $settings
 	 * @return \CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand
 	 */
 	protected function createDemandFromSettings($settings) {
@@ -235,7 +240,7 @@ class ScheduleController extends AbstractController {
 	 * Overwrites a given demand object by an propertyName => $propertyValue array
 	 *
 	 * @param \CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand $demand
-	 * @param \array $overwriteDemand
+	 * @param array $overwriteDemand
 	 */
 	public function overwriteDemandObject(&$demand, $overwriteDemand) {
 		foreach ($overwriteDemand as $propertyName => $propertyValue) {

@@ -53,12 +53,12 @@ trait CourseEventTrait {
 	protected $newUntil;
 
 	/**
-	 * @var \int
+	 * @var int
 	 */
 	protected $degreeType;
 
 	/**
-	 * @var \string
+	 * @var string
 	 */
 	protected $targetGroupDesc;
 
@@ -68,7 +68,7 @@ trait CourseEventTrait {
 	protected $examCosts;
 
 	/**
-	 * @var \string
+	 * @var string
 	 */
 	protected $examRemarks;
 
