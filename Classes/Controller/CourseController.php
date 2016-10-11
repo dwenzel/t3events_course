@@ -1,8 +1,13 @@
 <?php
 namespace CPSIT\T3eventsCourse\Controller;
 
-use Webfox\T3events\Controller\AbstractBackendController;
-use Webfox\T3events\Controller\AbstractController;
+
+use CPSIT\T3eventsCourse\Domain\Model\Course;
+use DWenzel\T3events\Controller\AbstractController;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Persistence\QueryResult;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /***************************************************************
  *  Copyright notice
@@ -35,7 +40,7 @@ class CourseController extends AbstractController {
 	/**
 	 * genreRepository
 	 *
-	 * @var \Webfox\T3events\Domain\Repository\GenreRepository
+	 * @var \DWenzel\T3events\Domain\Repository\GenreRepository
 	 * @inject
 	 */
 	protected $genreRepository;
@@ -43,7 +48,7 @@ class CourseController extends AbstractController {
 	/**
 	 * venueRepository
 	 *
-	 * @var \Webfox\T3events\Domain\Repository\VenueRepository
+	 * @var \DWenzel\T3events\Domain\Repository\VenueRepository
 	 * @inject
 	 */
 	protected $venueRepository;
@@ -51,7 +56,7 @@ class CourseController extends AbstractController {
 	/**
 	 * eventTypeRepository
 	 *
-	 * @var \Webfox\T3events\Domain\Repository\EventTypeRepository
+	 * @var \DWenzel\T3events\Domain\Repository\EventTypeRepository
 	 * @inject
 	 */
 	protected $eventTypeRepository;
@@ -59,41 +64,41 @@ class CourseController extends AbstractController {
 	/**
 	 * action list
 	 *
-	 * @param \array $overwriteDemand
+	 * @param array $overwriteDemand
 	 * @return void
 	 */
 	public function listAction($overwriteDemand = NULL) {
 		$demand = $this->createDemandFromSettings($overwriteDemand);
 		$courses = $this->courseRepository->findDemanded($demand);
 
-		if (($courses instanceof \TYPO3\CMS\Extbase\Persistence\QueryResult AND !$courses->count())
+		if (($courses instanceof QueryResult AND !$courses->count())
 			OR !count($courses)
 		) {
-			$this->addFlashmessage(
+			$this->addFlashMessage(
 				$this->translate('message.noCoursesFound.text'),
 				$this->translate('message.noCoursesFound.title'),
-				\TYPO3\CMS\Core\Messaging\FlashMessage::WARNING
+				FlashMessage::WARNING
 			);
 		}
-		$configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+		$configuration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
 
 		$this->view->assignMultiple(
-			array(
+			[
 				'courses' => $courses,
 				'demand' => $demand,
 				'settings' => $this->settings,
 				'storagePid' => $configuration['persistence']['storagePid'],
-			)
+            ]
 		);
 	}
 
 	/**
 	 * action show
 	 *
-	 * @param \CPSIT\T3eventsCourse\Domain\Model\Course $course
+     * @param \CPSIT\T3eventsCourse\Domain\Model\Course $course
 	 * @return void
 	 */
-	public function showAction(\CPSIT\T3eventsCourse\Domain\Model\Course $course) {
+	public function showAction(Course $course) {
 		$this->view->assign('course', $course);
 	}
 
@@ -118,19 +123,19 @@ class CourseController extends AbstractController {
 		$eventTypes = $this->eventTypeRepository->findMultipleByUid($this->settings['eventTypes'], 'title');
 
 		$this->view->assignMultiple(
-			array(
+			[
 				'genres' => $genres,
 				'venues' => $venues,
 				'eventTypes' => $eventTypes
-			)
+            ]
 		);
 	}
 
 	/**
 	 * Build demand from settings respecting overwriteDemand
 	 *
-	 * @param \array overwriteDemand
-	 * @return \Webfox\T3events\Domain\Model\Dto\EventDemand
+	 * @param array overwriteDemand
+	 * @return \DWenzel\T3events\Domain\Model\Dto\EventDemand
 	 */
 	protected function createDemandFromSettings($overwriteDemand = NULL) {
 		$demand = $this->objectManager->get('\\CPSIT\\T3eventsCourse\\Domain\\Model\\Dto\\CourseDemand');
@@ -221,16 +226,17 @@ class CourseController extends AbstractController {
 		return $demand;
 	}
 
-	/**
-	 * Translate a given key
-	 *
-	 * @param \string $key
-	 * @param \string $extension
-	 * @param \array $arguments
-	 * @codeCoverageIgnore
-	 */
+    /**
+     * Translate a given key
+     *
+     * @param string $key
+     * @param string $extension
+     * @param array $arguments
+     * @codeCoverageIgnore
+     * @return NULL|string
+     */
 	public function translate($key, $extension = 't3events_course', $arguments = NULL) {
-		$translatedString = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($key, $extension, $arguments);
+		$translatedString = LocalizationUtility::translate($key, $extension, $arguments);
 		if (is_null($translatedString)) {
 			return $key;
 		} else {

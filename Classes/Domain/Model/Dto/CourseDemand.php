@@ -1,7 +1,7 @@
 <?php
 namespace CPSIT\T3eventsCourse\Domain\Model\Dto;
 
-use Webfox\T3events\Domain\Model\Dto\EventDemand;
+use DWenzel\T3events\Domain\Model\Dto\EventDemand;
 
 /**
  * Class CourseDemand

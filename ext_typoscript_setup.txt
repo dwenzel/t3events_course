@@ -1,7 +1,7 @@
 config.tx_extbase {
 	persistence {
 		classes {
-			Webfox\T3events\Domain\Model\Event {
+			DWenzel\T3events\Domain\Model\Event {
 				subclasses {
 					Tx_T3eventsCourse_Course = CPSIT\T3eventsCourse\Domain\Model\Course
 				}
@@ -16,7 +16,7 @@ config.tx_extbase {
 					}
 				}
 			}
-			Webfox\T3events\Domain\Model\Performance {
+			DWenzel\T3events\Domain\Model\Performance {
 				subclasses {
 					Tx_T3eventsCourse_Schedule = CPSIT\T3eventsCourse\Domain\Model\Schedule
 				}

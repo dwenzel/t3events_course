@@ -4,9 +4,9 @@ namespace CPSIT\T3eventsCourse\Controller\Backend;
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
 use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
-use Webfox\T3events\Controller\ModuleDataTrait;
-use Webfox\T3events\Controller\PerformanceController;
-use Webfox\T3events\Controller\SettingsUtilityTrait;
+use DWenzel\T3events\Controller\ModuleDataTrait;
+use DWenzel\T3events\Controller\PerformanceController;
+use DWenzel\T3events\Controller\SettingsUtilityTrait;
 
 /**
  * Class ScheduleBackendController

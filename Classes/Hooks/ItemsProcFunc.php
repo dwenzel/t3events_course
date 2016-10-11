@@ -32,7 +32,7 @@ class ItemsProcFunc {
 	/**
 	 * Itemsproc function to extend the selection of templateLayouts in the plugin
 	 *
-	 * @param \array &$config configuration array
+	 * @param array &$config configuration array
 	 * @return void
 	 */
 	public function user_templateLayout(array &$config) {
@@ -43,10 +43,10 @@ class ItemsProcFunc {
 
 			// Add every item
 			foreach ($GLOBALS['TYPO3_CONF_VARS']['EXT']['t3events_course']['templateLayouts'] as $layouts) {
-				$additionalLayout = array(
+				$additionalLayout = [
 					$GLOBALS['LANG']->sL($layouts[0], TRUE),
 					$layouts[1]
-				);
+				];
 				array_push($config['items'], $additionalLayout);
 			}
 		}
@@ -58,10 +58,10 @@ class ItemsProcFunc {
 
 				// Add every item
 				foreach ($pagesTsConfig['tx_t3eventscourse.']['templateLayouts.'] as $key => $label) {
-					$additionalLayout = array(
+					$additionalLayout = [
 						$GLOBALS['LANG']->sL($label, TRUE),
 						$key
-					);
+					];
 					array_push($config['items'], $additionalLayout);
 				}
 			}

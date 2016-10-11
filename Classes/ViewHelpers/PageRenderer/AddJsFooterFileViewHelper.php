@@ -18,6 +18,8 @@ namespace CPSIT\T3eventsCourse\ViewHelpers\PageRenderer;
 	 * GNU General Public License for more details.
 	 * This copyright notice MUST APPEAR in all copies of the script!
 	 ***************************************************************/
+use CPSIT\T3eventsCourse\ViewHelpers\AbstractPageRendererViewHelper;
+
 /**
  * Adds a javascript file to the page footer
  * Warning: The ViewHelper does not check whether the file exists!
@@ -27,7 +29,7 @@ namespace CPSIT\T3eventsCourse\ViewHelpers\PageRenderer;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  * @link http://www.cps-it.de
  */
-class AddJsFooterFileViewHelper extends \CPSIT\T3eventsCourse\ViewHelpers\AbstractPageRendererViewHelper {
+class AddJsFooterFileViewHelper extends AbstractPageRendererViewHelper {
 
 	/**
 	 * @param string $file
