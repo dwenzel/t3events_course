@@ -1,3 +1,11 @@
+2016-10-11         [RELEASE] Release of t3events_course 0.6.0 (Dirk Wenzel)
+2016-10-05 102ea04 [TASK] code style improved (Dirk Wenzel)
+2016-10-03 c71e37a [TASK] code style improved. (Dirk Wenzel)
+2016-10-03 782468c [TASK] require t3events ^0.29.0 (Dirk Wenzel)
+2016-10-03 7913f28 [TASK] require-dev t3events (Dirk Wenzel)
+2016-10-03 cbd1f27 [BUGFIX] vendor name of package t3event corrected in composer.json (Dirk Wenzel)
+2016-10-03 b4b5867 [TASK] vendor name of t3events changed. (Dirk Wenzel)
+
 2016-08-12         [RELEASE] Release of t3events_course 0.5.0 (Dirk Wenzel)
 2016-07-20 6efeebd [TASK] markup for records listing in BE module improved. Usage of search form partial normalized. (Dirk Wenzel)
 
