@@ -95,6 +95,7 @@ trait CourseEventTrait {
 	public function initializeObject() {
 		$this->audience = new ObjectStorage();
 		$this->lessons = new ObjectStorage();
+        $this->certificate = new ObjectStorage();
 	}
 
 	/**
