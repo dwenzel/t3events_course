@@ -25,6 +25,7 @@ CREATE TABLE tx_t3events_domain_model_performance (
 	course int(11) unsigned DEFAULT '0' NOT NULL,
 	duration varchar(255) DEFAULT '' NOT NULL,
 	class_time text NOT NULL,
+	status_info text NOT NULL,
 	tx_extbase_type varchar(255) DEFAULT '' NOT NULL
 );
 
