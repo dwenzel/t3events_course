@@ -16,6 +16,11 @@ env:
   global:
     secure: S8QheEMVpSRsPPIhYQZ4tUCTbxpM7csZ0GydJaPY8p/FAEnZLiH6xcsiTGKOljva5HDelCdBvunaWtUO/+CdKIgsdbQGbqc1aWmG6gr+ShQk4X3KzeAA91AFmkJOR6Jv69lUTm6Uo9AKs1JtuVZsOa1aoOmfApohqFuXsRBNXlg=
 
+addons:
+  apt:
+    packages:
+      - parallel
+
 cache:
   directories:
     - $HOME/.composer/cache
@@ -43,6 +48,14 @@ script:
     echo "Running unit tests";
     .Build/bin/phpunit --colors -c Tests/Build/UnitTests.xml Tests/Unit/ --coverage-clover .Build/log/coverage/clover.xml
   fi
+
+- >
+  echo;
+  export typo3DatabaseName="typo3";
+  export typo3DatabaseHost="localhost";
+  export typo3DatabaseUsername="root";
+  export typo3DatabasePassword="";
+  find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo "Running functional test suite {}"; .Build/bin/phpunit --colors  -c .Build/vendor/typo3/cms/typo3/sysext/core/Build/FunctionalTests.xml {}'
 
 after_script:
 - >

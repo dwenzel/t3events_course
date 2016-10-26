@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+    <tx_t3events_domain_model_event>
+        <uid>1</uid>
+        <headline>courseWithGenre1</headline>
+        <performances>1</performances>
+        <genre>1</genre>
+    </tx_t3events_domain_model_event>
+    <tx_t3events_event_genre_mm>
+        <uid_local>1</uid_local>
+        <uid_foreign>1</uid_foreign>
+    </tx_t3events_event_genre_mm>
+    <tx_t3events_domain_model_genre>
+        <uid>1</uid>
+    </tx_t3events_domain_model_genre>
+</dataset>
