@@ -3,10 +3,10 @@
 namespace CPSIT\T3eventsCourse\Tests\Functional\Repository;
 
 use CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand;
-use CPSIT\T3eventsCourse\Domain\Model\Schedule;
 use CPSIT\T3eventsCourse\Domain\Repository\ScheduleRepository;
 use TYPO3\CMS\Core\Tests\FunctionalTestCase;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -61,11 +61,13 @@ class ScheduleRepositoryTest extends FunctionalTestCase  {
         /** @var ScheduleDemand $scheduleDemand */
         $scheduleDemand = $this->objectManager->get(ScheduleDemand::class);
         $scheduleDemand->setGenres('1');
+        $scheduleDemand->setStoragePages('1');
 
+        /** @var QueryResultInterface $schedules */
         $schedules = $this->scheduleRepository->findDemanded($scheduleDemand);
-        /** @var Schedule $schedule */
-        foreach ($schedules as $schedule) {
-            $this->assertEquals($schedule->getCourse()->getHeadline() == 'courseWithGenre1');
-        }
+        $this->assertEquals(
+            $schedules->getFirst()->getEvent()->getHeadline(),
+            'courseWithGenre1'
+        );
     }
 }

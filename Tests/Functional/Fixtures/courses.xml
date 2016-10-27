@@ -2,9 +2,19 @@
 <dataset>
     <tx_t3events_domain_model_event>
         <uid>1</uid>
+        <pid>1</pid>
+        <tx_extbase_type>Tx_T3eventsCourse_Course</tx_extbase_type>
         <headline>courseWithGenre1</headline>
         <performances>1</performances>
         <genre>1</genre>
+        <teaser></teaser>
+        <description></description>
+        <keywords></keywords>
+        <image></image>
+        <exam_remarks></exam_remarks>
+        <requirements></requirements>
+        <targetgroup_desc></targetgroup_desc>
+        <certificate></certificate>
     </tx_t3events_domain_model_event>
     <tx_t3events_event_genre_mm>
         <uid_local>1</uid_local>

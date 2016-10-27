@@ -4,12 +4,11 @@
 #
 CREATE TABLE tx_t3events_domain_model_event (
 
-	targetgroup_desc text DEFAULT '' NOT NULL,
-	requirements text DEFAULT '' NOT NULL,
-	lessons int(11) unsigned DEFAULT '0' NOT NULL,
+	targetgroup_desc text NOT NULL,
+	requirements text NOT NULL,
 	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
 	exam_costs double(11,2) DEFAULT '0.00' NOT NULL,
-	exam_remarks text DEFAULT '' NOT NULL,
+	exam_remarks text NOT NULL,
 	degree_type int(11) DEFAULT '0' NOT NULL,
 	mode_instruction_form int(11) DEFAULT '0' NOT NULL,
 
@@ -21,11 +20,8 @@ CREATE TABLE tx_t3events_domain_model_event (
 # Table structure for table 'tx_t3events_domain_model_performance'
 #
 CREATE TABLE tx_t3events_domain_model_performance (
-
-	course int(11) unsigned DEFAULT '0' NOT NULL,
 	duration varchar(255) DEFAULT '' NOT NULL,
-	class_time text DEFAULT '' NOT NULL,
-	status_info text DEFAULT '' NOT NULL,
+	class_time text NOT NULL,
 	tx_extbase_type varchar(255) DEFAULT '' NOT NULL
 );
 
@@ -40,7 +36,7 @@ CREATE TABLE tx_t3eventscourse_domain_model_certificatetype (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	title varchar(255) DEFAULT '' NOT NULL,
-	description text DEFAULT '' NOT NULL,
+	description text NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -81,9 +77,9 @@ CREATE TABLE tx_t3eventscourse_domain_model_certificate (
 	title varchar(255) DEFAULT '' NOT NULL,
 	short_pas1045 varchar(100) DEFAULT '' NOT NULL,
 	short_qcat varchar(100) DEFAULT '' NOT NULL,
-	description text DEFAULT '' NOT NULL,
+	description text NOT NULL,
 	type int(11) DEFAULT '0' NOT NULL,
-	link text DEFAULT '' NOT NULL,
+	link text NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

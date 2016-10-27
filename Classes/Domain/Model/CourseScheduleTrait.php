@@ -16,13 +16,6 @@ trait CourseScheduleTrait {
 	protected $duration = '';
 
 	/**
-	 * Course to which the lesson belongs
-	 *
-	 * @var \CPSIT\T3eventsCourse\Domain\Model\Course
-	 */
-	protected $course;
-
-	/**
 	 * @var string
 	 */
 	protected $classTime;

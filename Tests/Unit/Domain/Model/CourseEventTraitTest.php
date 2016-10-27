@@ -42,11 +42,6 @@ class CourseEventTraitTest extends UnitTestCase
 
         $this->assertEquals(
             $expectedStorage,
-            $this->subject->getLessons()
-        );
-
-        $this->assertEquals(
-            $expectedStorage,
             $this->subject->getCertificate()
         );
     }
