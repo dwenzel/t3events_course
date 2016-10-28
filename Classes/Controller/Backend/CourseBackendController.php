@@ -15,7 +15,7 @@ namespace CPSIT\T3eventsCourse\Controller\Backend;
  */
 
 use CPSIT\T3eventsCourse\Controller\CourseDemandFactoryTrait;
-use CPSIT\T3eventsCourse\Domain\Repository\CourseRepository;
+use CPSIT\T3eventsCourse\Controller\CourseRepositoryTrait;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
@@ -31,27 +31,9 @@ use DWenzel\T3events\Controller\FilterableControllerTrait;
 class CourseBackendController
 	extends AbstractBackendController
 	implements FilterableControllerInterface {
-	use FilterableControllerTrait, CourseDemandFactoryTrait;
+	use CourseRepositoryTrait, CourseDemandFactoryTrait, FilterableControllerTrait;
 
     const COURSE_LIST_ACTION = 'listAction';
-
-	/**
-	 * courseRepository
-	 *
-	 * @var \CPSIT\T3eventsCourse\Domain\Repository\CourseRepository
-	 * @inject
-	 */
-	protected $courseRepository;
-
-    /**
-     * Injects the course repository
-     *
-     * @param CourseRepository $courseRepository
-     */
-    public function injectCourseRepository(CourseRepository $courseRepository)
-    {
-        $this->courseRepository = $courseRepository;
-    }
 
 	/**
 	 * action list
@@ -103,7 +85,7 @@ class CourseBackendController
      * This method is only for backwards compatibility
 	 *
 	 * @param array $settings
-	 * @return \DWenzel\T3events\Domain\Model\Dto\EventDemand
+	 * @return \CPSIT\T3eventsCourse\Domain\Model\Dto\CourseDemand |\DWenzel\T3events\Domain\Model\Dto\DemandInterface
      * @deprecated Use CourseDemandFactoryTrait with $this->demandFactory->createFromSettings instead
 	 */
 	protected function createDemandFromSettings($settings) {
