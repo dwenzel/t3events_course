@@ -1,11 +1,24 @@
 <?php
 namespace CPSIT\T3eventsCourse\Controller\Backend;
 
-use CPSIT\T3eventsCourse\Domain\Model\Dto\CourseDemand;
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
+
+use CPSIT\T3eventsCourse\Controller\CourseDemandFactoryTrait;
+use CPSIT\T3eventsCourse\Domain\Repository\CourseRepository;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
-use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
 use DWenzel\T3events\Controller\AbstractBackendController;
 use DWenzel\T3events\Controller\FilterableControllerInterface;
 use DWenzel\T3events\Controller\FilterableControllerTrait;
@@ -18,7 +31,7 @@ use DWenzel\T3events\Controller\FilterableControllerTrait;
 class CourseBackendController
 	extends AbstractBackendController
 	implements FilterableControllerInterface {
-	use FilterableControllerTrait;
+	use FilterableControllerTrait, CourseDemandFactoryTrait;
 
     const COURSE_LIST_ACTION = 'listAction';
 
@@ -30,16 +43,26 @@ class CourseBackendController
 	 */
 	protected $courseRepository;
 
+    /**
+     * Injects the course repository
+     *
+     * @param CourseRepository $courseRepository
+     */
+    public function injectCourseRepository(CourseRepository $courseRepository)
+    {
+        $this->courseRepository = $courseRepository;
+    }
+
 	/**
 	 * action list
 	 *
 	 * @param array $overwriteDemand
 	 * @return void
 	 */
-	public function listAction($overwriteDemand = NULL) {
-		$demand = $this->createDemandFromSettings($this->settings);
+	public function listAction($overwriteDemand = null) {
+		$demand = $this->demandFactory->createFromSettings($this->settings);
 
-		if ($overwriteDemand === NULL) {
+		if ($overwriteDemand === null) {
 			$overwriteDemand = $this->moduleData->getOverwriteDemand();
 		} else {
 			$this->moduleData->setOverwriteDemand($overwriteDemand);
@@ -77,66 +100,13 @@ class CourseBackendController
 
 	/**
 	 * Create Demand from Settings
+     * This method is only for backwards compatibility
 	 *
 	 * @param array $settings
 	 * @return \DWenzel\T3events\Domain\Model\Dto\EventDemand
+     * @deprecated Use CourseDemandFactoryTrait with $this->demandFactory->createFromSettings instead
 	 */
 	protected function createDemandFromSettings($settings) {
-		$demand = $this->objectManager->get(CourseDemand::class);
-		$demand->setSortBy('headline');
-
-		foreach ($settings as $propertyName => $propertyValue) {
-			if (empty($propertyValue)) {
-				continue;
-			}
-			switch ($propertyName) {
-				case 'eventTypes':
-					$demand->setEventType($propertyValue);
-					break;
-				case 'venues':
-					$demand->setVenue($propertyValue);
-					break;
-				case 'maxItems':
-					$demand->setLimit($propertyValue);
-					break;
-				case 'genres':
-					$demand->setGenre($propertyValue);
-					break;
-				// all following fall through (see below)
-				case 'periodType':
-				case 'periodStart':
-				case 'periodEndDate':
-				case 'periodDuration':
-				case 'search':
-					break;
-				default:
-					if (ObjectAccess::isPropertySettable($demand, $propertyName)) {
-						ObjectAccess::setProperty($demand, $propertyName, $propertyValue);
-					}
-			}
-		}
-
-		if (isset($settings['sortBy']) && isset($settings['sortDirection'])){
-			$demand->setOrder($settings['sortBy'] . '|' . $settings['sortDirection']);
-		} else {
-			$demand->setOrder('headline');
-		}
-		if ($settings['period'] == 'specific') {
-			$demand->setPeriodType($settings['periodType']);
-		}
-		if (isset($settings['periodType']) AND $settings['periodType'] != 'byDate') {
-			$demand->setPeriodStart($settings['periodStart']);
-			$demand->setPeriodDuration($settings['periodDuration']);
-		}
-		if ($settings['periodType'] == 'byDate') {
-			if ($settings['periodStartDate']) {
-				$demand->setStartDate($settings['periodStartDate']);
-			}
-			if ($settings['periodEndDate']) {
-				$demand->setEndDate($settings['periodEndDate']);
-			}
-		}
-
-		return $demand;
+        return $this->demandFactory->createFromSettings($settings);
 	}
 }
