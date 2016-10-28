@@ -118,4 +118,73 @@ class CertificateTest extends UnitTestCase {
 			$this->subject->getType()
 		);
 	}
+	
+	/**
+     * @test
+     */
+	public function getShortPas1045InitiallyReturnsNull()
+    {
+        $this->assertNull(
+            $this->subject->getShortPas1045()
+        );
+    }
+    
+    /**
+     * @test
+     */
+    public function shortPas1045CanBeSet()
+    {
+        $text = 'foo';
+        $this->subject->setShortPas1045($text);
+        $this->assertSame(
+            $text,
+            $this->subject->getShortPas1045()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function getShortQcatInitiallyReturnsNull()
+    {
+        $this->assertNull(
+            $this->subject->getShortQcat()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function shortQcatCanBeSet()
+    {
+        $text = 'foo';
+        $this->subject->setShortQcat($text);
+        $this->assertSame(
+            $text,
+            $this->subject->getShortQcat()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function getLinkInitiallyReturnsNull()
+    {
+        $this->assertNull(
+            $this->subject->getLink()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function linkCanBeSet()
+    {
+        $text = 'foo';
+        $this->subject->setLink($text);
+        $this->assertSame(
+            $text,
+            $this->subject->getLink()
+        );
+    }
 }

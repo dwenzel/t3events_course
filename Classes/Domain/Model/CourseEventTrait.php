@@ -22,7 +22,7 @@ trait CourseEventTrait {
 	 *
 	 * @var string
 	 */
-	protected $abstract = '';
+	protected $abstract;
 
 	/**
 	 * Target audience of this course.
@@ -30,7 +30,7 @@ trait CourseEventTrait {
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DWenzel\T3events\Domain\Model\Audience>
 	 * @lazy
 	 */
-	protected $audience = NULL;
+	protected $audience;
 
 	/**
 	 * Requirements
@@ -246,16 +246,37 @@ trait CourseEventTrait {
 	}
 
 	/**
-	 * @return mixed
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\CPSIT\T3eventsCourse\Domain\Model\Certificate>
 	 */
 	public function getCertificate() {
 		return $this->certificate;
 	}
 
 	/**
-	 * @param mixed $certificate
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\CPSIT\T3eventsCourse\Domain\Model\Certificate> $certificate
 	 */
 	public function setCertificate($certificate) {
 		$this->certificate = $certificate;
 	}
+
+    /**
+     * Adds a Certificate
+     *
+     * @param \CPSIT\T3eventsCourse\Domain\Model\Certificate
+     * @return void
+     */
+    public function addCertificate(Certificate $certificate) {
+        $this->certificate->attach($certificate);
+    }
+
+    /**
+     * Removes a Certificate
+     *
+     * @param \CPSIT\T3eventsCourse\Domain\Model\Certificate $certificateToRemove The Certificate to be removed
+     * @return void
+     */
+    public function removeCertificate(Certificate $certificateToRemove) {
+        $this->certificate->detach($certificateToRemove);
+    }
+    
 }
