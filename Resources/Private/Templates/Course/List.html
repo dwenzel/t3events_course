@@ -11,11 +11,11 @@ This Template is responsible for creating a list of courses.
 		<f:debug title="demand">{demand}</f:debug>
 	</f:if>
 	<div class="course-list">
-		<f:flashMessages renderMode="div" />
+		<f:flashMessages  />
 		<f:if condition="{settings.course.list.showSortBy}">
 			<f:if condition="{courses}">
-				<span class="hint"><f:translate key="tx_dakosyreservations.hint.sortBy" /></span>
-				<f:form id="tx_dakosyreservationsSortBy"
+				<span class="hint"><f:translate key="hint.sortBy" /></span>
+				<f:form id="tx-t3events-course-SortBy"
 					name="overwriteDemand"
 					action="list">
 					<fieldset>
@@ -26,30 +26,30 @@ This Template is responsible for creating a list of courses.
 							value="date"
 							checked="{0: demand.sortBy}=={0: 'performances.date'}" />
 						<label>
-							<f:translate key="tx_dakosyreservations.date" />
+							<f:translate key="label.date" />
 						</label>
 						<f:form.radio name="overwriteDemand[sortBy]"
 							value="headline"
 							checked="{0: demand.sortBy}=={0: 'headline'}" />
 						<label>
-							<f:translate key="tx_dakosyreservations_domain_model_course.headline" />
+							<f:translate key="label.headline" />
 						</label>
 						<f:form.radio name="overwriteDemand[sortDirection]"
 							value="asc"
 							checked="{0: demand.sortDirection}=={0: 'asc'}" />
 						<label>
-							<f:translate key="tx_dakosyreservations.sortDirection.asc" />
+							<f:translate key="label.sortDirection.asc" />
 						</label>
 						<f:form.radio name="overwriteDemand[sortDirection]"
 							value="desc"
 							checked="{0: demand.sortDirection}=={0: 'desc'}" />
 						<label>
-							<f:translate key="tx_dakosyreservations.sortDirection.desc" />
+							<f:translate key="label.sortDirection.desc" />
 						</label>
 						<f:form.submit
 							class="submit"
 							name="submit"
-							value="{f:translate(key: 'tx_dakosyreservations.button.label.update', default: 'Aktualisieren')}"
+							value="{f:translate(key: 'button.update', default: 'button.update')}"
 							/>
 					</fieldset>
 				</f:form>
