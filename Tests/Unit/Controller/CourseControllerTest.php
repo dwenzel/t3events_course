@@ -16,18 +16,22 @@ namespace CPSIT\T3eventsCourse\Tests\Unit\Controller\Backend;
 
 use CPSIT\T3eventsCourse\Controller\CourseController;
 use CPSIT\T3eventsCourse\Domain\Factory\Dto\CourseDemandFactory;
+use CPSIT\T3eventsCourse\Domain\Model\Course;
 use DWenzel\T3events\Domain\Model\Dto\DemandInterface;
 use DWenzel\T3events\Domain\Model\Dto\ModuleData;
 use CPSIT\T3eventsCourse\Domain\Repository\CourseRepository;
+use DWenzel\T3events\Session\SessionInterface;
 use TYPO3\CMS\Core\Tests\UnitTestCase;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Mvc\Request;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 
 /**
  * Class CourseControllerTest
  * @package CPSIT\T3eventsCourse\Tests\Unit\Controller\Backend
  */
-class CourseControllerTest extends UnitTestCase {
+class CourseControllerTest extends UnitTestCase
+{
 
     /**
      * @var CourseController|\PHPUnit_Framework_MockObject_MockObject|\TYPO3\CMS\Core\Tests\AccessibleObjectInterface
@@ -45,39 +49,51 @@ class CourseControllerTest extends UnitTestCase {
     protected $view;
 
     /**
+     * @var Request | \PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $request;
+
+    /**
+     * @var SessionInterface  | \PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $session;
+
+    /**
      * set up
      */
     public function setUp()
     {
         $this->subject = $this->getAccessibleMock(
             CourseController::class,
-            ['emitSignal', 'getFilterOptions', 'overwriteDemandObject', 'addFlashMessage', 'translate'],
+            [
+                'emitSignal',
+                'getFilterOptions',
+                'overwriteDemandObject',
+                'addFlashMessage',
+                'translate',
+                'mergeSettings'
+            ],
             [], '', false
         );
-        $this->view = $this->getMockForAbstractClass(
-            ViewInterface::class
-        );
+
+        $this->view = $this->getMockForAbstractClass(ViewInterface::class);
         $mockCourseRepository = $this->getMock(
             CourseRepository::class, [], [], '', false
         );
-        $mockConfigurationManager = $this->getMockForAbstractClass(
-            ConfigurationManagerInterface::class
-        );
+        $mockConfigurationManager = $this->getMockForAbstractClass(ConfigurationManagerInterface::class);
         $mockDemandFactory = $this->getMock(
-           CourseDemandFactory::class, ['createFromSettings']
+            CourseDemandFactory::class, ['createFromSettings']
         );
+        $this->request = $this->getMock(
+            Request::class, ['hasArgument', 'getArgument']
+        );
+        $this->session = $this->getMockForAbstractClass(SessionInterface::class);
         $this->subject->injectCourseDemandFactory($mockDemandFactory);
+        $this->subject->injectSession($this->session);
         $this->subject->injectConfigurationManager($mockConfigurationManager);
-        $this->inject(
-            $this->subject,
-            'view',
-            $this->view
-        );
-        $this->inject(
-            $this->subject,
-            'settings',
-            []
-        );
+        $this->inject($this->subject, 'view', $this->view);
+        $this->inject($this->subject, 'settings', []);
+        $this->inject($this->subject, 'request', $this->request);
         $this->subject->injectCourseRepository($mockCourseRepository);
     }
 
@@ -177,4 +193,136 @@ class CourseControllerTest extends UnitTestCase {
         $this->subject->listAction();
     }
 
+    /**
+     * @test
+     */
+    public function showActionAssignsCourseToView()
+    {
+        $mockCourse = $this->getMock(Course::class);
+        $this->view->expects($this->once())
+            ->method('assign')
+            ->with('course', $mockCourse);
+        $this->subject->showAction($mockCourse);
+    }
+
+    /**
+     * @test
+     */
+    public function initializeFilterActionClearsSessionIfNoArgumentOverwriteDemand()
+    {
+        $this->request->expects($this->once())
+            ->method('hasArgument')
+            ->will($this->returnValue(false));
+        $this->session->expects($this->once())
+            ->method('clean');
+
+        $this->subject->initializeFilterAction();
+    }
+
+    /**
+     * @test
+     */
+    public function initializeActionMergesSettings()
+    {
+        $this->subject->expects($this->once())
+            ->method('mergeSettings');
+        $this->subject->initializeAction();
+    }
+
+    /**
+     * @test
+     */
+    public function initializeActionStoresArgumentOverwriteDemandToSession()
+    {
+        $overwriteDemand = ['foo'];
+        $expectedSessionValue = serialize($overwriteDemand);
+
+        $this->request->expects($this->once())
+            ->method('hasArgument')
+            ->will($this->returnValue(true));
+        $this->request->expects($this->once())
+            ->method('getArgument')
+            ->with('overwriteDemand')
+            ->will($this->returnValue($overwriteDemand));
+        $this->session->expects($this->once())
+            ->method('set')
+            ->with('tx_t3events_overwriteDemand', $expectedSessionValue);
+
+        $this->subject->initializeAction();
+    }
+
+    /**
+     * @test
+     */
+    public function filterActionGetsOverwriteDemandFromSession()
+    {
+        $this->session->expects($this->once())
+            ->method('get')
+            ->with(CourseController::SESSION_IDENTIFIER_OVERWRITE_DEMAND);
+        $this->subject->filterAction();
+    }
+
+    /**
+     * @test
+     */
+    public function filterActionGetsFilterOptions()
+    {
+        $settings = ['fooBar'];
+        $this->inject($this->subject, 'settings', $settings);
+
+        $filterOptions = [
+            'genres' => 'foo',
+            'venues' => 'bar',
+            'eventTypes' => 'baz'
+        ];
+        $this->subject->expects($this->once())
+            ->method('getFilterOptions')
+            ->with($settings);
+
+        $this->subject->filterAction();
+    }
+
+    /**
+     * @test
+     */
+    public function filterActionAssignsVariablesToView()
+    {
+        $settings = ['fooBar'];
+        $this->inject($this->subject, 'settings', $settings);
+
+        $overwriteDemand = ['boom'];
+        $filterOptions = [
+            'genres' => 'foo',
+            'venues' => 'bar',
+            'eventTypes' => 'baz'
+        ];
+        $expectedTemplateVariables = [
+            'filterOptions' => $filterOptions,
+            'overwriteDemand' => $overwriteDemand
+        ];
+        $this->session->expects($this->once())
+            ->method('get')
+            ->with(CourseController::SESSION_IDENTIFIER_OVERWRITE_DEMAND)
+            ->will($this->returnValue(serialize($overwriteDemand)));
+        $this->subject->expects($this->once())
+            ->method('getFilterOptions')
+            ->will($this->returnValue($filterOptions));
+        $this->view->expects($this->once())
+            ->method('assignMultiple')
+            ->with($expectedTemplateVariables);
+        $this->subject->filterAction();
+    }
+
+    /**
+     * @test
+     */
+    public function constructorSetsNamespace()
+    {
+        $this->subject->__construct();
+        $this->assertAttributeSame(
+            get_class($this->subject),
+            'namespace',
+            $this->subject
+        );
+    }
 }

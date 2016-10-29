@@ -19,6 +19,8 @@ use DWenzel\T3events\Controller\CategoryRepositoryTrait;
 use DWenzel\T3events\Controller\DemandTrait;
 use DWenzel\T3events\Controller\EntityNotFoundHandlerTrait;
 use DWenzel\T3events\Controller\EventTypeRepositoryTrait;
+use DWenzel\T3events\Controller\FilterableControllerInterface;
+use DWenzel\T3events\Controller\FilterableControllerTrait;
 use DWenzel\T3events\Controller\GenreRepositoryTrait;
 use DWenzel\T3events\Controller\SearchTrait;
 use DWenzel\T3events\Controller\SessionTrait;
@@ -34,15 +36,34 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
  * Class CourseController
  * @package CPSIT\T3eventsCourse\Controller
  */
-class CourseController extends ActionController {
+class CourseController extends ActionController
+    implements FilterableControllerInterface
+{
     use  CourseDemandFactoryTrait, CourseRepositoryTrait,
         CategoryRepositoryTrait, DemandTrait,
         EventTypeRepositoryTrait, EntityNotFoundHandlerTrait,
-        GenreRepositoryTrait, SearchTrait,
-        SessionTrait, SettingsUtilityTrait,
+        FilterableControllerTrait, GenreRepositoryTrait,
+        SearchTrait, SessionTrait, SettingsUtilityTrait,
         TranslateTrait, VenueRepositoryTrait;
 
+    /**
+     * @const COURSE_LIST_ACTION To be used when emitting signal.
+     */
     const COURSE_LIST_ACTION = 'listAction';
+
+    /**
+     * @const SESSION_IDENTIFIER_OVERWRITE_DEMAND Identifier for saving overwriteDemand in session:
+     */
+    const SESSION_IDENTIFIER_OVERWRITE_DEMAND = 'tx_t3events_overwriteDemand';
+
+    /**
+     * CourseController constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->namespace = get_class($this);
+    }
 
     /**
      * initializes all actions
@@ -51,8 +72,9 @@ class CourseController extends ActionController {
     {
         $this->settings = $this->mergeSettings();
         if ($this->request->hasArgument('overwriteDemand')) {
+            //todo use class name or plugin namespace (see PerformanceController)
             $this->session->set(
-                'tx_t3events_overwriteDemand',
+                self::SESSION_IDENTIFIER_OVERWRITE_DEMAND,
                 serialize($this->request->getArgument('overwriteDemand'))
             );
         }
@@ -69,27 +91,28 @@ class CourseController extends ActionController {
     }
 
     /**
-	 * action list
-	 *
-	 * @param array $overwriteDemand
-	 * @return void
-	 */
-	public function listAction($overwriteDemand = null) {
-		$demand = $this->demandFactory->createFromSettings($this->settings);
+     * action list
+     *
+     * @param array $overwriteDemand
+     * @return void
+     */
+    public function listAction($overwriteDemand = null)
+    {
+        $demand = $this->demandFactory->createFromSettings($this->settings);
         $this->overwriteDemandObject($demand, $overwriteDemand);
 
-		$courses = $this->courseRepository->findDemanded($demand);
+        $courses = $this->courseRepository->findDemanded($demand);
 
-		if (($courses instanceof QueryResultInterface AND !$courses->count())
-			OR !count($courses)
-		) {
-			$this->addFlashMessage(
-				$this->translate('message.noCoursesFound.text', 't3events_course'),
-				$this->translate('message.noCoursesFound.title', 't3events_course'),
-				FlashMessage::WARNING
-			);
-		}
-		$configuration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+        if (($courses instanceof QueryResultInterface AND !$courses->count())
+            OR !count($courses)
+        ) {
+            $this->addFlashMessage(
+                $this->translate('message.noCoursesFound.text', 't3events_course'),
+                $this->translate('message.noCoursesFound.title', 't3events_course'),
+                FlashMessage::WARNING
+            );
+        }
+        $configuration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
 
         $templateVariables = [
             'courses' => $courses,
@@ -101,40 +124,35 @@ class CourseController extends ActionController {
         $this->emitSignal(__CLASS__, self::COURSE_LIST_ACTION, $templateVariables);
 
         $this->view->assignMultiple($templateVariables);
-	}
+    }
 
     /**
-	 * action show
-	 *
+     * action show
+     *
      * @param \CPSIT\T3eventsCourse\Domain\Model\Course $course
-	 * @return void
-	 */
-	public function showAction(Course $course) {
-		$this->view->assign('course', $course);
-	}
+     * @return void
+     */
+    public function showAction(Course $course)
+    {
+        $this->view->assign('course', $course);
+    }
 
-	/**
-	 * filter action
-	 *
-	 * @return void
-	 */
-	public function filterAction() {
-
-		// get session data
-        $overwriteDemand = unserialize($this->session->get('tx_t3events_overwriteDemand'));
-		$genres = $this->genreRepository->findMultipleByUid($this->settings['genres'], 'title');
-		$venues = $this->venueRepository->findMultipleByUid($this->settings['venues'], 'title');
-		$eventTypes = $this->eventTypeRepository->findMultipleByUid($this->settings['eventTypes'], 'title');
-
-		$this->view->assignMultiple(
-			[
-				'genres' => $genres,
-				'venues' => $venues,
-				'eventTypes' => $eventTypes,
+    /**
+     * filter action
+     *
+     * @return void
+     */
+    public function filterAction()
+    {
+        $overwriteDemand = unserialize($this->session->get(self::SESSION_IDENTIFIER_OVERWRITE_DEMAND));
+        $filterOptions = $this->getFilterOptions($this->settings);
+        $this->view->assignMultiple(
+            [
+                'filterOptions' => $filterOptions,
                 'overwriteDemand' => $overwriteDemand
             ]
-		);
-	}
+        );
+    }
 
     /**
      * Create Demand from Settings
@@ -144,8 +162,9 @@ class CourseController extends ActionController {
      * @return \CPSIT\T3eventsCourse\Domain\Model\Dto\CourseDemand |\DWenzel\T3events\Domain\Model\Dto\DemandInterface
      * @deprecated Use CourseDemandFactoryTrait with $this->demandFactory->createFromSettings instead
      */
-	protected function createDemandFromSettings($settings) {
-		return $this->demandFactory->createFromSettings($settings);
-	}
+    protected function createDemandFromSettings($settings)
+    {
+        return $this->demandFactory->createFromSettings($settings);
+    }
 }
 
