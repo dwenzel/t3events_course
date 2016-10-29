@@ -38,13 +38,11 @@ class ScheduleDemandFactoryTest extends UnitTestCase {
             ScheduleDemandFactory::class, ['dummy']
         );
     }
-
     /**
-     * @test
+     * @param $mockScheduleDemand
      */
-    public function createFromSettingsReturnsScheduleDemand()
+    protected function mockObjectManager($mockScheduleDemand)
     {
-        $mockScheduleDemand = $this->getMock(ScheduleDemand::class);
         $mockObjectManager = $this->getMock(
             ObjectManager::class, ['get']
         );
@@ -53,10 +51,43 @@ class ScheduleDemandFactoryTest extends UnitTestCase {
             ->with(ScheduleDemand::class)
             ->will($this->returnValue($mockScheduleDemand));
         $this->subject->injectObjectManager($mockObjectManager);
+    }
+
+    /**
+     * @test
+     */
+    public function createFromSettingsReturnsScheduleDemand()
+    {
+        $mockScheduleDemand = $this->getMock(ScheduleDemand::class);
+        $this->mockObjectManager($mockScheduleDemand);
 
         $this->assertSame(
             $mockScheduleDemand,
             $this->subject->createFromSettings([])
         );
     }
+
+    /**
+     * @test
+     */
+    public function createFromSettingsSetsDeadLineAfterIfHideAfterDeadlineIsSet()
+    {
+        $settings = [
+            'hideAfterDeadline' => '1'
+        ];
+
+        /** @var ScheduleDemand |\PHPUnit_Framework_MockObject_MockObject $mockScheduleDemand */
+        $mockScheduleDemand = $this->getMock(ScheduleDemand::class);
+        $this->mockObjectManager($mockScheduleDemand);
+
+        $timeZone = new \DateTimeZone(date_default_timezone_get());
+        $deadLine = new \DateTime('now', $timeZone);
+
+        $mockScheduleDemand->expects($this->once())
+            ->method('setDeadlineAfter')
+            ->with($deadLine);
+
+        $this->subject->createFromSettings($settings);
+    }
+
 }

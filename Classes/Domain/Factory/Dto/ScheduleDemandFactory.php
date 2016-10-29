@@ -28,4 +28,20 @@ class ScheduleDemandFactory extends PerformanceDemandFactory
      * Class name of the object created by this factory.
      */
     const DEMAND_CLASS = ScheduleDemand::class;
+
+    public function createFromSettings(array $settings)
+    {
+        /** @var ScheduleDemand $demand */
+        $demand = parent::createFromSettings($settings);
+        if (
+            isset($settings['hideAfterDeadline'])
+            && (bool)$settings['hideAfterDeadline']
+        ) {
+            $timeZone = new \DateTimeZone(date_default_timezone_get());
+            $deadLine = new \DateTime('now', $timeZone);
+            $demand->setDeadlineAfter($deadLine);
+        }
+
+        return $demand;
+    }
 }
