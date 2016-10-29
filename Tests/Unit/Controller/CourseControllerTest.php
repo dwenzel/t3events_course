@@ -267,7 +267,9 @@ class CourseControllerTest extends UnitTestCase
      */
     public function filterActionGetsFilterOptions()
     {
-        $settings = ['fooBar'];
+        $settings = [
+            'filter' => 'fooBar'
+        ];
         $this->inject($this->subject, 'settings', $settings);
 
         $filterOptions = [
@@ -277,7 +279,7 @@ class CourseControllerTest extends UnitTestCase
         ];
         $this->subject->expects($this->once())
             ->method('getFilterOptions')
-            ->with($settings);
+            ->with($settings['filter']);
 
         $this->subject->filterAction();
     }
@@ -287,7 +289,9 @@ class CourseControllerTest extends UnitTestCase
      */
     public function filterActionAssignsVariablesToView()
     {
-        $settings = ['fooBar'];
+        $settings = [
+            'filter' => 'fooBar'
+        ];
         $this->inject($this->subject, 'settings', $settings);
 
         $overwriteDemand = ['boom'];

@@ -145,7 +145,10 @@ class CourseController extends ActionController
     public function filterAction()
     {
         $overwriteDemand = unserialize($this->session->get(self::SESSION_IDENTIFIER_OVERWRITE_DEMAND));
-        $filterOptions = $this->getFilterOptions($this->settings);
+        $filterOptions = [];
+        if (isset($this->settings['filter'])) {
+            $filterOptions = $this->getFilterOptions($this->settings['filter']);
+        }
         $this->view->assignMultiple(
             [
                 'filterOptions' => $filterOptions,
