@@ -72,5 +72,6 @@ after_script:
 after_success:
 - >
   if [[ "$COVERAGE" == "1" ]]; then
-    bash <(curl -s https://codecov.io/bash)
+    bash <(curl -s https://codecov.io/bash) -f "*.clover" -F functional
+    bash <(curl -s https://codecov.io/bash) -F unit
   fi
