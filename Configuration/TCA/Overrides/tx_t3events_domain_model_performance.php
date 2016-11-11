@@ -14,9 +14,8 @@ $GLOBALS['TCA']['tx_t3events_domain_model_performance']['palettes']['paletteLess
 ];
 
 // SCHEDULE
-$lessonShowItems = '	course,
-						--palette--;;paletteLessonDates,
-						--palette--;;paletteLessonTime,
+$lessonShowItems = '--palette--;;paletteLessonDates,
+					--palette--;;paletteLessonTime,
 						class_time,event_location,status,
 					--div--;' . $ll . 'tab.price,
 						price_notice,
@@ -26,12 +25,6 @@ $lessonShowItems = '	course,
 $GLOBALS['TCA']['tx_t3events_domain_model_performance']['types']['Tx_T3eventsCourse_Schedule']['showitem'] = $lessonShowItems;
 
 $temporaryColumns = [
-	'course' => [
-		'config' => [
-			'type' => 'passthrough',
-			'foreign_table' => 'tx_t3events_domain_model_event',
-		]
-	],
 	'class_time' => [
 		'exclude' => 1,
 		'label' => $ll . 'tx_t3eventscourse_domain_model_performance.class_time',
@@ -72,7 +65,3 @@ if (!isset($GLOBALS['TCA']['tx_t3events_domain_model_performance']['columns']['t
 	$temporaryColumns,
 	TRUE
 );
-
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-	'tx_t3events_domain_model_performance', 'course', '', 'before:date');

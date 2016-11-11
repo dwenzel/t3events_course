@@ -22,7 +22,7 @@ trait CourseEventTrait {
 	 *
 	 * @var string
 	 */
-	protected $abstract = '';
+	protected $abstract;
 
 	/**
 	 * Target audience of this course.
@@ -30,15 +30,7 @@ trait CourseEventTrait {
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DWenzel\T3events\Domain\Model\Audience>
 	 * @lazy
 	 */
-	protected $audience = NULL;
-
-	/**
-	 * Lessons held for this course.
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\CPSIT\T3eventsCourse\Domain\Model\Schedule>
-	 * @lazy
-	 */
-	protected $lessons = NULL;
+	protected $audience;
 
 	/**
 	 * Requirements
@@ -94,7 +86,7 @@ trait CourseEventTrait {
 	 */
 	public function initializeObject() {
 		$this->audience = new ObjectStorage();
-		$this->lessons = new ObjectStorage();
+		$this->certificate = new ObjectStorage();
 	}
 
 	/**
@@ -153,45 +145,6 @@ trait CourseEventTrait {
 	 */
 	public function setAbstract($abstract) {
 		$this->abstract = $abstract;
-	}
-
-	/**
-	 * Adds a Schedule
-	 *
-	 * @param \CPSIT\T3eventsCourse\Domain\Model\Schedule $lesson
-	 * @return void
-	 */
-	public function addLesson(Schedule $lesson) {
-		$this->lessons->attach($lesson);
-	}
-
-	/**
-	 * Removes a Schedule
-	 *
-	 * @param \CPSIT\T3eventsCourse\Domain\Model\Schedule $lessonToRemove The Schedule to be removed
-	 * @return void
-	 */
-	public function removeLesson(Schedule $lessonToRemove) {
-		$this->lessons->detach($lessonToRemove);
-	}
-
-	/**
-	 * Returns the lessons
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\CPSIT\T3eventsCourse\Domain\Model\Schedule> $lessons
-	 */
-	public function getLessons() {
-		return $this->lessons;
-	}
-
-	/**
-	 * Sets the lessons
-	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\CPSIT\T3eventsCourse\Domain\Model\Schedule> $lessons
-	 * @return void
-	 */
-	public function setLessons(ObjectStorage $lessons) {
-		$this->lessons = $lessons;
 	}
 
 	/**
@@ -293,19 +246,37 @@ trait CourseEventTrait {
 	}
 
 	/**
-	 * @return mixed
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\CPSIT\T3eventsCourse\Domain\Model\Certificate>
 	 */
 	public function getCertificate() {
 		return $this->certificate;
 	}
 
 	/**
-	 * @param mixed $certificate
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\CPSIT\T3eventsCourse\Domain\Model\Certificate> $certificate
 	 */
 	public function setCertificate($certificate) {
 		$this->certificate = $certificate;
 	}
 
+    /**
+     * Adds a Certificate
+     *
+     * @param \CPSIT\T3eventsCourse\Domain\Model\Certificate
+     * @return void
+     */
+    public function addCertificate(Certificate $certificate) {
+        $this->certificate->attach($certificate);
+    }
 
-
+    /**
+     * Removes a Certificate
+     *
+     * @param \CPSIT\T3eventsCourse\Domain\Model\Certificate $certificateToRemove The Certificate to be removed
+     * @return void
+     */
+    public function removeCertificate(Certificate $certificateToRemove) {
+        $this->certificate->detach($certificateToRemove);
+    }
+    
 }

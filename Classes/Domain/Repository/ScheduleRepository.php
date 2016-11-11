@@ -44,39 +44,6 @@ class ScheduleRepository extends PerformanceRepository {
 		if ($demand->getDeadlineAfter() !== NULL) {
 			$constraints[] = $query->greaterThan('deadline', $demand->getDeadlineAfter());
 		}
-		$constraintsConjunction = $demand->getConstraintsConjunction();
-		if ($demand->getGenres()) {
-			$genres = GeneralUtility::intExplode(',', $demand->getGenres());
-			$genreConstraints = [];
-			foreach ($genres as $genre) {
-				$genreConstraints[] = $query->contains('course.genre', $genre);
-			}
-			$this->combineConstraints($query, $constraints, $genreConstraints, $constraintsConjunction);
-		}
-		if ($demand->getEventLocations()) {
-			$eventLocations = GeneralUtility::intExplode(',', $demand->getEventLocations());
-			$eventLocationConstraints = [];
-			foreach ($eventLocations as $eventLocation) {
-				$eventLocationConstraints[] = $query->equals('eventLocation.uid', $eventLocation);
-			}
-			$this->combineConstraints($query, $constraints, $eventLocationConstraints, $constraintsConjunction);
-		}
-		if ($demand->getEventTypes()) {
-			$eventTypes = GeneralUtility::intExplode(',', $demand->getEventTypes());
-			$eventTypeConstraints = [];
-			foreach ($eventTypes as $eventType) {
-				$eventTypeConstraints[] = $query->equals('course.eventType.uid', $eventType);
-			}
-			$this->combineConstraints($query, $constraints, $eventTypeConstraints, $constraintsConjunction);
-		}
-		if ($demand->getAudiences()) {
-			$audiences = GeneralUtility::intExplode(',', $demand->getAudiences());
-			$audienceConstraints = [];
-			foreach ($audiences as $audience) {
-				$audienceConstraints[] = $query->equals('course.audience.uid', $audience);
-			}
-			$this->combineConstraints($query, $constraints, $audienceConstraints, $constraintsConjunction);
-		}
 
 		return $constraints;
 	}
