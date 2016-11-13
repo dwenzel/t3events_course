@@ -14,7 +14,7 @@
     <f:comment>Search form</f:comment>
     <f:render partial="Backend/Common/SearchForm"
               arguments="{overwriteDemand: overwriteDemand, filterOptions: filterOptions, showSubjectField: '{settings.search.showSubjectField}'}"/>
-    <f:flashMessages renderMode="div"/>
+    <f:flashMessages />
 
     <f:comment>Paginated list</f:comment>
     <f:if condition="{performances}">

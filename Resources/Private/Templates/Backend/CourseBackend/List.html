@@ -2,7 +2,7 @@
       xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers">
 {namespace ts=DWenzel\T3events\ViewHelpers}
 <f:layout name="Default"/>
-<f:section name="content">
+<f:section name="main">
     <f:comment>
         <f:debug title="demand">{demand}</f:debug>
         <f:debug title="settings" inline="true">{settings}</f:debug>
@@ -15,7 +15,7 @@
     <f:comment>Search form</f:comment>
     <f:render partial="Backend/Common/SearchForm"
               arguments="{demand: '{demand}', overwriteDemand: '{overwriteDemand}', filterOptions: '{filterOptions}', showSubjectField: '{settings.search.showSubjectField}'}"/>
-    <f:flashMessages renderMode="div"/>
+    <f:flashMessages />
 
     <f:comment>Paginated list</f:comment>
     <f:if condition="{courses}">
