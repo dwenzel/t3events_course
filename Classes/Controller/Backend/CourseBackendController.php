@@ -35,7 +35,12 @@ class CourseBackendController
 
     const COURSE_LIST_ACTION = 'listAction';
 
-	/**
+    /**
+     * @const EXTENSION_KEY
+     */
+    const EXTENSION_KEY = 't3events_course';
+
+    /**
 	 * action list
 	 *
 	 * @param array $overwriteDemand

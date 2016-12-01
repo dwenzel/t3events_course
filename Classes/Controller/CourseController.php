@@ -57,6 +57,11 @@ class CourseController extends ActionController
     const SESSION_IDENTIFIER_OVERWRITE_DEMAND = 'tx_t3events_overwriteDemand';
 
     /**
+     * @const EXTENSION_KEY
+     */
+    const EXTENSION_KEY = 't3events_course';
+
+    /**
      * CourseController constructor.
      */
     public function __construct()
