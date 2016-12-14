@@ -6,7 +6,6 @@ CREATE TABLE tx_t3events_domain_model_event (
 
 	targetgroup_desc text NOT NULL,
 	requirements text NOT NULL,
-	lessons int(11) unsigned DEFAULT '0' NOT NULL,
 	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
 	exam_costs double(11,2) DEFAULT '0.00' NOT NULL,
 	exam_remarks text NOT NULL,
@@ -21,8 +20,6 @@ CREATE TABLE tx_t3events_domain_model_event (
 # Table structure for table 'tx_t3events_domain_model_performance'
 #
 CREATE TABLE tx_t3events_domain_model_performance (
-
-	course int(11) unsigned DEFAULT '0' NOT NULL,
 	duration varchar(255) DEFAULT '' NOT NULL,
 	class_time text NOT NULL,
 	tx_extbase_type varchar(255) DEFAULT '' NOT NULL

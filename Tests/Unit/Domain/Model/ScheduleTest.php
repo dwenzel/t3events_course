@@ -20,7 +20,7 @@ namespace CPSIT\T3eventsCourse\Tests\Unit\Domain\Model;
  *  GNU General Public License for more details.
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-use CPSIT\T3eventsCourse\Domain\Model\Schedule;
+use CPSIT\T3eventsCourse\Domain\Model\CourseScheduleTrait;
 use TYPO3\CMS\Core\Tests\UnitTestCase;
 
 /**
@@ -31,13 +31,13 @@ use TYPO3\CMS\Core\Tests\UnitTestCase;
 class ScheduleTest extends UnitTestCase {
 
 	/**
-	 * @var \CPSIT\T3eventsCourse\Domain\Model\Schedule
+	 * @var \CPSIT\T3eventsCourse\Domain\Model\CourseScheduleTrait
 	 */
 	protected $subject;
 
 	protected function setUp() {
-		$this->subject = $this->getMock(
-			Schedule::class, ['dummy'], [], '', TRUE
+		$this->subject = $this->getMockForTrait(
+			CourseScheduleTrait::class
 		);
 	}
 
@@ -62,4 +62,26 @@ class ScheduleTest extends UnitTestCase {
 			$this->subject->getClassTime()
 		);
 	}
+
+    /**
+     * @test
+     */
+    public function getDurationForStringInitiallyReturnsNull() {
+        $this->assertNull(
+            $this->subject->getDuration()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setDurationForStringSetsDuration() {
+        $value = '123';
+        $this->subject->setDuration($value);
+
+        $this->assertSame(
+            $value,
+            $this->subject->getDuration()
+        );
+    }
 }

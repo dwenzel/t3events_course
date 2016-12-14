@@ -13,14 +13,7 @@ trait CourseScheduleTrait {
 	 *
 	 * @var string
 	 */
-	protected $duration = '';
-
-	/**
-	 * Course to which the lesson belongs
-	 *
-	 * @var \CPSIT\T3eventsCourse\Domain\Model\Course
-	 */
-	protected $course;
+	protected $duration;
 
 	/**
 	 * @var string
@@ -59,23 +52,4 @@ trait CourseScheduleTrait {
 	public function setDuration($duration) {
 		$this->duration = $duration;
 	}
-
-	/**
-	 * Returns the course
-	 *
-	 * @return \CPSIT\T3eventsCourse\Domain\Model\Course
-	 */
-	public function getCourse() {
-		return $this->course;
-	}
-
-	/**
-	 * Sets the course
-	 *
-	 * @var \CPSIT\T3eventsCourse\Domain\Model\Course $course
-	 */
-	public function setCourse($course) {
-		$this->course = $course;
-	}
-
 }

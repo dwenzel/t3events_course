@@ -1,250 +1,176 @@
 <?php
 namespace CPSIT\T3eventsCourse\Controller;
 
-use CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand;
-use CPSIT\T3eventsCourse\Domain\Model\Schedule;
-use TYPO3\CMS\Core\Messaging\FlashMessage;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Extbase\Persistence\QueryResult;
-use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
-use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+/**
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
 
+use CPSIT\T3eventsCourse\Domain\Model\Schedule;
+use DWenzel\T3events\Controller\AudienceRepositoryTrait;
+use DWenzel\T3events\Controller\CategoryRepositoryTrait;
+use DWenzel\T3events\Controller\DemandTrait;
+use DWenzel\T3events\Controller\EntityNotFoundHandlerTrait;
+use DWenzel\T3events\Controller\EventLocationRepositoryTrait;
+use DWenzel\T3events\Controller\EventTypeRepositoryTrait;
+use DWenzel\T3events\Controller\FilterableControllerInterface;
+use DWenzel\T3events\Controller\FilterableControllerTrait;
+use DWenzel\T3events\Controller\GenreRepositoryTrait;
+use DWenzel\T3events\Controller\SearchTrait;
+use DWenzel\T3events\Controller\SessionTrait;
+use DWenzel\T3events\Controller\SettingsUtilityTrait;
+use DWenzel\T3events\Controller\TranslateTrait;
+use DWenzel\T3events\Controller\VenueRepositoryTrait;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
 /**
  * Class ScheduleController
  *
  * @package CPSIT\T3eventsCourse\Controller
  */
-class ScheduleController extends AbstractController {
+class ScheduleController extends ActionController
+    implements FilterableControllerInterface
+{
+    use AudienceRepositoryTrait, CategoryRepositoryTrait,
+        CourseRepositoryTrait, DemandTrait,
+        EventTypeRepositoryTrait, EntityNotFoundHandlerTrait,
+        EventLocationRepositoryTrait, FilterableControllerTrait,
+        GenreRepositoryTrait, ScheduleDemandFactoryTrait,
+        ScheduleRepositoryTrait, SearchTrait,
+        SessionTrait, SettingsUtilityTrait,
+        TranslateTrait, VenueRepositoryTrait;
 
-	/**
-	 * Schedule Repository
-	 *
-	 * @var \CPSIT\T3eventsCourse\Domain\Repository\ScheduleRepository
-	 * @inject
-	 */
-	protected $lessonRepository;
+    /**
+     * @const SCHEDULE_LIST_ACTION To be used when emitting signal.
+     */
+    const SCHEDULE_LIST_ACTION = 'listAction';
 
-	/**
-	 * Course Repository
-	 *
-	 * @var \CPSIT\T3eventsCourse\Domain\Repository\CourseRepository
-	 * @inject
-	 */
-	protected $courseRepository;
+    /**
+     * @const SESSION_IDENTIFIER_OVERWRITE_DEMAND Identifier for saving overwriteDemand in session:
+     */
+    const SESSION_IDENTIFIER_OVERWRITE_DEMAND = 'tx_t3events_overwriteDemand';
 
-	/**
-	 * genreRepository
-	 *
-	 * @var \DWenzel\T3events\Domain\Repository\GenreRepository
-	 * @inject
-	 */
-	protected $genreRepository;
+    /**
+     * CourseController constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->namespace = get_class($this);
+    }
 
-	/**
-	 * Event location repository
-	 *
-	 * @var \DWenzel\T3events\Domain\Repository\EventLocationRepository
-	 * @inject
-	 */
-	protected $eventLocationRepository;
+    /**
+     * initializes all actions
+     */
+    public function initializeAction()
+    {
+        $this->settings = $this->mergeSettings();
+        if ($this->request->hasArgument('overwriteDemand')) {
+            //todo use class name or plugin namespace (see PerformanceController)
+            $this->session->set(
+                self::SESSION_IDENTIFIER_OVERWRITE_DEMAND,
+                serialize($this->request->getArgument('overwriteDemand'))
+            );
+        }
+    }
 
-	/**
-	 * Audience Repository
-	 *
-	 * @var \DWenzel\T3events\Domain\Repository\AudienceRepository
-	 * @inject
-	 */
-	protected $audienceRepository;
+    /**
+     * initializes filter action
+     */
+    public function initializeFilterAction()
+    {
+        if (!$this->request->hasArgument('overwriteDemand')) {
+            $this->session->clean();
+        }
+    }
 
-	/**
-	 * eventTypeRepository
-	 *
-	 * @var \DWenzel\T3events\Domain\Repository\EventTypeRepository
-	 * @inject
-	 */
-	protected $eventTypeRepository;
+    /**
+     * action list
+     *
+     * @param array $overwriteDemand
+     * @return void
+     */
+    public function listAction($overwriteDemand = NULL)
+    {
+        $demand = $this->demandFactory->createFromSettings($this->settings);
+        if ($overwriteDemand) {
+            $this->overwriteDemandObject($demand, $overwriteDemand);
+        }
+        $schedules = $this->scheduleRepository->findDemanded($demand, FALSE);
+        if (($schedules instanceof QueryResult AND !$schedules->count())
+            OR !count($schedules)
+        ) {
+            $this->addFlashMessage(
+                $this->translate('message.noLessonsForSelection.text', $this->extensionName),
+                $this->translate('message.noLessonsForSelection.title', $this->extensionName),
+                FlashMessage::NOTICE
+            );
+        }
+        $configuration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
 
-	/**
-	 * action list
-	 *
-	 * @param array $overwriteDemand
-	 * @return void
-	 */
-	public function listAction($overwriteDemand = NULL) {
-		$demand = $this->createDemandFromSettings($this->settings);
-		if ($overwriteDemand) {
-			$this->overwriteDemandObject($demand, $overwriteDemand);
-		}
-		$lessons = $this->lessonRepository->findDemanded($demand, FALSE);
-		if (($lessons instanceof QueryResult AND !$lessons->count())
-			OR !count($lessons)
-		) {
-			$this->addFlashMessage(
-				LocalizationUtility::translate('message.noLessonsForSelection.text', $this->extensionName),
-				LocalizationUtility::translate('message.noLessonsForSelection.title', $this->extensionName),
-				FlashMessage::NOTICE
-			);
-		}
-		$configuration = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
-		$this->view->assignMultiple(
-			[
-				'lessons' => $lessons,
-				'demand' => $demand,
-				'overwriteDemand' => $overwriteDemand,
-				'storagePid' => $configuration['persistence']['storagePid']
+        $templateVariables = [
+            'schedules' => $schedules,
+            'demand' => $demand,
+            'overwriteDemand' => $overwriteDemand,
+            'storagePid' => $configuration['persistence']['storagePid']
+        ];
+
+        $this->emitSignal(__CLASS__, self::SCHEDULE_LIST_ACTION, $templateVariables);
+
+        $this->view->assignMultiple($templateVariables);
+    }
+
+    /**
+     * action show
+     *
+     * @param \CPSIT\T3eventsCourse\Domain\Model\Schedule $schedule
+     * @return void
+     */
+    public function showAction(Schedule $schedule)
+    {
+        $this->view->assign('schedule', $schedule);
+    }
+
+    /**
+     * filter action
+     *
+     * @return void
+     */
+    public function filterAction()
+    {
+        $overwriteDemand = unserialize($this->session->get(self::SESSION_IDENTIFIER_OVERWRITE_DEMAND));
+        $filterOptions = [];
+        if (isset($this->settings['filter'])) {
+            $filterOptions = $this->getFilterOptions($this->settings['filter']);
+        }
+        $this->view->assignMultiple(
+            [
+                'filterOptions' => $filterOptions,
+                'overwriteDemand' => $overwriteDemand
             ]
-		);
-	}
+        );
+    }
 
-	/**
-	 * action show
-	 *
-     * @param \CPSIT\T3eventsCourse\Domain\Model\Schedule $lesson
-	 * @return void
-	 */
-	public function showAction(Schedule $lesson) {
-		$this->view->assign('lesson', $lesson);
-	}
-
-
-	/**
-	 * Filter action
-	 *
-	 * @param array $overwriteDemand
-	 */
-	public function filterAction($overwriteDemand = NULL) {
-		$genreUids = GeneralUtility::intExplode(',', $this->settings['genres'], TRUE);
-		$eventLocationUids = GeneralUtility::intExplode(',', $this->settings['eventLocations'], TRUE);
-		$eventTypeUids = GeneralUtility::intExplode(',', $this->settings['eventTypes'], TRUE);
-		$audienceUids = GeneralUtility::intExplode(',', $this->settings['audiences'], TRUE);
-		if (count($genreUids)) {
-			$genres = [];
-			foreach ($genreUids as $genreUid) {
-				if ($this->courseRepository->countContainingGenre($genreUid)) {
-					$genres[] = $this->genreRepository->findByUid($genreUid);
-				}
-			}
-		} else {
-			$genres = $this->genreRepository->findAll();
-		}
-		if (count($eventLocationUids)) {
-			$eventLocations = [];
-			foreach ($eventLocationUids as $eventLocationUid) {
-				if ($this->lessonRepository->countByEventLocation($eventLocationUid)) {
-					$eventLocations[] = $this->eventLocationRepository->findByUid($eventLocationUid);
-				}
-			}
-		} else {
-			$eventLocations = $this->eventLocationRepository->findAll();
-		}
-		if (count($eventTypeUids)) {
-			$eventTypes = [];
-			foreach ($eventTypeUids as $eventTypeUid) {
-				if ($this->courseRepository->countByEventType($eventTypeUid)) {
-					$eventTypes[] = $this->eventTypeRepository->findByUid($eventTypeUid);
-				}
-			}
-		} else {
-			$eventTypes = $this->eventTypeRepository->findAll();
-		}
-		if (count($audienceUids)) {
-			$audiences = [];
-			foreach ($audienceUids as $audienceUid) {
-				if ($this->courseRepository->countContainingAudience($audienceUid)) {
-					$audiences[] = $this->audienceRepository->findByUid($audienceUid);
-				}
-			}
-		} else {
-			$audiences = $this->audienceRepository->findAll();
-		}
-		$this->view->assignMultiple(
-			[
-				'overwriteDemand' => $overwriteDemand,
-				'genres' => $genres,
-				'eventLocations' => $eventLocations,
-				'audiences' => $audiences,
-				'eventTypes' => $eventTypes
-            ]
-		);
-	}
-
-	/**
-	 * Create Demand from Settings
-	 *
-	 * @param array $settings
-	 * @return \CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand
-	 */
-	protected function createDemandFromSettings($settings) {
-		/** @var \CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand $demand */
-		$demand = $this->objectManager->get(ScheduleDemand::class);
-
-		if ($settings['period'] == 'specific') {
-			$demand->setPeriodType($settings['periodType']);
-		} else {
-			$demand->setPeriod($settings['period']);
-		}
-		if ($settings['period'] === 'futureOnly'
-			OR $settings['period'] === 'pastOnly'
-		) {
-			$demand->setDate(new \DateTime('midnight'));
-		}
-		if (isset($settings['periodType']) AND $settings['periodType'] != 'byDate') {
-			$demand->setPeriodStart($settings['periodStart']);
-			$demand->setPeriodDuration($settings['periodDuration']);
-		}
-		if ($settings['periodType'] == 'byDate' AND $settings['periodStartDate']) {
-			$demand->setStartDate($settings['periodStartDate']);
-		}
-		if ($settings['periodType'] == 'byDate' AND $settings['periodEndDate']) {
-			$demand->setEndDate($settings['periodEndDate']);
-		}
-		if ($settings['hideAfterDeadline']) {
-			$demand->setDeadlineAfter(new \DateTime());
-		}
-		$demand->setConstraintsConjunction($settings['constraintsConjunction']);
-
-		if (!empty($settings['genres'])) {
-			$demand->setGenres($settings['genres']);
-		}
-		if (!empty($settings['eventLocations'])) {
-			$demand->setEventLocations($settings['eventLocations']);
-		}
-		if (!empty($settings['eventTypes'])) {
-			$demand->setEventTypes($settings['eventTypes']);
-		}
-		if (!empty($settings['audiences'])) {
-			$demand->setAudiences($settings['audiences']);
-		}
-
-		// sorting
-		switch ($settings['sortBy']) {
-			case 'title':
-				$demand->setSortBy('course.headline');
-				break;
-			default:
-				$demand->setSortBy('date');
-				break;
-		}
-		$demand->setSortDirection($settings['sortDirection']);
-		if ($demand->getSortBy()) {
-			$demand->setOrder($demand->getSortBy() . '|' . $settings['sortDirection']);
-		}
-
-		$demand->setLimit((int) $settings['maxItems']);
-
-		return $demand;
-	}
-
-	/**
-	 * Overwrites a given demand object by an propertyName => $propertyValue array
-	 *
-	 * @param \CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand $demand
-	 * @param array $overwriteDemand
-	 */
-	public function overwriteDemandObject(&$demand, $overwriteDemand) {
-		foreach ($overwriteDemand as $propertyName => $propertyValue) {
-			ObjectAccess::setProperty($demand, $propertyName, $propertyValue);
-		}
-	}
+    /**
+     * Create Demand from Settings
+     * This method is only for backwards compatibility
+     *
+     * @param array $settings
+     * @return \CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand |\DWenzel\T3events\Domain\Model\Dto\DemandInterface
+     * @deprecated Use CourseDemandFactoryTrait with $this->demandFactory->createFromSettings instead
+     */
+    protected function createDemandFromSettings($settings)
+    {
+        return $this->demandFactory->createFromSettings($settings);
+    }
 }

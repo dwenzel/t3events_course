@@ -13,13 +13,13 @@ This Template is responsible for creating a list of lessons.
 	<f:if condition="{settings.templateLayout} == 2">
 		<f:then>
 			<div class="lesson-list short">
-				<f:flashMessages renderMode="div" />
+				<f:flashMessages />
 				<f:render section="lessonShortList" arguments="{lessons: lessons, settings: settings}" />
 			</div>
 		</f:then>
 		<f:else>
 			<div class="lesson-list">
-				<f:flashMessages renderMode="div" />
+				<f:flashMessages />
 				<f:if condition="{lessons->f:count()} > 20">
 					<f:then>
 						<f:render section="pagination" arguments="{lessons: lessons, settings: settings}" />

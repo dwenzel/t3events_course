@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+    <tx_t3events_domain_model_performance>
+        <uid>1</uid>
+        <event>1</event>
+        <tx_extbase_type>Tx_T3eventsCourse_Schedule</tx_extbase_type>
+        <pid>1</pid>
+        <status_info></status_info>
+        <image></image>
+        <plan></plan>
+        <price_notice></price_notice>
+        <class_time></class_time>
+    </tx_t3events_domain_model_performance>
+</dataset>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-06-07T07:38:21Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-12-01T10:56:10Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -274,8 +274,8 @@
 			<target>Um auf die Warteliste aufgenommen zu werden, senden Sie bitte eine E-Mail an:</target>
 		</trans-unit>
 		<trans-unit id="message.noCoursesFound.text" approved="yes" xml:space="preserve">
-			<source>Please, create a new course!</source>
-			<target>Bitte legen Sie eine Schulung an.</target>
+			<source>Could not find any record matching the current filter settings.</source>
+			<target>Es konnten keine Datensätze für die aktuellen Filtereinstellungen gefunden werden.</target>
 		</trans-unit>
 		<trans-unit id="message.noCoursesFound.title" approved="yes" xml:space="preserve">
 			<source>No courses found</source>

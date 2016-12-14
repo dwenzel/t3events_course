@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-06-07T07:38:21Z">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-01T10:56:10Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -207,7 +207,7 @@
 			<source>Please send an email to &lt;a href=&quot;mailto:schulung@dakosy.de?subject=Waitlist&quot;&gt;schulung@dakosy.de&lt;/a&gt;</source>
 		</trans-unit>
 		<trans-unit id="message.noCoursesFound.text" xml:space="preserve">
-			<source>Please, create a new course!</source>
+			<source>Could not find any record matching the current filter settings.</source>
 		</trans-unit>
 		<trans-unit id="message.noCoursesFound.title" xml:space="preserve">
 			<source>No courses found</source>
