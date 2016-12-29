@@ -19,7 +19,7 @@ if (TYPO3_MODE === 'BE') {
 		],
 		[
 			'access' => 'user,group',
-			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/module_icon_course.png',
+			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/open-book.svg',
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_m4.xlf',
 		]
 	);
@@ -34,7 +34,7 @@ if (TYPO3_MODE === 'BE') {
 		],
 		[
 			'access' => 'user,group',
-			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/module_icon_schedule.png',
+			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/calendar-blue.svg',
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_m2.xlf',
 		]
 	);
