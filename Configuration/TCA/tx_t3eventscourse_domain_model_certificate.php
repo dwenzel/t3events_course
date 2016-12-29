@@ -60,7 +60,7 @@ return [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title,type, description',
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title ,type, short_pas1045, short_qcat, link, description;;;richtext:rte_transform[mode=ts_links], '],
+		'1' => ['showitem' => 'sys_language_uid,l10n_parent, l10n_diffsource, hidden, --palette--;;1, title ,type, short_pas1045, short_qcat, link, description,richtext:rte_transform[mode=ts_links], '],
 	],
 	'palettes' => [
 		'1' => ['showitem' => ''],
