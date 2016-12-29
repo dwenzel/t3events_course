@@ -4,6 +4,36 @@ if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 $ll = 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xml:';
+$rteWizardIconPath = 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_rte.gif';
+$linkWizardConfig = [
+    'type' => 'popup',
+    'title' => $ll . 'button.openLinkWizard',
+    'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_link.gif',
+    'module' => [
+        'name' => 'wizard_link',
+        'urlParameters' => [
+            'mode' => 'wizard'
+        ],
+    ],
+    'JSopenParams' => 'height=600,width=500,status=0,menubar=0,scrollbars=1'
+];
+
+$versionNumber = \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version);
+if ($versionNumber < 7000000) {
+    $rteWizardIconPath = 'wizard_rte2.gif';
+    $linkWizardConfig = [
+        'type' => 'popup',
+        'title' => 'LLL:EXT:cms/locallang_ttc.xlf:header_link_formlabel',
+        'icon' => 'link_popup.gif',
+        'module' => [
+            'name' => 'wizard_element_browser',
+            'urlParameters' => [
+                'mode' => 'wizard'
+            ]
+        ],
+        'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
+    ];
+}
 
 return [
 	'ctrl' => [
@@ -16,19 +46,17 @@ return [
 		'sortby' => 'sorting',
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
-
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
 		'transOrigDiffSourceField' => 'l10n_diffsource',
 		'delete' => 'deleted',
 		'enablecolumns' => [
 			'disabled' => 'hidden',
-
 		],
 		'searchFields' => 'title,description,',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('t3events_course')
-			. 'Resources/Public/Icons/tx_t3eventscourse_domain_model_certificate.gif'
-	], 'interface' => [
+		'iconfile' => 'EXT:t3events_course/Resources/Public/Icons/tx_t3eventscourse_domain_model_certificate.gif'
+	],
+    'interface' => [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title,type, description',
 	],
 	'types' => [
@@ -44,7 +72,8 @@ return [
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
 			'config' => [
 				'type' => 'select',
-				'foreign_table' => 'sys_language',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'sys_language',
 				'foreign_table_where' => 'ORDER BY sys_language.title',
 				'items' => [
 					['LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1],
@@ -58,7 +87,8 @@ return [
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
 			'config' => [
 				'type' => 'select',
-				'items' => [
+                'renderType' => 'selectSingle',
+                'items' => [
 					['', 0],
 				],
 				'foreign_table' => 'tx_t3eventscourse_domain_model_certificate',
@@ -91,10 +121,11 @@ return [
 			'label' => $ll . 'tx_t3eventscourse_domain_model_certificate.type',
 			'config' => [
 				'type' => 'select',
-				'foreign_table' => 'tx_t3eventscourse_domain_model_certificatetype',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_t3eventscourse_domain_model_certificatetype',
 				'minitems' => 0,
 				'maxitems' => 1,
-				'noIconsBelowSelect' => TRUE,
+				'showIconTable' => false,
 			]
 		],
 		'title' => [
@@ -134,18 +165,7 @@ return [
 				'softref' => 'typolink',
 				'wizards' => [
 					'_PADDING' => 2,
-					'link' => [
-						'type' => 'popup',
-						'title' => 'Link',
-						'icon' => 'link_popup.gif',
-						'module' => [
-							'name' => 'wizard_element_browser',
-							'urlParameters' => [
-								'mode' => 'wizard'
-							]
-						],
-						'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
-					]
+					'link' => $linkWizardConfig
 				]
 			],
 		],
@@ -159,7 +179,7 @@ return [
 				'eval' => 'trim',
 				'wizards' => [
 					'RTE' => [
-						'icon' => 'wizard_rte2.gif',
+						'icon' => $rteWizardIconPath,
 						'notNewRecords' => 1,
 						'RTEonly' => 1,
 						'module' => [
@@ -171,6 +191,5 @@ return [
 				]
 			],
 		],
-
 	],
 ];
