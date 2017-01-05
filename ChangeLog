@@ -1,3 +1,10 @@
+2017-01-05         [RELEASE] Release of t3events_course 0.7.1 (Dirk Wenzel)
+2016-12-30 31cd59c [TASK] deprecated settings replaced in table configuration (Dirk Wenzel)
+2016-12-30 0662cb3 [TASK] deprecated settings replaced in table configuration. Made configuration of of TCA wizards compatible with TYPO3 version 6.2 and newer. (Dirk Wenzel)
+2016-12-29 ec519cb [TASK] fixed error caused by wrong icon type unter TYPO3 version 6.2 (Dirk Wenzel)
+2016-12-29 11fe68f [TASK] new icons for backend modules added. (Dirk Wenzel)
+2016-12-29 299358d [BUGFIX] use correct section name 'main' in templates. (Dirk Wenzel)
+
 2016-12-14         [RELEASE] Release of t3events_course 0.7.0 (Dirk Wenzel)
 2016-12-01 1975c9f [TASK] class constant EXTENSION_KEY and localized strings added. (Dirk Wenzel)
 2016-11-13 8cac7bb [TASK] Invalid argument renderMode removed from flashMessages view helper (Dirk Wenzel)
