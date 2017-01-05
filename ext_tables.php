@@ -6,7 +6,15 @@ if (!defined('TYPO3_MODE')) {
 $ll = 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:';
 
 if (TYPO3_MODE === 'BE') {
-	/**
+    $versionNumber = \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version);
+    $pathCourseIcon = 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/open-book.svg';
+    $pathScheduleIcon = 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/calendar-blue.svg';
+    if ($versionNumber < 7000000) {
+        $pathCourseIcon = 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/module_icon_course.png';
+        $pathScheduleIcon = 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/module_icon_schedule.png';
+    }
+
+    /**
 	 * Register Backend Modules
 	 */
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
@@ -19,7 +27,7 @@ if (TYPO3_MODE === 'BE') {
 		],
 		[
 			'access' => 'user,group',
-			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/module_icon_course.png',
+			'icon' => $pathCourseIcon,
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_m4.xlf',
 		]
 	);
@@ -34,7 +42,7 @@ if (TYPO3_MODE === 'BE') {
 		],
 		[
 			'access' => 'user,group',
-			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/module_icon_schedule.png',
+			'icon' => $pathScheduleIcon,
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_m2.xlf',
 		]
 	);
@@ -56,3 +64,4 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_t3eventscourse_domain_model_certificate');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_t3eventscourse_domain_model_certificatetype');
 
+unset($pathScheduleIcon, $pathCourseIcon, $pluginSignature, $ll);

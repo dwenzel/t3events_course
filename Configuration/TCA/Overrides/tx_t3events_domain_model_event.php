@@ -59,7 +59,8 @@ $temporaryColumns = [
 		'label' => $ll . 'tx_t3eventscourse_domain_model_event.degree_type',
 		'config' => [
 			'type' => 'select',
-			'items' => [
+            'renderType' => 'selectSingle',
+            'items' => [
 				[$ll . 'tx_t3eventscourse_domain_model_event.degree_type.0', 0],
 				[$ll . 'tx_t3eventscourse_domain_model_event.degree_type.1', 1],
 				[$ll . 'tx_t3eventscourse_domain_model_event.degree_type.2', 2],
@@ -74,6 +75,7 @@ $temporaryColumns = [
 		'label' => $ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form',
 		'config' => [
 			'type' => 'select',
+            'renderType' => 'selectSingle',
 			'size' => 1,
 			'minitems' => 0,
 			'maxitems' => 1,
@@ -98,7 +100,7 @@ $temporaryColumns = [
 				[$ll . '', '--div--'],
 				[$ll . 'tx_t3eventscourse_domain_model_event.mode_instruction_form.4', 4], // Fernunterricht/Fernstudium
 			],
-			'noIconsBelowSelect' => 1,
+			'showIconTable' => false,
 		]
 	],
 	'certificate' => [
@@ -106,7 +108,8 @@ $temporaryColumns = [
 		'label' => $ll . 'tx_t3eventscourse_domain_model_event.certificate',
 		'config' => [
 			'type' => 'select',
-			'size' => 6,
+            'renderType' => 'selectMultipleSideBySide',
+            'size' => 6,
 			'minitems' => 0,
 			'maxitems' => 1000,
 			'foreign_table' => 'tx_t3eventscourse_domain_model_certificate',
@@ -121,7 +124,8 @@ if (!isset($GLOBALS['TCA']['tx_t3events_domain_model_event']['columns']['tx_extb
 		'config' => [
 			'label' => $ll . 'tx_t3events_domain_model_event.tx_extbase_type',
 			'type' => 'select',
-			'items' => [
+            'renderType' => 'selectSingle',
+            'items' => [
 				[$ll. 'label.tx_extbase_type.default', '1'],
 				[$ll . 'label.tx_extbase_type.Tx_T3eventsCourse_Course', $extbaseType]
 			],

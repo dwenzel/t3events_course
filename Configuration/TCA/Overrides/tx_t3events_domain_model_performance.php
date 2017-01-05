@@ -43,7 +43,8 @@ if (!isset($GLOBALS['TCA']['tx_t3events_domain_model_performance']['columns']['t
 		'config' => [
 			'label' => $ll . 'label.tx_extbase_type',
 			'type' => 'select',
-			'items' => [
+            'renderType' => 'selectSingle',
+            'items' => [
 				[$ll. 'label.tx_extbase_type.default', ''],
 				[$ll. 'label.tx_extbase_type.Tx_T3eventsCourse_Schedule', 'Tx_T3eventsCourse_Schedule']
 			],
