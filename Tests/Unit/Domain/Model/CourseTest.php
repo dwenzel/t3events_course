@@ -4,7 +4,7 @@ namespace CPSIT\T3eventsCourse\Tests\Unit\Domain\Model;
 
 
 use CPSIT\T3eventsCourse\Domain\Model\Course;
-use TYPO3\CMS\Core\Tests\UnitTestCase;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 class CourseTest extends UnitTestCase
 {

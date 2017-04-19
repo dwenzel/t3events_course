@@ -19,7 +19,7 @@ use CPSIT\T3eventsCourse\Domain\Factory\Dto\CourseDemandFactory;
 use DWenzel\T3events\Domain\Model\Dto\DemandInterface;
 use DWenzel\T3events\Domain\Model\Dto\ModuleData;
 use CPSIT\T3eventsCourse\Domain\Repository\CourseRepository;
-use TYPO3\CMS\Core\Tests\UnitTestCase;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 

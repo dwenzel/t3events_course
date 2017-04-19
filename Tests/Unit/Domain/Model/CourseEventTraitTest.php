@@ -6,7 +6,7 @@ namespace CPSIT\T3eventsCourse\Tests\Unit\Domain\Model;
 use CPSIT\T3eventsCourse\Domain\Model\Certificate;
 use CPSIT\T3eventsCourse\Domain\Model\CourseEventTrait;
 use DWenzel\T3events\Domain\Model\Audience;
-use TYPO3\CMS\Core\Tests\UnitTestCase;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class CourseEventTraitTest extends UnitTestCase
