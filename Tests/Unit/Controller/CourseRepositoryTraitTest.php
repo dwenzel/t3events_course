@@ -14,7 +14,7 @@ namespace CPSIT\T3eventsCourse\Tests\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 
-use TYPO3\CMS\Core\Tests\UnitTestCase;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 use CPSIT\T3eventsCourse\Controller\CourseRepositoryTrait;
 use CPSIT\T3eventsCourse\Domain\Repository\CourseRepository;
 

@@ -1,7 +1,7 @@
 <?php
 namespace CPSIT\T3eventsCourse\Tests\Unit\Domain\Model;
 use CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand;
-use TYPO3\CMS\Core\Tests\UnitTestCase;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 /**
  * This file is part of the TYPO3 CMS project.

@@ -16,7 +16,7 @@ namespace CPSIT\T3eventsCourse\Tests\Domain\Factory\Dto;
 
 use CPSIT\T3eventsCourse\Domain\Model\Dto\ScheduleDemand;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Core\Tests\UnitTestCase;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 use CPSIT\T3eventsCourse\Domain\Factory\Dto\ScheduleDemandFactory;
 /**
  * Class ScheduleDemandFactory

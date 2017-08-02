@@ -16,7 +16,7 @@ namespace CPSIT\T3eventsCourse\Tests\Unit\Controller;
 
 use CPSIT\T3eventsCourse\Controller\CourseDemandFactoryTrait;
 use CPSIT\T3eventsCourse\Domain\Factory\Dto\CourseDemandFactory;
-use TYPO3\CMS\Core\Tests\UnitTestCase;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 class CourseDemandFactoryTraitTest extends UnitTestCase {
     /**

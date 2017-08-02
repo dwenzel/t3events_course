@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="512"
+   height="512"
+   id="svg3955"
+   version="1.1"
+   inkscape:version="0.48.0 r9654"
+   sodipodi:docname="open-book.svg">
+  <defs
+     id="defs3957" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.2541133"
+     inkscape:cx="383.83029"
+     inkscape:cy="141.90637"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1358"
+     inkscape:window-height="1111"
+     inkscape:window-x="2275"
+     inkscape:window-y="215"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata3960">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-540.36218)">
+    <rect
+       style="color:#000000;fill:#0011bb;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect4198"
+       width="512"
+       height="512"
+       x="-1.5947523"
+       y="-1.5102309"
+       transform="translate(0,540.36218)" />
+    <g
+       id="g4177"
+       transform="matrix(0.46918229,0,0,0.62683429,117.74245,601.40364)">
+      <g
+         id="g4134">
+	<g
+   id="Book">
+		<g
+   id="g4137"
+   transform="translate(6.7980071,22.897232)">
+			<path
+   id="path4139"
+   d="m 587.68484,43.714 -133.05584,0 C 390.386,43.714 336.32,62.441 306,91.782 275.68,62.441 221.614,43.714 157.372,43.714 l -133.056839,0 C 5.0451613,43.714 0,51.42141 0,70.70841 l 0,418.12418 c 0,19.305 5.0451613,26.99441 24.314161,26.99441 l 133.056839,0 c 46.634,0 97.273,29.28408 115.44,38.994 21.39755,7.41599 40.61851,7.69335 66.306,0.053 25.50893,-14.24774 68.788,-39.047 115.511,-39.047 l 133.05584,0 c 19.287,0 24.31516,-7.68941 24.31516,-26.99441 l 0,-418.12418 C 612,51.42141 606.97184,43.714 587.68484,43.714 z M 267.87449,481.87145 c -31.072,-17.924 -61.92051,-28.81211 -110.50349,-28.07336 l -94.257161,0 0,-341.67391 94.258161,0 c 74.716,0 111.74316,31.072 111.74316,52.457 l 0,317.89491 z m 281.01167,-28.07336 -94.25716,0 c -48.593,0 -80.67116,10.754 -111.74316,28.678 l 0,-317.89491 c 0,-21.385 37.04257,-51.32111 111.74316,-52.457 l 94.25716,0 z"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff"
+   sodipodi:nodetypes="sscssssssccssscscsccsscccscsscc" />
+
+		</g>
+
+	</g>
+
+</g>
+      <g
+         id="g4141">
+</g>
+      <g
+         id="g4143">
+</g>
+      <g
+         id="g4145">
+</g>
+      <g
+         id="g4147">
+</g>
+      <g
+         id="g4149">
+</g>
+      <g
+         id="g4151">
+</g>
+      <g
+         id="g4153">
+</g>
+      <g
+         id="g4155">
+</g>
+      <g
+         id="g4157">
+</g>
+      <g
+         id="g4159">
+</g>
+      <g
+         id="g4161">
+</g>
+      <g
+         id="g4163">
+</g>
+      <g
+         id="g4165">
+</g>
+      <g
+         id="g4167">
+</g>
+      <g
+         id="g4169">
+</g>
+    </g>
+  </g>
+</svg>
