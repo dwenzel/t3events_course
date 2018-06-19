@@ -26,7 +26,7 @@
                     configuration="{settings.paginate}"
             >
                 <div class="panel panel-space panel-default recordlist">
-                    <table class="table table-striped table-hover typo3-dblist nowrap">
+                    <table class="table table-striped table-hover typo3-dblist">
                         <thead>
                         <tr class="c-headline">
                             <th class="col-icon">ID</th>
@@ -41,50 +41,24 @@
                             <tr class="db_list_normal">
                                 <td nowrap="nowrap">{course.uid}</td>
                                 <td nowrap="nowrap">
-                                    <f:if condition="{f:cObject(typoscriptObjectPath: 'lib.compatVersion76')}">
-                                        <f:then>
-                                            <a href="#" class="t3-js-clickmenutrigger"
-                                               data-table="tx_t3events_domain_model_event" data-uid="{course.uid}"
-                                               data-listframe="0">
-                                                {course.headline}
-                                            </a>
-                                        </f:then>
-                                        <f:else>
-                                            <a href="" title="edit"
-                                               onclick="window.location.href='alt_doc.php?returnUrl='+T3_THIS_LOCATION+'&edit[tx_t3events_domain_model_event][{course.uid}]=edit'; return false;">
-                                                {course.headline}
-                                            </a>
-                                        </f:else>
-                                    </f:if>
+                                    <a class="action-open"
+                                       title="Edit"
+                                       href="{ts:be.editRecord(parameters:'edit[tx_t3events_domain_model_event][{course.uid}]=edit&moduleName=Events_T3eventsCourseM4')}">{course.headline}</a>
                                 </td>
                                 <td nowrap="nowrap" class="col-control">
-                                    <f:if condition="{f:cObject(typoscriptObjectPath: 'lib.compatVersion76')}">
-                                        <f:then>
-                                            <div
-                                                    class="btn btn-default">
-                                                <f:be.buttons.icon
-                                                        icon="actions-open"
-                                                        title="UID: {course.uid}"
-                                                        uri="{ts:be.editRecord(parameters:'edit[tx_t3events_domain_model_event][{course.uid}]=edit')}"
-                                                />
-                                            </div>
-                                        </f:then>
-                                        <f:else>
-                                            <a href=""
-                                               onclick="window.location.href='alt_doc.php?returnUrl='+T3_THIS_LOCATION+'&edit[tx_t3events_domain_model_event][{course.uid}]=edit'; return false;">
-                                                <f:be.buttons.icon icon="actions-document-open"/>
-                                            </a>
-
-                                        </f:else>
-                                    </f:if>
+                                    <div class="btn btn-default">
+                                        <a class="action-open"
+                                           title="Edit"
+                                           href="{ts:be.editRecord(parameters:'edit[tx_t3events_domain_model_event][{course.uid}]=edit&moduleName=Events_T3eventsCourseM4')}">{f:translate(key: 'button.edit', default: 'edit')}</a>
+                                    </div>
                                 </td>
                                 <td nowrap="nowrap">{course.eventType.title}</td>
-                                <td nowrap="nowrap">
+                                <td >
                                     <f:for each="{course.genre}" as="genre" iteration="genreIteration">
                                         {genre.title}{f:if(condition: '{genreIteration.isLast}', else: ', ')}
                                     </f:for>
                                 </td>
-                                <td nowrap="nowrap">
+                                <td>
                                     <f:for each="{course.audience}" as="audience" iteration="audienceIteration">
                                         {audience.title}{f:if(condition: '{audienceIteration.isLast}', else: ', ')}
                                     </f:for>
@@ -100,8 +74,12 @@
 
 <f:comment>Header buttons</f:comment>
 <f:section name="headerButtons">
-    <f:be.buttons.icon uri="#"
-                       additionalAttributes="{onclick: 'window.location.href=\'alt_doc.php?returnUrl=\'+T3_THIS_LOCATION+\'&edit[tx_t3events_domain_model_event][{settings.courseBackend.storagePid}]=new&defVals[tx_t3events_domain_model_event][tx_extbase_type]=Tx_T3eventsCourse_Course\'; return false;'}"
-                       icon="actions-document-new"
-                       title="{f:translate(key: 'button.addCourse', default: 'add course')}"/>
+    <div class="btn-toolbar">
+        <div class="btn btn-default">
+            <a class="action-document-new"
+               title="{f:translate(key: 'button.addCourse', default: 'add course')}"
+               href="{ts:be.editRecord(parameters:'edit[tx_t3events_domain_model_event][{settings.courseBackend.storagePid}]=new&defVals[tx_t3events_domain_model_event][tx_extbase_type]=Tx_IhkofEvents_Course&moduleName=Events_T3eventsCourseM4')}">
+                {f:translate(key: 'button.addCourse', default: 'add course')}</a>
+        </div>
+    </div>
 </f:section>

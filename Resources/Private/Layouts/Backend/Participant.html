@@ -12,7 +12,9 @@
 			</div>
 			<div class="typo3-docheader-buttons">
 				<div class="left">
-					<f:be.buttons.icon uri="{f:uri.action(action:'download')}" icon="extensions-dakosy_reservations-download-excel-blue" title="Alle Teilnehmer exportieren" />
+					<a class="action-export"
+					   title="{f:translate(key: 'button.exportAllParticipants', default: 'Export all participants')}"
+					   href="{f:uri.action(action:'download')}">{f:translate(key: 'button.exportAllParticipants', default: 'Export all participants')}</a>
 				</div>
 				<div class="right">
 					<f:be.buttons.shortcut />
