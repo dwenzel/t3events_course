@@ -1,6 +1,8 @@
 <?php
 namespace CPSIT\T3eventsCourse\Controller\Backend;
 
+use DWenzel\T3events\Controller\Backend\BackendViewTrait;
+use TYPO3\CMS\Backend\View\BackendTemplateView;
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
 use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
@@ -15,7 +17,19 @@ use DWenzel\T3events\Controller\SettingsUtilityTrait;
  */
 class ScheduleBackendController extends PerformanceController
 {
-    use ModuleDataTrait, SettingsUtilityTrait;
+    use ModuleDataTrait, SettingsUtilityTrait, BackendViewTrait;
+
+    /**
+     * BackendTemplateContainer
+     *
+     * @var BackendTemplateView
+     */
+    protected $view;
+
+    /**
+     * @var string Class name of the view instance which shall be injected
+     */
+    protected $defaultViewObjectName = BackendTemplateView::class;
 
     /**
      * Load and persist module data
