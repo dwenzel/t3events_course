@@ -7,6 +7,7 @@ use CPSIT\T3eventsCourse\Domain\Model\Certificate;
 use CPSIT\T3eventsCourse\Domain\Model\CourseEventTrait;
 use DWenzel\T3events\Domain\Model\Audience;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class CourseEventTraitTest extends UnitTestCase
@@ -53,7 +54,8 @@ class CourseEventTraitTest extends UnitTestCase
     public function addAudienceAddsObjectToStorage()
     {
         $this->subject->initializeObject();
-        $audience = $this->getMock(Audience::class);
+        /** @var Audience|MockObject $audience */
+        $audience = $this->getMockBuilder(Audience::class)->getMock();
 
         $this->subject->addAudience($audience);
 
@@ -67,7 +69,8 @@ class CourseEventTraitTest extends UnitTestCase
      */
     public function setAudiencesSetsObjectStorage()
     {
-        $objectStorage = $this->getMock(ObjectStorage::class);
+        /** @var ObjectStorage|MockObject $objectStorage */
+        $objectStorage = $this->getMockBuilder(ObjectStorage::class)->getMock();
         $this->subject->setAudience($objectStorage);
         $this->assertSame(
             $objectStorage,
@@ -97,7 +100,8 @@ class CourseEventTraitTest extends UnitTestCase
     public function addCertificateAddsObjectToStorage()
     {
         $this->subject->initializeObject();
-        $certificate = $this->getMock(Certificate::class);
+        /** @var Certificate|MockObject $certificate */
+        $certificate = $this->getMockBuilder(Certificate::class)->getMock();
 
         $this->subject->addCertificate($certificate);
 
@@ -111,7 +115,8 @@ class CourseEventTraitTest extends UnitTestCase
      */
     public function setCertificatesSetsObjectStorage()
     {
-        $objectStorage = $this->getMock(ObjectStorage::class);
+        /** @var ObjectStorage|MockObject $objectStorage */
+        $objectStorage = $this->getMockBuilder(ObjectStorage::class)->getMock();
         $this->subject->setCertificate($objectStorage);
         $this->assertSame(
             $objectStorage,
@@ -287,7 +292,7 @@ class CourseEventTraitTest extends UnitTestCase
             $this->subject->getExamCosts()
         );
     }
-    
+
     /**
      * @test
      */
@@ -310,5 +315,5 @@ class CourseEventTraitTest extends UnitTestCase
             $this->subject->getModeInstructionForm()
         );
     }
-    
+
 }

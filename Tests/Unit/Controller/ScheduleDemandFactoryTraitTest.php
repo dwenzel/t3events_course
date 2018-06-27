@@ -17,6 +17,7 @@ namespace CPSIT\T3eventsCourse\Tests\Unit\Controller;
 use CPSIT\T3eventsCourse\Controller\ScheduleDemandFactoryTrait;
 use CPSIT\T3eventsCourse\Domain\Factory\Dto\ScheduleDemandFactory;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class ScheduleDemandFactoryTraitTest extends UnitTestCase {
     /**
@@ -39,9 +40,8 @@ class ScheduleDemandFactoryTraitTest extends UnitTestCase {
      */
     public function demandFactoryCanBeInjected()
     {
-        $demandFactory = $this->getMock(
-            ScheduleDemandFactory::class
-        );
+        /** @var ScheduleDemandFactory|MockObject $demandFactory */
+        $demandFactory = $this->getMockBuilder(ScheduleDemandFactory::class)->getMock();
         $this->subject->injectScheduleDemandFactory($demandFactory);
 
         $this->assertAttributeSame(

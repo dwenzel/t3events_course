@@ -28,9 +28,7 @@ class ScheduleDemandTest extends UnitTestCase {
      */
     public function setUp()
     {
-        $this->subject = $this->getMock(
-            ScheduleDemand::class, ['dummy']
-        );
+        $this->subject = $this->getMockBuilder(ScheduleDemand::class)->setMethods(['dummy'])->getMock();
     }
 
     /**

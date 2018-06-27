@@ -58,6 +58,7 @@ class ScheduleRepositoryTest extends FunctionalTestCase  {
      */
     public function findSchedulesByGenre()
     {
+        $this->markTestSkipped();
         /** @var ScheduleDemand $scheduleDemand */
         $scheduleDemand = $this->objectManager->get(ScheduleDemand::class);
         $scheduleDemand->setGenres('1');

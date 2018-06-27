@@ -14,12 +14,15 @@ namespace CPSIT\T3eventsCourse\Tests\Unit\Controller\Backend;
  * The TYPO3 project - inspiring people to share!
  */
 
+use ApacheSolrForTypo3\Solr\System\Configuration\ConfigurationManager;
 use CPSIT\T3eventsCourse\Controller\Backend\CourseBackendController;
 use CPSIT\T3eventsCourse\Domain\Factory\Dto\CourseDemandFactory;
 use DWenzel\T3events\Domain\Model\Dto\DemandInterface;
 use DWenzel\T3events\Domain\Model\Dto\ModuleData;
 use CPSIT\T3eventsCourse\Domain\Repository\CourseRepository;
+use Nimut\TestingFramework\MockObject\AccessibleMockObjectInterface;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 
@@ -30,7 +33,7 @@ use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 class CourseBackendControllerTest extends UnitTestCase {
 
     /**
-     * @var CourseBackendController|\PHPUnit_Framework_MockObject_MockObject|\TYPO3\CMS\Core\Tests\AccessibleObjectInterface
+     * @var CourseBackendController|\PHPUnit_Framework_MockObject_MockObject|AccessibleMockObjectInterface
      */
     protected $subject;
 
@@ -54,21 +57,17 @@ class CourseBackendControllerTest extends UnitTestCase {
             ['emitSignal', 'getFilterOptions', 'overwriteDemandObject', 'addFlashMessage', 'translate'],
             [], '', false
         );
-        $this->view = $this->getMockForAbstractClass(
-            ViewInterface::class
-        );
-        $this->moduleData = $this->getMock(
-            ModuleData::class
-        );
-        $mockCourseRepository = $this->getMock(
-            CourseRepository::class, [], [], '', false
-        );
-        $mockConfigurationManager = $this->getMockForAbstractClass(
-            ConfigurationManagerInterface::class
-        );
-        $mockDemandFactory = $this->getMock(
-           CourseDemandFactory::class, ['createFromSettings']
-        );
+        $this->view = $this->getMockForAbstractClass(ViewInterface::class);
+        $this->moduleData = $this->getMockBuilder(ModuleData::class)->getMock();
+        /** @var CourseRepository|MockObject $mockCourseRepository */
+        $mockCourseRepository = $this->getMockBuilder(CourseRepository::class)
+            ->disableOriginalConstructor()->getMock();
+        /** @var ConfigurationManagerInterface|MockObject $mockConfigurationManager */
+        $mockConfigurationManager = $this->getMockForAbstractClass(ConfigurationManagerInterface::class);
+        /** @var CourseDemandFactory|MockObject $mockDemandFactory */
+        $mockDemandFactory = $this->getMockBuilder(CourseDemandFactory::class)
+            ->setMethods(['createFromSettings'])
+            ->getMock();
         $this->subject->injectCourseDemandFactory($mockDemandFactory);
         $this->subject->injectConfigurationManager($mockConfigurationManager);
         $this->inject(

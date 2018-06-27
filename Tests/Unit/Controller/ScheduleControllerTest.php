@@ -23,6 +23,7 @@ use DWenzel\T3events\Domain\Model\Dto\ModuleData;
 use CPSIT\T3eventsCourse\Domain\Repository\ScheduleRepository;
 use DWenzel\T3events\Session\SessionInterface;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Mvc\Request;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
@@ -78,16 +79,16 @@ class ScheduleControllerTest extends UnitTestCase
         );
 
         $this->view = $this->getMockForAbstractClass(ViewInterface::class);
-        $mockScheduleRepository = $this->getMock(
-            ScheduleRepository::class, [], [], '', false
-        );
+        /** @var ScheduleRepository|MockObject $mockScheduleRepository */
+        $mockScheduleRepository = $this->getMockBuilder(ScheduleRepository::class)
+            ->disableOriginalConstructor()->getMock();
+        /** @var ConfigurationManagerInterface|MockObject $mockConfigurationManager */
         $mockConfigurationManager = $this->getMockForAbstractClass(ConfigurationManagerInterface::class);
-        $mockDemandFactory = $this->getMock(
-            ScheduleDemandFactory::class, ['createFromSettings']
-        );
-        $this->request = $this->getMock(
-            Request::class, ['hasArgument', 'getArgument']
-        );
+        /** @var ScheduleDemandFactory|MockObject $mockDemandFactory */
+        $mockDemandFactory = $this->getMockBuilder(ScheduleDemandFactory::class)
+            ->setMethods(['createFromSettings'])->getMock();
+        $this->request = $this->getMockBuilder(Request::class)
+            ->setMethods(['hasArgument', 'getArgument'])->getMock();
         $this->session = $this->getMockForAbstractClass(SessionInterface::class);
         $this->subject->injectScheduleDemandFactory($mockDemandFactory);
         $this->subject->injectSession($this->session);
@@ -180,14 +181,6 @@ class ScheduleControllerTest extends UnitTestCase
     {
         $demandObject = $this->mockCreateDemandFromSettings();
 
-        $expectedTemplateVariables = [
-            'courses' => null,
-            'overwriteDemand' => null,
-            'demand' => $demandObject,
-            'settings' => null,
-            'filterOptions' => null
-        ];
-
         // todo can not match expectedTemplateVariables as soon as method 'emitSignal' is called.
         $this->view->expects($this->once())
             ->method('assignMultiple');
@@ -199,11 +192,12 @@ class ScheduleControllerTest extends UnitTestCase
      */
     public function showActionAssignsScheduleToView()
     {
-        $mockCourse = $this->getMock(Schedule::class);
+        /** @var Schedule|MockObject $schedule */
+        $schedule = $this->getMockBuilder(Schedule::class)->getMock();
         $this->view->expects($this->once())
             ->method('assign')
-            ->with('schedule', $mockCourse);
-        $this->subject->showAction($mockCourse);
+            ->with('schedule', $schedule);
+        $this->subject->showAction($schedule);
     }
 
     /**
