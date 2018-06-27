@@ -61,9 +61,7 @@ class CourseBackendController
 
 		$courses = $this->courseRepository->findDemanded($demand);
 
-		if (($courses instanceof QueryResultInterface AND !$courses->count())
-			OR !count($courses)
-		) {
+		if ($courses instanceof QueryResultInterface && !$courses->count()) {
 			$this->addFlashMessage(
 				$this->translate('message.noCoursesFound.text'),
 				$this->translate('message.noCoursesFound.title'),

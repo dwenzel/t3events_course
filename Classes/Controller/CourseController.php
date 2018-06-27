@@ -108,9 +108,7 @@ class CourseController extends ActionController
 
         $courses = $this->courseRepository->findDemanded($demand);
 
-        if (($courses instanceof QueryResultInterface AND !$courses->count())
-            OR !count($courses)
-        ) {
+        if ($courses instanceof QueryResultInterface && !$courses->count()) {
             $this->addFlashMessage(
                 $this->translate('message.noCoursesFound.text', 't3events_course'),
                 $this->translate('message.noCoursesFound.title', 't3events_course'),

@@ -14,7 +14,6 @@ namespace CPSIT\T3eventsCourse\Tests\Unit\Controller\Backend;
  * The TYPO3 project - inspiring people to share!
  */
 
-use ApacheSolrForTypo3\Solr\System\Configuration\ConfigurationManager;
 use CPSIT\T3eventsCourse\Controller\Backend\CourseBackendController;
 use CPSIT\T3eventsCourse\Domain\Factory\Dto\CourseDemandFactory;
 use DWenzel\T3events\Domain\Model\Dto\DemandInterface;
