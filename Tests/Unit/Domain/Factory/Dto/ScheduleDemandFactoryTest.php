@@ -34,18 +34,17 @@ class ScheduleDemandFactoryTest extends UnitTestCase {
      */
     public function setUp()
     {
-        $this->subject = $this->getMock(
-            ScheduleDemandFactory::class, ['dummy']
-        );
+        $this->subject = $this->getMockBuilder(ScheduleDemandFactory::class)
+            ->setMethods(['dummy'])
+            ->getMock();
     }
     /**
      * @param $mockScheduleDemand
      */
     protected function mockObjectManager($mockScheduleDemand)
     {
-        $mockObjectManager = $this->getMock(
-            ObjectManager::class, ['get']
-        );
+        $mockObjectManager = $this->getMockBuilder(ObjectManager::class)
+            ->setMethods(['get'])->getMock();
         $mockObjectManager->expects($this->once())
             ->method('get')
             ->with(ScheduleDemand::class)
@@ -58,7 +57,7 @@ class ScheduleDemandFactoryTest extends UnitTestCase {
      */
     public function createFromSettingsReturnsScheduleDemand()
     {
-        $mockScheduleDemand = $this->getMock(ScheduleDemand::class);
+        $mockScheduleDemand = $this->getMockBuilder(ScheduleDemand::class)->getMock();
         $this->mockObjectManager($mockScheduleDemand);
 
         $this->assertSame(
@@ -77,17 +76,17 @@ class ScheduleDemandFactoryTest extends UnitTestCase {
         ];
 
         /** @var ScheduleDemand |\PHPUnit_Framework_MockObject_MockObject $mockScheduleDemand */
-        $mockScheduleDemand = $this->getMock(ScheduleDemand::class);
+        $mockScheduleDemand = new ScheduleDemand();
         $this->mockObjectManager($mockScheduleDemand);
 
         $timeZone = new \DateTimeZone(date_default_timezone_get());
         $deadLine = new \DateTime('now', $timeZone);
 
-        $mockScheduleDemand->expects($this->once())
-            ->method('setDeadlineAfter')
-            ->with($deadLine);
-
-        $this->subject->createFromSettings($settings);
+        $demand = $this->subject->createFromSettings($settings);
+        $this->assertEquals(
+            $deadLine->getTimestamp(),
+            $demand->getDeadlineAfter()->getTimestamp()
+        );
     }
 
 }
