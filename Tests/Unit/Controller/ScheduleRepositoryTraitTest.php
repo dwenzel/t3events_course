@@ -17,6 +17,7 @@ namespace CPSIT\T3eventsCourse\Tests\Controller;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
 use CPSIT\T3eventsCourse\Controller\ScheduleRepositoryTrait;
 use CPSIT\T3eventsCourse\Domain\Repository\ScheduleRepository;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class ScheduleRepositoryTraitTest extends UnitTestCase
 {
@@ -40,9 +41,9 @@ class ScheduleRepositoryTraitTest extends UnitTestCase
      */
     public function scheduleRepositoryCanBeInjected()
     {
-        $scheduleRepository = $this->getMock(
-            ScheduleRepository::class, [], [], '', false
-        );
+        /** @var ScheduleRepository|MockObject $scheduleRepository */
+        $scheduleRepository = $this->getMockBuilder(ScheduleRepository::class)
+            ->disableOriginalConstructor()->getMock();
 
         $this->subject->injectScheduleRepository($scheduleRepository);
 

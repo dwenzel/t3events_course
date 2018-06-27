@@ -16,6 +16,7 @@ namespace CPSIT\T3eventsCourse\Controller\Backend;
 
 use CPSIT\T3eventsCourse\Controller\CourseDemandFactoryTrait;
 use CPSIT\T3eventsCourse\Controller\CourseRepositoryTrait;
+use DWenzel\T3events\Controller\SignalTrait;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
@@ -31,7 +32,7 @@ use DWenzel\T3events\Controller\FilterableControllerTrait;
 class CourseBackendController
 	extends AbstractBackendController
 	implements FilterableControllerInterface {
-	use CourseRepositoryTrait, CourseDemandFactoryTrait, FilterableControllerTrait;
+	use CourseRepositoryTrait, CourseDemandFactoryTrait, FilterableControllerTrait, SignalTrait;
 
     const COURSE_LIST_ACTION = 'listAction';
 
@@ -60,9 +61,7 @@ class CourseBackendController
 
 		$courses = $this->courseRepository->findDemanded($demand);
 
-		if (($courses instanceof QueryResultInterface AND !$courses->count())
-			OR !count($courses)
-		) {
+		if ($courses instanceof QueryResultInterface && !$courses->count()) {
 			$this->addFlashMessage(
 				$this->translate('message.noCoursesFound.text'),
 				$this->translate('message.noCoursesFound.title'),

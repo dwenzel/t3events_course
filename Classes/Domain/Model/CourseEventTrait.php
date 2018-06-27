@@ -13,11 +13,6 @@ use DWenzel\T3events\Domain\Model\Audience;
 trait CourseEventTrait {
 
 	/**
-	 * @var string
-	 */
-	protected $extbaseType;
-
-	/**
 	 * abstract
 	 *
 	 * @var string
@@ -278,5 +273,5 @@ trait CourseEventTrait {
     public function removeCertificate(Certificate $certificateToRemove) {
         $this->certificate->detach($certificateToRemove);
     }
-    
+
 }

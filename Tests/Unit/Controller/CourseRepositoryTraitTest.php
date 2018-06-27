@@ -17,6 +17,7 @@ namespace CPSIT\T3eventsCourse\Tests\Controller;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
 use CPSIT\T3eventsCourse\Controller\CourseRepositoryTrait;
 use CPSIT\T3eventsCourse\Domain\Repository\CourseRepository;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class CourseRepositoryTraitTest extends UnitTestCase
 {
@@ -40,10 +41,9 @@ class CourseRepositoryTraitTest extends UnitTestCase
      */
     public function courseRepositoryCanBeInjected()
     {
-        $courseRepository = $this->getMock(
-            CourseRepository::class, [], [], '', false
-        );
-
+        /** @var CourseRepository|MockObject $courseRepository */
+        $courseRepository = $this->getMockBuilder(CourseRepository::class)
+            ->disableOriginalConstructor()->getMock();
         $this->subject->injectCourseRepository($courseRepository);
 
         $this->assertAttributeSame(

@@ -45,15 +45,11 @@ class ScheduleBackendControllerTest extends UnitTestCase {
         $this->subject = $this->getAccessibleMock(
             ScheduleBackendController::class, ['createDemandFromSettings', 'emitSignal', 'getFilterOptions', 'overwriteDemandObject']
         );
-        $this->view = $this->getMockForAbstractClass(
-            ViewInterface::class
-        );
-        $this->moduleData = $this->getMock(
-            ModuleData::class
-        );
-        $mockPerformanceRepository = $this->getMock(
-            PerformanceRepository::class, [], [], '', false
-        );
+        $this->view = $this->getMockForAbstractClass(ViewInterface::class);
+        $this->moduleData = $this->getMockBuilder(ModuleData::class)
+            ->getMock();
+        $mockPerformanceRepository = $this->getMockBuilder(PerformanceRepository::class)
+            ->disableOriginalConstructor()->getMock();
         $this->inject(
             $this->subject,
             'view',
@@ -168,14 +164,6 @@ class ScheduleBackendControllerTest extends UnitTestCase {
     public function listActionAssignsTemplateVariablesToView()
     {
         $demandObject = $this->mockCreateDemandFromSettings();
-
-        $expectedTemplateVariables = [
-            'performances' => null,
-            'overwriteDemand' => null,
-            'demand' => $demandObject,
-            'settings' => null,
-            'filterOptions' => null
-        ];
 
         // todo can not match expectedTemplateVariables as soon as method 'emitSignal' is called.
         $this->view->expects($this->once())

@@ -107,9 +107,7 @@ class ScheduleController extends ActionController
             $this->overwriteDemandObject($demand, $overwriteDemand);
         }
         $schedules = $this->scheduleRepository->findDemanded($demand, FALSE);
-        if (($schedules instanceof QueryResult AND !$schedules->count())
-            OR !count($schedules)
-        ) {
+        if ($schedules instanceof QueryResult && !$schedules->count()) {
             $this->addFlashMessage(
                 $this->translate('message.noLessonsForSelection.text', $this->extensionName),
                 $this->translate('message.noLessonsForSelection.title', $this->extensionName),

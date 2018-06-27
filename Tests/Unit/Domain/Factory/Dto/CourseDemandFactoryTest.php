@@ -15,6 +15,7 @@ namespace CPSIT\T3eventsCourse\Tests\Domain\Factory\Dto;
  */
 
 use CPSIT\T3eventsCourse\Domain\Model\Dto\CourseDemand;
+use PHPUnit\Framework\MockObject\MockObject;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
 use CPSIT\T3eventsCourse\Domain\Factory\Dto\CourseDemandFactory;
@@ -34,9 +35,7 @@ class CourseDemandFactoryTest extends UnitTestCase {
      */
     public function setUp()
     {
-        $this->subject = $this->getMock(
-            CourseDemandFactory::class, ['dummy']
-        );
+        $this->subject = $this->getMockBuilder(CourseDemandFactory::class)->setMethods(['dummy'])->getMock();
     }
 
     /**
@@ -44,10 +43,10 @@ class CourseDemandFactoryTest extends UnitTestCase {
      */
     public function createFromSettingsReturnsCourseDemand()
     {
-        $mockCourseDemand = $this->getMock(CourseDemand::class);
-        $mockObjectManager = $this->getMock(
-            ObjectManager::class, ['get']
-        );
+        /** @var CourseDemand|MockObject $mockCourseDemand */
+        $mockCourseDemand = $this->getMockBuilder(CourseDemand::class)->getMock();
+        /** @var ObjectManager|MockObject $mockObjectManager */
+        $mockObjectManager = $this->getMockBuilder(ObjectManager::class)->setMethods(['get'])->getMock();
         $mockObjectManager->expects($this->once())
             ->method('get')
             ->with(CourseDemand::class)

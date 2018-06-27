@@ -22,6 +22,7 @@ use DWenzel\T3events\Domain\Model\Dto\ModuleData;
 use CPSIT\T3eventsCourse\Domain\Repository\CourseRepository;
 use DWenzel\T3events\Session\SessionInterface;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Mvc\Request;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
@@ -77,16 +78,16 @@ class CourseControllerTest extends UnitTestCase
         );
 
         $this->view = $this->getMockForAbstractClass(ViewInterface::class);
-        $mockCourseRepository = $this->getMock(
-            CourseRepository::class, [], [], '', false
-        );
+        /** @var CourseRepository|MockObject $mockCourseRepository */
+        $mockCourseRepository = $this->getMockBuilder(CourseRepository::class)
+            ->disableOriginalConstructor()->getMock();
+        /** @var ConfigurationManagerInterface|MockObject $mockConfigurationManager */
         $mockConfigurationManager = $this->getMockForAbstractClass(ConfigurationManagerInterface::class);
-        $mockDemandFactory = $this->getMock(
-            CourseDemandFactory::class, ['createFromSettings']
-        );
-        $this->request = $this->getMock(
-            Request::class, ['hasArgument', 'getArgument']
-        );
+        /** @var CourseDemandFactory|MockObject $mockDemandFactory */
+        $mockDemandFactory = $this->getMockBuilder(CourseDemandFactory::class)
+        ->setMethods(['createFromSettings'])->getMock();
+        $this->request = $this->getMockBuilder(Request::class)
+            ->setMethods(['hasArgument', 'getArgument'])->getMock();
         $this->session = $this->getMockForAbstractClass(SessionInterface::class);
         $this->subject->injectCourseDemandFactory($mockDemandFactory);
         $this->subject->injectSession($this->session);
@@ -102,9 +103,7 @@ class CourseControllerTest extends UnitTestCase
      */
     protected function mockCreateDemandFromSettings()
     {
-        $mockDemand = $this->getMockForAbstractClass(
-            DemandInterface::class
-        );
+        $mockDemand = $this->getMockForAbstractClass(DemandInterface::class);
 
         /** @var CourseDemandFactory| \PHPUnit_Framework_MockObject_MockObject $demandFactory */
         $demandFactory = $this->subject->_get('demandFactory');
@@ -198,7 +197,8 @@ class CourseControllerTest extends UnitTestCase
      */
     public function showActionAssignsCourseToView()
     {
-        $mockCourse = $this->getMock(Course::class);
+        /** @var Course|MockObject $mockCourse */
+        $mockCourse = $this->getMockBuilder(Course::class)->getMock();
         $this->view->expects($this->once())
             ->method('assign')
             ->with('course', $mockCourse);
