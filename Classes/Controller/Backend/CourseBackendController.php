@@ -36,6 +36,9 @@ use DWenzel\T3events\Controller\SettingsUtilityTrait;
 use DWenzel\T3events\Controller\SignalTrait;
 use DWenzel\T3events\Controller\TranslateTrait;
 use DWenzel\T3events\Controller\VenueRepositoryTrait;
+use DWenzel\T3events\Domain\Model\Dto\ButtonDemand;
+use TYPO3\CMS\Backend\View\BackendTemplateView;
+use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
@@ -63,6 +66,19 @@ class CourseBackendController
      * @const EXTENSION_KEY
      */
     const EXTENSION_KEY = 't3events_course';
+
+    protected $buttonConfiguration = [
+        [
+            ButtonDemand::TABLE_KEY => 'tx_t3events_domain_model_event',
+            ButtonDemand::LABEL_KEY => 'button.newAction.course',
+            ButtonDemand::ACTION_KEY => 'new',
+            ButtonDemand::ICON_KEY => 'ext-t3events-event',
+            ButtonDemand::OVERLAY_KEY => 'overlay-new',
+            ButtonDemand::ICON_SIZE_KEY => Icon::SIZE_SMALL
+        ]
+    ];
+
+    protected $defaultViewObjectName = BackendTemplateView::class;
 
     /**
      * action list
@@ -108,5 +124,13 @@ class CourseBackendController
 
         $this->emitSignal(__CLASS__, self::COURSE_LIST_ACTION, $templateVariables);
         $this->view->assignMultiple($templateVariables);
+    }
+
+    /**
+     * Redirect to new record form
+     */
+    public function newAction()
+    {
+        $this->redirectToCreateNewRecord('tx_t3events_domain_model_event');
     }
 }

@@ -23,7 +23,7 @@ if (TYPO3_MODE === 'BE') {
 		'm4',
 		'',
 		[
-			'Backend\CourseBackend' => 'list, show,reset',
+			'Backend\CourseBackend' => 'list, show,reset,new',
 		],
 		[
 			'access' => 'user,group',
