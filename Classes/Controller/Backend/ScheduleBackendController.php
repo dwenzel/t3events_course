@@ -2,6 +2,7 @@
 namespace CPSIT\T3eventsCourse\Controller\Backend;
 
 use DWenzel\T3events\Controller\Backend\BackendViewTrait;
+use DWenzel\T3events\Controller\Backend\FormTrait;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
@@ -17,7 +18,7 @@ use DWenzel\T3events\Controller\SettingsUtilityTrait;
  */
 class ScheduleBackendController extends PerformanceController
 {
-    use ModuleDataTrait, SettingsUtilityTrait, BackendViewTrait;
+    use ModuleDataTrait, SettingsUtilityTrait, BackendViewTrait, FormTrait;
 
     /**
      * BackendTemplateContainer
