@@ -47,6 +47,11 @@ class CourseBackendControllerTest extends UnitTestCase {
     protected $view;
 
     /**
+     * @var ConfigurationManagerInterface|MockObject
+     */
+    protected $configurationManager;
+
+    /**
      * set up
      */
     public function setUp()
@@ -61,14 +66,13 @@ class CourseBackendControllerTest extends UnitTestCase {
         /** @var CourseRepository|MockObject $mockCourseRepository */
         $mockCourseRepository = $this->getMockBuilder(CourseRepository::class)
             ->disableOriginalConstructor()->getMock();
-        /** @var ConfigurationManagerInterface|MockObject $mockConfigurationManager */
-        $mockConfigurationManager = $this->getMockForAbstractClass(ConfigurationManagerInterface::class);
+        $this->configurationManager = $this->getMockForAbstractClass(ConfigurationManagerInterface::class);
         /** @var CourseDemandFactory|MockObject $mockDemandFactory */
         $mockDemandFactory = $this->getMockBuilder(CourseDemandFactory::class)
             ->setMethods(['createFromSettings'])
             ->getMock();
         $this->subject->injectCourseDemandFactory($mockDemandFactory);
-        $this->subject->injectConfigurationManager($mockConfigurationManager);
+        $this->subject->injectConfigurationManager($this->configurationManager);
         $this->inject(
             $this->subject,
             'view',
@@ -208,4 +212,15 @@ class CourseBackendControllerTest extends UnitTestCase {
         $this->subject->listAction();
     }
 
+
+    /**
+     * @test
+     */
+    public function getConfigurationManagerReturnsConfigurationManager()
+    {
+        $this->assertEquals(
+            $this->configurationManager,
+            $this->subject->getConfigurationManager()
+        );
+    }
 }

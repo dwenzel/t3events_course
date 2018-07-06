@@ -4,6 +4,7 @@ namespace CPSIT\T3eventsCourse\Controller\Backend;
 use DWenzel\T3events\Controller\Backend\BackendViewTrait;
 use DWenzel\T3events\Controller\Backend\FormTrait;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
 use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
@@ -85,4 +86,13 @@ class ScheduleBackendController extends PerformanceController
         $this->emitSignal(__CLASS__, self::PERFORMANCE_LIST_ACTION, $templateVariables);
         $this->view->assignMultiple($templateVariables);
     }
+
+    /**
+     * @return ConfigurationManagerInterface
+     */
+    public function getConfigurationManager()
+    {
+        return $this->configurationManager;
+    }
+
 }

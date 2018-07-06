@@ -133,4 +133,12 @@ class CourseBackendController
     {
         $this->redirectToCreateNewRecord('tx_t3events_domain_model_event');
     }
+
+    /**
+     * @return ConfigurationManagerInterface
+     */
+    public function getConfigurationManager()
+    {
+        return $this->configurationManager;
+    }
 }
