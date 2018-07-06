@@ -19,7 +19,7 @@
   ],
   "require": {
     "typo3/cms-core": ">=8.7.0,<=8.7.99",
-    "dwenzel/t3events": ">=0.39"
+    "dwenzel/t3events": ">=0.40"
   },
   "require-dev": {
     "nimut/testing-framework": "^3.0"
