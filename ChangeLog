@@ -1,3 +1,10 @@
+2018-09-07         [RELEASE] Release of t3events_course 0.10.0 (Dirk Wenzel)
+2018-07-06 4a38caa [TASK] CI: use typo3/minimal instead of typo3/core (Dirk Wenzel)
+2018-07-06 dadacf9 [TASK] require dwenzel/t3events:>=0.40 (Dirk Wenzel)
+2018-07-06 012661c [BUGFIX] fixed error caused by missing settings in backend controllers. Parent class ActionController now implements method injectConfigurationManager and fetches the settings there. Therefore we can not use our own implementation anymore. BackendControllers now provide the configuration manager via getter method. (Dirk Wenzel)
+2018-06-28 a1a304a [TASK] CourseBackendController extended - now uses BackendTemplateView - method newAction added (Dirk Wenzel)
+2018-06-28 6c79421 [TASK] CourseBackendController and ScheduleBackendController refactored using traits. - obsolete method createDemandFromSettings removed. (Dirk Wenzel)
+
 2018-06-27         [RELEASE] Release of t3events_course 0.9.0 (Dirk Wenzel)
 2018-06-27 8fb3563 [BUGFIX] fixed error in controllers caused by invalid count() usage (under PHP 7.2) (Dirk Wenzel)
 2018-06-27 8e814dc [BUGFIX] property extbaseType removed from CourseEventTrait. This avoids collision under PHP 7.2 (Dirk Wenzel)

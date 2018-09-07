@@ -5,6 +5,8 @@ use DWenzel\T3events\Domain\Model\Dto\DemandInterface;
 use DWenzel\T3events\Domain\Model\Dto\ModuleData;
 use DWenzel\T3events\Domain\Repository\PerformanceRepository;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 
 /**
@@ -38,6 +40,11 @@ class ScheduleBackendControllerTest extends UnitTestCase {
     protected $view;
 
     /**
+     * @var ConfigurationManagerInterface|MockObject
+     */
+    protected $configurationManager;
+
+    /**
      * set up
      */
     public function setUp()
@@ -60,6 +67,10 @@ class ScheduleBackendControllerTest extends UnitTestCase {
             'moduleData',
             $this->moduleData
         );
+        $this->configurationManager = $this->getMockBuilder(ConfigurationManagerInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->subject->injectConfigurationManager($this->configurationManager);
         $this->subject->injectPerformanceRepository($mockPerformanceRepository);
     }
 
@@ -171,4 +182,14 @@ class ScheduleBackendControllerTest extends UnitTestCase {
         $this->subject->listAction();
     }
 
+    /**
+     * @test
+     */
+    public function getConfigurationManagerReturnsConfigurationManager()
+    {
+        $this->assertEquals(
+            $this->configurationManager,
+            $this->subject->getConfigurationManager()
+        );
+    }
 }
