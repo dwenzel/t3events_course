@@ -19,7 +19,8 @@
   ],
   "require": {
     "typo3/cms-core": ">=8.7.0,<=8.7.99",
-    "dwenzel/t3events": ">=0.40"
+    "dwenzel/t3events": "~1.1",
+    "dwenzel/t3extension-tools": "~1.2"
   },
   "require-dev": {
     "nimut/testing-framework": "^3.0"
@@ -33,10 +34,6 @@
     "psr-4": {
       "CPSIT\\T3eventsCourse\\Tests\\": "Tests"
     }
-  },
-  "replace": {
-    "t3events_course": "self.version",
-    "typo3-ter/t3events_course": "self.version"
   },
   "config": {
     "vendor-dir": ".Build/vendor",
