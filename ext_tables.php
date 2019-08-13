@@ -19,7 +19,7 @@ if (TYPO3_MODE === 'BE') {
 	 */
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
 		'CPSIT.' . $_EXTKEY,
-		'Events',
+		'T3eventsEvents',
 		'm4',
 		'',
 		[
@@ -34,7 +34,7 @@ if (TYPO3_MODE === 'BE') {
 
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
 		'CPSIT.' . $_EXTKEY,
-		'Events',
+		'T3eventsEvents',
 		'm2',
         '',
         [
