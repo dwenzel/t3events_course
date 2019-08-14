@@ -20,7 +20,7 @@
   "require": {
     "typo3/cms-core": ">=8.7.0,<=8.7.99",
     "dwenzel/t3events": "~1.1",
-    "dwenzel/t3extension-tools": "~1.2"
+    "dwenzel/t3extension-tools": "~1.3"
   },
   "require-dev": {
     "nimut/testing-framework": "^3.0"
