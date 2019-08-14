@@ -6,47 +6,7 @@ if (!defined('TYPO3_MODE')) {
 $ll = 'LLL:EXT:t3events_course/Resources/Private/Language/locallang_db.xlf:';
 
 if (TYPO3_MODE === 'BE') {
-    $versionNumber = \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version);
-    $pathCourseIcon = 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/open-book.svg';
-    $pathScheduleIcon = 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/calendar-blue.svg';
-    if ($versionNumber < 7000000) {
-        $pathCourseIcon = 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/module_icon_course.png';
-        $pathScheduleIcon = 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/module_icon_schedule.png';
-    }
-
-    /**
-	 * Register Backend Modules
-	 */
-	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-		'CPSIT.' . $_EXTKEY,
-		'Events',
-		'm4',
-		'',
-		[
-			'Backend\CourseBackend' => 'list, show,reset,new',
-		],
-		[
-			'access' => 'user,group',
-			'icon' => $pathCourseIcon,
-			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_m4.xlf',
-		]
-	);
-
-	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-		'CPSIT.' . $_EXTKEY,
-		'Events',
-		'm2',
-        '',
-        [
-			'Backend\ScheduleBackend' => 'list, show, edit, delete,reset',
-		],
-		[
-			'access' => 'user,group',
-			'icon' => $pathScheduleIcon,
-			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_m2.xlf',
-		]
-	);
-
+    \CPSIT\T3eventsCourse\Configuration\ExtensionConfiguration::registerAndConfigureModules();
 }
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	'CPSIT.' . $_EXTKEY,
@@ -60,8 +20,6 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Courses');
 
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_t3eventscourse_domain_model_certificate');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_t3eventscourse_domain_model_certificatetype');
+\CPSIT\T3eventsCourse\Configuration\ExtensionConfiguration::configureTables();
 
 unset($pathScheduleIcon, $pathCourseIcon, $pluginSignature, $ll);
