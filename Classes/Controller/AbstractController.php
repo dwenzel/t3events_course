@@ -31,7 +31,6 @@ class AbstractController extends ActionController {
 	 * Persistence Manager
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
-	 * @inject
 	 */
 	protected $persistenceManager;
 
@@ -39,7 +38,6 @@ class AbstractController extends ActionController {
 	 * Notification Service
 	 *
 	 * @var \DWenzel\T3events\Service\NotificationService
-	 * @inject
 	 */
 	protected $notificationService;
 
@@ -65,6 +63,22 @@ class AbstractController extends ActionController {
 	 * @var string
 	 */
 	protected $errorMessage = 'unknownError';
+
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager $persistenceManager
+     */
+    public function injectPersistenceManager(\TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager $persistenceManager): void
+    {
+        $this->persistenceManager = $persistenceManager;
+    }
+
+    /**
+     * @param \DWenzel\T3events\Service\NotificationService $notificationService
+     */
+    public function injectNotificationService(\DWenzel\T3events\Service\NotificationService $notificationService): void
+    {
+        $this->notificationService = $notificationService;
+    }
 
 	/**
 	 * Initialize Action

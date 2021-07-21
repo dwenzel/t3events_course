@@ -23,7 +23,7 @@ trait CourseEventTrait {
 	 * Target audience of this course.
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DWenzel\T3events\Domain\Model\Audience>
-	 * @lazy
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $audience;
 
@@ -68,7 +68,7 @@ trait CourseEventTrait {
 	 * Certificates held for this course.
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\CPSIT\T3eventsCourse\Domain\Model\Certificate>
-	 * @lazy
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $certificate;
 
