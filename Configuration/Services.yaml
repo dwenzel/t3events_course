@@ -1,0 +1,23 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  CPSIT\T3eventsCourse\:
+    resource: '../Classes/*'
+
+  CPSIT\T3eventsCourse\Controller\Backend\ScheduleBackendController:
+    calls:
+      - injectSession:
+          - '@DWenzel\T3events\Session\Typo3BackendSession'
+
+  CPSIT\T3eventsCourse\Controller\CourseController:
+    calls:
+      - injectSession:
+          - '@DWenzel\T3events\Session\Typo3Session'
+
+  CPSIT\T3eventsCourse\Controller\ScheduleController:
+    calls:
+      - injectSession:
+          - '@DWenzel\T3events\Session\Typo3Session'
