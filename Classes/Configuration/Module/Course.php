@@ -19,6 +19,7 @@ namespace CPSIT\T3eventsCourse\Configuration\Module;
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use CPSIT\T3eventsCourse\Controller\Backend\CourseBackendController;
 use DWenzel\T3extensionTools\Configuration\ModuleRegistrationInterface;
 use DWenzel\T3extensionTools\Configuration\ModuleRegistrationTrait;
 
@@ -31,7 +32,7 @@ abstract class Course extends DefaultRegistration implements ModuleRegistrationI
 
     static protected $subModuleName = 'm4';
     static protected $controllerActions = [
-        'Backend\CourseBackend' => 'list, show,reset,new',
+        CourseBackendController::class => 'list, show, reset, new',
     ];
     static protected $moduleConfiguration = [
         'access' => 'user,group',
