@@ -18,8 +18,10 @@ $linkWizardConfig = [
     'JSopenParams' => 'height=600,width=500,status=0,menubar=0,scrollbars=1'
 ];
 
-$versionNumber = \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version);
-if ($versionNumber < 7000000) {
+/** @var \TYPO3\CMS\Core\Information\Typo3Version $typo3Version */
+$typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
+
+if ($typo3Version->getMajorVersion() < 7) {
     $rteWizardIconPath = 'wizard_rte2.gif';
     $linkWizardConfig = [
         'type' => 'popup',
