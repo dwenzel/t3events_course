@@ -50,7 +50,7 @@ trait CourseEventTrait {
 	protected $targetGroupDesc;
 
 	/**
-	 * @var \double
+	 * @var float
 	 */
 	protected $examCosts;
 
