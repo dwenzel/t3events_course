@@ -58,9 +58,6 @@ return [
 		'searchFields' => 'title,description,',
 		'iconfile' => 'EXT:t3events_course/Resources/Public/Icons/tx_t3eventscourse_domain_model_certificate.gif'
 	],
-    'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title,type, description',
-	],
 	'types' => [
 		'1' => ['showitem' => 'sys_language_uid,l10n_parent, l10n_diffsource, hidden, --palette--;;1, title ,type, short_pas1045, short_qcat, link, description,richtext:rte_transform[mode=ts_links], '],
 	],
@@ -69,24 +66,26 @@ return [
 	],
 	'columns' => [
 
-		'sys_language_uid' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
-			'config' => [
-				'type' => 'select',
+        'sys_language_uid' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'config' => [
+                'type' => 'select',
                 'renderType' => 'selectSingle',
-                'foreign_table' => 'sys_language',
-				'foreign_table_where' => 'ORDER BY sys_language.title',
-				'items' => [
-					['LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1],
-					['LLL:EXT:lang/locallang_general.xlf:LGL.default_value', 0]
-				],
-			],
-		],
+                'special' => 'languages',
+                'items' => [
+                    [
+                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
+                        -1,
+                        'flags-multiple'
+                    ],
+                ],
+                'default' => 0,
+            ]
+        ],
 		'l10n_parent' => [
 			'displayCond' => 'FIELD:sys_language_uid:>:0',
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
 			'config' => [
 				'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -103,18 +102,9 @@ return [
 			],
 		],
 
-		't3ver_label' => [
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
-			'config' => [
-				'type' => 'input',
-				'size' => 30,
-				'max' => 255,
-			]
-		],
-
 		'hidden' => [
 			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
 			'config' => [
 				'type' => 'check',
 			],
@@ -179,18 +169,7 @@ return [
 				'cols' => 40,
 				'rows' => 15,
 				'eval' => 'trim',
-				'wizards' => [
-					'RTE' => [
-						'icon' => $rteWizardIconPath,
-						'notNewRecords' => 1,
-						'RTEonly' => 1,
-						'module' => [
-							'name' => 'wizard_rte'
-						],
-						'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
-						'type' => 'script'
-					]
-				]
+                'enableRichText' => true,
 			],
 		],
 	],
