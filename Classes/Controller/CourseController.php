@@ -66,7 +66,6 @@ class CourseController extends ActionController
      */
     public function __construct()
     {
-        parent::__construct();
         $this->namespace = get_class($this);
     }
 
