@@ -30,7 +30,8 @@ $temporaryColumns = [
 			'type' => 'text',
 			'cols' => 32,
 			'rows' => 10,
-			'eval' => 'trim'
+			'eval' => 'trim',
+            'enableRichtext' => true
 		],
 		'defaultExtras' => 'richtext[]'
 	],
