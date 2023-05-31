@@ -47,7 +47,7 @@ class ScheduleRepositoryTest extends FunctionalTestCase  {
     public function setUp()
     {
         parent::setUp();
-        $this->objectManager = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+        $this->objectManager = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
         $this->scheduleRepository = $this->objectManager->get(ScheduleRepository::class);
         $this->importDataSet(__DIR__ . '/../Fixtures/schedules.xml');
         $this->importDataSet(__DIR__ . '/../Fixtures/courses.xml');

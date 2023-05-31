@@ -60,12 +60,12 @@ class CourseBackendController
         SettingsUtilityTrait, SignalTrait, TranslateTrait,
         VenueRepositoryTrait;
 
-    const COURSE_LIST_ACTION = 'listAction';
+    final public const COURSE_LIST_ACTION = 'listAction';
 
     /**
      * @const EXTENSION_KEY
      */
-    const EXTENSION_KEY = 't3events_course';
+    final public const EXTENSION_KEY = 't3events_course';
 
     protected $buttonConfiguration = [
         [
@@ -122,7 +122,7 @@ class CourseBackendController
             'settings' => $this->settings
         ];
 
-        $this->emitSignal(__CLASS__, self::COURSE_LIST_ACTION, $templateVariables);
+        $this->emitSignal(self::class, self::COURSE_LIST_ACTION, $templateVariables);
         $this->view->assignMultiple($templateVariables);
     }
 

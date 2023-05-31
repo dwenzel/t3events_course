@@ -324,7 +324,7 @@ class CourseControllerTest extends UnitTestCase
     {
         $this->subject->__construct();
         $this->assertAttributeSame(
-            get_class($this->subject),
+            $this->subject::class,
             'namespace',
             $this->subject
         );

@@ -27,7 +27,7 @@ class ScheduleDemandFactory extends PerformanceDemandFactory
     /**
      * Class name of the object created by this factory.
      */
-    const DEMAND_CLASS = ScheduleDemand::class;
+    final public const DEMAND_CLASS = ScheduleDemand::class;
 
     public function createFromSettings(array $settings)
     {

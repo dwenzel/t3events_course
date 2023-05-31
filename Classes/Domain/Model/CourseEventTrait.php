@@ -85,12 +85,11 @@ trait CourseEventTrait {
 	}
 
 	/**
-	 * Adds a Audience
-	 *
-	 * @param \DWenzel\T3events\Domain\Model\Audience $audience
-	 * @return void
-	 */
-	public function addAudience(Audience $audience) {
+  * Adds a Audience
+  *
+  * @return void
+  */
+ public function addAudience(Audience $audience) {
 		$this->audience->attach($audience);
 	}
 

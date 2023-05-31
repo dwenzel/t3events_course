@@ -27,5 +27,5 @@ class CourseDemandFactory extends EventDemandFactory
     /**
      * Class name of the object created by this factory.
      */
-    const DEMAND_CLASS = CourseDemand::class;
+    final public const DEMAND_CLASS = CourseDemand::class;
 }

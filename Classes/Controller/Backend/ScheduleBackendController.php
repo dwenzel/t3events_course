@@ -7,7 +7,7 @@ use TYPO3\CMS\Backend\View\BackendTemplateView;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
-use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use DWenzel\T3events\Controller\ModuleDataTrait;
 use DWenzel\T3events\Controller\PerformanceController;
 use DWenzel\T3events\Controller\SettingsUtilityTrait;
@@ -35,29 +35,24 @@ class ScheduleBackendController extends PerformanceController
 
     /**
      * Load and persist module data
-     *
-     * @param \TYPO3\CMS\Extbase\Mvc\RequestInterface $request
-     * @param \TYPO3\CMS\Extbase\Mvc\ResponseInterface $response
-     * @return void
-     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
      */
-    public function processRequest(RequestInterface $request, ResponseInterface $response)
+    public function processRequest(RequestInterface $request): ResponseInterface
     {
         $this->moduleData = $this->moduleDataStorageService->loadModuleData($this->getModuleKey());
 
         try {
-            parent::processRequest($request, $response);
+            $response = parent::processRequest($request);
         } catch (StopActionException $e) {
             throw $e;
         }
 
         $this->moduleDataStorageService->persistModuleData($this->moduleData, $this->getModuleKey());
+        return $response;
     }
 
     /**
      * action list
      *
-     * @param array $overwriteDemand
      * @return void
      */
     public function listAction(array $overwriteDemand = null)
@@ -83,7 +78,7 @@ class ScheduleBackendController extends PerformanceController
             'filterOptions' => $filterOptions
         ];
 
-        $this->emitSignal(__CLASS__, self::PERFORMANCE_LIST_ACTION, $templateVariables);
+        $this->emitSignal(self::class, self::PERFORMANCE_LIST_ACTION, $templateVariables);
         $this->view->assignMultiple($templateVariables);
     }
 

@@ -33,8 +33,6 @@ trait CourseRepositoryTrait
 
     /**
      * Injects the course repository
-     *
-     * @param CourseRepository $courseRepository
      */
     public function injectCourseRepository(CourseRepository $courseRepository)
     {
