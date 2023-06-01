@@ -65,7 +65,7 @@ class CourseBackendController
     /**
      * @const EXTENSION_KEY
      */
-    final public const EXTENSION_KEY = 't3events_course';
+    public const EXTENSION_KEY = 't3events_course';
 
     protected $buttonConfiguration = [
         [
