@@ -37,10 +37,14 @@ use DWenzel\T3events\Controller\SignalTrait;
 use DWenzel\T3events\Controller\TranslateTrait;
 use DWenzel\T3events\Controller\VenueRepositoryTrait;
 use DWenzel\T3events\Domain\Model\Dto\ButtonDemand;
+use DWenzel\T3events\Pagination\NumberedPagination;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Pagination\SimplePagination;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 /**
@@ -113,7 +117,22 @@ class CourseBackendController
         $configuration = $this->configurationManager->getConfiguration(
             ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
         );
+
+        // pagination
+        $paginationConfiguration = $this->settings['event']['list']['paginate'] ?? [];
+        $itemsPerPage = (int)(($paginationConfiguration['itemsPerPage'] ?? '') ?: 10);
+        $maximumNumberOfLinks = (int)($paginationConfiguration['maximumNumberOfLinks'] ?? 0);
+        
+        $currentPage = max(1, $this->request->hasArgument('currentPage') ? (int)$this->request->getArgument('currentPage') : 1);
+        #$paginator = new ArrayPaginator($contacts->toArray(), $currentPage, $itemsPerPage);
+        $paginator = GeneralUtility::makeInstance(QueryResultPaginator::class, $courses, $currentPage, $itemsPerPage, (int)($this->settings['limit'] ?? 0), (int)($this->settings['offset'] ?? 0));
+        $paginationClass = $paginationConfiguration['class'] ?? NumberedPagination::class;
+        #$pagination = new SimplePagination($paginator);
+        $pagination = $this->getPagination($paginationClass, $maximumNumberOfLinks, $paginator);
+
         $templateVariables = [
+            'paginator' => $paginator,
+            'pagination' => $pagination,
             'courses' => $courses,
             'demand' => $demand,
             'overwriteDemand' => $overwriteDemand,
@@ -140,5 +159,23 @@ class CourseBackendController
     public function getConfigurationManager()
     {
         return $this->configurationManager;
+    }
+
+    /**
+     * @param $paginationClass
+     * @param int $maximumNumberOfLinks
+     * @param $paginator
+     * @return \#o#Э#A#M#C\GeorgRinger\News\Controller\NewsController.getPagination.0|NumberedPagination|mixed|\Psr\Log\LoggerAwareInterface|string|SimplePagination|\TYPO3\CMS\Core\SingletonInterface
+     */
+    protected function getPagination($paginationClass, int $maximumNumberOfLinks, $paginator)
+    {
+        if (class_exists(NumberedPagination::class) && $paginationClass === NumberedPagination::class && $maximumNumberOfLinks) {
+            $pagination = GeneralUtility::makeInstance(NumberedPagination::class, $paginator, $maximumNumberOfLinks);
+        } elseif (class_exists($paginationClass)) {
+            $pagination = GeneralUtility::makeInstance($paginationClass, $paginator);
+        } else {
+            $pagination = GeneralUtility::makeInstance(SimplePagination::class, $paginator);
+        }
+        return $pagination;
     }
 }
