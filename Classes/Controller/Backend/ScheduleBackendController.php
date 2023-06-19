@@ -88,8 +88,6 @@ class ScheduleBackendController extends PerformanceController
         #$pagination = new SimplePagination($paginator);
         $pagination = $this->getPagination($paginationClass, $maximumNumberOfLinks, $paginator);
 
-
-
         $templateVariables = [
             'paginator' => $paginator,
             'pagination' => $pagination,
@@ -97,7 +95,8 @@ class ScheduleBackendController extends PerformanceController
             'overwriteDemand' => $overwriteDemand,
             'demand' => $demand,
             'settings' => $this->settings,
-            'filterOptions' => $filterOptions
+            'filterOptions' => $filterOptions,
+            'module' => 'T3eventsEvents_T3Course',
         ];
 
         $this->emitSignal(self::class, self::PERFORMANCE_LIST_ACTION, $templateVariables);
