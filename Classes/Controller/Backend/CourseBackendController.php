@@ -120,7 +120,7 @@ class CourseBackendController
 
         // pagination
         $paginationConfiguration = $this->settings['event']['list']['paginate'] ?? [];
-        $itemsPerPage = (int)(($paginationConfiguration['itemsPerPage'] ?? '') ?: 10);
+        $itemsPerPage = (int)(($paginationConfiguration['itemsPerPage'] ?? '') ?: 25);
         $maximumNumberOfLinks = (int)($paginationConfiguration['maximumNumberOfLinks'] ?? 0);
         
         $currentPage = max(1, $this->request->hasArgument('currentPage') ? (int)$this->request->getArgument('currentPage') : 1);
