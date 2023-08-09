@@ -30,7 +30,6 @@ trait CourseDemandFactoryTrait
     /**
      * Injects the CourseDemandFactory
      *
-     * @param \CPSIT\T3eventsCourse\Domain\Factory\Dto\CourseDemandFactory $courseDemandFactory
      * @return void
      */
     public function injectCourseDemandFactory(CourseDemandFactory $courseDemandFactory)

@@ -19,6 +19,8 @@ namespace CPSIT\T3eventsCourse\Configuration\Plugin;
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use CPSIT\T3eventsCourse\Controller\CourseController;
+use CPSIT\T3eventsCourse\Controller\ScheduleController;
 use DWenzel\T3extensionTools\Configuration\PluginConfigurationInterface;
 use DWenzel\T3extensionTools\Configuration\PluginConfigurationTrait;
 use CPSIT\T3eventsCourse\Configuration\ExtensionConfiguration;
@@ -34,15 +36,16 @@ abstract class Course implements PluginConfigurationInterface
 
     static protected $pluginName = 'Courses';
     static protected $controllerActions = 	[
-        'Course' => 'list, show, filter',
-        'Schedule' => 'list, show, filter',
+        CourseController::class => 'list, show, filter',
+        ScheduleController::class => 'list, show, filter',
     ];
 
     static protected $nonCacheableControllerActions = [
-        'Course' => 'filter',
-        'Schedule' => 'filter,list',
+        CourseController::class => 'filter',
+        ScheduleController::class => 'filter,list',
     ];
 
-    static protected $vendorExtensionName = ExtensionConfiguration::VENDOR . '.' . ExtensionConfiguration::EXTENSION_KEY;
+    static protected $extensionName = ExtensionConfiguration::EXTENSION_KEY;
+    static protected string $vendorExtensionName = ExtensionConfiguration::VENDOR . '.' . ExtensionConfiguration::EXTENSION_KEY;
 
 }

@@ -13,7 +13,7 @@ namespace CPSIT\T3eventsCourse\Controller;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
-use TYPO3\CMS\Extbase\Mvc\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Property\Exception;
 use TYPO3\CMS\Extbase\Property\Exception\InvalidSourceException;
 use TYPO3\CMS\Extbase\Property\Exception\TargetNotFoundException;
@@ -25,13 +25,12 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  * @deprecated Use t3events AbstractController instead
  */
 class AbstractController extends ActionController {
-	const SESSION_NAMESPACE = 'tx_t3eventscourse';
+	final public const SESSION_NAMESPACE = 'tx_t3eventscourse';
 
 	/**
 	 * Persistence Manager
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
-	 * @inject
 	 */
 	protected $persistenceManager;
 
@@ -39,7 +38,6 @@ class AbstractController extends ActionController {
 	 * Notification Service
 	 *
 	 * @var \DWenzel\T3events\Service\NotificationService
-	 * @inject
 	 */
 	protected $notificationService;
 
@@ -65,6 +63,16 @@ class AbstractController extends ActionController {
 	 * @var string
 	 */
 	protected $errorMessage = 'unknownError';
+
+    public function injectPersistenceManager(\TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager $persistenceManager): void
+    {
+        $this->persistenceManager = $persistenceManager;
+    }
+
+    public function injectNotificationService(\DWenzel\T3events\Service\NotificationService $notificationService): void
+    {
+        $this->notificationService = $notificationService;
+    }
 
 	/**
 	 * Initialize Action
@@ -110,16 +118,15 @@ class AbstractController extends ActionController {
 	}
 
 	/**
-	 * Get mapping configuration for property
-	 * Returns the property mapping configuration for a given
-	 * argument / property combination
-	 * or false if arguments does not have such an argument
-	 *
-	 * @param string $argumentName Name of argument
-	 * @param string $propertyName Name of the property e.g. 'foo.bar'
-	 * @return \TYPO3\CMS\Extbase\Property\PropertyMappingConfiguration|NULL
-	 */
-	protected function getMappingConfigurationForProperty($argumentName, $propertyName) {
+  * Get mapping configuration for property
+  * Returns the property mapping configuration for a given
+  * argument / property combination
+  * or false if arguments does not have such an argument
+  *
+  * @param string $argumentName Name of argument
+  * @param string $propertyName Name of the property e.g. 'foo.bar'
+  */
+ protected function getMappingConfigurationForProperty($argumentName, $propertyName): ?\TYPO3\CMS\Extbase\Property\PropertyMappingConfiguration {
 		$mappingConfiguration = FALSE;
 		if ($this->arguments->hasArgument($argumentName)) {
 			$mappingConfiguration = $this->arguments
@@ -132,26 +139,24 @@ class AbstractController extends ActionController {
 	}
 
 	/**
-	 * @param RequestInterface $request
-	 * @param ResponseInterface $response
-	 * @return void
-	 * @throws \Exception
-	 * @override \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
-	 */
-	public function processRequest(RequestInterface $request, ResponseInterface $response) {
+     * Load and persist module data
+     */
+    public function processRequest(RequestInterface $request): ResponseInterface
+	{
 		try {
-			parent::processRequest($request, $response);
+			$response = parent::processRequest($request);
 		} catch (\Exception $exception) {
 			// If the property mapper did throw a \TYPO3\CMS\Extbase\Property\Exception, because it was unable to find the requested entity, call the page-not-found handler.
 			$previousException = $exception->getPrevious();
 			if (($exception instanceof Exception) && (($previousException instanceof TargetNotFoundException) || ($previousException instanceof InvalidSourceException))) {
-				$configuration = isset($this->settings[strtolower($request->getControllerName())]['detail']['errorHandling']) ? $this->settings[strtolower($request->getControllerName())]['detail']['errorHandling'] : NULL;
+				$configuration = $this->settings[strtolower((string) $request->getControllerName())]['detail']['errorHandling'] ?? NULL;
 				if ($configuration) {
 					$this->handleEntityNotFoundError($configuration);
 				}
 			}
 			throw $exception;
 		}
+		return $response;
 	}
 
 	/**
@@ -194,15 +199,14 @@ class AbstractController extends ActionController {
 	}
 
     /**
-     * Translate a given key
-     *
-     * @param string $key
-     * @param string $extension
-     * @param array $arguments
-     * @codeCoverageIgnore
-     * @return NULL|string
-     */
-	public function translate($key, $extension = 't3events_course', $arguments = NULL) {
+  * Translate a given key
+  *
+  * @param string $key
+  * @param string $extension
+  * @param array $arguments
+  * @codeCoverageIgnore
+  */
+ public function translate($key, $extension = 't3events_course', $arguments = NULL): ?string {
 		$translatedString = LocalizationUtility::translate($key, $extension, $arguments);
 		if (is_null($translatedString)) {
 			return $key;

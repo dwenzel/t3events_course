@@ -41,7 +41,7 @@
 		<f:comment>Seating plan</f:comment>
 		<f:if condition="{lesson.plan}">
 			<f:image
-				src="uploads/tx_t3events/{lesson.plan}"
+				image="{lesson.plan.0}"
 				width="{settings.course.single.plan.image.width}"
 				height="{settings.course.single.plan.image.height}"
 				alt="{f:translate(key: 'tx_t3events_domain_model_lesson.plan')}"

@@ -23,7 +23,7 @@ trait CourseEventTrait {
 	 * Target audience of this course.
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\DWenzel\T3events\Domain\Model\Audience>
-	 * @lazy
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $audience;
 
@@ -50,7 +50,7 @@ trait CourseEventTrait {
 	protected $targetGroupDesc;
 
 	/**
-	 * @var \double
+	 * @var float
 	 */
 	protected $examCosts;
 
@@ -68,7 +68,7 @@ trait CourseEventTrait {
 	 * Certificates held for this course.
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\CPSIT\T3eventsCourse\Domain\Model\Certificate>
-	 * @lazy
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $certificate;
 
@@ -85,12 +85,11 @@ trait CourseEventTrait {
 	}
 
 	/**
-	 * Adds a Audience
-	 *
-	 * @param \DWenzel\T3events\Domain\Model\Audience $audience
-	 * @return void
-	 */
-	public function addAudience(Audience $audience) {
+  * Adds a Audience
+  *
+  * @return void
+  */
+ public function addAudience(Audience $audience) {
 		$this->audience->attach($audience);
 	}
 

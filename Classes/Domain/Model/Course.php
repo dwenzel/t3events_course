@@ -26,7 +26,7 @@ use DWenzel\T3events\Domain\Model\Event;
 class Course extends Event {
 	use CourseEventTrait;
 
-	const DEFAULT_EXTBASE_TYPE = 'Tx_T3eventsCourse_Course';
+	final public const DEFAULT_EXTBASE_TYPE = 'Tx_T3eventsCourse_Course';
 
 	/**
 	 * @var string

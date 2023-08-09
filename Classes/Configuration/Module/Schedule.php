@@ -2,6 +2,7 @@
 
 namespace CPSIT\T3eventsCourse\Configuration\Module;
 
+use CPSIT\T3eventsCourse\Controller\Backend\ScheduleBackendController;
 use DWenzel\T3extensionTools\Configuration\ModuleRegistrationInterface;
 use DWenzel\T3extensionTools\Configuration\ModuleRegistrationTrait;
 
@@ -31,7 +32,7 @@ abstract class Schedule extends DefaultRegistration implements ModuleRegistratio
     use ModuleRegistrationTrait;
     static protected $subModuleName = 'm2';
     static protected $controllerActions = [
-        'Backend\ScheduleBackend' => 'list,show,edit,delete,reset',
+        ScheduleBackendController::class => 'list, show, edit, delete, reset',
     ];
     static protected $moduleConfiguration = [
         'access' => 'user,group',

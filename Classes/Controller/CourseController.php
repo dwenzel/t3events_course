@@ -49,25 +49,24 @@ class CourseController extends ActionController
     /**
      * @const COURSE_LIST_ACTION To be used when emitting signal.
      */
-    const COURSE_LIST_ACTION = 'listAction';
+    final public const COURSE_LIST_ACTION = 'listAction';
 
     /**
      * @const SESSION_IDENTIFIER_OVERWRITE_DEMAND Identifier for saving overwriteDemand in session:
      */
-    const SESSION_IDENTIFIER_OVERWRITE_DEMAND = 'tx_t3events_overwriteDemand';
+    final public const SESSION_IDENTIFIER_OVERWRITE_DEMAND = 'tx_t3events_overwriteDemand';
 
     /**
      * @const EXTENSION_KEY
      */
-    const EXTENSION_KEY = 't3events_course';
+    final public const EXTENSION_KEY = 't3events_course';
 
     /**
      * CourseController constructor.
      */
     public function __construct()
     {
-        parent::__construct();
-        $this->namespace = get_class($this);
+        $this->namespace = static::class;
     }
 
     /**
@@ -124,7 +123,7 @@ class CourseController extends ActionController
             'storagePid' => $configuration['persistence']['storagePid']
         ];
 
-        $this->emitSignal(__CLASS__, self::COURSE_LIST_ACTION, $templateVariables);
+        $this->emitSignal(self::class, self::COURSE_LIST_ACTION, $templateVariables);
 
         $this->view->assignMultiple($templateVariables);
     }
@@ -132,7 +131,6 @@ class CourseController extends ActionController
     /**
      * action show
      *
-     * @param \CPSIT\T3eventsCourse\Domain\Model\Course $course
      * @return void
      */
     public function showAction(Course $course)
@@ -165,10 +163,9 @@ class CourseController extends ActionController
      * This method is only for backwards compatibility
      *
      * @param array $settings
-     * @return \CPSIT\T3eventsCourse\Domain\Model\Dto\CourseDemand |\DWenzel\T3events\Domain\Model\Dto\DemandInterface
      * @deprecated Use CourseDemandFactoryTrait with $this->demandFactory->createFromSettings instead
      */
-    protected function createDemandFromSettings($settings)
+    protected function createDemandFromSettings($settings): \CPSIT\T3eventsCourse\Domain\Model\Dto\CourseDemand|\DWenzel\T3events\Domain\Model\Dto\DemandInterface
     {
         return $this->demandFactory->createFromSettings($settings);
     }

@@ -6,15 +6,17 @@
 </f:if>
 
 <div class="courseSingle clearfix">
-	<f:if condition="{course.image}">
+	<f:if condition="{course.images}">
 		<f:then>
 			<div class="courseImg courseLeft fl">
-				<f:image src="uploads/tx_t3events/{course.image}"
-					width="{settings.course.single.image.width}"
-					height="{settings.course.single.image.height}"
-					alt="{course.headline}"
-					title="{course.headline} {course.subtitle}"
+				<f:for each="{course.images}" as="image">
+					<f:image image="{image}"
+						width="{settings.course.single.image.width}"
+						height="{settings.course.single.image.height}"
+						alt="{course.headline}"
+						title="{course.headline} {course.subtitle}"
 					/>
+				</f:for>
 			</div>
 		</f:then>
 </div>

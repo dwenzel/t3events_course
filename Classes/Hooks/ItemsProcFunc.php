@@ -25,5 +25,5 @@ class ItemsProcFunc extends \DWenzel\T3events\Hooks\ItemsProcFunc
      *
      * @const EXTENSION_KEY
      */
-    const EXTENSION_KEY = 't3events_course';
+    final public const EXTENSION_KEY = 't3events_course';
 }

@@ -30,7 +30,6 @@ trait ScheduleDemandFactoryTrait
     /**
      * Injects the ScheduleDemandFactory
      *
-     * @param \CPSIT\T3eventsCourse\Domain\Factory\Dto\ScheduleDemandFactory $scheduleDemandFactory
      * @return void
      */
     public function injectScheduleDemandFactory(ScheduleDemandFactory $scheduleDemandFactory)
