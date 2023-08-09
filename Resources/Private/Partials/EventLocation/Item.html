@@ -6,7 +6,7 @@
 	<br />
 	<f:if condition="{eventLocation.image}">
 		<div class="eventLocation-image">
-			<f:image src="uploads/tx_t3events/{eventLocation.image}"
+			<f:image image="{eventLocation.image.0}"
 				width="{settings.event.single.eventLocation.image.width}"
 				height="{settings.event.single.eventLocation.image.height}"
 				alt="{eventLocation.name}"

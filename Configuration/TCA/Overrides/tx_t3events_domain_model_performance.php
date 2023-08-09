@@ -19,7 +19,7 @@ $lessonShowItems = '--palette--;;paletteLessonDates,
 						class_time,event_location,status,
 					--div--;' . $ll . 'tab.price,
 						price_notice,
-					--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,
+					--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
 						tx_extbase_type,hidden,starttime, endtime';
 
 $GLOBALS['TCA']['tx_t3events_domain_model_performance']['types']['Tx_T3eventsCourse_Schedule']['showitem'] = $lessonShowItems;
@@ -63,6 +63,5 @@ if (!isset($GLOBALS['TCA']['tx_t3events_domain_model_performance']['columns']['t
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
 	'tx_t3events_domain_model_performance',
-	$temporaryColumns,
-	TRUE
+	$temporaryColumns
 );

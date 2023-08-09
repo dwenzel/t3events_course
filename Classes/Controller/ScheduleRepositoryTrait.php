@@ -33,8 +33,6 @@ trait ScheduleRepositoryTrait
 
     /**
      * Injects the course repository
-     *
-     * @param ScheduleRepository $scheduleRepository
      */
     public function injectScheduleRepository(ScheduleRepository $scheduleRepository)
     {
